@@ -24,7 +24,7 @@ jobs:
           distribution: temurin
           java-version: 21
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
+        uses: android-actions/setup-android@v4
         with:
           api-level: 37
           ndk-version: r27c
