@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "root": "/Users/hieudoan/git/github.com/hieudoanm/omni/packages/cli/docs",
+  "nodes": [
+    {
+      "id": "AGENTS.md",
+      "path": "AGENTS.md",
+      "extension": ".md"
+    },
+    {
+      "id": "ARCHITECTURE.md",
+      "path": "ARCHITECTURE.md",
+      "extension": ".md"
+    },
+    {
+      "id": "CONTRIBUTING.md",
+      "path": "CONTRIBUTING.md",
+      "extension": ".md"
+    },
+    {
+      "id": "DOWNLOADS.md",
+      "path": "DOWNLOADS.md",
+      "extension": ".md"
+    },
+    {
+      "id": "PACKAGING.md",
+      "path": "PACKAGING.md",
+      "extension": ".md"
+    },
+    {
+      "id": "ROADMAP.md",
+      "path": "ROADMAP.md",
+      "extension": ".md"
+    }
+  ],
+  "edges": [
+    {
+      "source": "AGENTS.md",
+      "target": ".",
+      "raw_link": "./",
+      "line": 105,
+      "status": "resolved"
+    },
+    {
+      "source": "AGENTS.md",
+      "target": "ARCHITECTURE.md",
+      "raw_link": "ARCHITECTURE.md",
+      "line": 106,
+      "status": "resolved"
+    },
+    {
+      "source": "AGENTS.md",
+      "target": "CONTRIBUTING.md",
+      "raw_link": "CONTRIBUTING.md",
+      "line": 107,
+      "status": "resolved"
+    },
+    {
+      "source": "AGENTS.md",
+      "target": "DOWNLOADS.md",
+      "raw_link": "DOWNLOADS.md",
+      "line": 108,
+      "status": "resolved"
+    },
+    {
+      "source": "AGENTS.md",
+      "target": "PACKAGING.md",
+      "raw_link": "PACKAGING.md",
+      "line": 109,
+      "status": "resolved"
+    },
+    {
+      "source": "AGENTS.md",
+      "target": "ROADMAP.md",
+      "raw_link": "ROADMAP.md",
+      "line": 110,
+      "status": "resolved"
+    },
+    {
+      "source": "DOWNLOADS.md",
+      "target": "CONTRIBUTING.md",
+      "raw_link": "CONTRIBUTING",
+      "line": 16,
+      "status": "resolved"
+    },
+    {
+      "source": "DOWNLOADS.md",
+      "target": "LICENSE",
+      "raw_link": "LICENSE",
+      "line": 124,
+      "status": "resolved"
+    },
+    {
+      "source": "DOWNLOADS.md",
+      "target": "PACKAGING.md",
+      "raw_link": "PACKAGING",
+      "line": 15,
+      "status": "resolved"
+    },
+    {
+      "source": "DOWNLOADS.md",
+      "target": "ROADMAP.md",
+      "raw_link": "ROADMAP",
+      "line": 16,
+      "status": "resolved"
+    },
+    {
+      "source": "ROADMAP.md",
+      "target": "ARCHITECTURE.md",
+      "raw_link": "ARCHITECTURE",
+      "line": 4,
+      "status": "resolved"
+    }
+  ],
+  "stats": {
+    "files": 6,
+    "ignored_files": 0,
+    "links": 11,
+    "broken_links": 0,
+    "resolved_links": 11,
+    "self_links": 0,
+    "orphan_files": 1,
+    "components": 0
+  }
+}

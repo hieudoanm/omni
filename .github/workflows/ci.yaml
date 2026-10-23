@@ -1,0 +1,242 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Android: Linux runner with Android SDK
+  android:
+    name: Android
+    runs-on: ubuntu-latest
+    env:
+      ANDROID_HOME: /opt/android-sdk
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Setup JDK
+        uses: actions/setup-java@v6.1.0
+        with:
+          distribution: temurin
+          java-version: 25.0.5+8.0.LTS
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v4.0.4
+        with:
+          api-level: 37
+          ndk-version: r27c
+          cmdline-tools-version: latest
+      - name: Cache Gradle
+        uses: actions/cache@v6.1.0
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-${{ runner.os }}-${{ hashFiles('packages/android/**/*.kts', 'packages/android/**/*.toml') }}
+          restore-keys: gradle-${{ runner.os }}-
+      - name: Run Android lint
+        run: make lint
+        working-directory: packages/android
+      - name: Run Android tests
+        run: make test
+        working-directory: packages/android
+      - name: Build Android debug APK
+        run: make build
+        working-directory: packages/android
+      - name: Upload Android APK
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: android-apk
+          path: packages/android/app/build/outputs/apk/debug/*.apk
+          retention-days: 7
+
+  # macOS: macOS runner for Swift
+  macos:
+    name: macOS
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Run macOS format check
+        run: make format
+        working-directory: packages/macos
+      - name: Run macOS lint (build)
+        run: make lint
+        working-directory: packages/macos
+      - name: Run macOS tests
+        run: make test
+        working-directory: packages/macos
+      - name: Build macOS release
+        run: make build
+        working-directory: packages/macos
+      - name: Create macOS app bundle
+        run: make app
+        working-directory: packages/macos
+      - name: Create macOS DMG
+        run: make dmg
+        working-directory: packages/macos
+      - name: Zip macOS app for release
+        run: |
+          cd packages/macos/build
+          zip -r Omni.app.zip Omni.app
+      - name: Upload macOS app
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: macos-app
+          path: |
+            packages/macos/build/Omni.app.zip
+            packages/macos/build/Omni-*.dmg
+          retention-days: 7
+
+  # CLI: Linux runner for Go
+  cli:
+    name: CLI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Setup Go
+        uses: actions/setup-go@v7.0.0
+        with:
+          go-version: "1.27.3"
+          cache-dependency-path: packages/cli/go.sum
+      - name: Install Zig (for cross-compilation)
+        uses: goto-bus-stop/setup-zig@v2.2.1
+        with:
+          version: 0.13.0
+      - name: Run CLI format
+        run: make format
+        working-directory: packages/cli
+      - name: Run CLI lint
+        run: make lint
+        working-directory: packages/cli
+      - name: Run CLI tests
+        run: make test
+        working-directory: packages/cli
+      - name: Build CLI native
+        run: make build
+        working-directory: packages/cli
+      - name: Cross-compile CLI (all platforms)
+        run: make build-all
+        working-directory: packages/cli
+      - name: Upload CLI binaries
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: cli-binaries
+          path: packages/cli/bin/omni-*
+          retention-days: 7
+
+  # Browser: Linux runner for Node.js
+  browser:
+    name: Browser
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6.1.0
+        with:
+          version: 12.16.1
+      - name: Setup Node.js
+        uses: actions/setup-node@v7.1.0
+        with:
+          node-version: 26.13.0
+          cache: "pnpm"
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+        working-directory: packages/browser
+      - name: Run browser lint
+        run: pnpm lint
+        working-directory: packages/browser
+      - name: Run browser tests
+        run: pnpm test
+        working-directory: packages/browser
+      - name: Build browser extension
+        run: pnpm build
+        working-directory: packages/browser
+      - name: Prepare browser artifacts for release
+        run: |
+          mkdir -p packages/browser/release
+          cp packages/browser/download/v2/omni.xpi packages/browser/release/omni-v2.xpi
+          cp packages/browser/download/v2/omni.zip packages/browser/release/omni-v2.zip
+          cp packages/browser/download/v3/omni.xpi packages/browser/release/omni-v3.xpi
+          cp packages/browser/download/v3/omni.zip packages/browser/release/omni-v3.zip
+      - name: Upload browser build
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: browser-extension
+          path: packages/browser/release
+          retention-days: 7
+
+  # Rolling release: on push to master, update the "latest" GitHub Release
+  release-latest:
+    name: Release (latest)
+    needs: [android, macos, cli, browser]
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+      - name: Read release notes from README.md
+        id: readme
+        run: |
+          echo "body<<EOF" >> $GITHUB_OUTPUT
+          cat README.md >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+      - name: Download CLI binaries
+        uses: actions/download-artifact@v8.0.2
+        with:
+          name: cli-binaries
+          path: dist/cli
+      - name: Download Android APK
+        uses: actions/download-artifact@v8.0.2
+        with:
+          name: android-apk
+          path: dist/android
+      - name: Download macOS app
+        uses: actions/download-artifact@v8.0.2
+        with:
+          name: macos-app
+          path: dist/macos
+      - name: Download browser extension
+        uses: actions/download-artifact@v8.0.2
+        with:
+          name: browser-extension
+          path: dist/browser
+      - name: List artifacts to verify
+        run: |
+          echo "=== CLI ===" && ls -la dist/cli/
+          echo "=== Android ===" && ls -la dist/android/
+          echo "=== macOS ===" && ls -la dist/macos/
+          echo "=== Browser ===" && ls -la dist/browser/
+      - name: Delete existing "latest" release
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete latest --yes --cleanup-tag || true
+          git push origin :refs/tags/latest || true
+      - name: Create/Update "latest" Release
+        uses: softprops/action-gh-release@v3.0.3
+        with:
+          tag_name: latest
+          name: "Omni (latest)"
+          body: ${{ steps.readme.outputs.body }}
+          files: |
+            dist/cli/omni-linux-amd64
+            dist/cli/omni-linux-arm64
+            dist/cli/omni-darwin-amd64
+            dist/cli/omni-darwin-arm64
+            dist/android/app-debug.apk
+            dist/macos/Omni.app.zip
+            dist/macos/Omni-*.dmg
+            dist/browser/omni-v2.xpi
+            dist/browser/omni-v2.zip
+            dist/browser/omni-v3.xpi
+            dist/browser/omni-v3.zip
+          draft: false
+          prerelease: false
+          make_latest: true

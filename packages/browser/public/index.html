@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Tabs — redirect new tabs to the hieudoanm home page, block distracting sites and ads, or capture the current view or the full scrolling page in one click."
+    />
+    <title>Omni</title>
+    <style>
+      :root {
+        --bg: #f7f8fa;
+        --card: #ffffff;
+        --card-hover: #f0f2f5;
+        --border: #d9dde3;
+        --border-soft: #eceff3;
+        --text: #181d25;
+        --muted: #555f6e;
+        --faint: #8a93a2;
+        --accent: #D71921;
+        --ok: #0e9f6e;
+        --radius: 10px;
+        --radius-sm: 6px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          Roboto,
+          'Helvetica Neue',
+          Arial,
+          sans-serif;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        padding: 0 24px;
+        height: 60px;
+        background: var(--card);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .brand:hover {
+        text-decoration: none;
+      }
+
+      .brand svg {
+        width: 22px;
+        height: 22px;
+        border-radius: 5px;
+      }
+
+      .brand .store-title {
+        color: var(--text);
+        font-weight: 600;
+        font-size: 15px;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      nav a {
+        color: var(--muted);
+      }
+
+      nav a:hover {
+        color: var(--text);
+        text-decoration: none;
+      }
+
+      main {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 32px 24px 72px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 320px;
+        gap: 28px;
+        align-items: center;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 32px 36px;
+      }
+
+      .logo {
+        width: 96px;
+        height: 96px;
+        vertical-align: middle;
+      }
+
+      .title-block {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 0 18px 20px;
+      }
+
+      .title-block h1 {
+        margin: 0;
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        padding: 4px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--card);
+        color: var(--muted);
+      }
+
+      .lead {
+        margin: 4px 0 0;
+        font-size: 16px;
+        color: var(--muted);
+        max-width: 60ch;
+      }
+
+      .hero-right {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 1px solid transparent;
+        border-radius: var(--radius-sm);
+        padding: 12px 20px;
+        font-size: 15px;
+        font-weight: 600;
+        font-family: inherit;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .btn:hover {
+        text-decoration: none;
+      }
+
+      .btn-primary {
+        color: #ffffff;
+        background: var(--accent);
+        border-color: var(--accent);
+      }
+
+      .btn-primary:hover {
+        background: #b0131a;
+        border-color: #b0131a;
+      }
+
+      .btn-ghost {
+        color: var(--text);
+        background: var(--card);
+        border-color: var(--border);
+      }
+
+      .btn-ghost:hover {
+        background: var(--card-hover);
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 6px;
+      }
+
+      .stat {
+        text-align: center;
+        padding: 10px 6px;
+        border-radius: var(--radius-sm);
+        background: var(--card);
+        border: 1px solid var(--border-soft);
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 17px;
+        color: var(--text);
+      }
+
+      .stat span {
+        font-size: 11px;
+        color: var(--faint);
+      }
+
+      .screen-mock {
+        margin-top: 40px;
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: var(--card);
+      }
+
+      .mock-bar {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 16px;
+        background: var(--card-hover);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+
+      .mock-url {
+        margin-left: 12px;
+        flex: 1;
+        height: 26px;
+        border-radius: 999px;
+        background: var(--card);
+        border: 1px solid var(--border-soft);
+        display: flex;
+        align-items: center;
+        padding: 0 14px;
+        font-size: 12px;
+        color: var(--faint);
+      }
+
+      .mock-body {
+        display: grid;
+        grid-template-columns: 200px minmax(0, 1fr) 180px;
+        gap: 18px;
+        padding: 24px;
+      }
+
+      .mock-head {
+        height: 18px;
+        width: 55%;
+        border-radius: 4px;
+        background: #d9dde3;
+        margin-bottom: 16px;
+      }
+
+      .mock-line {
+        height: 10px;
+        border-radius: 4px;
+        background: #eceff3;
+        margin-bottom: 12px;
+      }
+
+      .mock-line.short {
+        width: 78%;
+      }
+
+      .mock-snap {
+        position: relative;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        padding: 12px;
+        background:
+          repeating-linear-gradient(
+            0deg,
+            #eceff3 0,
+            #eceff3 10px,
+            #f4f6f8 10px,
+            #f4f6f8 20px
+          );
+      }
+
+      .mock-snap .page-head {
+        height: 16px;
+        border-radius: 4px;
+        background: #d9dde3;
+        margin-bottom: 10px;
+      }
+
+      .mock-snap .text {
+        height: 8px;
+        border-radius: 4px;
+        background: #dfe3e9;
+        margin-bottom: 6px;
+      }
+
+      .mock-snap .text.short {
+        width: 65%;
+      }
+
+      .mock-snap .overlay {
+        position: absolute;
+        inset: 0;
+        border: 2px dashed var(--accent);
+        border-radius: var(--radius-sm);
+        pointer-events: none;
+      }
+
+      .mock-mode {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .mock-chip {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        border: 1px solid var(--border-soft);
+        border-radius: var(--radius-sm);
+        padding: 9px 12px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .mock-chip.active {
+        border-color: var(--accent);
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      .mock-chip .k {
+        color: var(--faint);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px 32px;
+        margin-top: 24px;
+      }
+
+      .card h2 {
+        margin: 0 0 6px;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+
+      .card .sub {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-top: 22px;
+      }
+
+      .feature {
+        background: var(--card);
+        border: 1px solid var(--border-soft);
+        border-radius: var(--radius-sm);
+        padding: 18px 20px;
+      }
+
+      .feature h3 {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 8px;
+        font-size: 15px;
+      }
+
+      .feature p {
+        margin: 0;
+        font-size: 13.5px;
+        color: var(--muted);
+      }
+
+      .feature .pill {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--accent);
+        border: 1px solid rgba(53, 107, 255, 0.4);
+        border-radius: 999px;
+        padding: 2px 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+
+      .detail-list {
+        list-style: none;
+        margin: 20px 0 0;
+        padding: 0;
+      }
+
+      .detail-list li {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-soft);
+        font-size: 14px;
+      }
+
+      .detail-list li:last-child {
+        border-bottom: 0;
+      }
+
+      .detail-list .k {
+        color: var(--muted);
+      }
+
+      .detail-list .v {
+        color: var(--text);
+        text-align: right;
+      }
+
+      .privacy-hook {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 18px;
+        padding: 14px 18px;
+        border-radius: var(--radius-sm);
+        background: rgba(14, 159, 110, 0.08);
+        border: 1px solid rgba(14, 159, 110, 0.3);
+        color: var(--ok);
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .privacy-hook svg {
+        flex: 0 0 auto;
+      }
+
+      .declares {
+        list-style: none;
+        margin: 18px 0 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .declares li {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      .declares svg {
+        flex: 0 0 auto;
+        margin-top: 3px;
+        color: var(--accent);
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        margin-top: 48px;
+        padding: 28px 0 8px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 24px;
+        justify-content: center;
+        font-size: 13px;
+        color: var(--faint);
+      }
+
+      footer a {
+        color: var(--faint);
+      }
+
+      footer a:hover {
+        color: var(--text);
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+          padding: 26px;
+        }
+
+        .hero-right {
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+
+        .btn {
+          flex: 1;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .features {
+          grid-template-columns: 1fr;
+        }
+
+        .mock-body {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 520px) {
+        nav {
+          display: none;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .logo {
+          width: 72px;
+          height: 72px;
+        }
+
+        .title-block h1 {
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+          <rect width="128" height="128" rx="28" fill="#D71921" />
+          <circle cx="64" cy="64" r="40" fill="none" stroke="#FFD700" stroke-width="8" />
+          <circle cx="64" cy="64" r="16" fill="#FFFFFF" />
+        </svg>
+        <span class="store-title">Omni</span>
+      </a>
+      <nav>
+        <a href="#overview">Overview</a>
+        <a href="#details">Details</a>
+        <a href="#privacy">Privacy</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-left">
+          <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Tabs logo">
+            <rect width="128" height="128" rx="28" fill="#D71921" />
+            <circle cx="64" cy="64" r="40" fill="none" stroke="#FFD700" stroke-width="8" />
+            <circle cx="64" cy="64" r="16" fill="#FFFFFF" />
+          </svg>
+          <div class="title-block">
+            <h1>Omni</h1>
+            <div class="badges">
+              <span class="badge">Extension</span>
+              <span class="badge">Productivity</span>
+            </div>
+          </div>
+          <p class="lead">
+            Redirect new tabs to the hieudoanm home page, block distracting sites
+            and ads, or capture the current view or full scrolling page in one click.
+          </p>
+        </div>
+        <div class="hero-right">
+          <a
+            class="btn btn-primary"
+            href="https://github.com/hieudoanm/hieudoanm.github.io/releases/tag/extensions-browser-tabs-latest"
+          >
+            Download
+          </a>
+          <a
+            class="btn btn-ghost"
+            href="https://github.com/hieudoanm/hieudoanm.github.io/tree/master/packages/extensions/browser/tabs"
+          >
+            View source
+          </a>
+          <div class="stats">
+            <div class="stat">
+              <strong>100%</strong>
+              <span>Offline</span>
+            </div>
+            <div class="stat">
+              <strong>0</strong>
+              <span>Data collected</span>
+            </div>
+            <div class="stat">
+              <strong>GPL-3.0</strong>
+              <span>Open source</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen-mock" aria-hidden="true">
+        <div class="mock-bar">
+          <span class="dot" style="background: #c9ced6"></span>
+          <span class="dot" style="background: #d9dde3"></span>
+          <span class="dot" style="background: #e5e8ed"></span>
+          <span class="mock-url">https://hieudoanm.github.io/</span>
+        </div>
+        <div class="mock-body">
+          <div>
+            <div class="mock-head"></div>
+            <div class="mock-line"></div>
+            <div class="mock-line short"></div>
+            <div class="mock-line"></div>
+            <div class="mock-line short"></div>
+          </div>
+          <div>
+            <div class="mock-snap">
+              <div class="page-head"></div>
+              <div class="text"></div>
+              <div class="text short"></div>
+              <div class="text"></div>
+              <div class="text short"></div>
+              <div class="overlay"></div>
+            </div>
+          </div>
+          <div>
+            <div class="mock-mode">
+              <div class="mock-chip">
+                <span>Current view</span>
+                <span class="k">PNG</span>
+              </div>
+              <div class="mock-chip active">
+                <span>Full page</span>
+                <span class="k">WebP</span>
+              </div>
+              <div class="mock-chip">
+                <span>Element</span>
+                <span class="k">Q92</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="overview" class="card">
+        <h2>Overview</h2>
+        <p class="sub">
+          Redirects new tabs, home, and private-browsing windows to the hieudoanm home page,
+          throws up a wall on distracting sites, hides ads and tracking requests, and
+          screenshots any page without leaving it — stitching the full scroll on an
+          <code>OffscreenCanvas</code> for preview, copy, or download from the popup.
+        </p>
+        <div class="features">
+          <div class="feature">
+            <h3>New tab redirect</h3>
+            <p>
+              New tabs open straight to the hieudoanm home page; flip the toggle off anytime
+              right from the popup.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>Block distracting sites</h3>
+            <p>
+              Facebook, X, Instagram, Reddit, TikTok, Netflix, Twitch, and more — visiting one
+              stops on a focus wall you can toggle off.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>Block ads &amp; trackers</h3>
+            <p>
+              Hides ad banners and cancels requests to DoubleClick, Google Analytics, AppNexus,
+              Outbrain, and Taboola — fully offline, toggleable from the popup.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>One-click capture modes</h3>
+            <p>
+              Grab the current view, the full scrolling page, or a specific element — then
+              pick PNG, JPEG, or WebP at quality 92 from the popup.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>Full-page stitching</h3>
+            <p>
+              Scrolls and stitches every section onto an <code>OffscreenCanvas</code> in your
+              chosen aspect, no lazy-loaded gaps.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>Suggestion wheel</h3>
+            <p>
+              Spin to land on something better to do — read a book, stretch, breathe, or
+              write one paragraph.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>Restores the page</h3>
+            <p>
+              Scroll position is saved before capture and restored after, so nothing moves —
+              and preview, copy, or download from the popup.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="grid">
+        <section id="details" class="card">
+          <h2>Details</h2>
+          <p class="sub">Extension listing information.</p>
+          <ul class="detail-list">
+            <li><span class="k">Name</span><span class="v">Omni</span></li>
+            <li><span class="k">Version</span><span class="v">__BUILD_VERSION__</span></li>
+            <li><span class="k">Updated</span><span class="v">__BUILD_VERSION__</span></li>
+            <li><span class="k">Offered by</span><span class="v">Hieu Doan</span></li>
+            <li><span class="k">Size</span><span class="v">&asymp; 31&nbsp;KiB</span></li>
+            <li><span class="k">Languages</span><span class="v">English</span></li>
+            <li><span class="k">Primary category</span><span class="v">Productivity</span></li>
+            <li><span class="k">Browser support</span><span class="v">Chrome, Edge, Firefox</span></li>
+          </ul>
+        </section>
+
+        <section id="privacy" class="card">
+          <h2>Privacy</h2>
+          <p class="sub">This developer declares that your data is:</p>
+          <ul class="declares">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6L9 17l-5-5"></path>
+              </svg>
+              Not sold to third parties, outside of approved use cases.
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6L9 17l-5-5"></path>
+              </svg>
+              Not used or transferred for purposes that are unrelated to the extension's core
+              functionality.
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6L9 17l-5-5"></path>
+              </svg>
+              Not used or transferred to determine creditworthiness, or for lending purposes.
+            </li>
+          </ul>
+          <div class="privacy-hook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="10" width="16" height="10" rx="2"></rect>
+              <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+            </svg>
+            The developer has disclosed that it will not collect or use your data. It runs fully
+            offline — no account, no sync, no tracking.
+          </div>
+        </section>
+      </div>
+
+      <footer>
+        <span>&copy; 2026 Hieu Doan</span>
+        <a href="#overview">Overview</a>
+        <a href="#details">Details</a>
+        <a href="#privacy">Privacy</a>
+        <a href="https://github.com/hieudoanm/hieudoanm.github.io/tree/master/packages/extensions/browser/tabs">
+          Source code
+        </a>
+        <a href="https://github.com/hieudoanm/hieudoanm.github.io/releases/tag/extensions-browser-tabs-latest">
+          Releases
+        </a>
+      </footer>
+    </main>
+  </body>
+</html>
