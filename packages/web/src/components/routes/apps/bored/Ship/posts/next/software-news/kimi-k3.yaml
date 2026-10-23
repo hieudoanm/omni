@@ -1,0 +1,156 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  headline: 'Why Open Weights Matter: A Case Study of Kimi K3'
+  highlights:
+    - Kimi
+    - K3
+  text: Kimi K3's biggest contribution isn't its benchmark ranking. It's proving
+    that a frontier-scale AI model can be released with open weights.
+  citation: ''
+
+---
+# Post 2 (Takeaway)
+takeaway:
+  headline: It's About Being Open
+  text: Most frontier AI models, including GPT-5.6 Sol and Claude Fable 5, are only
+    available through proprietary APIs. Kimi K3 is different—it combines
+    frontier-level capability with open weights that anyone can build upon.
+  source: Open Source AI Definition (OSI, 2024)
+  citation: ''
+
+---
+# Post 3 (Breakdown Card)
+breakdown-card:
+  headline: What Open Weights Unlock
+  summary: Open weights shift control from AI providers to the community, enabling
+    developers, organizations, and researchers to use AI on their own terms.
+  points:
+    - title: Self-Host
+      detail: Run models on your own infrastructure instead of relying on a hosted
+        API.
+    - title: Inspect
+      detail: Analyze how the model behaves instead of treating it as a black box.
+    - title: Fine-Tune
+      detail: Adapt models for your own tasks instead of starting from scratch.
+  citation: Open Source Initiative (2024)
+
+---
+# Post 4 (Feature Grid)
+feature-grid:
+  headline: Building Better AI
+  features:
+    - label: Fine-Tune
+      desc: Adapt models for coding, healthcare, finance, and other domains.
+      source: LoRA (Hu et al., 2021)
+    - label: Run Locally
+      desc: Develop and test applications without relying on cloud APIs.
+      source: Ollama
+    - label: Optimize
+      desc: Compress models to run efficiently on consumer hardware.
+      source: llama.cpp
+    - label: Build Faster
+      desc: Reuse existing models instead of training from scratch.
+      source: Hugging Face
+  citation: ''
+  summary: Open weights give developers the freedom to customize, optimize, and deploy
+    models without depending on a single AI provider.
+
+---
+# Post 5 (Feature Grid)
+feature-grid:
+  headline: Deploying AI with Confidence
+  features:
+    - label: Keep Data Private
+      desc: Sensitive information never leaves your own infrastructure.
+      source: NIST AI RMF
+    - label: Meet Regulations
+      desc: Easier to satisfy security and compliance requirements.
+      source: EU AI Act
+    - label: Reduce Costs
+      desc: High-volume inference can cost less than repeated API calls.
+      source: Artificial Analysis
+    - label: Avoid Lock-In
+      desc: Switch hardware or vendors without replacing your AI stack.
+      source: Linux Foundation
+  citation: ''
+  summary: Organizations gain greater control over privacy, security, compliance, and
+    long-term infrastructure decisions.
+
+---
+# Post 6 (Feature Grid)
+feature-grid:
+  headline: Advancing AI Research
+  features:
+    - label: Reproduce Results
+      desc: Verify published findings using the same model.
+      source: Nature (2024)
+    - label: Study Behavior
+      desc: Analyze model decisions instead of relying on black-box APIs.
+      source: Model Cards (Mitchell et al., 2019)
+    - label: Develop New Methods
+      desc: Test new fine-tuning, routing, and optimization techniques.
+      source: NeurIPS Open Foundation Model Research
+    - label: Share Improvements
+      desc: Community innovations benefit everyone.
+      source: Hugging Face Open LLM Leaderboard
+  citation: ''
+  summary: Researchers can verify results, understand model behavior, and accelerate
+    scientific progress through open collaboration.
+
+---
+# Post 7 (Stat Row)
+stat-row:
+  headline: Kimi K3 Changes the Assumption
+  text: Open-weight models were often seen as less capable than proprietary ones.
+    Kimi K3 challenges that assumption by rivaling GPT-5.6 Sol and Claude Fable
+    5 while remaining openly available.
+  stats:
+    - value: 2.8T
+      label: Parameters
+    - value: '57.1'
+      label: Intelligence Index
+    - value: $0.94
+      label: Cost per Task
+  citation: Moonshot AI (2026); Artificial Analysis (2026)
+
+---
+# Post 8 (Checklist)
+checklist:
+  headline: Key Takeaways
+  text: Today's benchmark leader may change tomorrow, but open-weight models
+    continue creating value long after the rankings shift.
+  items:
+    - Benchmark rankings are temporary.
+    - Open weights create long-term value.
+    - Developers can build and customize more freely.
+    - Organizations gain greater control over deployment.
+    - Researchers benefit from transparency and reproducibility.
+    - Kimi K3 marks an important milestone for open AI.
+  citation: Moonshot AI (2026); Open Source Initiative (2024)
+
+---
+# Post 9 (References)
+references:
+  title: References
+  items:
+    - author: Moonshot AI
+      title: Kimi K3 Technical Report
+      year: '2026'
+      url: https://www.kimi.com/blog/kimi-k3
+    - author: Artificial Analysis
+      title: Kimi K3 Benchmark Evaluation
+      year: '2026'
+      url: https://artificialanalysis.ai/articles/kimi-k3-achieves-3-in-the-artificial-analysis-intelligence-index-comparable-to-opus-4-8-and-gpt-5-5
+    - author: Open Source Initiative
+      title: Open Source AI Definition (OSAID)
+      year: '2024'
+      url: https://opensource.org/ai/open-source-ai-definition
+  citation: ''
+
+---
+# Post 10 (This or That)
+this-or-that:
+  headline: Which Matters More?
+  optionA: Open Weights
+  optionB: Top Benchmark Ranking
+  citation: ''

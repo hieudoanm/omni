@@ -1,0 +1,71 @@
+# Slide 1 (Highlighted Title)
+highlighted-title:
+  headline: Drizzle vs Prisma
+  text: Which TypeScript ORM should you pick in 2026?
+
+---
+# Slide 2 (Minimal)
+minimal:
+  headline: Both are type-safe. They solve it differently.
+  text: Prisma generates a client for you. Drizzle keeps you close to SQL.
+  imageUrl: ''
+
+---
+# Slide 3 (Versus)
+versus:
+  headline: Feature by Feature
+  optionA:
+    label: 'Drizzle'
+    desc: 'SQL-first, TypeScript-native'
+  optionB:
+    label: 'Prisma'
+    desc: 'Schema-first, generated client'
+  features:
+    - a: 'Schema defined in TypeScript'
+      b: 'Schema defined in .prisma DSL'
+    - a: '~3KB core runtime'
+      b: '~500KB–1MB generated client'
+    - a: 'Native edge runtime support'
+      b: 'Needs Accelerate for edge'
+    - a: 'Migrations show raw SQL'
+      b: 'Migrations run through engine'
+
+---
+# Slide 4 (Pros & Cons)
+proscons:
+  headline: Drizzle
+  pros:
+    - 'Minimal abstraction, SQL-like ergonomics'
+    - 'Tiny bundle size, edge-friendly'
+    - 'No separate schema language'
+  cons:
+    - 'Less guided than Prisma for beginners'
+    - 'Smaller ecosystem of tutorials'
+
+---
+# Slide 5 (Pros & Cons)
+proscons:
+  headline: Prisma
+  pros:
+    - 'Best-in-class autocomplete and errors'
+    - 'Richest tooling and docs'
+    - 'Great for teams wanting a guided experience'
+  cons:
+    - 'Bundle size hurts serverless cold starts'
+    - 'Raw SQL drops you out of type safety'
+
+---
+# Slide 6 (Bullet List)
+bullet-list:
+  headline: Which One to Pick
+  items:
+    - 'Drizzle — new projects, edge deployments'
+    - 'Prisma — guided DX, richer tooling'
+    - 'Both — fully type-safe, actively maintained'
+
+---
+# Slide 7 (Minimal)
+minimal:
+  headline: Which ORM is in your stack right now?
+  text: Curious how many teams have already made the switch — drop yours below.
+  imageUrl: ''

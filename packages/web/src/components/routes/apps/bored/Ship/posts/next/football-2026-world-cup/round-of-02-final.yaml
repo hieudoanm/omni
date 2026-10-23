@@ -1,0 +1,187 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  title: Spain - 8 Games, 1 Trophy
+  highlights:
+    - Spain
+  text: The Full Road to World Cup Glory
+  citation: ''
+
+---
+# Post 2 (Scorecard)
+scorecard:
+  title: Group H, Matchday 1
+  text: Opening the tournament
+  homeTeam: Spain
+  awayTeam: Cape Verde
+  homeScore: 0
+  awayScore: 0
+  date: Mon 15 Jun 2026
+  venue: Atlanta Stadium
+  scorers: []
+  stats:
+    - label: Result
+      home: Draw
+      away: Draw
+  citation: ''
+
+---
+# Post 3 (Scorecard)
+scorecard:
+  title: Group H, Matchday 2
+  text: Yamal and Oyarzabal fire La Roja to life
+  homeTeam: Spain
+  awayTeam: Saudi Arabia
+  homeScore: 4
+  awayScore: 0
+  date: Sun 21 Jun 2026
+  venue: Atlanta Stadium
+  scorers:
+    - name: Yamal
+      minute: '10'
+      team: home
+    - name: Oyarzabal
+      minute: '21'
+      team: home
+    - name: Oyarzabal
+      minute: '24'
+      team: home
+    - name: Altambakti (OG)
+      minute: '49'
+      team: home
+  stats: []
+  citation: ''
+
+---
+# Post 4 (Scorecard)
+scorecard:
+  title: Group H, Matchday 3
+  text: A Muslera howler tops the group
+  homeTeam: Spain
+  awayTeam: Uruguay
+  homeScore: 1
+  awayScore: 0
+  date: Fri 26 Jun 2026
+  venue: Estadio Guadalajara
+  scorers:
+    - name: Baena
+      minute: '45'
+      team: home
+  stats: []
+  citation: ''
+
+---
+# Post 5 (Scorecard)
+scorecard:
+  title: Round of 32
+  text: Spain's first knockout win since 2010
+  homeTeam: Spain
+  awayTeam: Austria
+  homeScore: 3
+  awayScore: 0
+  date: Thu 2 Jul 2026
+  venue: Los Angeles Stadium
+  scorers:
+    - name: Oyarzabal
+      minute: '36'
+      team: home
+    - name: Porro
+      minute: '66'
+      team: home
+    - name: Oyarzabal
+      minute: '89'
+      team: home
+  stats: []
+  citation: ''
+
+---
+# Post 6 (Scorecard)
+scorecard:
+  title: Round of 16
+  text: Merino's late strike ends Ronaldo's World Cup
+  homeTeam: Spain
+  awayTeam: Portugal
+  homeScore: 1
+  awayScore: 0
+  date: Mon 6 Jul 2026
+  venue: Dallas Stadium, Arlington
+  scorers:
+    - name: Merino
+      minute: 90+1
+      team: home
+  stats: []
+  citation: ''
+
+---
+# Post 7 (Scorecard)
+scorecard:
+  title: Quarter-Final
+  text: A late sub seals a semi-final spot
+  homeTeam: Spain
+  awayTeam: Belgium
+  homeScore: 2
+  awayScore: 1
+  date: Fri 10 Jul 2026
+  venue: Los Angeles Stadium
+  scorers:
+    - name: Ruiz
+      minute: '30'
+      team: home
+    - name: De Ketelaere
+      minute: '41'
+      team: away
+    - name: Merino
+      minute: '88'
+      team: home
+  stats: []
+  citation: ''
+
+---
+# Post 8 (Scorecard)
+scorecard:
+  title: Semi-Final
+  text: Spain suffocates the tournament's top attack
+  homeTeam: Spain
+  awayTeam: France
+  homeScore: 2
+  awayScore: 0
+  date: Tue 14 Jul 2026
+  venue: Dallas Stadium, Arlington
+  scorers:
+    - name: Oyarzabal (pen)
+      minute: '22'
+      team: home
+    - name: Porro
+      minute: '58'
+      team: home
+  stats: []
+  citation: ''
+
+---
+# Post 9 (Scorecard)
+scorecard:
+  title: FIFA World Cup 2026 Final
+  text: Champions crowned after extra time
+  homeTeam: Spain
+  awayTeam: Argentina
+  homeScore: 1
+  awayScore: 0
+  date: Sun 19 Jul 2026
+  venue: New York/New Jersey Stadium
+  scorers:
+    - name: Ferran Torres
+      minute: ET
+      team: home
+  stats:
+    - label: Red Cards
+      home: '0'
+      away: 1 (Fernández)
+  citation: ''
+
+---
+# Post 10 (Highlighted Title)
+highlighted-title:
+  title: Congratulations, Campeones 🎉
+  highlights:
+    - Campeones
+  text: Spain, FIFA World Cup 2026 Champions 🇪🇸🏆
+  citation: ''

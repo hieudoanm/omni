@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Omni</string>
+    <string name="block_app_name">Focus Blocker</string>
+    <string name="nfc_app_name">NFC Toolkit</string>
+</resources>

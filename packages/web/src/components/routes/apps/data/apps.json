@@ -1,0 +1,914 @@
+[
+  {
+    "label": "Agents",
+    "items": [
+      {
+        "label": "Claude",
+        "description": "Anthropic",
+        "icon": "PiStarFour",
+        "badge": "Chat",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://claude.ai/"
+      },
+      {
+        "label": "ChatGPT",
+        "description": "OpenAI",
+        "icon": "PiStarFour",
+        "badge": "Chat",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://chatgpt.com"
+      },
+      {
+        "label": "Qwen",
+        "description": "Alibaba Cloud",
+        "icon": "PiStarFour",
+        "badge": "Chat",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://qwen.ai"
+      },
+      {
+        "label": "Kimi",
+        "description": "Moonshot AI",
+        "icon": "PiMoon",
+        "badge": "Chat",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://kimi.moonshot.cn"
+      },
+      {
+        "label": "Perplexity",
+        "description": "AI Search",
+        "icon": "PiMagnifyingGlass",
+        "badge": "Research",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://www.perplexity.ai"
+      },
+      {
+        "label": "Gemini",
+        "description": "Google",
+        "icon": "PiSparkle",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://gemini.google.com/app"
+      },
+      {
+        "label": "Grok",
+        "description": "xAI",
+        "icon": "PiLightning",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://grok.com"
+      },
+      {
+        "label": "Copilot",
+        "description": "Microsoft",
+        "icon": "PiWindowsLogo",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://copilot.microsoft.com"
+      },
+      {
+        "label": "DeepSeek",
+        "description": "DeepSeek",
+        "icon": "PiDrop",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://chat.deepseek.com"
+      },
+      {
+        "label": "Mistral",
+        "description": "Mistral AI",
+        "icon": "PiWind",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://chat.mistral.ai"
+      },
+      {
+        "label": "Meta AI",
+        "description": "Meta",
+        "icon": "PiInfinity",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://www.meta.ai"
+      },
+      {
+        "label": "HuggingChat",
+        "description": "HuggingFace",
+        "icon": "PiSmiley",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://huggingface.co/chat"
+      },
+      {
+        "label": "Poe",
+        "description": "Quora",
+        "icon": "PiChatCircle",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://poe.com"
+      },
+      {
+        "label": "Cohere",
+        "description": "Cohere",
+        "icon": "PiWaveform",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://coral.cohere.com"
+      }
+    ]
+  },
+  {
+    "label": "Code",
+    "items": [
+      {
+        "label": "GitHub",
+        "description": "Git",
+        "icon": "PiGithubLogo",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://github.com"
+      },
+      {
+        "label": "Renovate",
+        "description": "Code",
+        "icon": "PiRobot",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://developer.mend.io"
+      },
+      {
+        "label": "Vercel",
+        "description": "Deployment",
+        "icon": "PiGlobe",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://vercel.com"
+      },
+      {
+        "label": "Supabase",
+        "description": "Database",
+        "icon": "PiDatabase",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://supabase.com"
+      }
+    ]
+  },
+  {
+    "label": "Google Workspace",
+    "items": [
+      {
+        "label": "Calendar",
+        "description": "Calendar",
+        "icon": "PiCalendar",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://calendar.google.com"
+      },
+      {
+        "label": "Docs",
+        "description": "Word",
+        "icon": "PiNotePencil",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://docs.google.com"
+      },
+      {
+        "label": "Drive",
+        "description": "OneDrive",
+        "icon": "PiFolder",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://drive.google.com"
+      },
+      {
+        "label": "Gmail",
+        "description": "Email",
+        "icon": "PiEnvelope",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://gmail.com"
+      },
+      {
+        "label": "Maps",
+        "description": "Maps",
+        "icon": "PiMapPin",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://maps.google.com"
+      },
+      {
+        "label": "Sheets",
+        "description": "Excel",
+        "icon": "PiChartBar",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://sheets.google.com"
+      },
+      {
+        "label": "Slides",
+        "description": "PowerPoint",
+        "icon": "PiPlay",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://slides.google.com"
+      },
+      {
+        "label": "Tasks",
+        "description": "ToDo",
+        "icon": "PiCheckCircle",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://tasks.google.com"
+      }
+    ]
+  },
+  {
+    "label": "Microsoft Workspace",
+    "items": [
+      {
+        "label": "Outlook",
+        "description": "Gmail",
+        "icon": "PiEnvelopeSimple",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://outlook.com"
+      },
+      {
+        "label": "Calendar",
+        "description": "Calendar",
+        "icon": "PiCalendar",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://outlook.live.com/calendar"
+      },
+      {
+        "label": "OneDrive",
+        "description": "Drive",
+        "icon": "PiCloudArrowUp",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://onedrive.live.com"
+      },
+      {
+        "label": "Word",
+        "description": "Docs",
+        "icon": "PiFileDoc",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://www.microsoft365.com/launch/word"
+      },
+      {
+        "label": "Excel",
+        "description": "Sheets",
+        "icon": "PiChartBar",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://www.microsoft365.com/launch/excel"
+      },
+      {
+        "label": "PowerPoint",
+        "description": "Slides",
+        "icon": "PiPresentationChart",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://www.microsoft365.com/launch/powerpoint"
+      },
+      {
+        "label": "To Do",
+        "description": "Tasks",
+        "icon": "PiCheckCircle",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://to-do.office.com/tasks/"
+      },
+      {
+        "label": "Teams",
+        "description": "Chat",
+        "icon": "PiUsersThree",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://teams.microsoft.com"
+      },
+      {
+        "label": "OneNote",
+        "description": "Keep",
+        "icon": "PiNotebook",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://www.onenote.com"
+      },
+      {
+        "label": "Microsoft 365",
+        "description": "Workspace",
+        "icon": "PiWindowsLogo",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://www.microsoft365.com"
+      }
+    ]
+  },
+  {
+    "label": "Messaging",
+    "items": [
+      {
+        "label": "Discord",
+        "description": "Messaging",
+        "icon": "PiGameController",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://discord.com"
+      },
+      {
+        "label": "Messenger",
+        "description": "Messaging",
+        "icon": "PiHeart",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://www.messenger.com"
+      },
+      {
+        "label": "Slack",
+        "description": "Messaging",
+        "icon": "PiCodeSimple",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://slack.com"
+      },
+      {
+        "label": "Telegram",
+        "description": "Messaging",
+        "icon": "PiAirplane",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://web.telegram.org/"
+      }
+    ]
+  },
+  {
+    "label": "Music",
+    "items": [
+      {
+        "label": "Spotify",
+        "description": "Music",
+        "icon": "PiMusicNote",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://open.spotify.com"
+      },
+      {
+        "label": "YouTube",
+        "description": "Videos",
+        "icon": "PiPlay",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://youtube.com"
+      }
+    ]
+  },
+  {
+    "label": "Social",
+    "items": [
+      {
+        "label": "Facebook",
+        "description": "Social network",
+        "icon": "PiFacebookLogo",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://facebook.com"
+      },
+      {
+        "label": "Instagram",
+        "description": "Photos",
+        "icon": "PiCamera",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://instagram.com"
+      },
+      {
+        "label": "Reddit",
+        "description": "Social network",
+        "icon": "PiAlien",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://reddit.com"
+      },
+      {
+        "label": "Threads",
+        "description": "Social network",
+        "icon": "PiThreadsLogo",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://threads.net"
+      },
+      {
+        "label": "Tiktok",
+        "description": "Social network",
+        "icon": "PiMusicNote",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://www.tiktok.com"
+      },
+      {
+        "label": "X",
+        "description": "Social network",
+        "icon": "PiTwitterLogo",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://x.com"
+      }
+    ]
+  },
+  {
+    "label": "Work",
+    "items": [
+      {
+        "label": "LinkedIn",
+        "description": "Social network",
+        "icon": "PiBriefcase",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://linkedin.com"
+      },
+      {
+        "label": "Hacker News",
+        "description": "News",
+        "icon": "PiNewspaper",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://news.ycombinator.com"
+      },
+      {
+        "label": "Indie Hackers",
+        "description": "News",
+        "icon": "PiCodeSimple",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://www.indiehackers.com"
+      },
+      {
+        "label": "Product Hunt",
+        "description": "News",
+        "icon": "PiPackage",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://www.producthunt.com"
+      },
+      {
+        "label": "Y Combinator",
+        "description": "Startup",
+        "icon": "PiLightning",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://www.ycombinator.com"
+      },
+      {
+        "label": "BetaList",
+        "description": "Launch",
+        "icon": "PiRocket",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://betalist.com"
+      },
+      {
+        "label": "TechCrunch",
+        "description": "News",
+        "icon": "PiNewspaper",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://techcrunch.com"
+      },
+      {
+        "label": "Starter Story",
+        "description": "Stories",
+        "icon": "PiBookOpen",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://www.starterstory.com"
+      },
+      {
+        "label": "Failory",
+        "description": "Stories",
+        "icon": "PiTrendDown",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://www.failory.com"
+      },
+      {
+        "label": "Wellfound",
+        "description": "Jobs",
+        "icon": "PiBriefcase",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://wellfound.com"
+      },
+      {
+        "label": "Crunchbase",
+        "description": "Data",
+        "icon": "PiChartLine",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://www.crunchbase.com"
+      },
+      {
+        "label": "Hashnode",
+        "description": "Blogging",
+        "icon": "PiCodeSimple",
+        "type": "bookmark",
+        "typeId": "Bookmark",
+        "href": "https://hashnode.com"
+      }
+    ]
+  },
+  {
+    "label": "Bored",
+    "items": [
+      {
+        "label": "Research",
+        "description": "Knowledge Explorer",
+        "icon": "PiMagnifyingGlass",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "bored",
+        "toolId": "research"
+      },
+      {
+        "label": "Develop",
+        "description": "Skill Builder",
+        "icon": "PiNotebook",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "bored",
+        "toolId": "develop"
+      },
+      {
+        "label": "Build",
+        "description": "Product Creator",
+        "icon": "PiWrench",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "bored",
+        "toolId": "build"
+      },
+      {
+        "label": "Ship",
+        "description": "Infographic Publisher",
+        "icon": "PiRocketLaunch",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "bored",
+        "toolId": "ship"
+      },
+      {
+        "label": "VibeSlotCode",
+        "description": "Stack + Idea Generator",
+        "icon": "PiSparkle",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "bored",
+        "toolId": "vibe-slot-code"
+      },
+      {
+        "label": "WeirdSearch",
+        "description": "Weird Query Roller",
+        "icon": "PiSmileyMelting",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "bored",
+        "toolId": "weird-search"
+      }
+    ],
+    "id": "bored"
+  },
+  {
+    "label": "Calculator",
+    "items": [
+      {
+        "label": "Calculator",
+        "description": "Arithmetic + Unit Converter",
+        "icon": "PiDivide",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "calculator",
+        "toolId": "calculator"
+      },
+      {
+        "label": "Inflation",
+        "description": "Calculator",
+        "icon": "PiMoney",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "calculator",
+        "toolId": "inflation"
+      },
+      {
+        "label": "Split Bill",
+        "description": "Calculator",
+        "icon": "PiCurrencyDollar",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "calculator",
+        "toolId": "split-bill"
+      },
+      {
+        "label": "Tax",
+        "description": "Vietnamese PIT",
+        "icon": "PiReceipt",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "calculator",
+        "toolId": "tax"
+      }
+    ],
+    "id": "calculator"
+  },
+  {
+    "label": "Clocks",
+    "items": [
+      {
+        "label": "Cron",
+        "description": "Expression Builder",
+        "icon": "PiClockAfternoon",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "clocks",
+        "toolId": "cron"
+      },
+      {
+        "label": "Epoch Convert",
+        "description": "Timestamp",
+        "icon": "PiClock",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "clocks",
+        "toolId": "epoch-convert"
+      }
+    ],
+    "id": "clocks"
+  },
+  {
+    "label": "Data - Excel",
+    "items": [
+      {
+        "label": "Excel to PDF",
+        "description": "Excel → PDF",
+        "icon": "PiFileText",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "data-excel",
+        "toolId": "excel-to-pdf"
+      },
+      {
+        "label": "Excel to XML",
+        "description": "Excel → XML",
+        "icon": "PiArrowsClockwise",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "data-excel",
+        "toolId": "excel-to-xml"
+      },
+      {
+        "label": "Split Excel",
+        "description": "Split large files",
+        "icon": "PiScissors",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "data-excel",
+        "toolId": "split-excel"
+      }
+    ],
+    "id": "data-excel"
+  },
+  {
+    "label": "Data - XML",
+    "items": [
+      {
+        "label": "JSON to XML",
+        "description": "JSON → XML",
+        "icon": "PiArrowsClockwise",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "data-xml",
+        "toolId": "json-to-xml"
+      },
+      {
+        "label": "XML to Excel",
+        "description": "XML → Excel",
+        "icon": "PiArrowsClockwise",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "data-xml",
+        "toolId": "xml-to-excel"
+      },
+      {
+        "label": "XML to JSON",
+        "description": "XML → JSON",
+        "icon": "PiArrowsClockwise",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "data-xml",
+        "toolId": "xml-to-json"
+      }
+    ],
+    "id": "data-xml"
+  },
+  {
+    "label": "Developer",
+    "items": [
+      {
+        "label": "Diff",
+        "description": "Text Comparison",
+        "icon": "PiNotePencil",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "developer",
+        "toolId": "text-diff"
+      },
+      {
+        "label": "Figlet",
+        "description": "Text art",
+        "icon": "PiNotePencil",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "developer",
+        "toolId": "figlet"
+      },
+      {
+        "label": "OpenAPI",
+        "description": "to Postman",
+        "icon": "PiArrowsClockwise",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "developer",
+        "toolId": "openapi"
+      },
+      {
+        "label": "Proxy",
+        "description": "CORS Proxy",
+        "icon": "PiLink",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "developer",
+        "toolId": "proxy"
+      },
+      {
+        "label": "URL Tracer",
+        "description": "Redirect Tracker",
+        "icon": "PiLink",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "developer",
+        "toolId": "text-url-tracer"
+      },
+      {
+        "label": "UUID",
+        "description": "Generator",
+        "icon": "PiKey",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "developer",
+        "toolId": "uuid"
+      }
+    ],
+    "id": "developer"
+  },
+  {
+    "label": "Editors",
+    "items": [
+      {
+        "label": "JSON Schema",
+        "description": "Validator",
+        "icon": "PiFileText",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "editors",
+        "toolId": "json-schema"
+      },
+      {
+        "label": "Manifest",
+        "description": "JSON Editor",
+        "icon": "PiFileText",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "editors",
+        "toolId": "manifest"
+      },
+      {
+        "label": "Regex",
+        "description": "Pattern Generator",
+        "icon": "PiMagnifyingGlass",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "editors",
+        "toolId": "regex"
+      },
+      {
+        "label": "Slides",
+        "description": "Pitch Deck",
+        "icon": "PiPresentation",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "editors",
+        "toolId": "slides"
+      }
+    ],
+    "id": "editors"
+  },
+  {
+    "label": "Trivia",
+    "items": [
+      {
+        "label": "Palindrome",
+        "description": "Palindrome",
+        "icon": "PiRepeat",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "trivia",
+        "toolId": "palindrome"
+      },
+      {
+        "label": "Pokedex",
+        "description": "Pokemon",
+        "icon": "PiBook",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "trivia",
+        "toolId": "pokedex"
+      },
+      {
+        "label": "Quizify",
+        "description": "Quiz",
+        "icon": "PiQuestion",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "trivia",
+        "toolId": "quizify"
+      }
+    ],
+    "id": "trivia"
+  },
+  {
+    "label": "Utilities",
+    "items": [
+      {
+        "label": "Create ZIP",
+        "description": "Zip Files",
+        "icon": "PiFileText",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "utilities",
+        "toolId": "create-zip"
+      },
+      {
+        "label": "Emojis",
+        "description": "Explorer",
+        "icon": "PiSmiley",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "utilities",
+        "toolId": "emojis"
+      },
+      {
+        "label": "Legislation",
+        "description": "Visualization",
+        "icon": "PiBuildings",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "utilities",
+        "toolId": "legislation"
+      },
+      {
+        "label": "Lorem Ipsum",
+        "description": "Dummy text",
+        "icon": "PiNotePencil",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "utilities",
+        "toolId": "lorem-ipsum"
+      },
+      {
+        "label": "No Sleep",
+        "description": "Timer",
+        "icon": "PiMoon",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "utilities",
+        "toolId": "no-sleep"
+      },
+      {
+        "label": "Screen Recorder",
+        "description": "Record & Download",
+        "icon": "PiFilmStrip",
+        "type": "app",
+        "typeId": "App",
+        "sectionId": "utilities",
+        "toolId": "screen-recorder"
+      }
+    ],
+    "id": "utilities"
+  }
+]

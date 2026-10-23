@@ -1,0 +1,141 @@
+# Slide 1 (Highlighted Title) — Cover & Hook
+highlighted-title:
+  title: 'GitHub Just Killed the Giant PR'
+  highlights:
+    - 'Giant PR'
+  text: 'Stacked Pull Requests enter public preview'
+  citation: ''
+
+---
+# Slide 2 (Minimal) — Short Answer + Roadmap
+minimal:
+  title: 'Break Big Changes Into Small Layers'
+  text: 'Stacked PRs are an ordered chain of pull requests, each one a focused layer
+    of a bigger change. Swipe through: how a stack is built, what you get, the
+    rollout timeline, the limits, and how to try it.'
+  imageUrl: ''
+  citation: ''
+
+---
+# Slide 3 (Icon + Text) — Background / Why This Matters
+icon-text:
+  icon: '🧵'
+  title: 'The Giant PR Problem'
+  text: 'AI coding agents let developers submit code faster than teams can review
+    it. Reviewers lose context on huge diffs, feedback quality drops, and the
+    whole team slows down.'
+  citation: 'DevOps.com, 2026'
+
+---
+# Slide 4 (Git Graph) — Evidence 1: Anatomy of a Stack
+git-graph:
+  title: 'Anatomy of a Stack'
+  branches:
+    - name: 'main'
+      commits:
+        - id: 'base'
+          message: 'Starting point'
+    - name: 'feat/auth'
+      commits:
+        - id: 'PR #1'
+          message: 'Auth layer — base: main'
+    - name: 'feat/api'
+      commits:
+        - id: 'PR #2'
+          message: 'API layer — base: feat/auth'
+    - name: 'feat/frontend'
+      commits:
+        - id: 'PR #3'
+          message: 'Frontend — base: feat/api'
+  citation: 'Medium (Code and Bird), 2026'
+
+---
+# Slide 5 (Feature Grid) — Evidence 2: What You Get
+feature-grid:
+  title: 'What Stacked PRs Give You'
+  features:
+    - label: 'Stack Map'
+      desc: 'Built into the PR header — jump between layers instantly'
+    - label: 'Focused Diffs'
+      desc: 'Each PR shows only its own layer, not the ones below it'
+    - label: 'Parallel Review'
+      desc: 'Teammates review different layers at the same time'
+    - label: 'One-Click Merge'
+      desc: 'Land the whole stack, or just the lower layers'
+  citation: 'GitHub Changelog, 2026'
+
+---
+# Slide 6 (Timeline) — Evidence 3: The Rollout
+timeline:
+  title: 'From Preview to Public'
+  entries:
+    - date: 'Apr 13, 2026'
+      event: 'Private preview opens, waitlist required'
+    - date: 'Jul 30, 2026'
+      event: 'Public preview — no waitlist, rolling out to all repos'
+    - date: 'Coming weeks'
+      event: 'Merge queue support rolls out progressively'
+  imageUrl: ''
+  citation: 'GitHub Changelog, 2026'
+
+---
+# Slide 7 (Checklist) — Counterarguments / Limitations
+checklist:
+  title: 'Before You Adopt It'
+  text: 'Stacked PRs are still public preview, not GA. Know this first:'
+  items:
+    - 'Merge queue support for stacks is still rolling out'
+    - 'Squash-merge repos need "gh stack rebase" after each merge, or tracking
+      breaks'
+    - 'Practitioners suggest capping a stack around 3–4 PRs'
+    - 'Graphite still leads on VS Code integration and a dedicated review UI'
+  citation: 'InfoQ, ByteIota, 2026'
+
+---
+# Slide 8 (Cheat Sheet) — Conclusion & Key Takeaways
+cheat-sheet:
+  title: 'Stacked PRs Cheat Sheet'
+  subject: 'GitHub'
+  items:
+    - label: 'Install'
+      content: 'gh extension install github/gh-stack'
+    - label: 'Structure'
+      content: 'Each PR targets the branch below it'
+    - label: 'Review'
+      content: 'One layer at a time, in parallel'
+    - label: 'Merge'
+      content: 'One click lands the whole stack'
+    - label: 'Agents'
+      content: 'Copilot builds stacks via the gh-stack skill'
+  citation: ''
+
+---
+# Slide 9 (References)
+references:
+  title: 'References'
+  items:
+    - author: 'GitHub'
+      title: 'Stacked pull requests are now in public preview'
+      year: '2026'
+      url: 'https://github.blog/changelog/2026-07-30-stacked-pull-requests-are-now-in-public-preview/'
+    - author: 'Maguire, J. (DevOps.com)'
+      title: 'GitHub Introduces Stacked PRs to Ease Review Bottlenecks'
+      year: '2026'
+      url: 'https://devops.com/github-introduces-stacked-prs-to-ease-review-bottlenecks/'
+    - author: 'InfoQ'
+      title: 'GitHub Targets Large Merge Problem with Stacked PRs'
+      year: '2026'
+      url: 'https://www.infoq.com/news/2026/04/github-stacked-prs/'
+    - author: 'Code and Bird (Medium)'
+      title: 'GitHub Stacked PRs: I Got Into the Private Preview'
+      year: '2026'
+      url: 'https://medium.com/@codeandbird/github-stacked-prs-i-got-into-the-private-preview-5b6483d181d2'
+  citation: ''
+
+---
+# Slide 10 (This or That) — Discussion / Q&A
+this-or-that:
+  title: 'Which Would You Try First?'
+  optionA: 'GitHub Native Stacks'
+  optionB: 'Graphite'
+  citation: ''

@@ -1,0 +1,125 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  title: What Makes a Hobby GOOD
+  highlights:
+    - GOOD
+  text: The science behind why some hobbies help more than others
+  citation: ''
+
+---
+# Post 2 (Checklist)
+checklist:
+  title: The Short Answer
+  text: It is not about being productive. Research on 93,000+ people points to what
+    actually separates a hobby from ordinary leisure.
+  items:
+    - Active engagement, not passive consumption
+    - Some skill-building or growth
+    - Room to get better over time
+    - Watching TV alone does not count
+  citation: Nature Medicine, 2023
+
+---
+# Post 3 (Checklist)
+checklist:
+  title: 'Trait 1: Creativity'
+  text: Good hobbies involve generating something, not just consuming.
+  items:
+    - Imagination and novelty
+    - Self-expression
+    - Sensory engagement
+    - Cognitive stimulation
+  citation: Nature Medicine, 2023
+
+---
+# Post 4 (Stat Row)
+stat-row:
+  title: 'Trait 2: Regularity'
+  text: Tracked over 4-8 years across 16 countries
+  stats:
+    - value: 93K+
+      label: People studied
+    - value: −0.10
+      label: Depression score
+    - value: '+0.10'
+      label: Life satisfaction
+  citation: Nature Medicine, 2023
+
+---
+# Post 5 (Checklist)
+checklist:
+  title: 'Trait 3: Mastery Over Time'
+  text: Long-term commitment beats novelty-chasing.
+  items:
+    - Sustained engagement builds skill
+    - Mentoring others deepens satisfaction
+    - Immersion improves quality of life
+  citation: Cleary et al., 2025
+
+---
+# Post 6 (Bullet List)
+bullet-list:
+  title: 'Trait 4: Social Connection'
+  items:
+    - Bonus, not required
+    - Hobby groups reduce loneliness
+    - Provides social support
+    - Solo hobbies still count
+  citation: Nature Medicine, 2023
+
+---
+# Post 7 (Icon + Text)
+icon-text:
+  icon: 🏃
+  title: 'Trait 5: Physical Activity'
+  text: Bonus, not required. Physical-sports hobbies boost self-acceptance, positive
+    relationships, and sense of purpose. But non-physical hobbies still deliver
+    most of the same wellbeing gains.
+  citation: Ruiz-Ariza et al., 2019
+
+---
+# Post 8 (Cheat Sheet)
+cheat-sheet:
+  title: The 5 Criteria
+  subject: Good Hobby Checklist
+  items:
+    - label: Creative
+      content: Generates, does not just consume
+    - label: Regular
+      content: Consistency over intensity
+    - label: Growth
+      content: Room to improve over time
+    - label: Social
+      content: Bonus, not required
+    - label: Active
+      content: Bonus, not required
+  citation: ''
+
+---
+# Post 9 (References)
+references:
+  title: References
+  items:
+    - author: Oliveira et al.
+      title: Hobby engagement and mental wellbeing among people aged 65 years and
+        older in 16 countries
+      year: '2023'
+      url: https://www.nature.com/articles/s41591-023-02506-1
+    - author: Cleary, M. et al.
+      title: 'Exploring the Impact of Hobbies on Mental Health and Well-Being: A
+        Scoping Review'
+      year: '2025'
+      url: https://www.tandfonline.com/doi/full/10.1080/01612840.2025.2512006
+    - author: Ruiz-Ariza et al.
+      title: Effect of Physical-Sports Leisure Activities on Young People
+      year: '2019'
+      url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7609571/
+  citation: ''
+
+---
+# Post 10 (Minimal)
+minimal:
+  title: Your Turn
+  text: Which of the 5 criteria does your current hobby actually hit?
+  imageUrl: ''
+  citation: ''

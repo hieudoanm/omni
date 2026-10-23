@@ -1,0 +1,53 @@
+# Slide 1 (Highlighted Title)
+highlighted-title:
+  headline: Hybrid Mobile Frameworks in 2026
+  text: Ship one codebase to iOS and Android
+
+---
+# Slide 2 (Icon + Text)
+icon-text:
+  icon: '⚛️'
+  headline: React Native
+  text: Native mobile apps built with React. Large ecosystem and direct access to
+    native modules.
+
+---
+# Slide 3 (Icon + Text)
+icon-text:
+  icon: '🚀'
+  headline: Expo
+  text: A managed layer on top of React Native. Faster setup, OTA updates, and less
+    native config.
+
+---
+# Slide 4 (Icon + Text)
+icon-text:
+  icon: '⚡'
+  headline: Ionic
+  text: Web-based UI components wrapped as a native app. Great if your team already
+    knows web dev.
+
+---
+# Slide 5 (Icon + Text)
+icon-text:
+  icon: '🌉'
+  headline: Capacitor
+  text: A native runtime for web apps. Bring your own framework, ship it as a real
+    mobile app.
+
+---
+# Slide 6 (Bullet List)
+bullet-list:
+  headline: The Hybrid Frameworks, Recap
+  items:
+    - 'React Native — native + React'
+    - 'Expo — managed React Native'
+    - 'Ionic — web UI, wrapped native'
+    - 'Capacitor — native runtime, any framework'
+
+---
+# Slide 7 (Minimal)
+minimal:
+  headline: Which hybrid framework gets you to both stores fastest?
+  text: Curious what's actually shipping in production — drop yours below.
+  imageUrl: ''

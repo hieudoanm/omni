@@ -1,0 +1,46 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  headline: Content-First Frameworks in 2026
+  highlights:
+    - Content-First
+  text: Built to ship content fast, not app state
+
+---
+# Post 2 (Icon + Text)
+icon-text:
+  icon: 🚀
+  headline: Astro
+  text: Ships zero JavaScript by default. Mix React, Vue, or Svelte components as
+    opt-in "islands" only where needed.
+
+---
+# Post 3 (Icon + Text)
+icon-text:
+  icon: 📚
+  headline: Docusaurus
+  text: Purpose-built for docs. Sidebars, versioning, and search come solved out of
+    the box — no assembly required.
+
+---
+# Post 4 (Icon + Text)
+icon-text:
+  icon: ⚛️
+  headline: Gatsby
+  text: React-based static site generator with a GraphQL data layer. Still
+    maintained, still shipping releases in 2026.
+
+---
+# Post 5 (Bullet List)
+bullet-list:
+  headline: The Frameworks, Recap
+  items:
+    - Astro — content sites, marketing, blogs
+    - Docusaurus — documentation portals
+    - Gatsby — React-based static sites
+
+---
+# Post 6 (Minimal)
+minimal:
+  headline: What powers your blog or docs site?
+  text: Curious what's actually shipping content the fastest — drop yours below.
+  imageUrl: ''

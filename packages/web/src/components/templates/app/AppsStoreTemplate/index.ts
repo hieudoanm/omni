@@ -1,0 +1,1 @@
+export { AppsStoreTemplate } from './AppsStoreTemplate';

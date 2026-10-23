@@ -1,0 +1,73 @@
+# Slide 1 (Highlighted Title)
+highlighted-title:
+  headline: 'React Basics: The Virtual DOM'
+  highlights:
+    - 'React'
+  text: Part 4 of 6 — how React decides what actually needs to change
+
+---
+# Slide 2 (Minimal)
+minimal:
+  headline: React doesn't touch the real DOM until it has to
+  text: Every render, React builds a lightweight tree in memory first. It compares
+    that tree to the last one, then updates only the parts of the real DOM that
+    actually changed.
+  imageUrl: ''
+
+---
+# Slide 3 (Architecture Diagram)
+architecture-diagram:
+  title: How a Render Actually Works
+  components:
+    - name: 'State Change'
+      desc: 'setState or a prop update triggers a re-render'
+    - name: 'Virtual DOM'
+      desc: 'React builds a new in-memory tree'
+    - name: 'Diffing'
+      desc: 'Compares new tree against the previous one'
+    - name: 'Real DOM'
+      desc: 'Only the changed nodes get updated'
+  connections:
+    - from: 'State Change'
+      to: 'Virtual DOM'
+      label: 'triggers'
+    - from: 'Virtual DOM'
+      to: 'Diffing'
+      label: 'compares'
+    - from: 'Diffing'
+      to: 'Real DOM'
+      label: 'patches'
+
+---
+# Slide 4 (Myth vs Fact)
+myth-vs-fact:
+  headline: Common Misconception
+  myth: 'The virtual DOM makes React faster than directly updating the DOM.'
+  fact: 'Direct DOM updates can be faster in isolation. The win is that diffing
+    batches and minimizes updates automatically, so you rarely write slow code
+    by accident.'
+
+---
+# Slide 5 (Tip Card)
+tip-card:
+  number: '02'
+  headline: Keys Aren't Optional
+  text: When rendering a list, a stable key lets React match old and new items
+    correctly during diffing. Using the array index as a key can cause subtle
+    bugs when items reorder.
+
+---
+# Slide 6 (Bullet List)
+bullet-list:
+  headline: Before You Move to Part 5
+  items:
+    - 'The virtual DOM is a lightweight tree kept in memory'
+    - 'Diffing finds the minimal set of real changes needed'
+    - 'Stable keys help React diff lists correctly'
+
+---
+# Slide 7 (Minimal)
+minimal:
+  headline: Ever had a bug caused by using index as a key?
+  text: Curious how it showed up — drop yours below.
+  imageUrl: ''

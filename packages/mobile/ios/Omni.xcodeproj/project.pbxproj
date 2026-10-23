@@ -1,0 +1,568 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00BDE173ECC0C11421381421 /* NdefCodecTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9D7CB66C8C38F1AF6EE76B /* NdefCodecTests.swift */; };
+		080E4B7C3BA0222F2522E2CD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C170F6FE2792EEEBA540544 /* HomeView.swift */; };
+		100426288186E00258F7746E /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = E149CBC37416795023F9122F /* Components.swift */; };
+		1447D8EB17A8391BBB8CAAB2 /* TagHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5481E0EAD57F1BC29282D1A4 /* TagHistoryItem.swift */; };
+		18C3D71CDFD7A4549E4E1482 /* dmmono_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 927D9C086A7D49CCECDFFFBE /* dmmono_regular.ttf */; };
+		1B95BA3F39C808420648678E /* NdefRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0980692CCD5E31CE5266253 /* NdefRecord.swift */; };
+		2989222BD5EC4EC722886297 /* SettingsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4561A648A9914AB38BEFAA /* SettingsStoreTests.swift */; };
+		2FC9DAF5F986EF76FBB1DCAA /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82977670043C1375A646A73 /* Typography.swift */; };
+		472CAC924750874626263156 /* OmniApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1308FF4ACF472B2A6ED7A663 /* OmniApp.swift */; };
+		4EF007431BA4DFB05AAD1ED7 /* NfcService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB5AE50A9E4FAEB808CDCA1 /* NfcService.swift */; };
+		4FF85F83956A5025510A9632 /* TagProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50347D6D79C8097D793C35F2 /* TagProfile.swift */; };
+		50F856EAA651740685FC5A76 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC706F1FDA9D02150788498D /* Palette.swift */; };
+		55024EDBB6EED46AF460DB08 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5D55E04C77EFBD2C12197A /* SettingsStore.swift */; };
+		568CFEAEF2972A664BB32844 /* NfcHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF06A3684EF0EB65A38F172 /* NfcHomeView.swift */; };
+		6DCB1DD0C96CF9451F630F32 /* orbitron.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8DA2FD84C42865F056BAF3D7 /* orbitron.ttf */; };
+		756F6A07D828B8E57A8F35E9 /* dmmono_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 01EF4BA3935A0C17ED29EAE0 /* dmmono_medium.ttf */; };
+		8542D1F9259C992F307C2451 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7525436A13D4CCEBEE57741F /* HistoryView.swift */; };
+		8F412F6AC07A36B3DC41D748 /* NdefPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F8E577608121B0C47C1BB2 /* NdefPayload.swift */; };
+		AA3600F0219383CFC76C0DA1 /* NfcHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7E47B92CE4EAAD8323ED70 /* NfcHomeViewModel.swift */; };
+		B0D61AAAC41038ACD3111C94 /* NdefCodec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2AF73665C8A148626FB517 /* NdefCodec.swift */; };
+		B5D3E8D5648DDB4F50A2292C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA960DB9619CCFC16C1B8AD /* SettingsView.swift */; };
+		CBA6C2AA81F0BB2120BC9E0C /* NdefRecordCodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4639B3F76854A686C0D1F44D /* NdefRecordCodableTests.swift */; };
+		D0F25DF6CD7F8BB558EE41E4 /* OmniTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03704AD2EF979214E35E053D /* OmniTheme.swift */; };
+		F9514E86846D6C00EB1E91D0 /* TagInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A423270DE80E2F9194B2A7 /* TagInfo.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		118AFE5D26A852B51BF1D14D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 58660D856F75EDE889667224 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FFC2AEC80D407ADE593EF018;
+			remoteInfo = Omni;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01EF4BA3935A0C17ED29EAE0 /* dmmono_medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dmmono_medium.ttf; sourceTree = "<group>"; };
+		03704AD2EF979214E35E053D /* OmniTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniTheme.swift; sourceTree = "<group>"; };
+		0A7E47B92CE4EAAD8323ED70 /* NfcHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NfcHomeViewModel.swift; sourceTree = "<group>"; };
+		1308FF4ACF472B2A6ED7A663 /* OmniApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniApp.swift; sourceTree = "<group>"; };
+		1A2AF73665C8A148626FB517 /* NdefCodec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NdefCodec.swift; sourceTree = "<group>"; };
+		4639B3F76854A686C0D1F44D /* NdefRecordCodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NdefRecordCodableTests.swift; sourceTree = "<group>"; };
+		50347D6D79C8097D793C35F2 /* TagProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagProfile.swift; sourceTree = "<group>"; };
+		5481E0EAD57F1BC29282D1A4 /* TagHistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagHistoryItem.swift; sourceTree = "<group>"; };
+		66F8E577608121B0C47C1BB2 /* NdefPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NdefPayload.swift; sourceTree = "<group>"; };
+		671AB678CE292B66DFE038D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6C170F6FE2792EEEBA540544 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		7525436A13D4CCEBEE57741F /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		8C4561A648A9914AB38BEFAA /* SettingsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStoreTests.swift; sourceTree = "<group>"; };
+		8DA2FD84C42865F056BAF3D7 /* orbitron.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = orbitron.ttf; sourceTree = "<group>"; };
+		927D9C086A7D49CCECDFFFBE /* dmmono_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dmmono_regular.ttf; sourceTree = "<group>"; };
+		9CA960DB9619CCFC16C1B8AD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9D9D7CB66C8C38F1AF6EE76B /* NdefCodecTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NdefCodecTests.swift; sourceTree = "<group>"; };
+		A6A423270DE80E2F9194B2A7 /* TagInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagInfo.swift; sourceTree = "<group>"; };
+		AA5D55E04C77EFBD2C12197A /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
+		B610BADA86ED2F02757B1256 /* Omni.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Omni.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C87D459EED386C6BBC6B2366 /* OmniTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = OmniTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0980692CCD5E31CE5266253 /* NdefRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NdefRecord.swift; sourceTree = "<group>"; };
+		DBB5AE50A9E4FAEB808CDCA1 /* NfcService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NfcService.swift; sourceTree = "<group>"; };
+		DC706F1FDA9D02150788498D /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
+		E149CBC37416795023F9122F /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		E82977670043C1375A646A73 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		FA7942286D0700CF9CC8E47C /* Omni.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Omni.entitlements; sourceTree = "<group>"; };
+		FEF06A3684EF0EB65A38F172 /* NfcHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NfcHomeView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0E878BC9274E05D9B8313E4C /* Omni */ = {
+			isa = PBXGroup;
+			children = (
+				671AB678CE292B66DFE038D0 /* Info.plist */,
+				FA7942286D0700CF9CC8E47C /* Omni.entitlements */,
+				1308FF4ACF472B2A6ED7A663 /* OmniApp.swift */,
+				5CAA327914C3C1D2EE941968 /* Hub */,
+				B3E2B07D83CC4F27812011F3 /* NFC */,
+				64D99F522D4AF6FFA7FA78C4 /* Resources */,
+				DDDF736FE84011B69172A07A /* Theme */,
+			);
+			path = Omni;
+			sourceTree = "<group>";
+		};
+		2064F936CFBD9D8BB81E97B0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				01EF4BA3935A0C17ED29EAE0 /* dmmono_medium.ttf */,
+				927D9C086A7D49CCECDFFFBE /* dmmono_regular.ttf */,
+				8DA2FD84C42865F056BAF3D7 /* orbitron.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		412A884E55A122EB07B0493E = {
+			isa = PBXGroup;
+			children = (
+				0E878BC9274E05D9B8313E4C /* Omni */,
+				8C64AAA09CBED7CA0BE2A1E5 /* OmniTests */,
+				DB5AB1B24CBF9D0EDACBA646 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5CAA327914C3C1D2EE941968 /* Hub */ = {
+			isa = PBXGroup;
+			children = (
+				6C170F6FE2792EEEBA540544 /* HomeView.swift */,
+			);
+			path = Hub;
+			sourceTree = "<group>";
+		};
+		608C0E4F230C717D11551EBE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1A2AF73665C8A148626FB517 /* NdefCodec.swift */,
+				DBB5AE50A9E4FAEB808CDCA1 /* NfcService.swift */,
+				AA5D55E04C77EFBD2C12197A /* SettingsStore.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		64D99F522D4AF6FFA7FA78C4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2064F936CFBD9D8BB81E97B0 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8C64AAA09CBED7CA0BE2A1E5 /* OmniTests */ = {
+			isa = PBXGroup;
+			children = (
+				9D9D7CB66C8C38F1AF6EE76B /* NdefCodecTests.swift */,
+				4639B3F76854A686C0D1F44D /* NdefRecordCodableTests.swift */,
+				8C4561A648A9914AB38BEFAA /* SettingsStoreTests.swift */,
+			);
+			path = OmniTests;
+			sourceTree = "<group>";
+		};
+		B3E2B07D83CC4F27812011F3 /* NFC */ = {
+			isa = PBXGroup;
+			children = (
+				FA579DEF2F0E9019DB4CA1BB /* Models */,
+				608C0E4F230C717D11551EBE /* Services */,
+				DF95D1D9A615AE7DEEAD1CD3 /* Views */,
+			);
+			path = NFC;
+			sourceTree = "<group>";
+		};
+		DB5AB1B24CBF9D0EDACBA646 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B610BADA86ED2F02757B1256 /* Omni.app */,
+				C87D459EED386C6BBC6B2366 /* OmniTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DDDF736FE84011B69172A07A /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				03704AD2EF979214E35E053D /* OmniTheme.swift */,
+				DC706F1FDA9D02150788498D /* Palette.swift */,
+				E82977670043C1375A646A73 /* Typography.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		DF95D1D9A615AE7DEEAD1CD3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E149CBC37416795023F9122F /* Components.swift */,
+				7525436A13D4CCEBEE57741F /* HistoryView.swift */,
+				FEF06A3684EF0EB65A38F172 /* NfcHomeView.swift */,
+				0A7E47B92CE4EAAD8323ED70 /* NfcHomeViewModel.swift */,
+				9CA960DB9619CCFC16C1B8AD /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FA579DEF2F0E9019DB4CA1BB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				66F8E577608121B0C47C1BB2 /* NdefPayload.swift */,
+				D0980692CCD5E31CE5266253 /* NdefRecord.swift */,
+				5481E0EAD57F1BC29282D1A4 /* TagHistoryItem.swift */,
+				A6A423270DE80E2F9194B2A7 /* TagInfo.swift */,
+				50347D6D79C8097D793C35F2 /* TagProfile.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		56612888CC802857B0BD2E72 /* OmniTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5FE2945342AA8084DBB9929 /* Build configuration list for PBXNativeTarget "OmniTests" */;
+			buildPhases = (
+				AA7DB26DBD76CB1D4575FB4E /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EEACBC17988C310C466AE267 /* PBXTargetDependency */,
+			);
+			name = OmniTests;
+			packageProductDependencies = (
+			);
+			productName = OmniTests;
+			productReference = C87D459EED386C6BBC6B2366 /* OmniTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FFC2AEC80D407ADE593EF018 /* Omni */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EA6E566A409513DC4F6B11A /* Build configuration list for PBXNativeTarget "Omni" */;
+			buildPhases = (
+				1B559373E194B7CC42B41C32 /* Sources */,
+				59C9E88B91CBBD8BEDC3AF12 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Omni;
+			packageProductDependencies = (
+			);
+			productName = Omni;
+			productReference = B610BADA86ED2F02757B1256 /* Omni.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58660D856F75EDE889667224 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					FFC2AEC80D407ADE593EF018 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = FAFF2545E2E320BA7F5DCBD6 /* Build configuration list for PBXProject "Omni" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 412A884E55A122EB07B0493E;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = DB5AB1B24CBF9D0EDACBA646 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FFC2AEC80D407ADE593EF018 /* Omni */,
+				56612888CC802857B0BD2E72 /* OmniTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		59C9E88B91CBBD8BEDC3AF12 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				756F6A07D828B8E57A8F35E9 /* dmmono_medium.ttf in Resources */,
+				18C3D71CDFD7A4549E4E1482 /* dmmono_regular.ttf in Resources */,
+				6DCB1DD0C96CF9451F630F32 /* orbitron.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1B559373E194B7CC42B41C32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				100426288186E00258F7746E /* Components.swift in Sources */,
+				8542D1F9259C992F307C2451 /* HistoryView.swift in Sources */,
+				080E4B7C3BA0222F2522E2CD /* HomeView.swift in Sources */,
+				B0D61AAAC41038ACD3111C94 /* NdefCodec.swift in Sources */,
+				8F412F6AC07A36B3DC41D748 /* NdefPayload.swift in Sources */,
+				1B95BA3F39C808420648678E /* NdefRecord.swift in Sources */,
+				568CFEAEF2972A664BB32844 /* NfcHomeView.swift in Sources */,
+				AA3600F0219383CFC76C0DA1 /* NfcHomeViewModel.swift in Sources */,
+				4EF007431BA4DFB05AAD1ED7 /* NfcService.swift in Sources */,
+				472CAC924750874626263156 /* OmniApp.swift in Sources */,
+				D0F25DF6CD7F8BB558EE41E4 /* OmniTheme.swift in Sources */,
+				50F856EAA651740685FC5A76 /* Palette.swift in Sources */,
+				55024EDBB6EED46AF460DB08 /* SettingsStore.swift in Sources */,
+				B5D3E8D5648DDB4F50A2292C /* SettingsView.swift in Sources */,
+				1447D8EB17A8391BBB8CAAB2 /* TagHistoryItem.swift in Sources */,
+				F9514E86846D6C00EB1E91D0 /* TagInfo.swift in Sources */,
+				4FF85F83956A5025510A9632 /* TagProfile.swift in Sources */,
+				2FC9DAF5F986EF76FBB1DCAA /* Typography.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA7DB26DBD76CB1D4575FB4E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00BDE173ECC0C11421381421 /* NdefCodecTests.swift in Sources */,
+				CBA6C2AA81F0BB2120BC9E0C /* NdefRecordCodableTests.swift in Sources */,
+				2989222BD5EC4EC722886297 /* SettingsStoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EEACBC17988C310C466AE267 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FFC2AEC80D407ADE593EF018 /* Omni */;
+			targetProxy = 118AFE5D26A852B51BF1D14D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7411852C3D944E3B8FEE2988 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.0.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		8214E7596C131E8D69AF16CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Omni/Omni.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Omni/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.hieudoanm.omni.ios;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A382F866A8DB0A0AF29E92D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.hieudoanm.omni.ios.tests;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Omni.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Omni";
+			};
+			name = Debug;
+		};
+		CAB4C29095E63F9776C262D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Omni/Omni.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Omni/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.hieudoanm.omni.ios;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E7F80B9E574187A6AEE3CD49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.0.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		FDBCDA25C7AAA5830BC0B6F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.hieudoanm.omni.ios.tests;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Omni.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Omni";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2EA6E566A409513DC4F6B11A /* Build configuration list for PBXNativeTarget "Omni" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CAB4C29095E63F9776C262D7 /* Debug */,
+				8214E7596C131E8D69AF16CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D5FE2945342AA8084DBB9929 /* Build configuration list for PBXNativeTarget "OmniTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A382F866A8DB0A0AF29E92D1 /* Debug */,
+				FDBCDA25C7AAA5830BC0B6F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FAFF2545E2E320BA7F5DCBD6 /* Build configuration list for PBXProject "Omni" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7411852C3D944E3B8FEE2988 /* Debug */,
+				E7F80B9E574187A6AEE3CD49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58660D856F75EDE889667224 /* Project object */;
+}

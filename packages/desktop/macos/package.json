@@ -1,0 +1,11 @@
+{
+  "name": "@omni/macos",
+  "version": "0.0.1",
+  "description": "Omni MacOS",
+  "scripts": {
+    "format": "make format",
+    "build": "make build",
+    "test": "make test",
+    "lint": "make lint"
+  }
+}

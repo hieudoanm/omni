@@ -1,0 +1,69 @@
+# Slide 1 (Highlighted Title)
+highlighted-title:
+  headline: 'React Basics: Props vs State'
+  highlights:
+    - 'React'
+  text: Part 2 of 6 — the two ways data lives in a component
+
+---
+# Slide 2 (Minimal)
+minimal:
+  headline: One flows in. The other lives inside.
+  text: Props are handed to a component by its parent and can't be changed by the
+    component itself. State belongs to the component and can change over time,
+    in response to user actions.
+  imageUrl: ''
+
+---
+# Slide 3 (Versus)
+versus:
+  headline: Props vs State
+  optionA:
+    label: 'Props'
+    desc: 'Passed in from a parent'
+  optionB:
+    label: 'State'
+    desc: 'Owned by the component'
+  features:
+    - a: 'Read-only inside the component'
+      b: 'Can be updated with a setter'
+    - a: 'Changes when the parent re-renders it'
+      b: 'Changes trigger a re-render of this component'
+    - a: 'Flows one direction: parent to child'
+      b: 'Local — invisible outside the component'
+
+---
+# Slide 4 (Code)
+laptop:
+  headline: Both, Side by Side
+  description: name is a prop handed down from the parent. isOpen is state — it belongs to
+    this component and changes when the button is clicked.
+  code: "function Panel({ name }) {\n  const [isOpen, setIsOpen] =
+    useState(false);\n\n  return (\n    <button onClick={() =>
+    setIsOpen(!isOpen)}>\n      {name}: {isOpen ? 'Open' :
+    'Closed'}\n    </button>\n  );\n}"
+  language: 'TypeScript'
+
+---
+# Slide 5 (Myth vs Fact)
+myth-vs-fact:
+  headline: Common Misconception
+  myth: 'You can update a prop directly to change what a component shows.'
+  fact: 'Props are read-only. To change what renders, the parent must pass a new
+    prop — or the value needs to live in state instead.'
+
+---
+# Slide 6 (Bullet List)
+bullet-list:
+  headline: Before You Move to Part 3
+  items:
+    - 'Props come from outside, state lives inside'
+    - 'Never mutate a prop directly'
+    - 'If it changes over time, it probably belongs in state'
+
+---
+# Slide 7 (Minimal)
+minimal:
+  headline: What's a bug you've hit from mixing up props and state?
+  text: Curious what tripped people up — drop yours below.
+  imageUrl: ''

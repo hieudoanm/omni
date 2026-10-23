@@ -1,0 +1,13 @@
+```mermaid
+flowchart LR
+  subgraph browser [Browser]
+    UI[Popup + Pages]
+  end
+  subgraph extension [Extension]
+    BG[Background]
+    CS[Content Scripts]
+  end
+  UI -->|runtime messages| BG
+  BG <-->|tabs messages| CS
+  CS <-->|postMessage main-world| PW[Page World]
+```
