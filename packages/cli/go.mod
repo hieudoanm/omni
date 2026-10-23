@@ -19,7 +19,7 @@ require (
 	github.com/mattn/go-sqlite3 v1.14.52
 	github.com/mdp/qrterminal/v4 v4.0.0
 	github.com/notnil/chess v1.10.0
-	github.com/pdfcpu/pdfcpu v0.15.0
+	github.com/pdfcpu/pdfcpu v0.16.3
 	github.com/shirou/gopsutil/v4 v4.26.9
 	github.com/spf13/cobra v1.10.2
 	github.com/spf13/pflag v1.0.10
@@ -67,6 +67,7 @@ require (
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/tklauser/go-sysconf v0.4.0 // indirect
 	github.com/tklauser/numcpus v0.12.0 // indirect
+	github.com/xdg-go/stringprep v1.0.4 // indirect
 	github.com/xo/terminfo v1.0.0 // indirect
 	github.com/ysmood/fetchup v0.2.3 // indirect
 	github.com/ysmood/goob v0.4.0 // indirect
