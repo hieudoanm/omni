@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose")
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
-    id("com.diffplug.spotless") version "6.25.0"
+    id("com.diffplug.spotless") version "8.10.4"
 }
 
 android {
