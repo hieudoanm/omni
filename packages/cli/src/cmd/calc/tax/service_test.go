@@ -59,12 +59,12 @@ func TestCalculateTax(t *testing.T) {
 func TestSumRates(t *testing.T) {
 	total := sumRates(employeeInsurance)
 	expected := 0.08 + 0.015 + 0.01
-	if total != expected {
+	if math.Abs(total-expected) > 1e-9 {
 		t.Errorf("sumRates = %v, want %v", total, expected)
 	}
 
 	total = sumRates(map[string]float64{})
-	if total != 0 {
+	if math.Abs(total-0) > 1e-9 {
 		t.Errorf("sumRates(empty) = %v, want 0", total)
 	}
 }
