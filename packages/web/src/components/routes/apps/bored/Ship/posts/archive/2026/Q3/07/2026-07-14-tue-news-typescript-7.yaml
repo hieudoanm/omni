@@ -1,0 +1,110 @@
+# Slide 1 — Cover
+highlighted-title:
+  headline: 'TypeScript 7 is Here'
+  highlights:
+    - '7'
+  text: 'The Go-native compiler just shipped'
+
+---
+# Slide 2 — Introduction
+icon-text:
+  icon: '🐢'
+  headline: 'TypeScript Was Getting Slow'
+  text: "At millions of lines of code, the old JS-based compiler couldn't keep up
+    with modern monorepos."
+
+---
+# Slide 3 — What Shipped
+changelog:
+  title: 'TypeScript'
+  version: '7.0'
+  date: 'July 8, 2026'
+  changes:
+    - type: 'changed'
+      description: 'Compiler + language service rewritten in Go'
+    - type: 'changed'
+      description: 'Same type-checking logic as 6.0 — no new semantics'
+    - type: 'added'
+      description: 'Shared-memory multithreaded builds'
+    - type: 'removed'
+      description: 'Programmatic API (returns in 7.1)'
+
+---
+# Slide 4 — Build Speed
+stat-row:
+  headline: 'VS Code Codebase Benchmark'
+  stats:
+    - value: '125.7s'
+      label: 'TypeScript 6.0'
+    - value: '10.6s'
+      label: 'TypeScript 7.0'
+    - value: '11.9x'
+      label: 'Faster'
+
+---
+# Slide 5 — Real World Impact
+stat-row:
+  headline: "Slack's CI Pipeline"
+  stats:
+    - value: '7.5min → 1.25min'
+      label: 'Type-check time'
+    - value: '-40%'
+      label: 'Merge queue time'
+    - value: '-60%+'
+      label: 'Server crashes'
+
+---
+# Slide 6 — Breaking Changes
+checklist:
+  headline: 'New Hard Defaults'
+  text: 'TypeScript 7 promotes these from 6.0 warnings to requirements.'
+  items:
+    - 'strict mode is always on'
+    - 'module defaults to esnext'
+    - 'rootDir defaults to ./'
+    - 'es5 targets no longer supported'
+
+---
+# Slide 7 — Try It
+terminal:
+  headline: 'Upgrade in One Line'
+  description: 'TypeScript 7 ships under the normal npm tag'
+  command: 'npm install -D typescript'
+  output: 'npx tsc --noEmit'
+  syntax: "✓ Installed typescript@7.0.0\n✓ Type-check finished in 10.6s"
+
+---
+# Slide 8 — Who Should Wait
+this-or-that:
+  headline: 'Not Everyone Can Upgrade Yet'
+  optionA: 'Plain TS/JS projects — go now'
+  optionB: 'Vue, Astro, Svelte, Angular — wait for 7.1 API'
+
+---
+# Slide 9 — References
+references:
+  title: 'Sources'
+  items:
+    - author: 'Microsoft'
+      title: 'Announcing TypeScript 7.0'
+      year: 'Jul 2026'
+      url: 'https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/'
+    - author: 'Microsoft'
+      title: 'Announcing TypeScript 7.0 RC'
+      year: 'Jun 2026'
+      url: 'https://devblogs.microsoft.com/typescript/announcing-typescript-7-0-rc/'
+    - author: 'GitHub'
+      title: 'Octoverse 2025 — TypeScript Leads to #1'
+      year: '2025'
+      url: 'https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/'
+    - author: 'Visual Studio Magazine'
+      title: 'TypeScript 7 Arrives to Rock VS Code'
+      year: 'Jul 2026'
+      url: 'https://visualstudiomagazine.com/articles/2026/07/08/typescript-7-arrives-to-rock-vs-code-with-go-powered-speed.aspx'
+
+---
+# Slide 10 — Discussion
+minimal:
+  headline: 'Are you upgrading to TypeScript 7 yet?'
+  text: 'Or waiting until your framework supports the new API?'
+  imageUrl: ''

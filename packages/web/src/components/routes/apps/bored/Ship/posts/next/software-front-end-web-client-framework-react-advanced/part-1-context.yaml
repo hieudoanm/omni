@@ -1,0 +1,95 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  headline: 'React Advanced: Context API'
+  highlights:
+    - Context
+  text: Part 1 of the Advanced series — sharing state without passing it through
+    every layer
+
+---
+# Post 2 (Minimal)
+minimal:
+  headline: Context skips the middlemen entirely
+  text: Composition solves prop drilling when you can restructure the tree. Context
+    solves it when you can't — deeply nested components can read a value
+    directly, with nothing in between passing it along.
+  imageUrl: ''
+
+---
+# Post 3 (Code)
+laptop:
+  headline: Provider and Consumer
+  description: Any component inside ThemeProvider can call useTheme() and get the value —
+    no matter how deep it's nested.
+  code: |-
+    const ThemeContext = createContext('light');
+
+    function ThemeProvider({ children }) {
+      const [theme, setTheme] = useState('light');
+      return (
+        <ThemeContext.Provider value={{ theme, setTheme }}>
+          {children}
+        </ThemeContext.Provider>
+      );
+    }
+
+    function useTheme() {
+      return useContext(ThemeContext);
+    }
+  language: TypeScript
+
+---
+# Post 4 (Architecture Diagram)
+architecture-diagram:
+  title: How Values Reach Deep Components
+  components:
+    - name: Provider
+      desc: Holds the value at the top of the tree
+    - name: Middle Components
+      desc: Render children — never touch the value
+    - name: Consumer
+      desc: Calls useContext() to read the value directly
+  connections:
+    - from: Provider
+      to: Middle Components
+      label: renders
+    - from: Middle Components
+      to: Consumer
+      label: renders
+    - from: Provider
+      to: Consumer
+      label: value reaches directly
+
+---
+# Post 5 (Myth vs Fact)
+myth-vs-fact:
+  headline: Common Misconception
+  myth: Context is a full replacement for state management libraries like Redux.
+  fact: Context is for passing values down a tree, not for high-frequency updates.
+    It works best for things like theme, auth, or locale — not fast-changing app
+    state.
+
+---
+# Post 6 (Tip Card)
+tip-card:
+  number: '01'
+  headline: Every Consumer Re-Renders
+  text: When a context value changes, every component reading it re-renders — even
+    if they only use part of the value. Split contexts by concern instead of
+    bundling everything into one.
+
+---
+# Post 7 (Bullet List)
+bullet-list:
+  headline: Context API, Recap
+  items:
+    - Provider holds the value, Consumer reads it directly
+    - Best for low-frequency values like theme or auth
+    - Split contexts to avoid unnecessary re-renders
+
+---
+# Post 8 (Minimal)
+minimal:
+  headline: What do you reach for context vs a state library?
+  text: Curious where everyone draws that line — drop yours below.
+  imageUrl: ''

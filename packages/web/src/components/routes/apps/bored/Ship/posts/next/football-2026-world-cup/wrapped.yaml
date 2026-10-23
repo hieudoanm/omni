@@ -1,0 +1,217 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  title: 'World Cup 2026: Wrapped'
+  highlights:
+    - Wrapped
+  text: Spain lift the trophy — here are the awards that defined the tournament
+  citation: FIFA, 2026
+
+---
+# Post 2 (Leaderboard)
+leaderboard:
+  title: 'World Cup 2026: Top 3'
+  entries:
+    - rank: 1
+      name: Spain 🇪🇸
+      score: Champions
+      medal: 🥇
+    - rank: 2
+      name: Argentina 🇦🇷
+      score: Runners-up
+      medal: 🥈
+    - rank: 3
+      name: England 🏴󠁧󠁢󠁥󠁮󠁧󠁿
+      score: Third Place
+      medal: 🥉
+  citation: FIFA, 2026
+
+---
+# Post 3 (Data Table)
+data-table:
+  title: 'Golden Boot: Kylian Mbappé'
+  columns:
+    - Match
+    - Stage
+    - Goals
+    - Assists
+  rows:
+    - - vs Senegal
+      - Group
+      - '2'
+      - '0'
+    - - vs Iraq
+      - Group
+      - '2'
+      - '0'
+    - - vs Norway
+      - Group
+      - '0'
+      - '2'
+    - - vs Sweden
+      - Round of 32
+      - '2'
+      - '0'
+    - - vs Paraguay
+      - Round of 16
+      - '1'
+      - '0'
+    - - vs Morocco
+      - Quarterfinal
+      - '1'
+      - '1'
+    - - vs Spain
+      - Semifinal
+      - '0'
+      - '0'
+    - - vs England
+      - Third Place
+      - '2'
+      - '1'
+    - - Total
+      - 8 matches
+      - '10'
+      - '4'
+  text: Add up the Goals column yourself — it lands on 10.
+  citation: World Cup Pass, 2026
+
+---
+# Post 4 (Data Stats)
+data-stats:
+  stat: '22'
+  title: All-Time Top Scorer
+  text: >
+    Mbappé passed Messi (21) and Klose (16) to become the outright leading
+    scorer in men's World Cup history. He also won his second consecutive World
+    Cup Golden Boot after claiming the award in 2022.
+  imageUrl: ''
+  citation: FIFA, 2026
+
+---
+# Post 5 (Data Table)
+data-table:
+  title: 'Assist King: Michael Olise'
+  columns:
+    - Match
+    - Stage
+    - Goals
+    - Assists
+  rows:
+    - - vs Senegal
+      - Group
+      - '0'
+      - '2'
+    - - vs Iraq
+      - Group
+      - '1'
+      - '1'
+    - - vs Norway
+      - Group
+      - '0'
+      - '2'
+    - - vs Sweden
+      - Round of 32
+      - '0'
+      - '0'
+    - - vs Paraguay
+      - Round of 16
+      - '1'
+      - '1'
+    - - vs Morocco
+      - Quarterfinal
+      - '0'
+      - '1'
+    - - vs Spain
+      - Semifinal
+      - '0'
+      - '0'
+    - - vs England
+      - Third Place
+      - '1'
+      - '0'
+    - - Total
+      - 8 matches
+      - '3'
+      - '7'
+  text: Add up the Assists column yourself — it lands on 7.
+  citation: FOX Sports, 2026
+
+---
+# Post 6 (Data Stats)
+data-stats:
+  stat: '12'
+  title: All-Time Assist Leader
+  text: >
+    Messi's four assists in 2026 pushed his career total to 12, breaking Didi's
+    long-standing record of 9 to become the greatest assist provider in men's
+    World Cup history.
+  imageUrl: ''
+  citation: Planet Football, 2026
+
+---
+# Post 7 (Player Stats)
+player-stats:
+  name: 'Golden Glove: Unai Simón'
+  team: Spain
+  position: Goalkeeper
+  stats:
+    - label: Matches
+      value: '8'
+    - label: Clean Sheets
+      value: '7'
+    - label: Goals Conceded
+      value: '1'
+    - label: Save %
+      value: '90.9%'
+  citation: FIFA, 2026
+
+---
+# Post 8 (Leaderboard)
+leaderboard:
+  title: 'Golden Ball: Top 3'
+  entries:
+    - rank: 1
+      name: Rodri (Spain)
+      score: Golden Ball
+      medal: 🥇
+    - rank: 2
+      name: Lionel Messi (Argentina)
+      score: Silver Ball
+      medal: 🥈
+    - rank: 3
+      name: Kylian Mbappé (France)
+      score: Bronze Ball
+      medal: 🥉
+  citation: FIFA, 2026
+
+---
+# Post 9 (Achievement Unlocked)
+achievement-unlocked:
+  title: Pau Cubarsí
+  game: FIFA World Cup 2026
+  subtitle: 19 years old and already Spain's defensive rock
+  rarity: Best Young Player
+  dateUnlocked: 19 Jul 2026
+  citation: FIFA, 2026
+
+---
+# Post 10 (References)
+references:
+  title: References
+  items:
+    - author: FIFA
+      title: FIFA World Cup 2026 Award Winners
+      year: '2026'
+      url: https://www.fifa.com
+    - author: World Cup Pass
+      title: 'Kylian Mbappé World Cup 2026: Stats, Records, Goals & Assists'
+      year: '2026'
+      url: https://worldcuppass.com/kylian-mbappe-world-cup-2026/
+    - author: FOX Sports
+      title: 'Michael Olise Breaks All-Time Record for Assists in a Single World Cup'
+      year: '2026'
+      url: https://www.foxsports.com/stories/soccer/michael-olise-ties-world-cup-assist-record-france-advances-semifinals
+    - author: Planet Football
+      title: 'World Cup 2026 assist leaders & all-time assist makers'
+      year: '2026'
+      url: https://www.planetfootball.com/stats-tables/top-world-cup-assist-makers-all-time-messi-pele-maradona
+  citation: ''

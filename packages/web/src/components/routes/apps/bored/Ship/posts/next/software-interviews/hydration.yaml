@@ -1,0 +1,134 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  title: What Is Hydration?
+  highlights:
+    - Hydration?
+  text: The step that makes your React page clickable
+  citation: ''
+
+---
+# Post 2 (Bullet List)
+bullet-list:
+  title: Hydration in One Sentence
+  items:
+    - Server sends HTML first
+    - Browser shows it instantly
+    - React then attaches event listeners
+    - The page becomes interactive
+  citation: ''
+
+---
+# Post 3 (Architecture Diagram)
+architecture-diagram:
+  title: Why It Exists
+  components:
+    - name: Server
+      desc: Renders HTML in advance
+    - name: Browser
+      desc: Paints HTML right away
+    - name: React Runtime
+      desc: Downloads and runs JS
+    - name: Hydrated App
+      desc: HTML + JS now in sync
+  connections:
+    - from: Server
+      to: Browser
+      label: sends HTML
+    - from: Browser
+      to: React Runtime
+      label: loads JS
+    - from: React Runtime
+      to: Hydrated App
+      label: attaches events
+  citation: ''
+
+---
+# Post 4 (Step by Step)
+step-by-step:
+  title: How Hydration Works
+  text: Three things happen after the HTML loads.
+  steps:
+    - label: Browser paints server HTML
+    - label: React downloads matching JS bundle
+    - label: React "claims" the DOM instead of rebuilding it
+  citation: ''
+
+---
+# Post 5 (Versus)
+versus:
+  title: Hydration vs Client-Side Rendering
+  optionA:
+    label: Hydration (SSR)
+    desc: HTML arrives pre-rendered
+  optionB:
+    label: Pure CSR
+    desc: HTML built entirely in browser
+  features:
+    - a: Fast first paint
+      b: Blank screen until JS loads
+    - a: SEO-friendly out of the box
+      b: Needs extra SEO workarounds
+    - a: Extra hydration step required
+      b: No hydration step needed
+  citation: ''
+
+---
+# Post 6 (Terminal)
+terminal:
+  title: What You See in Code
+  description: A quick deployment script for your project
+  command: next build && next start
+  output: Server renders <App /> to HTML
+  syntax: |-
+    // client entry
+    hydrateRoot(
+      document,
+      <App />
+    )
+  citation: ''
+  subtitle: Next.js hydrates automatically on the client
+
+---
+# Post 7 (Takeaway)
+takeaway:
+  title: The Common Mistake
+  text: A "hydration mismatch" happens when server HTML and client render disagree,
+    like using Date.now() or random values during render.
+  source: React docs
+  citation: ''
+
+---
+# Post 8 (Checklist)
+checklist:
+  title: Remember This
+  text: Hydration in a nutshell.
+  items:
+    - Server renders HTML first, browser paints it instantly
+    - React then attaches JS to that same HTML
+    - Mismatches happen when server & client output differ
+    - Avoid Date.now() and Math.random() during render
+    - hydrateRoot() is the React 18+ entry point
+  citation: ''
+
+---
+# Post 9 (References)
+references:
+  title: References
+  items:
+    - author: React Team
+      title: hydrateRoot API Reference
+      year: '2024'
+      url: https://react.dev/reference/react-dom/client/hydrateRoot
+    - author: Vercel
+      title: 'Next.js Rendering: Server and Client Components'
+      year: '2024'
+      url: https://nextjs.org/docs/app/building-your-application/rendering
+  citation: ''
+
+---
+# Post 10 (This or That)
+this-or-that:
+  title: Which Hydration Bug Do You Dread More?
+  optionA: Mismatch Warnings
+  optionB: Flash of Unstyled Content
+  citation: ''

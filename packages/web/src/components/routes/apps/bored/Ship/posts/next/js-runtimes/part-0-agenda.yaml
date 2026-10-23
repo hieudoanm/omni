@@ -1,0 +1,68 @@
+# Post 1 (Minimal)
+minimal:
+  headline: Node.js vs Bun vs Deno
+  text: Which JavaScript runtime should you choose in 2026? Here's a quick guide to
+    help you decide.
+  imageUrl: https://github.com/hieudoanm/hieudoanm.github.io/blob/master/packages/assets/png/instagram/runtimes.png?raw=true
+
+---
+# Post 2 (Listicle)
+listicle:
+  headline: Node.js
+  text: The mature, battle-tested runtime that powers most JavaScript backends.
+  items:
+    - Largest ecosystem with millions of npm packages
+    - Powered by Google's V8 engine
+    - Excellent community and enterprise support
+    - Stable choice for production applications
+    - 'Best for: Enterprise APIs & long-term projects'
+  imageUrl: ''
+
+---
+# Post 3 (Listicle)
+listicle:
+  headline: Bun
+  text: An all-in-one runtime designed to make JavaScript development incredibly
+    fast.
+  items:
+    - Built in Zig and powered by JavaScriptCore
+    - Lightning-fast package installation
+    - Native TypeScript support
+    - Bundler, test runner, and package manager included
+    - 'Best for: New projects focused on performance'
+  imageUrl: ''
+
+---
+# Post 4 (Listicle)
+listicle:
+  headline: Deno
+  text: A modern runtime focused on security, simplicity, and TypeScript.
+  items:
+    - Secure-by-default permission model
+    - Native TypeScript support
+    - Supports JSR, npm packages, and URL imports
+    - Modern tooling built into the runtime
+    - 'Best for: Secure services & developer tooling'
+  imageUrl: ''
+
+---
+# Post 5 (Checklist)
+checklist:
+  headline: Which One Should You Pick?
+  text: There isn't a single "best" runtime—the right choice depends on your
+    project, team, and priorities.
+  items:
+    - Need maximum compatibility? → Node.js
+    - Building a brand-new app? → Bun
+    - Want security & TypeScript first? → Deno
+    - Still unsure? Learn Node.js first, then explore Bun or Deno.
+
+---
+# Post 6 (Question)
+question:
+  headline: If you could only use ONE runtime for the next 5 years...
+  options:
+    - Node.js
+    - Bun
+    - Deno
+    - Something else

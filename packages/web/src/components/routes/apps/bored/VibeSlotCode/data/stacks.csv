@@ -1,0 +1,241 @@
+category,type,item,link
+web,framework,React,https://react.dev
+web,framework,Vue,https://vuejs.org
+web,framework,Angular,https://angular.dev
+web,framework,Svelte,https://svelte.dev
+web,framework,Solid,https://solidjs.com
+web,framework,Lit,https://lit.dev
+web,framework,Qwik,https://qwik.dev
+web,framework,Alpine,https://alpinejs.dev
+web,framework,Preact,https://preactjs.com
+web,framework,Ember,https://emberjs.com
+web,styling,Tailwind CSS,https://tailwindcss.com
+web,styling,DaisyUI,https://daisyui.com
+web,styling,Material UI,https://mui.com
+web,styling,Shadcn/ui,https://ui.shadcn.com
+web,styling,UnoCSS,https://unocss.dev
+web,styling,Mantine,https://mantine.dev
+web,styling,Radix UI,https://www.radix-ui.com
+web,styling,Headless UI,https://headlessui.com
+web,styling,Chakra UI,https://www.chakra-ui.com
+web,styling,Ant Design,https://ant.design
+web,backend,Express.js,https://expressjs.com
+web,backend,Django,https://www.djangoproject.com
+web,backend,Spring Boot,https://spring.io/projects/spring-boot
+web,backend,Hono,https://hono.dev
+web,backend,FastAPI,https://fastapi.tiangolo.com
+web,backend,Nest.js,https://nestjs.com
+web,backend,Axum,https://github.com/tokio-rs/axum
+web,backend,Rails,https://rubyonrails.org
+web,backend,Gin,https://gin-gonic.com
+web,backend,Ktor,https://ktor.io
+web,database,PostgreSQL,https://www.postgresql.org
+web,database,SQLite,https://www.sqlite.org
+web,database,MySQL,https://www.mysql.com
+web,database,Turso,https://turso.tech
+web,database,MongoDB,https://www.mongodb.com
+web,database,Prisma,https://www.prisma.io
+web,database,Redis,https://redis.io
+web,database,Neon,https://neon.tech
+web,database,PlanetScale,https://planetscale.com
+web,database,Supabase,https://supabase.com
+mobile,framework,React Native,https://reactnative.dev
+mobile,framework,Flutter,https://flutter.dev
+mobile,framework,Kotlin Multiplatform,https://www.jetbrains.com/kotlin-multiplatform
+mobile,framework,Expo,https://expo.dev
+mobile,framework,Ionic,https://ionicframework.com
+mobile,framework,Capacitor,https://capacitorjs.com
+mobile,framework,SwiftUI,https://developer.apple.com/xcode/swiftui
+mobile,framework,Jetpack Compose,https://developer.android.com/compose
+mobile,framework,NativeScript,https://nativescript.org
+mobile,framework,Xamarin,https://dotnet.microsoft.com/apps/xamarin
+mobile,styling,NativeWind,https://www.nativewind.dev
+mobile,styling,Tailwind CSS,https://tailwindcss.com
+mobile,styling,Shadcn/ui,https://ui.shadcn.com
+mobile,styling,Tamagui,https://tamagui.dev
+mobile,styling,Styled Components,https://styled-components.com
+mobile,styling,UnoCSS,https://unocss.dev
+mobile,styling,Emotion,https://emotion.sh
+mobile,styling,Restyle,https://github.com/Shopify/restyle
+mobile,styling,Gluestack,https://gluestack.io
+mobile,styling,StyleX,https://stylexjs.com
+mobile,store,App Store,https://www.apple.com/app-store
+mobile,store,Google Play,https://play.google.com
+mobile,store,Amazon Appstore,https://www.amazon.com/appstore
+mobile,store,Huawei AppGallery,https://appgallery.huawei.com
+mobile,store,F-Droid,https://f-droid.org
+mobile,store,Samsung Galaxy Store,https://galaxystore.samsung.com
+mobile,store,APKPure,https://apkpure.com
+mobile,store,Aptoide,https://www.aptoide.com
+mobile,store,Tizen Store,https://developer.tizen.org
+mobile,store,GetJar,https://www.getjar.com
+mobile,backend,Firebase,https://firebase.google.com
+mobile,backend,Supabase,https://supabase.com
+mobile,backend,AWS Amplify,https://aws.amazon.com/amplify
+mobile,backend,Appwrite,https://appwrite.io
+mobile,backend,Parse,https://parseplatform.org
+mobile,backend,PocketBase,https://pocketbase.io
+mobile,backend,Nhost,https://nhost.io
+mobile,backend,Kinvey,https://www.kinvey.com
+mobile,backend,Backendless,https://backendless.com
+mobile,backend,Realm,https://realm.io
+desktop,framework,Electron,https://www.electronjs.org
+desktop,framework,Tauri,https://v2.tauri.app
+desktop,framework,Qt,https://www.qt.io
+desktop,framework,.NET MAUI,https://learn.microsoft.com/dotnet/maui
+desktop,framework,Flutter Desktop,https://flutter.dev
+desktop,framework,Compose Multiplatform,https://www.jetbrains.com/lp/compose-multiplatform
+desktop,framework,JavaFX,https://openjfx.io
+desktop,framework,SwiftUI macOS,https://developer.apple.com/xcode/swiftui
+desktop,framework,Uno Platform,https://platform.uno
+desktop,framework,Avalonia,https://www.avaloniaui.net
+desktop,ui-toolkit,CEF,https://bitbucket.org/chromiumembedded/cef
+desktop,ui-toolkit,WebView,https://developer.android.com/reference/android/webkit/WebView
+desktop,ui-toolkit,Qt Widgets,https://doc.qt.io/qt-6/widgets-tutorial.html
+desktop,ui-toolkit,WinUI,https://learn.microsoft.com/windows/apps/winui
+desktop,ui-toolkit,GTK,https://www.gtk.org
+desktop,ui-toolkit,Sciter,https://sciter.com
+desktop,ui-toolkit,FLTK,https://www.fltk.org
+desktop,ui-toolkit,Dear ImGui,https://github.com/ocornut/imgui
+desktop,ui-toolkit,Nuklear,https://github.com/Immediate-Mode-UI/Nuklear
+desktop,ui-toolkit,wxWidgets,https://www.wxwidgets.org
+desktop,packaging,Electron Builder,https://www.electron.build
+desktop,packaging,Tauri Bundler,https://v2.tauri.app
+desktop,packaging,WiX,https://wixtoolset.org
+desktop,packaging,NSIS,https://nsis.sourceforge.io
+desktop,packaging,Inno Setup,https://jrsoftware.org/isinfo.php
+desktop,packaging,DMG Canvas,https://www.dmgcanvas.com
+desktop,packaging,Flatpak,https://flatpak.org
+desktop,packaging,AppImage,https://appimage.org
+desktop,packaging,Snap,https://snapcraft.io
+desktop,packaging,Homebrew,https://brew.sh
+desktop,distribution,GitHub Releases,https://github.com/features/releases
+desktop,distribution,Mac App Store,https://www.apple.com/app-store
+desktop,distribution,Microsoft Store,https://apps.microsoft.com
+desktop,distribution,Chocolatey,https://chocolatey.org
+desktop,distribution,Steam,https://store.steampowered.com
+desktop,distribution,itch.io,https://itch.io
+desktop,distribution,Flathub,https://flathub.org
+desktop,distribution,Snap Store,https://snapcraft.io/store
+desktop,distribution,Scoop,https://scoop.sh
+desktop,distribution,winget,https://learn.microsoft.com/windows/package-manager/winget
+game,engine,Unity,https://unity.com
+game,engine,Unreal Engine,https://www.unrealengine.com
+game,engine,Godot,https://godotengine.org
+game,engine,GameMaker,https://gamemaker.io
+game,engine,Phaser,https://phaser.io
+game,engine,PixiJS,https://pixijs.com
+game,engine,Construct,https://www.construct.net
+game,engine,Cocos Creator,https://www.cocos.com
+game,engine,Defold,https://defold.com
+game,engine,Bevy,https://bevyengine.org
+game,rendering,DirectX,https://learn.microsoft.com/windows/win32/directx
+game,rendering,Vulkan,https://www.vulkan.org
+game,rendering,OpenGL,https://www.opengl.org
+game,rendering,WebGL,https://get.webgl.org
+game,rendering,Metal,https://developer.apple.com/metal
+game,rendering,Three.js,https://threejs.org
+game,rendering,Babylon.js,https://www.babylonjs.com
+game,rendering,WebGPU,https://www.w3.org/TR/webgpu
+game,rendering,PlayCanvas,https://playcanvas.com
+game,rendering,Wgpu,https://wgpu.rs
+game,physics,PhysX,https://developer.nvidia.com/physx-sdk
+game,physics,Havok,https://www.havok.com
+game,physics,Rapier,https://rapier.rs
+game,physics,Box2D,https://box2d.org
+game,physics,Bullet,https://pybullet.org
+game,physics,Matter.js,https://brm.io/matter-js
+game,physics,Ammo.js,https://github.com/kripken/ammo.js
+game,physics,Chipmunk,https://chipmunk-physics.net
+game,physics,Cannon.js,https://cannonjs.org
+game,physics,Jolt,https://joltphysics.org
+game,tooling,Blender,https://www.blender.org
+game,tooling,Aseprite,https://www.aseprite.org
+game,tooling,Tiled,https://www.mapeditor.org
+game,tooling,LDtk,https://ldtk.io
+game,tooling,Spine,https://esotericsoftware.com
+game,tooling,TexturePacker,https://www.codeandweb.com/texturepacker
+game,tooling,Audacity,https://www.audacityteam.org
+game,tooling,GIMP,https://www.gimp.org
+game,tooling,Krita,https://krita.org
+game,tooling,Material Maker,https://www.materialmaker.org
+cli,language,Go,https://go.dev
+cli,language,Rust,https://www.rust-lang.org
+cli,language,TypeScript,https://www.typescriptlang.org
+cli,language,Python,https://www.python.org
+cli,language,Ruby,https://www.ruby-lang.org
+cli,language,Kotlin,https://kotlinlang.org
+cli,language,C,https://en.cppreference.com
+cli,language,Haskell,https://www.haskell.org
+cli,language,Java,https://www.java.com
+cli,language,Nim,https://nim-lang.org
+cli,parser,Cobra,https://cobra.dev
+cli,parser,Clap,https://docs.rs/clap
+cli,parser,Commander,https://github.com/tj/commander.js
+cli,parser,Click,https://click.palletsprojects.com
+cli,parser,optparse,https://ruby-doc.org/stdlib-3.0.0/libdoc/optparse/rdoc/OptionParser.html
+cli,parser,Clikt,https://ajalt.github.io/clikt
+cli,parser,getopt,https://www.gnu.org/software/libc/manual/html_node/Getopt.html
+cli,parser,optparse-applicative,https://github.com/ublubu/optparse-applicative
+cli,parser,picocli,https://picocli.info
+cli,parser,cligen,https://github.com/c-blake/cligen
+cli,runtime,Go,https://go.dev
+cli,runtime,Rust,https://www.rust-lang.org
+cli,runtime,Node.js,https://nodejs.org
+cli,runtime,Python,https://www.python.org
+cli,runtime,Ruby,https://www.ruby-lang.org
+cli,runtime,JVM,https://www.java.com
+cli,runtime,C,https://en.cppreference.com
+cli,runtime,GHC,https://www.haskell.org/ghc
+cli,runtime,JVM,https://www.java.com
+cli,runtime,Nim,https://nim-lang.org
+cli,tui,Bubble Tea,https://github.com/charmbracelet/bubbletea
+cli,tui,Ratatui,https://github.com/ratatui-org/ratatui
+cli,tui,Ink,https://github.com/vadimdemedes/ink
+cli,tui,Textual,https://github.com/Textualize/textual
+cli,tui,TTY,https://github.com/piotrmurach/tty
+cli,tui,Mordant,https://github.com/ajalt/mordant
+cli,tui,ncurses,https://invisible-island.net/ncurses
+cli,tui,Brick,https://github.com/jtdaugherty/brick
+cli,tui,Lanterna,https://github.com/mabe02/lanterna
+cli,tui,illwill,https://github.com/johnnovak/illwill
+data-science,language,Python,https://www.python.org
+data-science,language,R,https://www.r-project.org
+data-science,language,Julia,https://julialang.org
+data-science,language,Scala,https://scala-lang.org
+data-science,language,SQL,https://www.w3schools.com/sql
+data-science,language,TypeScript,https://www.typescriptlang.org
+data-science,language,MATLAB,https://www.mathworks.com
+data-science,language,Go,https://go.dev
+data-science,language,Rust,https://www.rust-lang.org
+data-science,language,Java,https://www.java.com
+data-science,framework,PyTorch,https://pytorch.org
+data-science,framework,TensorFlow,https://www.tensorflow.org
+data-science,framework,JAX,https://jax.readthedocs.io
+data-science,framework,XGBoost,https://xgboost.readthedocs.io
+data-science,framework,LangChain,https://www.langchain.com
+data-science,framework,Hugging Face,https://huggingface.co
+data-science,framework,Scikit-learn,https://scikit-learn.org
+data-science,framework,Keras,https://keras.io
+data-science,framework,LightGBM,https://lightgbm.readthedocs.io
+data-science,framework,CatBoost,https://catboost.ai
+data-science,viz,Matplotlib,https://matplotlib.org
+data-science,viz,Seaborn,https://seaborn.pydata.org
+data-science,viz,Plotly,https://plotly.com
+data-science,viz,Bokeh,https://bokeh.org
+data-science,viz,Vega-Lite,https://vega.github.io/vega-lite
+data-science,viz,D3.js,https://d3js.org
+data-science,viz,Grafana,https://grafana.com
+data-science,viz,Tableau,https://www.tableau.com
+data-science,viz,Altair,https://altair-viz.github.io
+data-science,viz,Looker,https://cloud.google.com/looker
+data-science,notebook,Jupyter,https://jupyter.org
+data-science,notebook,RStudio,https://posit.co
+data-science,notebook,JupyterLab,https://jupyterlab.readthedocs.io
+data-science,notebook,Colab,https://colab.research.google.com
+data-science,notebook,Observable,https://observablehq.com
+data-science,notebook,Deepnote,https://deepnote.com
+data-science,notebook,Kaggle,https://www.kaggle.com
+data-science,notebook,VS Code,https://code.visualstudio.com
+data-science,notebook,Quarto,https://quarto.org
+data-science,notebook,Hex,https://hex.tech

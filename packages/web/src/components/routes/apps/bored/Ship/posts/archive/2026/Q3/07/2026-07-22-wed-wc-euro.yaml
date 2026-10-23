@@ -1,0 +1,77 @@
+# Post 1 (Highlighted Title — Cover & Hook)
+highlighted-title:
+  title: '🇪🇸 Spain Did It Again'
+  highlights:
+    - Again
+  text: Only two teams in history had won the Euro and World Cup back to back —
+    Spain just became the first to do it twice
+  citation: UEFA.com, 2026
+
+---
+# Post 2 (Data/Stats — Short Answer)
+data-stats:
+  stat: 2x
+  title: The Double, Twice
+  text: Spain won Euro 2024, then the 2026 World Cup — the same trick they pulled in
+    2008 - 2010. No nation had ever repeated the double. Until now.
+  imageUrl: ''
+  citation: UEFA.com, 2026
+
+---
+# Post 3 (Timeline — Evidence)
+timeline:
+  title: Only 3 Teams, 3 Eras
+  entries:
+    - date: 1972 - 1974
+      event: '🇩🇪 West Germany: Euro then World Cup — first to hold both at once'
+    - date: 1998 - 2000
+      event: '🇫🇷 France: World Cup then Euro — held both trophies simultaneously'
+    - date: 2008 - 2012
+      event: '🇪🇸 Spain: Euro, World Cup, Euro — an unmatched treble'
+    - date: 2024 - 2026
+      event: '🇪🇸 Spain again: Euro then World Cup — the double, twice'
+  imageUrl: ''
+  citation: FIFA History, 2026
+
+---
+# Post 4 (Stat Row — Summary)
+stat-row:
+  title: The Streak That Says It All
+  text: Spain's unbeaten run started right after a 2024 friendly loss to Colombia
+    and carried through all of Euro 2024 and the entire 2026 World Cup.
+  stats:
+    - value: '38'
+      label: Games unbeaten
+    - value: '37'
+      label: Previous record (Italy, 2018 - 21)
+    - value: '0'
+      label: Losses since Feb 2024
+  citation: beIN Sports, 2026
+
+---
+# Post 5 (References)
+references:
+  title: References
+  items:
+    - author: UEFA.com
+      title: 'Spain at the World Cup 2026: Squad, fixtures, group and history'
+      year: '2026'
+      url: https://www.uefa.com/european-qualifiers/news/02a6-20d159556fdf-60d8385f463f-1000--spain-at-the-world-cup-2026-squad-fixtures-group-and-history/
+    - author: FIFA History
+      title: The UEFA EURO winners that won the FIFA World Cup
+      year: '2026'
+      url: https://www.fifa.com/en/tournaments/mens/worldcup/articles/euro-winners-world-cup-triumphs
+    - author: beIN Sports
+      title: Spain Makes History Sets New International Unbeaten Record After Winning
+        the 2026 FIFA World Cup
+      year: '2026'
+      url: https://www.beinsports.com/en-us/soccer/fifa-world-cup-2026/articles/spain-makes-history-sets-new-international-unbeaten-record-after-winning-the-2026-fifa-world-cup-2026-07-20
+  citation: ''
+
+---
+# Post 6 (This or That — Discussion)
+this-or-that:
+  title: Which Spain 🇪🇸 era was more dominant?
+  optionA: 2008 - 2012 Treble
+  optionB: 2024 - 2026 Double
+  citation: ''

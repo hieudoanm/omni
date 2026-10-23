@@ -1,0 +1,80 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  headline: 'React Basics: Hooks'
+  highlights:
+    - React
+  text: Part 3 of 6 — how function components get state and lifecycle
+
+---
+# Post 2 (Minimal)
+minimal:
+  headline: Hooks let functions do what only classes used to do
+  text: Before hooks, a component needed a class to hold state or run code after
+    render. Hooks give a plain function the same power — no class required.
+  imageUrl: ''
+
+---
+# Post 3 (Glossary)
+glossary:
+  term: useState
+  definition: Adds a piece of state to a component. Returns the current value and a setter
+    to update it.
+  example: const [count, setCount] = useState(0);
+
+---
+# Post 4 (Glossary)
+glossary:
+  term: useEffect
+  definition: Runs code after render — for things like fetching data, subscriptions, or
+    syncing with something outside React.
+  example: |-
+    useEffect(() => {
+      document.title = `Count: ${count}`;
+    }, [count]);
+
+---
+# Post 5 (Code)
+laptop:
+  headline: A Custom Hook
+  description: Hooks can be composed. A custom hook is just a function that calls other
+    hooks — this one tracks window width.
+  code: |-
+    function useWindowWidth() {
+      const [width, setWidth] = useState(window.innerWidth);
+
+      useEffect(() => {
+        const onResize = () => setWidth(window.innerWidth);
+        window.addEventListener('resize', onResize);
+        return () => window.removeEventListener('resize', onResize);
+      }, []);
+
+      return width;
+    }
+  language: TypeScript
+
+---
+# Post 6 (Step by Step)
+step-by-step:
+  headline: The Rules of Hooks
+  text: Two rules keep hooks working correctly, every time.
+  steps:
+    - label: Only call hooks at the top level — never inside loops, conditions, or
+        nested functions
+    - label: Only call hooks from React functions — components or other custom hooks
+    - label: Follow this order every render, so React can track each hook correctly
+
+---
+# Post 7 (Bullet List)
+bullet-list:
+  headline: Before You Move to Part 4
+  items:
+    - useState holds a value, useEffect runs side effects
+    - Custom hooks are just functions that call other hooks
+    - Hooks must run in the same order on every render
+
+---
+# Post 8 (Minimal)
+minimal:
+  headline: Which hook rule have you actually broken by accident?
+  text: Curious what error message it threw — drop yours below.
+  imageUrl: ''

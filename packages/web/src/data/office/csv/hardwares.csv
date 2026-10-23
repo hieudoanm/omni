@@ -1,0 +1,52 @@
+category,id,name,link
+chip,a-series,Apple A-series,https://www.apple.com/
+chip,m-series,Apple M-series,https://www.apple.com/mac/
+chip,snapdragon,Qualcomm Snapdragon,https://www.qualcomm.com/snapdragon
+chip,google-tpu,Google TPU,https://cloud.google.com/tpu
+microcontroller,arduino,Arduino,https://www.arduino.cc/
+microcontroller,esp32,ESP32,https://www.espressif.com/en/products/socs/esp32
+microcontroller,raspberry-pi-pico,Raspberry Pi Pico,https://www.raspberrypi.com/products/raspberry-pi-pico/
+sbc,raspberry-pi,Raspberry Pi,https://www.raspberrypi.com/
+cpu,amd,AMD,https://www.amd.com
+cpu,intel,Intel,https://www.intel.com
+gpu,nvidia,NVIDIA,https://www.nvidia.com
+console,steam-machine,Steam Machine,https://store.steampowered.com
+console,play-station,PlayStation,https://www.playstation.com
+console,xbox,Xbox,https://www.xbox.com
+laptop,asus-zenbook,ASUS ZenBook,https://www.asus.com/laptops/for-home/zenbook/
+laptop,apple-macbook,MacBook Air & Pro,https://www.apple.com/macbook-air/
+laptop,dell,Dell,https://www.dell.com
+laptop,microsoft-surface,Microsoft Surface,https://www.microsoft.com/en-us/surface
+laptop,razer,Razer,https://www.razer.com
+tablet,xiaomi-pad,Xiaomi Pad,https://www.mi.com/global/
+tablet,huawei-pad,Huawei Pad,https://consumer.huawei.com/en/tablets/
+tablet,samsung-galaxy-tab,Samsung Galaxy Tab,https://www.samsung.com/global/galaxy/galaxy-tab/
+tablet,apple-ipad,iPad,https://www.apple.com/ipad/
+tablet,google-pixel-tablet,Google Pixel Tablet,https://store.google.com/product/pixel_tablet
+phone,oppo-reno,OPPO Reno,https://www.oppo.com
+phone,xiaomi,Xiaomi,https://www.mi.com/global/
+phone,huawei,Huawei,https://www.huawei.com
+phone,oneplus,OnePlus,https://www.oneplus.com
+phone,sony-xperia,Sony Xperia,https://www.sony.com/electronics/xperia
+phone,samsung-galaxy,Samsung Galaxy,https://www.samsung.com/global/galaxy/
+phone,asus-rog,ASUS ROG,https://rog.asus.com
+phone,nothing-cmf,Nothing CMF,https://www.nothing.tech
+phone,apple-iphone,iPhone,https://www.apple.com/iphone/
+phone,google-pixel,Google Pixel,https://store.google.com/category/phones
+phone,motorola,Motorola,https://www.motorola.com
+headphone,sennheiser,Sennheiser,https://www.sennheiser.com
+headphone,sony-wh-1000xm5,Sony WH-1000XM5,https://www.sony.com/electronics/headband-headphones/wh-1000xm5
+headphone,samsung-buds,Samsung Buds,https://www.samsung.com/global/galaxy/galaxy-buds/
+headphone,marshall,Marshall,https://www.marshall.com
+headphone,nothing-ear,Nothing Ear,https://www.nothing.tech/pages/ear
+headphone,apple-airpods,AirPods,https://www.apple.com/airpods/
+headphone,beats,Beats,https://www.beatsbydre.com
+headphone,bose,Bose QuietComfort,https://www.bose.com
+headphone,jbl,JBL,https://www.jbl.com
+watch,garmin,Garmin,https://www.garmin.com
+watch,huawei-watch,Huawei Watch,https://consumer.huawei.com/en/wearables/
+watch,samsung-galaxy-watch,Galaxy Watch,https://www.samsung.com/global/galaxy/galaxy-watch/
+watch,apple-watch,Apple Watch,https://www.apple.com/watch/
+watch,google-pixel-watch,Pixel Watch,https://store.google.com/product/pixel_watch
+watch,casio-g-shock,Casio G-Shock,https://www.casio.com
+watch,hublot,Hublot,https://www.hublot.com

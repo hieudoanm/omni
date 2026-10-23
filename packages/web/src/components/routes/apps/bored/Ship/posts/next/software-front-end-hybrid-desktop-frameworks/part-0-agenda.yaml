@@ -1,0 +1,44 @@
+# Slide 1 (Highlighted Title)
+highlighted-title:
+  headline: Hybrid Desktop Frameworks in 2026
+  text: Ship your web app as a native desktop app
+
+---
+# Slide 2 (Icon + Text)
+icon-text:
+  icon: '⚡'
+  headline: Electron
+  text: The original. Bundles a full Chromium + Node runtime — huge ecosystem, but
+    heavier apps.
+
+---
+# Slide 3 (Icon + Text)
+icon-text:
+  icon: '🦫'
+  headline: Wails
+  text: Go backend, native webview frontend. Small binaries with a Go-first
+    developer experience.
+
+---
+# Slide 4 (Icon + Text)
+icon-text:
+  icon: '🦀'
+  headline: Tauri
+  text: Rust backend, native webview frontend. Lightweight apps with strong security
+    defaults.
+
+---
+# Slide 5 (Bullet List)
+bullet-list:
+  headline: The Desktop Frameworks, Recap
+  items:
+    - 'Electron — Chromium + Node, biggest ecosystem'
+    - 'Wails — Go backend, native webview'
+    - 'Tauri — Rust backend, native webview'
+
+---
+# Slide 6 (Minimal)
+minimal:
+  headline: Which desktop framework ships the leanest app for you?
+  text: Curious what's actually running in your users' hands — drop yours below.
+  imageUrl: ''

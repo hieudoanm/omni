@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omni</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+<div class="header">
+  <div class="brand">
+    <span class="brand-name">omni</span>
+    <span class="brand-tag">__BUILD_VERSION__</span>
+  </div>
+  <div class="tab-info">
+    <span id="tabUrl">loading...</span>
+  </div>
+</div>
+
+<nav class="tabbar" role="tablist" aria-label="Features">
+  <button class="tab-btn active" type="button" role="tab" aria-selected="true" data-tab="ads">Ads</button>
+  <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="backtotop">BackToTop</button>
+  <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="block">Block</button>
+  <button class="tab-btn hidden" type="button" role="tab" aria-selected="false" data-tab="chess">Chess</button>
+  <button class="tab-btn hidden" type="button" role="tab" aria-selected="false" data-tab="claude">Claude</button>
+  <button class="tab-btn hidden" type="button" role="tab" aria-selected="false" data-tab="github">GitHub</button>
+  <button class="tab-btn hidden" type="button" role="tab" aria-selected="false" data-tab="insta">Insta</button>
+  <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="newtab">New Tab</button>
+  <button class="tab-btn hidden" type="button" role="tab" aria-selected="false" data-tab="shopify">Shopify</button>
+  <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="snap">Snap</button>
+  <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="sound">Sound</button>
+</nav>
+
+<div class="body">
+
+  <section class="pane active" id="pane-ads" role="tabpanel">
+    <div class="option-box">
+      <div class="option-label">Block Ads</div>
+      <div class="toggle-row">
+        <span class="toggle-label">Hide ads and tracking requests</span>
+        <label class="toggle">
+          <input type="checkbox" id="blockAds" checked />
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <section class="pane" id="pane-backtotop" role="tabpanel">
+    <div class="option-box">
+      <div class="option-label">Back to Top</div>
+      <div class="toggle-row">
+        <span class="toggle-label">Show back to top button</span>
+        <label class="toggle">
+          <input type="checkbox" id="backToTop" checked />
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+    </div>
+    <div class="hint">
+      A "Back to Top" button appears in the bottom-right corner when you scroll
+      down a long page. Click it to smoothly scroll back to the top.
+    </div>
+  </section>
+
+  <section class="pane" id="pane-block" role="tabpanel">
+    <div class="option-box">
+      <div class="option-label">Block</div>
+      <div class="toggle-row">
+        <span class="toggle-label">Block distracting sites</span>
+        <label class="toggle">
+          <input type="checkbox" id="blockDistractingSites" checked />
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <section class="pane" id="pane-chess" role="tabpanel">
+    <div class="option-box">
+      <div class="option-label">Focus</div>
+      <div class="toggle-row">
+        <span class="toggle-label">Hide ratings &amp; overlays</span>
+        <label class="toggle">
+          <input type="checkbox" id="chessFocus" checked />
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+    </div>
+    <div class="hint">
+      On Chess.com, live-game start/over overlays, user taglines, and ratings
+      are hidden so you can focus on the board. Toggle off to show them again.
+    </div>
+  </section>
+
+  <section class="pane" id="pane-claude" role="tabpanel">
+    <div class="option-box">
+      <div class="option-label">Usage</div>
+      <div class="usage-cols">
+        <div class="usage-col">
+          <div class="usage-label">Daily</div>
+          <div class="usage-value" id="claudeDaily">—</div>
+          <div class="usage-reset" id="claudeDailyReset"></div>
+        </div>
+        <div class="usage-col">
+          <div class="usage-label">Weekly</div>
+          <div class="usage-value" id="claudeWeekly">—</div>
+          <div class="usage-reset" id="claudeWeeklyReset"></div>
+        </div>
+      </div>
+    </div>
+    <div class="option-box">
+      <div class="option-label">Track Usage</div>
+      <div class="toggle-row">
+        <span class="toggle-label">Rate-limit badge &amp; indicator</span>
+        <label class="toggle">
+          <input type="checkbox" id="claudeUsage" checked />
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+    </div>
+    <div class="hint">
+      On Claude.ai, daily and weekly API rate-limit usage is read from
+      /rate_limits and /usage responses. The toolbar badge shows the higher
+      percentage only on claude.ai tabs.
+    </div>
+  </section>
+
+  <section class="pane" id="pane-github" role="tabpanel">
+    <div class="option-box">
+      <div class="option-label">External Links</div>
+      <div class="toggle-row">
+        <span class="toggle-label">Open in a new tab</span>
+        <label class="toggle">
+          <input type="checkbox" id="githubToggle" checked />
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+    </div>
+    <div class="hint">
+      On GitHub, links that leave github.com open in a new tab instead of
+      navigating away. Toggle off to navigate normally.
+    </div>
+  </section>
+
+  <section class="pane" id="pane-insta" role="tabpanel">
+    <div class="option-box">
+      <div class="option-label">Open Photos</div>
+      <div class="toggle-row">
+        <span class="toggle-label">Shift + right-click to open</span>
+        <label class="toggle">
+          <input type="checkbox" id="instaToggle" checked />
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+    </div>
+    <div class="hint">
+      On Instagram, hold Shift and right-click a post image to open every photo
+      of the post in new tabs. Plain right-clicks keep the normal menu.
+    </div>
+  </section>
+
+  <section class="pane" id="pane-newtab" role="tabpanel">
+    <div class="option-box">
+      <div class="option-label">Redirect</div>
+      <div class="toggle-row">
+        <span class="toggle-label">Redirect new tabs</span>
+        <label class="toggle">
+          <input type="checkbox" id="newTabRedirect" checked />
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+    </div>
+
+    <div class="option-box">
+      <div class="option-label">Target URL</div>
+      <input
+        class="url-input"
+        type="url"
+        id="newTabTargetUrl"
+        placeholder="https://hieudoanm.github.io"
+        spellcheck="false"
+        autocomplete="off" />
+      <div class="hint">
+        Every new tab opens this address. Defaults to hieudoanm.github.io.
+      </div>
+    </div>
+  </section>
+
+  <section class="pane" id="pane-shopify" role="tabpanel">
+    <div class="btn-row">
+      <button class="btn-secondary" id="shopifyCheckBtn" type="button">
+        Check Shopify
+      </button>
+    </div>
+    <div class="option-box">
+      <div class="option-label">Store</div>
+      <div class="verdict" id="shopifyVerdict">Not checked</div>
+    </div>
+    <div class="option-box">
+      <div class="option-label">Shopify</div>
+      <ul class="indicators" id="shopifyIndicators"></ul>
+    </div>
+    <div class="option-box">
+      <div class="option-label">Shopify Plus</div>
+      <ul class="indicators" id="shopifyPlusIndicators"></ul>
+    </div>
+    <div class="hint">
+      Press Check Shopify to run read-only detection on the current page:
+      window.Shopify, the checkout-token meta, cdn.shopify.com scripts, and
+      /cart.js for Shopify; the checkout.shopify host, Shopify.checkout, and
+      the digital-wallet meta for Plus.
+    </div>
+  </section>
+
+  <section class="pane" id="pane-snap" role="tabpanel">
+    <div class="mode-flex">
+      <button class="mode-btn" id="captureViewBtn">
+        <span class="mode-title">Current View</span>
+        <span class="mode-desc">Capture exactly what is on screen</span>
+      </button>
+      <button class="mode-btn" id="captureFullBtn">
+        <span class="mode-title">Full Page</span>
+        <span class="mode-desc">Scroll &amp; stitch the whole page</span>
+      </button>
+    </div>
+
+    <div class="options-grid">
+      <div class="option-box">
+        <div class="option-label">Auto-save</div>
+        <div class="toggle-row">
+          <span class="toggle-label">Download</span>
+          <label class="toggle">
+            <input type="checkbox" id="autoDownload" checked />
+            <div class="toggle-track"></div>
+            <div class="toggle-thumb"></div>
+          </label>
+        </div>
+      </div>
+      <div class="option-box">
+        <div class="option-label">Format</div>
+        <div class="select-wrap">
+          <select id="formatSelect">
+            <option value="png">PNG</option>
+            <option value="jpeg">JPEG</option>
+            <option value="webp">WebP</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-wrap" id="previewWrap">
+      <div class="preview-label">Preview</div>
+      <div class="preview-img-box">
+        <img id="previewImg" src="" alt="Screenshot preview" />
+        <div class="preview-overlay">
+          <span class="preview-size" id="previewSize"></span>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn-secondary" id="downloadBtn">⬇ Download</button>
+        <button class="btn-secondary" id="copyBtn">⧉ Copy</button>
+      </div>
+    </div>
+
+    <div class="status" id="status"></div>
+  </section>
+
+  <section class="pane" id="pane-sound" role="tabpanel">
+    <div class="sound-count" id="soundPlayingCount">0 playing</div>
+    <div class="btn-row">
+      <button class="btn-secondary" id="soundMuteAllBtn" type="button">
+        Mute All
+      </button>
+      <button class="btn-secondary" id="soundMuteOthersBtn" type="button">
+        Mute Others
+      </button>
+    </div>
+    <div class="option-box">
+      <div class="option-label">Tabs</div>
+      <ul class="tab-list" id="soundTabList"></ul>
+    </div>
+    <div class="hint">
+      Every tab is listed; rows playing audio show ♪. Mute or unmute any
+      individual tab, mute every tab, or mute all except the current one.
+    </div>
+  </section>
+
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

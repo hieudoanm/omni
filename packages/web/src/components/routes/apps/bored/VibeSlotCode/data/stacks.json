@@ -1,0 +1,1172 @@
+[
+  {
+    "id": "web",
+    "emoji": "🌐",
+    "label": "Web",
+    "reels": [
+      {
+        "type": "framework",
+        "emoji": "⚛️",
+        "label": "Framework",
+        "options": [
+          {
+            "name": "React",
+            "link": "https://react.dev"
+          },
+          {
+            "name": "Vue",
+            "link": "https://vuejs.org"
+          },
+          {
+            "name": "Angular",
+            "link": "https://angular.dev"
+          },
+          {
+            "name": "Svelte",
+            "link": "https://svelte.dev"
+          },
+          {
+            "name": "Solid",
+            "link": "https://solidjs.com"
+          },
+          {
+            "name": "Lit",
+            "link": "https://lit.dev"
+          },
+          {
+            "name": "Qwik",
+            "link": "https://qwik.dev"
+          },
+          {
+            "name": "Alpine",
+            "link": "https://alpinejs.dev"
+          },
+          {
+            "name": "Preact",
+            "link": "https://preactjs.com"
+          },
+          {
+            "name": "Ember",
+            "link": "https://emberjs.com"
+          }
+        ]
+      },
+      {
+        "type": "styling",
+        "emoji": "💅",
+        "label": "Styling",
+        "options": [
+          {
+            "name": "Tailwind CSS",
+            "link": "https://tailwindcss.com"
+          },
+          {
+            "name": "DaisyUI",
+            "link": "https://daisyui.com"
+          },
+          {
+            "name": "Material UI",
+            "link": "https://mui.com"
+          },
+          {
+            "name": "Shadcn/ui",
+            "link": "https://ui.shadcn.com"
+          },
+          {
+            "name": "UnoCSS",
+            "link": "https://unocss.dev"
+          },
+          {
+            "name": "Mantine",
+            "link": "https://mantine.dev"
+          },
+          {
+            "name": "Radix UI",
+            "link": "https://www.radix-ui.com"
+          },
+          {
+            "name": "Headless UI",
+            "link": "https://headlessui.com"
+          },
+          {
+            "name": "Chakra UI",
+            "link": "https://www.chakra-ui.com"
+          },
+          {
+            "name": "Ant Design",
+            "link": "https://ant.design"
+          }
+        ]
+      },
+      {
+        "type": "backend",
+        "emoji": "⚙️",
+        "label": "Backend",
+        "options": [
+          {
+            "name": "Express.js",
+            "link": "https://expressjs.com"
+          },
+          {
+            "name": "Django",
+            "link": "https://www.djangoproject.com"
+          },
+          {
+            "name": "Spring Boot",
+            "link": "https://spring.io/projects/spring-boot"
+          },
+          {
+            "name": "Hono",
+            "link": "https://hono.dev"
+          },
+          {
+            "name": "FastAPI",
+            "link": "https://fastapi.tiangolo.com"
+          },
+          {
+            "name": "Nest.js",
+            "link": "https://nestjs.com"
+          },
+          {
+            "name": "Axum",
+            "link": "https://github.com/tokio-rs/axum"
+          },
+          {
+            "name": "Rails",
+            "link": "https://rubyonrails.org"
+          },
+          {
+            "name": "Gin",
+            "link": "https://gin-gonic.com"
+          },
+          {
+            "name": "Ktor",
+            "link": "https://ktor.io"
+          }
+        ]
+      },
+      {
+        "type": "database",
+        "emoji": "🗄️",
+        "label": "Database",
+        "options": [
+          {
+            "name": "PostgreSQL",
+            "link": "https://www.postgresql.org"
+          },
+          {
+            "name": "SQLite",
+            "link": "https://www.sqlite.org"
+          },
+          {
+            "name": "MySQL",
+            "link": "https://www.mysql.com"
+          },
+          {
+            "name": "Turso",
+            "link": "https://turso.tech"
+          },
+          {
+            "name": "MongoDB",
+            "link": "https://www.mongodb.com"
+          },
+          {
+            "name": "Prisma",
+            "link": "https://www.prisma.io"
+          },
+          {
+            "name": "Redis",
+            "link": "https://redis.io"
+          },
+          {
+            "name": "Neon",
+            "link": "https://neon.tech"
+          },
+          {
+            "name": "PlanetScale",
+            "link": "https://planetscale.com"
+          },
+          {
+            "name": "Supabase",
+            "link": "https://supabase.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mobile",
+    "emoji": "📱",
+    "label": "Mobile",
+    "reels": [
+      {
+        "type": "framework",
+        "emoji": "⚛️",
+        "label": "Framework",
+        "options": [
+          {
+            "name": "React Native",
+            "link": "https://reactnative.dev"
+          },
+          {
+            "name": "Flutter",
+            "link": "https://flutter.dev"
+          },
+          {
+            "name": "Kotlin Multiplatform",
+            "link": "https://www.jetbrains.com/kotlin-multiplatform"
+          },
+          {
+            "name": "Expo",
+            "link": "https://expo.dev"
+          },
+          {
+            "name": "Ionic",
+            "link": "https://ionicframework.com"
+          },
+          {
+            "name": "Capacitor",
+            "link": "https://capacitorjs.com"
+          },
+          {
+            "name": "SwiftUI",
+            "link": "https://developer.apple.com/xcode/swiftui"
+          },
+          {
+            "name": "Jetpack Compose",
+            "link": "https://developer.android.com/compose"
+          },
+          {
+            "name": "NativeScript",
+            "link": "https://nativescript.org"
+          },
+          {
+            "name": "Xamarin",
+            "link": "https://dotnet.microsoft.com/apps/xamarin"
+          }
+        ]
+      },
+      {
+        "type": "styling",
+        "emoji": "💅",
+        "label": "Styling",
+        "options": [
+          {
+            "name": "NativeWind",
+            "link": "https://www.nativewind.dev"
+          },
+          {
+            "name": "Tailwind CSS",
+            "link": "https://tailwindcss.com"
+          },
+          {
+            "name": "Shadcn/ui",
+            "link": "https://ui.shadcn.com"
+          },
+          {
+            "name": "Tamagui",
+            "link": "https://tamagui.dev"
+          },
+          {
+            "name": "Styled Components",
+            "link": "https://styled-components.com"
+          },
+          {
+            "name": "UnoCSS",
+            "link": "https://unocss.dev"
+          },
+          {
+            "name": "Emotion",
+            "link": "https://emotion.sh"
+          },
+          {
+            "name": "Restyle",
+            "link": "https://github.com/Shopify/restyle"
+          },
+          {
+            "name": "Gluestack",
+            "link": "https://gluestack.io"
+          },
+          {
+            "name": "StyleX",
+            "link": "https://stylexjs.com"
+          }
+        ]
+      },
+      {
+        "type": "store",
+        "emoji": "🏪",
+        "label": "Store",
+        "options": [
+          {
+            "name": "App Store",
+            "link": "https://www.apple.com/app-store"
+          },
+          {
+            "name": "Google Play",
+            "link": "https://play.google.com"
+          },
+          {
+            "name": "Amazon Appstore",
+            "link": "https://www.amazon.com/appstore"
+          },
+          {
+            "name": "Huawei AppGallery",
+            "link": "https://appgallery.huawei.com"
+          },
+          {
+            "name": "F-Droid",
+            "link": "https://f-droid.org"
+          },
+          {
+            "name": "Samsung Galaxy Store",
+            "link": "https://galaxystore.samsung.com"
+          },
+          {
+            "name": "APKPure",
+            "link": "https://apkpure.com"
+          },
+          {
+            "name": "Aptoide",
+            "link": "https://www.aptoide.com"
+          },
+          {
+            "name": "Tizen Store",
+            "link": "https://developer.tizen.org"
+          },
+          {
+            "name": "GetJar",
+            "link": "https://www.getjar.com"
+          }
+        ]
+      },
+      {
+        "type": "backend",
+        "emoji": "⚙️",
+        "label": "Backend",
+        "options": [
+          {
+            "name": "Firebase",
+            "link": "https://firebase.google.com"
+          },
+          {
+            "name": "Supabase",
+            "link": "https://supabase.com"
+          },
+          {
+            "name": "AWS Amplify",
+            "link": "https://aws.amazon.com/amplify"
+          },
+          {
+            "name": "Appwrite",
+            "link": "https://appwrite.io"
+          },
+          {
+            "name": "Parse",
+            "link": "https://parseplatform.org"
+          },
+          {
+            "name": "PocketBase",
+            "link": "https://pocketbase.io"
+          },
+          {
+            "name": "Nhost",
+            "link": "https://nhost.io"
+          },
+          {
+            "name": "Kinvey",
+            "link": "https://www.kinvey.com"
+          },
+          {
+            "name": "Backendless",
+            "link": "https://backendless.com"
+          },
+          {
+            "name": "Realm",
+            "link": "https://realm.io"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "desktop",
+    "emoji": "🖥️",
+    "label": "Desktop",
+    "reels": [
+      {
+        "type": "framework",
+        "emoji": "⚛️",
+        "label": "Framework",
+        "options": [
+          {
+            "name": "Electron",
+            "link": "https://www.electronjs.org"
+          },
+          {
+            "name": "Tauri",
+            "link": "https://v2.tauri.app"
+          },
+          {
+            "name": "Qt",
+            "link": "https://www.qt.io"
+          },
+          {
+            "name": ".NET MAUI",
+            "link": "https://learn.microsoft.com/dotnet/maui"
+          },
+          {
+            "name": "Flutter Desktop",
+            "link": "https://flutter.dev"
+          },
+          {
+            "name": "Compose Multiplatform",
+            "link": "https://www.jetbrains.com/lp/compose-multiplatform"
+          },
+          {
+            "name": "JavaFX",
+            "link": "https://openjfx.io"
+          },
+          {
+            "name": "SwiftUI macOS",
+            "link": "https://developer.apple.com/xcode/swiftui"
+          },
+          {
+            "name": "Uno Platform",
+            "link": "https://platform.uno"
+          },
+          {
+            "name": "Avalonia",
+            "link": "https://www.avaloniaui.net"
+          }
+        ]
+      },
+      {
+        "type": "ui-toolkit",
+        "emoji": "🎭",
+        "label": "Ui Toolkit",
+        "options": [
+          {
+            "name": "CEF",
+            "link": "https://bitbucket.org/chromiumembedded/cef"
+          },
+          {
+            "name": "WebView",
+            "link": "https://developer.android.com/reference/android/webkit/WebView"
+          },
+          {
+            "name": "Qt Widgets",
+            "link": "https://doc.qt.io/qt-6/widgets-tutorial.html"
+          },
+          {
+            "name": "WinUI",
+            "link": "https://learn.microsoft.com/windows/apps/winui"
+          },
+          {
+            "name": "GTK",
+            "link": "https://www.gtk.org"
+          },
+          {
+            "name": "Sciter",
+            "link": "https://sciter.com"
+          },
+          {
+            "name": "FLTK",
+            "link": "https://www.fltk.org"
+          },
+          {
+            "name": "Dear ImGui",
+            "link": "https://github.com/ocornut/imgui"
+          },
+          {
+            "name": "Nuklear",
+            "link": "https://github.com/Immediate-Mode-UI/Nuklear"
+          },
+          {
+            "name": "wxWidgets",
+            "link": "https://www.wxwidgets.org"
+          }
+        ]
+      },
+      {
+        "type": "packaging",
+        "emoji": "📦",
+        "label": "Packaging",
+        "options": [
+          {
+            "name": "Electron Builder",
+            "link": "https://www.electron.build"
+          },
+          {
+            "name": "Tauri Bundler",
+            "link": "https://v2.tauri.app"
+          },
+          {
+            "name": "WiX",
+            "link": "https://wixtoolset.org"
+          },
+          {
+            "name": "NSIS",
+            "link": "https://nsis.sourceforge.io"
+          },
+          {
+            "name": "Inno Setup",
+            "link": "https://jrsoftware.org/isinfo.php"
+          },
+          {
+            "name": "DMG Canvas",
+            "link": "https://www.dmgcanvas.com"
+          },
+          {
+            "name": "Flatpak",
+            "link": "https://flatpak.org"
+          },
+          {
+            "name": "AppImage",
+            "link": "https://appimage.org"
+          },
+          {
+            "name": "Snap",
+            "link": "https://snapcraft.io"
+          },
+          {
+            "name": "Homebrew",
+            "link": "https://brew.sh"
+          }
+        ]
+      },
+      {
+        "type": "distribution",
+        "emoji": "🚀",
+        "label": "Distribution",
+        "options": [
+          {
+            "name": "GitHub Releases",
+            "link": "https://github.com/features/releases"
+          },
+          {
+            "name": "Mac App Store",
+            "link": "https://www.apple.com/app-store"
+          },
+          {
+            "name": "Microsoft Store",
+            "link": "https://apps.microsoft.com"
+          },
+          {
+            "name": "Chocolatey",
+            "link": "https://chocolatey.org"
+          },
+          {
+            "name": "Steam",
+            "link": "https://store.steampowered.com"
+          },
+          {
+            "name": "itch.io",
+            "link": "https://itch.io"
+          },
+          {
+            "name": "Flathub",
+            "link": "https://flathub.org"
+          },
+          {
+            "name": "Snap Store",
+            "link": "https://snapcraft.io/store"
+          },
+          {
+            "name": "Scoop",
+            "link": "https://scoop.sh"
+          },
+          {
+            "name": "winget",
+            "link": "https://learn.microsoft.com/windows/package-manager/winget"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "game",
+    "emoji": "🎮",
+    "label": "Game",
+    "reels": [
+      {
+        "type": "engine",
+        "emoji": "🎮",
+        "label": "Engine",
+        "options": [
+          {
+            "name": "Unity",
+            "link": "https://unity.com"
+          },
+          {
+            "name": "Unreal Engine",
+            "link": "https://www.unrealengine.com"
+          },
+          {
+            "name": "Godot",
+            "link": "https://godotengine.org"
+          },
+          {
+            "name": "GameMaker",
+            "link": "https://gamemaker.io"
+          },
+          {
+            "name": "Phaser",
+            "link": "https://phaser.io"
+          },
+          {
+            "name": "PixiJS",
+            "link": "https://pixijs.com"
+          },
+          {
+            "name": "Construct",
+            "link": "https://www.construct.net"
+          },
+          {
+            "name": "Cocos Creator",
+            "link": "https://www.cocos.com"
+          },
+          {
+            "name": "Defold",
+            "link": "https://defold.com"
+          },
+          {
+            "name": "Bevy",
+            "link": "https://bevyengine.org"
+          }
+        ]
+      },
+      {
+        "type": "rendering",
+        "emoji": "🎨",
+        "label": "Rendering",
+        "options": [
+          {
+            "name": "DirectX",
+            "link": "https://learn.microsoft.com/windows/win32/directx"
+          },
+          {
+            "name": "Vulkan",
+            "link": "https://www.vulkan.org"
+          },
+          {
+            "name": "OpenGL",
+            "link": "https://www.opengl.org"
+          },
+          {
+            "name": "WebGL",
+            "link": "https://get.webgl.org"
+          },
+          {
+            "name": "Metal",
+            "link": "https://developer.apple.com/metal"
+          },
+          {
+            "name": "Three.js",
+            "link": "https://threejs.org"
+          },
+          {
+            "name": "Babylon.js",
+            "link": "https://www.babylonjs.com"
+          },
+          {
+            "name": "WebGPU",
+            "link": "https://www.w3.org/TR/webgpu"
+          },
+          {
+            "name": "PlayCanvas",
+            "link": "https://playcanvas.com"
+          },
+          {
+            "name": "Wgpu",
+            "link": "https://wgpu.rs"
+          }
+        ]
+      },
+      {
+        "type": "physics",
+        "emoji": "🌊",
+        "label": "Physics",
+        "options": [
+          {
+            "name": "PhysX",
+            "link": "https://developer.nvidia.com/physx-sdk"
+          },
+          {
+            "name": "Havok",
+            "link": "https://www.havok.com"
+          },
+          {
+            "name": "Rapier",
+            "link": "https://rapier.rs"
+          },
+          {
+            "name": "Box2D",
+            "link": "https://box2d.org"
+          },
+          {
+            "name": "Bullet",
+            "link": "https://pybullet.org"
+          },
+          {
+            "name": "Matter.js",
+            "link": "https://brm.io/matter-js"
+          },
+          {
+            "name": "Ammo.js",
+            "link": "https://github.com/kripken/ammo.js"
+          },
+          {
+            "name": "Chipmunk",
+            "link": "https://chipmunk-physics.net"
+          },
+          {
+            "name": "Cannon.js",
+            "link": "https://cannonjs.org"
+          },
+          {
+            "name": "Jolt",
+            "link": "https://joltphysics.org"
+          }
+        ]
+      },
+      {
+        "type": "tooling",
+        "emoji": "🔧",
+        "label": "Tooling",
+        "options": [
+          {
+            "name": "Blender",
+            "link": "https://www.blender.org"
+          },
+          {
+            "name": "Aseprite",
+            "link": "https://www.aseprite.org"
+          },
+          {
+            "name": "Tiled",
+            "link": "https://www.mapeditor.org"
+          },
+          {
+            "name": "LDtk",
+            "link": "https://ldtk.io"
+          },
+          {
+            "name": "Spine",
+            "link": "https://esotericsoftware.com"
+          },
+          {
+            "name": "TexturePacker",
+            "link": "https://www.codeandweb.com/texturepacker"
+          },
+          {
+            "name": "Audacity",
+            "link": "https://www.audacityteam.org"
+          },
+          {
+            "name": "GIMP",
+            "link": "https://www.gimp.org"
+          },
+          {
+            "name": "Krita",
+            "link": "https://krita.org"
+          },
+          {
+            "name": "Material Maker",
+            "link": "https://www.materialmaker.org"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cli",
+    "emoji": "💻",
+    "label": "CLI",
+    "reels": [
+      {
+        "type": "language",
+        "emoji": "🔤",
+        "label": "Language",
+        "options": [
+          {
+            "name": "Go",
+            "link": "https://go.dev"
+          },
+          {
+            "name": "Rust",
+            "link": "https://www.rust-lang.org"
+          },
+          {
+            "name": "TypeScript",
+            "link": "https://www.typescriptlang.org"
+          },
+          {
+            "name": "Python",
+            "link": "https://www.python.org"
+          },
+          {
+            "name": "Ruby",
+            "link": "https://www.ruby-lang.org"
+          },
+          {
+            "name": "Kotlin",
+            "link": "https://kotlinlang.org"
+          },
+          {
+            "name": "C",
+            "link": "https://en.cppreference.com"
+          },
+          {
+            "name": "Haskell",
+            "link": "https://www.haskell.org"
+          },
+          {
+            "name": "Java",
+            "link": "https://www.java.com"
+          },
+          {
+            "name": "Nim",
+            "link": "https://nim-lang.org"
+          }
+        ]
+      },
+      {
+        "type": "parser",
+        "emoji": "📋",
+        "label": "Parser",
+        "options": [
+          {
+            "name": "Cobra",
+            "link": "https://cobra.dev"
+          },
+          {
+            "name": "Clap",
+            "link": "https://docs.rs/clap"
+          },
+          {
+            "name": "Commander",
+            "link": "https://github.com/tj/commander.js"
+          },
+          {
+            "name": "Click",
+            "link": "https://click.palletsprojects.com"
+          },
+          {
+            "name": "optparse",
+            "link": "https://ruby-doc.org/stdlib-3.0.0/libdoc/optparse/rdoc/OptionParser.html"
+          },
+          {
+            "name": "Clikt",
+            "link": "https://ajalt.github.io/clikt"
+          },
+          {
+            "name": "getopt",
+            "link": "https://www.gnu.org/software/libc/manual/html_node/Getopt.html"
+          },
+          {
+            "name": "optparse-applicative",
+            "link": "https://github.com/ublubu/optparse-applicative"
+          },
+          {
+            "name": "picocli",
+            "link": "https://picocli.info"
+          },
+          {
+            "name": "cligen",
+            "link": "https://github.com/c-blake/cligen"
+          }
+        ]
+      },
+      {
+        "type": "runtime",
+        "emoji": "⚡",
+        "label": "Runtime",
+        "options": [
+          {
+            "name": "Go",
+            "link": "https://go.dev"
+          },
+          {
+            "name": "Rust",
+            "link": "https://www.rust-lang.org"
+          },
+          {
+            "name": "Node.js",
+            "link": "https://nodejs.org"
+          },
+          {
+            "name": "Python",
+            "link": "https://www.python.org"
+          },
+          {
+            "name": "Ruby",
+            "link": "https://www.ruby-lang.org"
+          },
+          {
+            "name": "JVM",
+            "link": "https://www.java.com"
+          },
+          {
+            "name": "C",
+            "link": "https://en.cppreference.com"
+          },
+          {
+            "name": "GHC",
+            "link": "https://www.haskell.org/ghc"
+          },
+          {
+            "name": "JVM",
+            "link": "https://www.java.com"
+          },
+          {
+            "name": "Nim",
+            "link": "https://nim-lang.org"
+          }
+        ]
+      },
+      {
+        "type": "tui",
+        "emoji": "🖥️",
+        "label": "Tui",
+        "options": [
+          {
+            "name": "Bubble Tea",
+            "link": "https://github.com/charmbracelet/bubbletea"
+          },
+          {
+            "name": "Ratatui",
+            "link": "https://github.com/ratatui-org/ratatui"
+          },
+          {
+            "name": "Ink",
+            "link": "https://github.com/vadimdemedes/ink"
+          },
+          {
+            "name": "Textual",
+            "link": "https://github.com/Textualize/textual"
+          },
+          {
+            "name": "TTY",
+            "link": "https://github.com/piotrmurach/tty"
+          },
+          {
+            "name": "Mordant",
+            "link": "https://github.com/ajalt/mordant"
+          },
+          {
+            "name": "ncurses",
+            "link": "https://invisible-island.net/ncurses"
+          },
+          {
+            "name": "Brick",
+            "link": "https://github.com/jtdaugherty/brick"
+          },
+          {
+            "name": "Lanterna",
+            "link": "https://github.com/mabe02/lanterna"
+          },
+          {
+            "name": "illwill",
+            "link": "https://github.com/johnnovak/illwill"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "data-science",
+    "emoji": "📊",
+    "label": "Data Science",
+    "reels": [
+      {
+        "type": "language",
+        "emoji": "🔤",
+        "label": "Language",
+        "options": [
+          {
+            "name": "Python",
+            "link": "https://www.python.org"
+          },
+          {
+            "name": "R",
+            "link": "https://www.r-project.org"
+          },
+          {
+            "name": "Julia",
+            "link": "https://julialang.org"
+          },
+          {
+            "name": "Scala",
+            "link": "https://scala-lang.org"
+          },
+          {
+            "name": "SQL",
+            "link": "https://www.w3schools.com/sql"
+          },
+          {
+            "name": "TypeScript",
+            "link": "https://www.typescriptlang.org"
+          },
+          {
+            "name": "MATLAB",
+            "link": "https://www.mathworks.com"
+          },
+          {
+            "name": "Go",
+            "link": "https://go.dev"
+          },
+          {
+            "name": "Rust",
+            "link": "https://www.rust-lang.org"
+          },
+          {
+            "name": "Java",
+            "link": "https://www.java.com"
+          }
+        ]
+      },
+      {
+        "type": "framework",
+        "emoji": "⚛️",
+        "label": "Framework",
+        "options": [
+          {
+            "name": "PyTorch",
+            "link": "https://pytorch.org"
+          },
+          {
+            "name": "TensorFlow",
+            "link": "https://www.tensorflow.org"
+          },
+          {
+            "name": "JAX",
+            "link": "https://jax.readthedocs.io"
+          },
+          {
+            "name": "XGBoost",
+            "link": "https://xgboost.readthedocs.io"
+          },
+          {
+            "name": "LangChain",
+            "link": "https://www.langchain.com"
+          },
+          {
+            "name": "Hugging Face",
+            "link": "https://huggingface.co"
+          },
+          {
+            "name": "Scikit-learn",
+            "link": "https://scikit-learn.org"
+          },
+          {
+            "name": "Keras",
+            "link": "https://keras.io"
+          },
+          {
+            "name": "LightGBM",
+            "link": "https://lightgbm.readthedocs.io"
+          },
+          {
+            "name": "CatBoost",
+            "link": "https://catboost.ai"
+          }
+        ]
+      },
+      {
+        "type": "viz",
+        "emoji": "📈",
+        "label": "Viz",
+        "options": [
+          {
+            "name": "Matplotlib",
+            "link": "https://matplotlib.org"
+          },
+          {
+            "name": "Seaborn",
+            "link": "https://seaborn.pydata.org"
+          },
+          {
+            "name": "Plotly",
+            "link": "https://plotly.com"
+          },
+          {
+            "name": "Bokeh",
+            "link": "https://bokeh.org"
+          },
+          {
+            "name": "Vega-Lite",
+            "link": "https://vega.github.io/vega-lite"
+          },
+          {
+            "name": "D3.js",
+            "link": "https://d3js.org"
+          },
+          {
+            "name": "Grafana",
+            "link": "https://grafana.com"
+          },
+          {
+            "name": "Tableau",
+            "link": "https://www.tableau.com"
+          },
+          {
+            "name": "Altair",
+            "link": "https://altair-viz.github.io"
+          },
+          {
+            "name": "Looker",
+            "link": "https://cloud.google.com/looker"
+          }
+        ]
+      },
+      {
+        "type": "notebook",
+        "emoji": "📓",
+        "label": "Notebook",
+        "options": [
+          {
+            "name": "Jupyter",
+            "link": "https://jupyter.org"
+          },
+          {
+            "name": "RStudio",
+            "link": "https://posit.co"
+          },
+          {
+            "name": "JupyterLab",
+            "link": "https://jupyterlab.readthedocs.io"
+          },
+          {
+            "name": "Colab",
+            "link": "https://colab.research.google.com"
+          },
+          {
+            "name": "Observable",
+            "link": "https://observablehq.com"
+          },
+          {
+            "name": "Deepnote",
+            "link": "https://deepnote.com"
+          },
+          {
+            "name": "Kaggle",
+            "link": "https://www.kaggle.com"
+          },
+          {
+            "name": "VS Code",
+            "link": "https://code.visualstudio.com"
+          },
+          {
+            "name": "Quarto",
+            "link": "https://quarto.org"
+          },
+          {
+            "name": "Hex",
+            "link": "https://hex.tech"
+          }
+        ]
+      }
+    ]
+  }
+]

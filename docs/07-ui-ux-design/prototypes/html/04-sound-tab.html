@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sound Tab · Omni</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      :root {
+        --bg: #12090a;
+        --surface: #1a0d0e;
+        --border: #331416;
+        --accent: #d71921;
+        --text: #f0e6e6;
+        --muted: #6f5a5f;
+      }
+      body {
+        width: 320px;
+        min-height: 280px;
+        font-family: 'DM Mono', monospace;
+        background: var(--bg);
+        color: var(--text);
+      }
+      .theme-switcher {
+        position: fixed;
+        right: 1rem;
+        bottom: 1rem;
+        z-index: 60;
+        display: flex;
+        gap: 0.25rem;
+        padding: 0.25rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      }
+      .theme-switcher button {
+        font: inherit;
+        font-size: 12px;
+        padding: 0.35rem 0.7rem;
+        border-radius: 999px;
+        border: 0;
+        background: transparent;
+        color: var(--text);
+        opacity: 0.65;
+        cursor: pointer;
+      }
+      .theme-switcher button[aria-pressed='true'] {
+        background: var(--border);
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body class="p-3">
+    <div class="space-y-2">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-medium">2 playing</span>
+        <div class="flex gap-1">
+          <button class="btn btn-xs btn-outline">Mute all</button>
+          <button class="btn btn-xs btn-outline">Mute others</button>
+        </div>
+      </div>
+      <div class="space-y-1">
+        <div
+          class="flex items-center justify-between p-2 rounded bg-[var(--surface)] border border-[var(--border)]"
+        >
+          <div class="min-w-0">
+            <div class="text-xs truncate">♪ YouTube - Amazing Video</div>
+            <div class="text-[10px] text-[var(--muted)] truncate">
+              youtube.com
+            </div>
+          </div>
+          <button class="btn btn-xs btn-error">Mute</button>
+        </div>
+        <div
+          class="flex items-center justify-between p-2 rounded bg-[var(--surface)] border border-[var(--border)]"
+        >
+          <div class="min-w-0">
+            <div class="text-xs truncate">♪ Spotify Web Player</div>
+            <div class="text-[10px] text-[var(--muted)] truncate">
+              open.spotify.com
+            </div>
+          </div>
+          <button class="btn btn-xs btn-error">Mute</button>
+        </div>
+      </div>
+    </div>
+    <div class="theme-switcher">
+      <button id="theme-light">Light</button
+      ><button id="theme-dark" aria-pressed="true">Dark</button>
+    </div>
+    <script>
+      const root = document.documentElement,
+        light = document.getElementById('theme-light'),
+        dark = document.getElementById('theme-dark');
+      const apply = (t) => {
+        root.setAttribute('data-theme', t);
+        light.setAttribute('aria-pressed', String(t === 'light'));
+        dark.setAttribute('aria-pressed', String(t === 'dark'));
+      };
+      light.onclick = () => apply('light');
+      dark.onclick = () => apply('dark');
+      apply('dark');
+    </script>
+  </body>
+</html>

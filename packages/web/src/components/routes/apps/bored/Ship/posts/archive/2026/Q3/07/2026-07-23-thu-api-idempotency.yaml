@@ -1,0 +1,111 @@
+# Post 1 (Highlighted Title) — Cover
+highlighted-title:
+  title: 'What Is API Idempotency?'
+  highlights:
+    - 'Idempotency'
+  text: 'The property that stops retries from causing duplicate actions'
+  citation: ''
+
+---
+# Post 2 (Minimal) — Short Answer + Roadmap
+minimal:
+  title: 'Same Request, Same Result'
+  text: 'An idempotent request produces the same outcome no matter how many times
+    you send it. Here is why that matters, which HTTP methods qualify, and how
+    to make POST requests safe to retry.'
+  imageUrl: ''
+  citation: ''
+
+---
+# Post 3 (Bullet List) — Background / Why It Matters
+bullet-list:
+  title: 'Why It Matters'
+  items:
+    - 'Networks drop connections mid-request'
+    - 'Clients retry on timeout'
+    - 'The server may have already processed it'
+    - 'Retries can duplicate payments, orders, emails'
+  citation: ''
+
+---
+# Post 4 (Status Grid) — Evidence 1: Which methods are idempotent
+status-grid:
+  title: 'Idempotent HTTP Methods'
+  services:
+    - name: 'GET'
+      status: 'Idempotent'
+    - name: 'PUT'
+      status: 'Idempotent'
+    - name: 'DELETE'
+      status: 'Idempotent'
+    - name: 'PATCH'
+      status: 'Depends'
+    - name: 'POST'
+      status: 'Not Idempotent'
+  citation: ''
+
+---
+# Post 5 (Terminal) — Evidence 2: The problem in practice
+terminal:
+  title: 'The Double-Charge Problem'
+  subtitle: 'A payment request times out, so the client retries'
+  command: 'POST /payments { amount: 50 }'
+  output: 'Request 1: times out (payment actually succeeded server-side)'
+  syntax: "Client retries automatically →\nPOST /payments { amount: 50 }\nResult:
+    customer charged twice"
+  citation: ''
+
+---
+# Post 6 (API Endpoint) — Evidence 3: The fix
+api-endpoint:
+  method: 'POST'
+  path: '/payments'
+  subtitle: 'An Idempotency-Key header makes retries safe'
+  params:
+    - name: 'Idempotency-Key'
+      type: 'header'
+      subtitle: 'Unique key generated once per operation, reused on every retry'
+  responseExample: "{\n  \"status\": \"success\",\n  \"charged\": true,\n  \"replayed\":
+    true\n}"
+  citation: ''
+
+---
+# Post 7 (Myth vs Fact) — Counterargument / Limitation
+myth-vs-fact:
+  title: 'Common Misconception'
+  myth: 'Idempotent means the request has no side effects.'
+  fact: 'Idempotent only means repeating it will not change the result further. The
+    first call can still have a real side effect.'
+  citation: ''
+
+---
+# Post 8 (Takeaway) — Conclusion
+takeaway:
+  title: 'Remember This'
+  text: 'Idempotency protects against network retries, not against all side effects.
+    Use idempotency keys on unsafe methods like POST.'
+  source: ''
+  citation: ''
+
+---
+# Post 9 (References)
+references:
+  title: 'References'
+  items:
+    - author: 'IETF'
+      title: 'RFC 9110: HTTP Semantics — Idempotent Methods'
+      year: '2022'
+      url: 'https://www.rfc-editor.org/rfc/rfc9110'
+    - author: 'Stripe'
+      title: 'Idempotent Requests'
+      year: '2024'
+      url: 'https://docs.stripe.com/api/idempotent_requests'
+  citation: ''
+
+---
+# Post 10 (Minimal) — Discussion
+minimal:
+  title: 'Have You Been Bitten by This?'
+  text: 'Share a time a retried request caused a duplicate action.'
+  imageUrl: ''
+  citation: ''

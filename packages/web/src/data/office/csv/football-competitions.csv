@@ -1,0 +1,41 @@
+level,type,tier,region,subregion,country,competition
+Club,League,1,America,Northern,Mexico,Liga MX
+Club,League,1,America,Northern,USA & Canada,Major League Soccer (MLS)
+Club,League,1,America,Southern,Argentina,Argentine Primera División
+Club,League,1,America,Southern,Brazil,Campeonato Brasileiro Série A
+Club,League,1,America,Southern,Chile,Chilean Primera División
+Club,League,1,Asia,Eastern,Japan,J1 League
+Club,League,1,Asia,Eastern,Korea,K League 1
+Club,League,1,Asia,Southeastern,Thailand,Thai League 1
+Club,League,1,Asia,Southeastern,Vietnam,V.League 1
+Club,League,1,Asia,Saudi Arabia,Western,Saudi Pro League
+Club,League,1,Europe,Great Britain,England,English Premier League (EPL)
+Club,League,2,Europe,Great Britain,England,EPL Championship
+Club,League,3,Europe,Great Britain,England,EPL League One
+Club,League,4,Europe,Great Britain,England,EPL League Two
+Club,League,5,Europe,Great Britain,England,National League
+Club,League,1,Europe,Northern,Italy,Serie A
+Club,League,2,Europe,Northern,Italy,Serie B
+Club,League,1,Europe,Northern,Portugal,Primeira Liga
+Club,League,1,Europe,Northern,Spain,La Liga
+Club,League,1,Europe,Western,France,Ligue 1
+Club,League,2,Europe,Western,France,Ligue 2
+Club,League,1,Europe,Western,Germany,Bundesliga
+Club,League,2,Europe,Western,Germany,Bundesliga 2
+Club,League,1,Europe,Western,Netherlands,Eredivisie
+Club,Cup,1,Europe,,England,FA Cup
+Club,Cup,2,Europe,,England,EFL Cup (Carabao Cup)
+Club,Cup,1,Europe,,Germany,DFB-Pokal
+Club,Cup,1,Europe,,Italy,Coppa Italia
+Club,Cup,1,Europe,,Spain,Copa del Rey
+Club,Cup,1,Europe,,,UEFA Champions League
+Club,Cup,2,Europe,,,UEFA Europa League
+Club,Cup,3,Europe,,,UEFA Conference League
+International,Cup,,Africa,,,Africa Cup of Nations (AFCON)
+International,Cup,,America,North,,CONCACAF
+International,Cup,,America,South,,Copa América
+International,Cup,,Asia,,,AFC Asian Cup
+International,Cup,,Asia,South East Asia,,AFF Cup
+International,Cup,,Europe,,,UEFA European Championship (Euro)
+International,Cup,,Europe,,,UEFA Nations League
+International,Cup,,World,,,FIFA World Cup

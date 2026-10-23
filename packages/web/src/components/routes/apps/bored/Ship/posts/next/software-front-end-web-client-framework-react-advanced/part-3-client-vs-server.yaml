@@ -1,0 +1,70 @@
+# Slide 1 (Highlighted Title)
+highlighted-title:
+  headline: 'React Advanced: Server vs Client Components'
+  highlights:
+    - 'React'
+    - 'Server'
+    - 'Client'
+  text: Part 5 of 6 — deciding where your code actually runs
+
+---
+# Slide 2 (Minimal)
+minimal:
+  headline: Not every component needs to run in the browser
+  text: Server Components render on the server and ship zero JavaScript to the
+    client. Client Components hydrate in the browser and can hold state,
+    effects, and event handlers.
+  imageUrl: ''
+
+---
+# Slide 3 (Versus)
+versus:
+  headline: Server vs Client Components
+  optionA:
+    label: 'Server Components'
+    desc: 'Default in the App Router'
+  optionB:
+    label: 'Client Components'
+    desc: 'Opt in with "use client"'
+  features:
+    - a: 'Ships zero JS to the browser'
+      b: 'Ships JS, needs hydration'
+    - a: 'Can access databases and secrets directly'
+      b: 'Runs entirely in the browser'
+    - a: 'No useState, no event handlers'
+      b: 'Full access to hooks and interactivity'
+
+---
+# Slide 4 (Code)
+laptop:
+  headline: Opting Into the Client
+  description: The directive at the top of the file marks everything below as a Client
+    Component — this is what unlocks useState and onClick.
+  code: "'use client';\n\nimport { useState } from 'react';\n\nfunction Counter()
+    {\n  const [count, setCount] = useState(0);\n  return <button onClick={() =>
+    setCount(count + 1)}>{count}</button>;\n}"
+  language: 'TypeScript'
+
+---
+# Slide 5 (Myth vs Fact)
+myth-vs-fact:
+  headline: Common Misconception
+  myth: '"use client" means the component only runs in the browser.'
+  fact: 'Client Components still render once on the server for the initial HTML,
+    then hydrate in the browser to become interactive.'
+
+---
+# Slide 6 (Bullet List)
+bullet-list:
+  headline: Before You Move to Part 6
+  items:
+    - 'Default to Server Components, opt into Client only when needed'
+    - '"use client" marks the interactivity boundary, not "browser-only"'
+    - 'Server Components can read data directly, no API layer required'
+
+---
+# Slide 7 (Minimal)
+minimal:
+  headline: Where do you draw the line between server and client?
+  text: Curious how everyone splits their components — drop yours below.
+  imageUrl: ''

@@ -1,0 +1,71 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  title: 'The Markdown File Every Repo Needs'
+  highlights:
+    - 'Needs'
+  text: 'AGENTS.md, explained for beginners'
+  citation: 'morphllm.com'
+
+---
+# Post 2 (Bullet List)
+bullet-list:
+  title: 'What Is AGENTS.md?'
+  items:
+    - 'A plain markdown file at your repo root'
+    - 'Written for AI agents, not humans'
+    - 'Holds build commands, test steps, code style'
+    - 'Read natively by 30+ tools in 2026'
+    - 'Claude Code, Cursor, Copilot, Codex, Gemini CLI'
+  citation: 'morphllm.com, betterclaw.io'
+
+---
+# Post 3 (File Tree)
+desktop:
+  title: 'Where It Lives'
+  subtitle: 'One file at the root, read before every task.'
+  tree: "your-repo/\n  AGENTS.md\n  CLAUDE.md\n  README.md\n  packages/\n    api/\n      AGENTS.md\n    web/\n      AGENTS.md"
+  citation: 'hackernoon.com'
+
+---
+# Post 4 (Checklist)
+checklist:
+  title: 'Keep It Effective'
+  text: 'Over 60,000 repos have one. Most still get it wrong.'
+  items:
+    - 'Under 150 lines'
+    - 'Hand-written, not AI-generated'
+    - 'Real code examples, not descriptions'
+    - 'Critical rules stated first'
+    - 'Updated whenever the code changes'
+  citation: 'betterclaw.io, augmentcode.com'
+
+---
+# Post 5 (References)
+references:
+  title: 'References'
+  items:
+    - author: ''
+      title: 'AGENTS.md Spec: Recommended Sections'
+      year: '2026'
+      url: 'https://www.morphllm.com/agents-md-guide'
+    - author: ''
+      title: 'How to Build Your AGENTS.md'
+      year: '2026'
+      url: 'https://www.augmentcode.com/guides/how-to-build-agents-md'
+    - author: ''
+      title: 'AGENTS.md Best Practices: Template and Guide'
+      year: '2026'
+      url: 'https://www.betterclaw.io/blog/agents-md-best-practices'
+    - author: ''
+      title: 'The Complete Guide to AI Agent Memory Files'
+      year: '2026'
+      url: 'https://hackernoon.com/the-complete-guide-to-ai-agent-memory-files-claudemd-agentsmd-and-beyond'
+  citation: ''
+
+---
+# Post 6 (This or That)
+this-or-that:
+  title: 'Which One Do You Have Set Up?'
+  optionA: 'AGENTS.md'
+  optionB: 'CLAUDE.md'
+  citation: 'hackernoon.com'

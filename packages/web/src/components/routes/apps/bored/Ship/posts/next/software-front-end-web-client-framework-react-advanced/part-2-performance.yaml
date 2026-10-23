@@ -1,0 +1,93 @@
+# Slide 1 (Highlighted Title)
+highlighted-title:
+  headline: 'React Advanced: Performance'
+  highlights:
+    - 'React'
+    - 'Performance'
+  text: Part 2 of the Advanced series — memo, useMemo, and useCallback
+
+---
+# Slide 2 (Minimal)
+minimal:
+  headline: Most components don't need to be optimized
+  text: React re-renders fast by default. These three tools exist for the specific
+    cases where a re-render is expensive or happening far more often than it
+    needs to — not as a default habit.
+  imageUrl: ''
+
+---
+# Slide 3 (Code)
+laptop:
+  headline: The Problem They Solve
+  description: Without memoization, every keystroke in the input re-renders ExpensiveList,
+    even though its data never changed.
+  code: "function Parent() {\n  const [text, setText] = useState('');\n  const data
+    = [1, 2, 3];\n\n  return (\n    <>\n      <input value={text} onChange={e =>
+    setText(e.target.value)} />\n      <ExpensiveList items={data}
+    />\n    </>\n  );\n}"
+  language: 'TypeScript'
+
+---
+# Slide 4 (Feature Table)
+feature-table:
+  headline: What Each One Actually Does
+  features:
+    - 'Skips re-render if props unchanged'
+    - 'Memoizes a computed value'
+    - 'Memoizes a function reference'
+    - 'Wraps a component'
+    - 'Wraps something inside a component'
+  plans:
+    - name: 'React.memo'
+      values: ['✓', '—', '—', '✓', '—']
+    - name: 'useMemo'
+      values: ['—', '✓', '—', '—', '✓']
+    - name: 'useCallback'
+      values: ['—', '—', '✓', '—', '✓']
+
+---
+# Slide 5 (Myth vs Fact)
+myth-vs-fact:
+  headline: Common Misconception
+  myth: 'Wrapping everything in memo, useMemo, and useCallback makes an app faster.'
+  fact: 'Each of these has its own overhead. Overusing them on cheap components or
+    simple values can make an app slower, not faster.'
+
+---
+# Slide 6 (Comparison)
+comparison:
+  headline: Before vs After
+  before:
+    label: 'Before'
+    text: 'ExpensiveList re-renders on every keystroke because the parent re-renders
+      and passes a new items reference each time.'
+  after:
+    label: 'After'
+    text: 'Wrapping ExpensiveList in React.memo and the items array in useMemo means
+      it only re-renders when the actual data changes.'
+  imageUrl: ''
+
+---
+# Slide 7 (Tip Card)
+tip-card:
+  number: '04'
+  headline: Measure Before You Memoize
+  text: Use the React DevTools Profiler to find components that actually re-render
+    too often. Optimizing a component that already renders in under a
+    millisecond adds complexity for no real gain.
+
+---
+# Slide 8 (Bullet List)
+bullet-list:
+  headline: Performance, Recap
+  items:
+    - 'React.memo skips re-renders when props are unchanged'
+    - 'useMemo caches a value, useCallback caches a function'
+    - "Profile first — don't memoize by default"
+
+---
+# Slide 9 (Minimal)
+minimal:
+  headline: Have you ever added memo and made things worse?
+  text: Curious what the DevTools Profiler showed you — drop yours below.
+  imageUrl: ''

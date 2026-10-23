@@ -1,0 +1,8 @@
+category,api,url
+Forex,Fixer,https://fixer.io/
+Forex,Frankfurter,https://frankfurter.dev/
+News,News,https://newsapi.org/
+Sports,Football Data,https://www.football-data.org/
+Weather,Air Visual,https://api-docs.iqair.com/
+Weather,Open Meteo,https://open-meteo.com/
+Weather,Open Weather Map,https://openweathermap.org/

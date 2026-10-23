@@ -1,0 +1,40 @@
+category,publisher,team,name,secret_identity,weapon,representation
+Comic,DC,Bat Family,Batman,Bruce Wanye,,
+Comic,DC,Bat Family,Nightwing,Dick Grayson,,
+Comic,DC,Bat Family,Red Hood,Jason Todd,,
+Comic,DC,Bat Family,Red Robin,Tim Drake,,
+Comic,DC,Bat Family,Robin,Damian Wayne,,
+Comic,DC,Justice League,Superman,Clark Kent,,
+Comic,DC,Justice League,Flash,Barry Allen,,
+Comic,DC,Justice League,Flash,Wally West,,
+Comic,DC,Justice League,Green Lantern,Hal Jordan,Ring,
+Comic,DC,Justice League Dark,,John Constantine,,
+Comic,DC,Justice League Dark,,Zatanna,,
+Comic,DC,Greek Gods,God of Love,Aphrodite,,
+Comic,DC,Greek Gods,God of Sun,Apollo,,
+Comic,DC,Greek Gods,God of War,Ares,,
+Comic,DC,Greek Gods,God of Moon,Artemis,Archer,
+Comic,DC,Greek Gods,God of Wisdom,Athena,,
+Comic,DC,Greek Gods,God of Agriculture,Demeter,,
+Comic,DC,Greek Gods,God of Wine,Dionysus,,
+Comic,DC,Greek Gods,God of Underworld,Hades,,
+Comic,DC,Greek Gods,God of Engineer,Hephaestus,,
+Comic,DC,Greek Gods,God of Marriage,Hera,,
+Comic,DC,Greek Gods,God of Messenger,Hermes,,
+Comic,DC,Greek Gods,God of Sky,Zeus,,
+Comic,DC,Greek Gods,God of Sea,Poseidon,Trident,
+Comic,DC,The Endless,Destiny,,,Free Will
+Comic,DC,The Endless,Death,,,Life
+Comic,DC,The Endless,Dream,,,Reality
+Comic,DC,The Endless,Destruction,,,Creation
+Comic,DC,The Endless,Desire,,,Hatred
+Comic,DC,The Endless,Despair,,,Hope
+Comic,DC,The Endless,Delirium,,,Sanity
+Comic,Marvel,Avengers,Captain American,Steve Rogers,Shield,
+Comic,Marvel,Avengers,Black Panther,T'Challa,Suit,
+Comic,Marvel,Avengers,Doctor Strange,Stephen Strange,,
+Comic,Marvel,Avengers,Hulk,Bruce Banner,,
+Comic,Marvel,Avengers,Iron Man,Tony Stark,Suit,
+Comic,Marvel,Avengers,Spider-man,Peter Parker,,
+Comic,Marvel,Avengers,Thor,,Hammer,
+Comic,Marvel,X-Men,Cyclops,Scott Summers,,

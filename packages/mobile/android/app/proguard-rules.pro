@@ -1,0 +1,4 @@
+-keep class io.github.hieudoanm.block.data.entity.** { *; }
+-keep class io.github.hieudoanm.block.data.database.** { *; }
+-keep class io.github.hieudoanm.nfc.data.entity.** { *; }
+-keep class io.github.hieudoanm.nfc.data.database.** { *; }

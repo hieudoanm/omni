@@ -1,0 +1,98 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  title: 6 Languages, 6 Superpowers
+  highlights:
+    - Superpowers
+  text: What each one does better than any of the others.
+  citation: ''
+
+---
+# Post 2 (Listicle)
+listicle:
+  title: What We're Covering
+  text: Six languages, six specialties. Swipe through the lineup.
+  items:
+    - TypeScript — Web development
+    - Python — Data science & ML
+    - Kotlin — Android apps
+    - Swift — iOS & macOS apps
+    - Rust — Systems & performance
+    - Go — Cloud & concurrency
+  imageUrl: ''
+  citation: ''
+
+---
+# Post 3 (Icon + Text)
+icon-text:
+  icon: 🌐
+  title: 'TypeScript: Modern Web Apps'
+  text: The backbone of modern web development. Powers React and Next.js frontends
+    and Node backends, catching type errors before they ship.
+  citation: ''
+
+---
+# Post 4 (Icon + Text)
+icon-text:
+  icon: 🐍
+  title: 'Python: Data Science & ML'
+  text: The default language for machine learning and data analysis. PyTorch,
+    pandas, and NumPy make experimentation fast, not just possible.
+  citation: ''
+
+---
+# Post 5 (Icon + Text)
+icon-text:
+  icon: 🤖
+  title: 'Kotlin: Native Android Apps'
+  text: Google's preferred language for Android. Concise syntax, full Java interop,
+    and null-safety built in from the start.
+  citation: ''
+
+---
+# Post 6 (Icon + Text)
+icon-text:
+  icon: 🍏
+  title: 'Swift: iOS & macOS Apps'
+  text: Built by Apple for its own ecosystem. Fast, memory-safe, and tightly
+    integrated with iOS, macOS, and watchOS frameworks.
+  citation: ''
+
+---
+# Post 7 (Icon + Text)
+icon-text:
+  icon: ⚙️
+  title: 'Rust: Systems Performance'
+  text: Memory-safe systems programming with no garbage collector. Powers browsers,
+    game engines, and other performance-critical tools.
+  citation: ''
+
+---
+# Post 8 (Icon + Text)
+icon-text:
+  icon: ☁️
+  title: 'Go: Cloud & Concurrency'
+  text: Built for simple concurrency at scale. The language behind Docker,
+    Kubernetes, and fast cloud-native backend services.
+  citation: ''
+
+---
+# Post 9 (Bullet List)
+bullet-list:
+  title: Pick the Right Tool
+  items:
+    - TypeScript — Modern web apps
+    - Python — Data science & ML
+    - Kotlin — Android apps
+    - Swift — iOS & macOS apps
+    - Rust — Systems & performance
+    - Go — Cloud & concurrency
+  citation: ''
+
+---
+# Post 10 (Minimal)
+minimal:
+  title: Which One Fits Your Project?
+  text: Every language here has a niche it dominates. Which one matches what you're
+    building next?
+  imageUrl: ''
+  citation: ''

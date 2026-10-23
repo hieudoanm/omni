@@ -1,0 +1,63 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  headline: My 2026 DevStack
+  highlights:
+    - DevStack
+  text: The tools I actually ship with
+
+---
+# Post 2 (Icon + Text)
+icon-text:
+  icon: ⚡
+  headline: Next.js
+  text: React framework for the web layer — routing, SSR, and API routes in one
+    place.
+
+---
+# Post 3 (Icon + Text)
+icon-text:
+  icon: 🎨
+  headline: TailwindCSS
+  text: Utility-first styling. No context-switching between files just to change a
+    color.
+
+---
+# Post 4 (Icon + Text)
+icon-text:
+  icon: 🌼
+  headline: DaisyUI
+  text: Semantic component classes on top of Tailwind. Themes without a rebuild.
+
+---
+# Post 5 (Icon + Text)
+icon-text:
+  icon: 🔌
+  headline: tRPC
+  text: End-to-end type safety between client and server. No REST boilerplate, no
+    schema drift.
+
+---
+# Post 6 (Icon + Text)
+icon-text:
+  icon: 🦀
+  headline: Tauri
+  text: Same web app, shipped as a lightweight native desktop app.
+
+---
+# Post 7 (Bullet List)
+bullet-list:
+  headline: The Stack, Recap
+  items:
+    - Next.js — web framework
+    - TailwindCSS — styling
+    - DaisyUI — components + themes
+    - tRPC — typed API layer
+    - Tauri — desktop shipping
+
+---
+# Post 8 (Minimal)
+minimal:
+  headline: What's your stack for shipping solo?
+  text: Drop yours in the comments — always curious what other indie builders are
+    running.
+  imageUrl: ''

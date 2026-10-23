@@ -1,0 +1,15 @@
+.cm-editor {
+  height: 100%;
+}
+
+@media print {
+  html,
+  body {
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .print-grid th,
+  .print-grid td {
+    border-color: #9ca3af !important;
+  }
+}

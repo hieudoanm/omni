@@ -1,0 +1,53 @@
+continent,region,country,state,city,status
+Africa,Northern Africa,Egypt,,Cairo,Wishlist
+Africa,Northern Africa,Morocco,,Marrakech,Wishlist
+Africa,Southern Africa,South Africa,,Cape Town,Wishlist
+America,North America,United States,California,Los Angeles,Wishlist
+America,North America,United States,Florida,Miami,Wishlist
+America,North America,United States,Illinois,Chicago,Wishlist
+America,North America,United States,Massachusetts,Boston,Wishlist
+America,North America,United States,Nevada,Las Vegas,Wishlist
+America,North America,United States,New York,New York City,Wishlist
+America,North America,United States,Texas,Austin,Wishlist
+America,South America,Brazil,,Sao Paolo,Wishlist
+Asia,Eastern Asia,China,,Beijing,Wishlist
+Asia,Eastern Asia,China,,Shanghai,Wishlist
+Asia,Eastern Asia,Japan,,Kyoto,Wishlist
+Asia,Eastern Asia,Japan,,Tokyo,Wishlist
+Asia,Eastern Asia,South Korea,,Jeju,Wishlist
+Asia,Eastern Asia,South Korea,,Seoul,Wishlist
+Asia,Eastern Asia,Taiwan,,,Wishlist
+Asia,South-Eastern,Malaysia,,Kuala Lumpur,Visited
+Asia,South-Eastern,Malaysia,,Malacca,Visited
+Asia,South-Eastern,Singapore,,Singapore,Visited
+Asia,South-Eastern,Thailand,,Bangkok,Visited
+Asia,Western Asia,Turkey,,Istanbul,Wishlist
+Europe,Central Europe,Hungary,,Budapest,Visited
+Europe,Northern Europe,Finland,,Helsinki,Lived
+Europe,Northern Europe,Finland,,Lahti,Lived
+Europe,Northern Europe,United Kingdom,[[England]],Liverpool,Wishlist
+Europe,Northern Europe,United Kingdom,[[England]],London,Visited
+Europe,Northern Europe,United Kingdom,[[England]],Southampton,Visited
+Europe,Southern Europe,Italy,,Florence,Visited
+Europe,Southern Europe,Italy,,Milan,Wishlist
+Europe,Southern Europe,Italy,,Napoli,Wishlist
+Europe,Southern Europe,Italy,,Pisa,Visited
+Europe,Southern Europe,Italy,,Roma,Visited
+Europe,Southern Europe,Italy,,Venice,Visited
+Europe,Southern Europe,Spain,,Barcelona,Wishlist
+Europe,Southern Europe,Spain,,Madrid,Wishlist
+Europe,Western Europe,France,,Colmar,Visited
+Europe,Western Europe,France,,Paris,Wishlist
+Europe,Western Europe,France,,Strasbourg,Visited
+Europe,Western Europe,Germany,,Berlin,Visited
+Europe,Western Europe,Germany,,Frankfurt am Main,Lived
+Europe,Western Europe,Germany,,München,Visited
+Europe,Western Europe,Netherlands,,Amsterdam,Wishlist
+Oceania,,Australia,Victoria,Melbourne,Visited
+Oceania,,Australia,New South Wales,Sydney,Visited
+Oceania,,Australia,Queensland,Brisbane,Wishlist
+Oceania,,Australia,Western Australia,Perth,Wishlist
+Oceania,,Australia,South Australia,Adelaide,Wishlist
+Oceania,,Australia,Tasmania,Hobart,Wishlist
+Oceania,,Australia,Northern Territory,Darwin,Wishlist
+Oceania,,Australia,Australian Capital,Canberra,Wishlist

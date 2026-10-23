@@ -1,0 +1,30 @@
+category,name,url
+National News Outlets,Fox News,https://www.foxnews.com/
+National News Outlets,Los Angeles Times,https://www.latimes.com/
+National News Outlets,Chicago Tribune,https://www.chicagotribune.com/
+National News Outlets,The Boston Globe,https://www.bostonglobe.com/
+National News Outlets,San Francisco Chronicle,https://www.sfchronicle.com/
+National News Outlets,Dallas Morning News,https://www.dallasnews.com/
+National News Outlets,Miami Herald,https://www.miamiherald.com/
+National News Outlets,The Philadelphia Inquirer,https://www.inquirer.com/
+National News Outlets,Atlanta Journal-Constitution,https://www.ajc.com/
+National News Outlets,The Denver Post,https://www.denverpost.com/
+National News Outlets,Seattle Times,https://www.seattletimes.com/
+National News Outlets,The Daily Beast,https://www.thedailybeast.com/
+Programming Blogs,baeldung,https://www.baeldung.com/
+Programming Blogs,dev.to,https://dev.to/
+Programming Blogs,google.ai,https://ai.google/
+Programming Blogs,hackster,https://www.hackster.io
+Programming Blogs,mozilla,https://developer.mozilla.org/en-US/
+Programming Blogs,roadmap.sh,https://roadmap.sh/
+Programming Blogs,stackoverflow.co,https://stackoverflow.co
+Programming Courses,codecademy,https://www.codecademy.com/catalog
+Programming Courses,codility,https://www.codility.com/
+Programming Courses,codewars,https://www.codewars.com/
+Programming Courses,datacamp,https://www.datacamp.com/
+Programming Courses,freecodecamp,https://www.freecodecamp.org/
+Programming Courses,hackerrank,https://www.hackerrank.com/
+Programming Courses,leetcode,https://leetcode.com/
+Programming Courses,neetcode,https://neetcode.io/
+Programming Courses,pluralsight,https://www.pluralsight.com/
+Programming Courses,NeuroMatch,https://compneuro.neuromatch.io/tutorials/intro.html

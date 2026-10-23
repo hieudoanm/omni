@@ -1,0 +1,474 @@
+/* ---- Object animations ---- */
+@keyframes kn-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes kn-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes kn-fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes kn-fade-left {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes kn-fade-right {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes kn-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes kn-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes kn-fly-up {
+  from {
+    transform: translateY(-120%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes kn-fly-down {
+  from {
+    transform: translateY(120%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes kn-fly-left {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes kn-fly-right {
+  from {
+    transform: translateX(120%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes kn-wipe-up {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes kn-wipe-down {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes kn-wipe-left {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes kn-wipe-right {
+  from {
+    clip-path: inset(0 0 0 100%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes kn-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-24px);
+  }
+}
+@keyframes kn-slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes kn-slide-down {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes kn-slide-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes kn-slide-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes kn-flip {
+  from {
+    transform: rotateY(90deg);
+  }
+  to {
+    transform: rotateY(0);
+  }
+}
+@keyframes kn-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.85;
+  }
+}
+@keyframes kn-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes kn-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-8px);
+  }
+  40%,
+  80% {
+    transform: translateX(8px);
+  }
+}
+@keyframes kn-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+@keyframes kn-grow {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.3);
+  }
+}
+@keyframes kn-wobble {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(6deg);
+  }
+  45% {
+    transform: rotate(-5deg);
+  }
+  60% {
+    transform: rotate(3deg);
+  }
+  75% {
+    transform: rotate(-1deg);
+  }
+}
+@keyframes kn-color-change {
+  0%,
+  100% {
+    filter: hue-rotate(0deg) saturate(1);
+  }
+  50% {
+    filter: hue-rotate(120deg) saturate(1.6);
+  }
+}
+@keyframes kn-motion {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+@keyframes kn-zoom-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
+
+@layer utilities {
+  .anim-entrance-fade {
+    animation: kn-fade 0.6s ease-out both;
+  }
+  .anim-entrance-fade-up {
+    animation: kn-fade-up 0.6s ease-out both;
+  }
+  .anim-entrance-fade-down {
+    animation: kn-fade-down 0.6s ease-out both;
+  }
+  .anim-entrance-fade-left {
+    animation: kn-fade-left 0.6s ease-out both;
+  }
+  .anim-entrance-fade-right {
+    animation: kn-fade-right 0.6s ease-out both;
+  }
+  .anim-entrance-zoom {
+    animation: kn-zoom 0.6s ease-out both;
+  }
+  .anim-entrance-zoom-in {
+    animation: kn-zoom-in 0.6s ease-out both;
+  }
+  .anim-entrance-fly-up {
+    animation: kn-fly-up 0.7s ease-out both;
+  }
+  .anim-entrance-fly-down {
+    animation: kn-fly-down 0.7s ease-out both;
+  }
+  .anim-entrance-fly-left {
+    animation: kn-fly-left 0.7s ease-out both;
+  }
+  .anim-entrance-fly-right {
+    animation: kn-fly-right 0.7s ease-out both;
+  }
+  .anim-entrance-wipe-up {
+    animation: kn-wipe-up 0.6s ease-out both;
+  }
+  .anim-entrance-wipe-down {
+    animation: kn-wipe-down 0.6s ease-out both;
+  }
+  .anim-entrance-wipe-left {
+    animation: kn-wipe-left 0.6s ease-out both;
+  }
+  .anim-entrance-wipe-right {
+    animation: kn-wipe-right 0.6s ease-out both;
+  }
+  .anim-entrance-bounce {
+    animation: kn-bounce 0.9s ease-in-out both;
+  }
+  .anim-entrance-slide-up {
+    animation: kn-slide-up 0.6s ease-out both;
+  }
+  .anim-entrance-slide-down {
+    animation: kn-slide-down 0.6s ease-out both;
+  }
+  .anim-entrance-slide-left {
+    animation: kn-slide-left 0.6s ease-out both;
+  }
+  .anim-entrance-slide-right {
+    animation: kn-slide-right 0.6s ease-out both;
+  }
+  .anim-entrance-flip {
+    animation: kn-flip 0.8s ease-out both;
+  }
+  .anim-emphasis-pulse {
+    animation: kn-pulse 0.8s ease-in-out infinite;
+  }
+  .anim-emphasis-spin {
+    animation: kn-spin 1s linear infinite;
+  }
+  .anim-emphasis-shake {
+    animation: kn-shake 0.5s ease-in-out infinite;
+  }
+  .anim-emphasis-blink {
+    animation: kn-blink 1s ease-in-out infinite;
+  }
+  .anim-emphasis-bounce {
+    animation: kn-bounce 0.8s ease-in-out infinite;
+  }
+  .anim-emphasis-grow {
+    animation: kn-grow 0.6s ease-in-out infinite alternate;
+  }
+  .anim-emphasis-wobble {
+    animation: kn-wobble 0.9s ease-in-out infinite;
+  }
+  .anim-emphasis-color-change {
+    animation: kn-color-change 1.2s ease-in-out infinite;
+  }
+  .anim-exit-fade {
+    animation: kn-fade 0.5s ease-in both;
+  }
+  .anim-exit-zoom-out {
+    animation: kn-zoom-out 0.5s ease-in both;
+  }
+  .anim-exit-fade-up {
+    animation: kn-fade-up 0.5s ease-in both;
+  }
+  .anim-exit-fade-down {
+    animation: kn-fade-down 0.5s ease-in both;
+  }
+  .anim-exit-fade-left {
+    animation: kn-fade-left 0.5s ease-in both;
+  }
+  .anim-exit-fade-right {
+    animation: kn-fade-right 0.5s ease-in both;
+  }
+  .anim-exit-slide-up {
+    animation: kn-slide-up 0.5s ease-in both;
+  }
+  .anim-exit-slide-down {
+    animation: kn-slide-down 0.5s ease-in both;
+  }
+  .anim-exit-slide-left {
+    animation: kn-slide-left 0.5s ease-in both;
+  }
+  .anim-exit-slide-right {
+    animation: kn-slide-right 0.5s ease-in both;
+  }
+}
+
+/* ---- Slide transitions (present mode) ---- */
+@keyframes kn-trans-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes kn-trans-push-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes kn-trans-push-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes kn-trans-wipe-in {
+  from {
+    clip-path: inset(0 0 0 100%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes kn-trans-zoom-in {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes kn-trans-flip-in {
+  from {
+    transform: rotateY(-90deg);
+    opacity: 0.4;
+  }
+  to {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+}
+@keyframes kn-trans-cube-in {
+  from {
+    transform: translateX(50%) rotateY(-30deg);
+    opacity: 0.6;
+  }
+  to {
+    transform: translateX(0) rotateY(0);
+    opacity: 1;
+  }
+}
+@keyframes kn-trans-doors-in {
+  from {
+    transform: perspective(1200px) rotateY(90deg);
+    opacity: 0.5;
+  }
+  to {
+    transform: perspective(1200px) rotateY(0);
+    opacity: 1;
+  }
+}

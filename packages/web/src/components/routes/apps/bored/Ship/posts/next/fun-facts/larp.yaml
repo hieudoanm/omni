@@ -1,0 +1,96 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  title: What Does LARPing Actually Mean?
+  highlights:
+    - LARPing
+  text: One word, two very different meanings.
+  citation: ''
+
+---
+# Post 2 (Icon + Text)
+icon-text:
+  icon: 🗡️
+  title: The Original Meaning
+  text: LARP stands for Live Action Role-Play — a real-life game where people dress
+    up, act out characters, and physically play out a story instead of rolling
+    dice at a table.
+  citation: Wikipedia, "Live Action Role-Playing Game"
+
+---
+# Post 3 (Bullet List)
+bullet-list:
+  title: Where It Came From
+  items:
+    - Grew out of tabletop RPGs like Dungeons & Dragons
+    - 'First recorded LARP group: Dagorhir, founded 1977 in the US'
+    - Spread internationally through the 1980s
+    - Now a global hobby with costumes, weapons, and conventions
+  citation: Wikipedia, "History of Live Action Role-Playing Games"
+
+---
+# Post 4 (Tip Card)
+tip-card:
+  number: '01'
+  title: 'Then: A Real Hobby'
+  text: In the 1980s, LARPing meant costumed players acting out fantasy battles and
+    stories in real life, often at organized events.
+  citation: Wikipedia, "Live Action Role-Playing Game"
+
+---
+# Post 5 (Tip Card)
+tip-card:
+  number: '02'
+  title: 'Now: A Joke About Fakers'
+  text: Today, LARPing usually means pretending to be something you're not,
+    especially online, to seem cooler or more credible.
+  citation: Mental Floss, "LARP Meaning Explained" (2026)
+
+---
+# Post 6 (Icon + Text)
+icon-text:
+  icon: 💬
+  title: How It's Used Now
+  text: Someone claiming expertise or a lifestyle they don't actually have — like
+    posing as a Wall Street trader online — gets called out as "larping."
+  citation: Yahoo Entertainment, "What Does LARP/LARPing Mean?" (2026)
+
+---
+# Post 7 (Takeaway)
+takeaway:
+  title: Same Word, New Costume
+  text: Both meanings come down to performing a role — one with a physical costume,
+    one with a curated online persona. Context tells you which is meant.
+  source: Internet slang, 2010s–present
+  citation: ''
+
+---
+# Post 8 (References)
+references:
+  title: References
+  items:
+    - author: Wikipedia
+      title: Live Action Role-Playing Game
+      year: '2026'
+      url: https://en.wikipedia.org/wiki/Live_action_role-playing_game
+    - author: Wikipedia
+      title: History of Live Action Role-Playing Games
+      year: '2026'
+      url: https://en.wikipedia.org/wiki/History_of_live_action_role-playing_games
+    - author: Mental Floss
+      title: What Does the Slang Term "LARP" Mean?
+      year: '2026'
+      url: https://www.mentalfloss.com/language/slang/larp-meaning-explained
+    - author: Yahoo Entertainment
+      title: What Does LARP Or LARPing Mean? The Role-Playing Terms Turned Slang
+        Explained
+      year: '2026'
+      url: https://www.yahoo.com/entertainment/articles/does-larp-larping-mean-role-194008260.html
+  citation: ''
+
+---
+# Post 9 (Minimal)
+minimal:
+  title: Have You Spotted a LARPer Online?
+  text: Someone playing a role that clearly isn't theirs. Drop an example below.
+  imageUrl: ''
+  citation: ''

@@ -1,0 +1,144 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  title: "How EEG Reads Your Brain's Electricity"
+  highlights:
+    - 'Electricity'
+  text: 'Electrodes on your scalp pick up your neurons talking to each other.'
+  citation: ''
+
+---
+# Post 2 (Bullet List)
+bullet-list:
+  title: "EEG Reads the Brain's Electrical Chatter"
+  items:
+    - 'What EEG actually detects'
+    - 'How the signal travels from neuron to screen'
+    - 'The 5 brainwave frequency bands'
+    - 'A common myth about EEG'
+    - 'Real-world uses today'
+  citation: ''
+
+---
+# Post 3 (Minimal)
+minimal:
+  title: 'Why It Matters'
+  text: "Brain activity happens in milliseconds, but most brain-imaging tools are
+    slow or invasive. EEG is different: it's non-invasive, portable, and
+    captures changes as they happen. That combination makes it the tool of
+    choice for diagnosing epilepsy, staging sleep, monitoring anesthesia depth,
+    and building brain-computer interfaces where timing matters more than exact
+    location."
+  imageUrl: ''
+  citation: ''
+
+---
+# Post 4 (Architecture Diagram)
+architecture-diagram:
+  title: 'Inside an EEG System'
+  components:
+    - name: 'Scalp Electrodes'
+      desc: 'Up to 256 sensors detect tiny voltage changes'
+    - name: 'Amplifier'
+      desc: 'Boosts microvolt signals thousands of times'
+    - name: 'Digitizer'
+      desc: 'Converts the analog signal into digital data'
+    - name: 'Computer'
+      desc: 'Plots the signal as waveforms in real time'
+  connections:
+    - from: 'Scalp Electrodes'
+      to: 'Amplifier'
+      label: 'sends raw signal'
+    - from: 'Amplifier'
+      to: 'Digitizer'
+      label: 'boosts & filters'
+    - from: 'Digitizer'
+      to: 'Computer'
+      label: 'streams data'
+  citation: 'Zanoaga et al., 2018'
+
+---
+# Post 5 (Step by Step)
+step-by-step:
+  title: 'From Neuron to Waveform'
+  text: 'Three steps turn brain electricity into the readout you see.'
+  steps:
+    - label: 'Neurons fire in sync'
+    - label: 'Voltage reaches the scalp'
+    - label: 'Electrodes capture and amplify it'
+  citation: ''
+
+---
+# Post 6 (Area Chart)
+area-chart:
+  title: 'The Five Brainwave Bands'
+  text: 'Each frequency range reflects a different mental state.'
+  points:
+    - label: 'Delta'
+      value: 2
+    - label: 'Theta'
+      value: 6
+    - label: 'Alpha'
+      value: 10
+    - label: 'Beta'
+      value: 21
+    - label: 'Gamma'
+      value: 55
+  citation: 'Nascimento et al., 2024 (arXiv:2404.15332)'
+
+---
+# Post 7 (Myth vs Fact)
+myth-vs-fact:
+  title: 'Common Misconception'
+  myth: 'EEG can pinpoint exactly where in the brain a signal comes from.'
+  fact: 'EEG has poor spatial resolution — it shows precise timing, not precise
+    location, and researchers still disagree on the exact cutoffs for each
+    brainwave band.'
+  citation: 'Nascimento et al., 2024 (arXiv:2404.15332)'
+
+---
+# Post 8 (Cheat Sheet)
+cheat-sheet:
+  title: 'EEG Cheat Sheet'
+  subject: 'Electroencephalography'
+  items:
+    - label: 'Measures'
+      content: 'Synchronized neuron voltage at the scalp'
+    - label: 'Time resolution'
+      content: 'Millisecond-level, very fast'
+    - label: 'Spatial resolution'
+      content: 'Low — hard to localize'
+    - label: 'First recorded'
+      content: 'July 6, 1924, by Hans Berger'
+    - label: 'Common uses'
+      content: 'Epilepsy, sleep staging, BCIs'
+  citation: 'Adv Physiol Educ, 2024'
+
+---
+# Post 9 (References)
+references:
+  title: 'References'
+  items:
+    - author: 'Advances in Physiology Education'
+      title: 'Hans Berger (1873-1941): the German psychiatrist who recorded the first
+        electrical brain signal in humans 100 years ago'
+      year: '2024'
+      url: 'https://journals.physiology.org/doi/full/10.1152/advan.00119.2024'
+    - author: 'Nascimento et al.'
+      title: 'Clinical translation of machine learning algorithms for seizure
+        detection in scalp EEG: systematic review'
+      year: '2024'
+      url: 'https://arxiv.org/pdf/2404.15332'
+    - author: 'Zanoaga et al.'
+      title: "Computational EEG in Personalized Medicine: A study in Parkinson's
+        Disease"
+      year: '2018'
+      url: 'https://arxiv.org/pdf/1812.06594'
+  citation: ''
+
+---
+# Post 10 (This or That)
+this-or-that:
+  title: 'Which Brain Tool Fascinates You More?'
+  optionA: 'EEG — Speed'
+  optionB: 'fMRI — Precision'
+  citation: ''

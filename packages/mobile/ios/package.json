@@ -1,0 +1,12 @@
+{
+  "name": "@omni/ios",
+  "version": "0.0.1",
+  "description": "Omni iOS app - hub + NFC Toolkit (SwiftUI, Core NFC)",
+  "scripts": {
+    "format": "make format",
+    "build": "make build",
+    "test": "make test",
+    "lint": "make lint"
+  },
+  "private": true
+}

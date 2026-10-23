@@ -1,0 +1,56 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  headline: Back-end for Front-end Frameworks in 2026
+  highlights:
+    - Back-end
+    - Front-end
+  text: The layer between your frontend and your services
+
+---
+# Post 2 (Icon + Text)
+icon-text:
+  icon: 🚀
+  headline: Apollo GraphQL
+  text: A GraphQL server layer. One query language for the frontend to fetch exactly
+    what it needs.
+
+---
+# Post 3 (Icon + Text)
+icon-text:
+  icon: 🔌
+  headline: tRPC
+  text: End-to-end type safety without a schema. Call backend functions like they're
+    local.
+
+---
+# Post 4 (Icon + Text)
+icon-text:
+  icon: 🚂
+  headline: Express.js
+  text: The minimal, unopinionated classic. Full control, but you wire up the
+    structure yourself.
+
+---
+# Post 5 (Icon + Text)
+icon-text:
+  icon: 🐈
+  headline: Nest.js
+  text: An opinionated, modular framework on top of Express. Built-in structure for
+    larger teams.
+
+---
+# Post 6 (Bullet List)
+bullet-list:
+  headline: The BFF Frameworks, Recap
+  items:
+    - Apollo GraphQL — query-driven API layer
+    - tRPC — typed, schema-less RPC
+    - Express.js — minimal, unopinionated
+    - Nest.js — opinionated, modular
+
+---
+# Post 7 (Minimal)
+minimal:
+  headline: Which BFF layer sits between your frontend and services?
+  text: Curious how teams are structuring this layer in 2026 — drop yours below.
+  imageUrl: ''

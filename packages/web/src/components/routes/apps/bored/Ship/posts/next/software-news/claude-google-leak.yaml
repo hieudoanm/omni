@@ -1,0 +1,106 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  title: Claude Chats Leaked on Google
+  highlights:
+    - Google
+    - Claude
+  text: How a missing tag exposed private AI conversations
+  citation: ''
+
+---
+# Post 2 (Takeaway)
+takeaway:
+  title: Anyone Could Search Your Chats
+  text: Hundreds of shared Claude conversations and artifacts were indexed by Google
+    in July 2026. No hacking required — just a search bar.
+  source: 404 Media, 2026
+  citation: (404 Media, 2026)
+
+---
+# Post 3 (Icon + Text)
+icon-text:
+  icon: 🔓
+  title: Share Was Never Meant to Mean Public
+  text: Claude's share link was built to send a chat to one person, not to publish
+    it to the open web.
+  citation: ''
+
+---
+# Post 4 (Browser)
+browser:
+  url: google.com/search?q=site:claude.ai/share
+  pageTitle: site:claude.ai/share - Google Search
+  title: One Search Query Was All It Took
+  description: A modern web experience for everyone
+  image: ''
+  citation: (Axios, 2026)
+  subtitle: Over the weekend, users on Reddit and X found they could easily search up
+    hundreds of Claude conversations and artifacts.
+
+---
+# Post 5 (Step by Step)
+step-by-step:
+  title: Why It Happened
+  text: A gap between blocking crawlers and blocking indexing.
+  steps:
+    - label: Users posted share links on forums and social media
+    - label: Pages had no noindex tag, only a robots.txt block
+    - label: Google indexed pages it found linked elsewhere on the web
+  citation: (Fortune, 2026)
+
+---
+# Post 6 (Checklist)
+checklist:
+  title: What Got Exposed
+  text: The indexed pages went far beyond casual conversations.
+  items:
+    - Crypto wallet keys
+    - Personal names and addresses
+    - API keys and resumes
+    - Internal company documents
+    - Work notes and private messages
+  citation: (Fortune, 2026)
+
+---
+# Post 7 (Status Grid)
+status-grid:
+  title: Where Things Stand
+  services:
+    - name: Google index
+      status: Cleared
+    - name: Bing index
+      status: Partial
+    - name: Third-party scrapes
+      status: Still out there
+    - name: Anthropic noindex fix
+      status: Live
+  citation: (Axios, 2026)
+
+---
+# Post 8 (References)
+references:
+  title: References
+  items:
+    - author: 404 Media
+      title: Tons of peoples' Claude chats and creations are exposed on Google
+      year: (2026, July 27)
+      url: https://www.404media.co/tons-of-peoples-claude-chats-and-creations-are-exposed-on-google/
+    - author: Axios
+      title: Google search is indexing public Claude artifacts
+      year: (2026, July 27)
+      url: https://www.axios.com/2026/07/27/anthropic-claude-public-chats-google-search
+    - author: Fortune
+      title: Users' seemingly private conversations with Anthropic's Claude showed up
+        in Google search results
+      year: (2026, July 27)
+      url: https://fortune.com/2026/07/27/a-trove-of-users-seemingly-private-conversations-with-anthropics-claude-ai-chatbot-showed-up-in-google-search-results/
+  citation: ''
+
+---
+# Post 9 (Minimal)
+minimal:
+  title: Would You Still Use "Share"?
+  text: Check Settings > Privacy > Shared Chats and revoke anything you no longer
+    want public.
+  imageUrl: ''
+  citation: ''

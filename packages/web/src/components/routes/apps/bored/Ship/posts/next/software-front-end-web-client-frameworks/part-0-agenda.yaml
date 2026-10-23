@@ -1,0 +1,62 @@
+# Slide 1 (Highlighted Title)
+highlighted-title:
+  headline: Front-End Frameworks in 2026
+  text: A quick look at where each one shines
+
+---
+# Slide 2 (Icon + Text)
+icon-text:
+  icon: '⚛️'
+  headline: React
+  text: The default choice. Massive ecosystem, huge hiring pool, and a library for
+    almost everything.
+
+---
+# Slide 3 (Icon + Text)
+icon-text:
+  icon: '🅰️'
+  headline: Angular
+  text: A full framework, not just a library. Opinionated structure that scales well
+    for large teams.
+
+---
+# Slide 4 (Icon + Text)
+icon-text:
+  icon: '💚'
+  headline: Vue
+  text: Gentle learning curve with the power of a full framework. Great docs, great
+    DX.
+
+---
+# Slide 5 (Icon + Text)
+icon-text:
+  icon: '🔥'
+  headline: Svelte
+  text: Compiles away at build time. Less boilerplate, smaller bundles, no virtual
+    DOM overhead.
+
+---
+# Slide 6 (Icon + Text)
+icon-text:
+  icon: '🟦'
+  headline: Solid
+  text: Fine-grained reactivity with a React-like API. Fast updates without
+    re-rendering components.
+
+---
+# Slide 7 (Bullet List)
+bullet-list:
+  headline: The Frameworks, Recap
+  items:
+    - 'React — ecosystem + hiring'
+    - 'Angular — structure at scale'
+    - 'Vue — gentle learning curve'
+    - 'Svelte — compiled, no boilerplate'
+    - 'Solid — fine-grained reactivity'
+
+---
+# Slide 8 (Minimal)
+minimal:
+  headline: Which front-end framework are you betting on?
+  text: Curious what's winning in real projects right now — drop yours below.
+  imageUrl: ''

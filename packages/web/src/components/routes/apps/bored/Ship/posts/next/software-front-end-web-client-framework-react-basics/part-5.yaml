@@ -1,0 +1,70 @@
+# Slide 1 (Highlighted Title)
+highlighted-title:
+  headline: 'React Basics: Composition Over Prop Drilling'
+  highlights:
+    - 'Composition'
+  text: Part 6 of 6 — the fix for props passed through five layers
+
+---
+# Slide 2 (Minimal)
+minimal:
+  headline: Prop drilling is a symptom, not a rule
+  text: When a prop gets passed through components that don't actually use it, just
+    to reach one that does, the structure is fighting you. Composition lets you
+    skip the middlemen entirely.
+  imageUrl: ''
+
+---
+# Slide 3 (Comparison)
+comparison:
+  headline: Before vs After
+  before:
+    label: 'Prop Drilling'
+    text: 'A "theme" prop gets passed through Layout, Sidebar, and Nav — none of
+      which use it — just so NavLink can read it.'
+  after:
+    label: 'Composition'
+    text: 'Layout renders {children}. The parent that actually has "theme" passes
+      NavLink directly into the tree where it''s needed.'
+  imageUrl: ''
+
+---
+# Slide 4 (Code)
+laptop:
+  headline: Passing Components, Not Props
+  description: Layout doesn't know or care what's inside it. The parent decides what
+    NavLink gets, right where it's rendered.
+  code: "function Layout({ children }) {\n  return <div
+    className=\"layout\">{children}</div>;\n}\n\nfunction Page() {\n  return
+    (\n    <Layout>\n      <NavLink theme=\"dark\" />\n    </Layout>\n  );\n}"
+  language: 'TypeScript'
+
+---
+# Slide 5 (Step by Step)
+step-by-step:
+  headline: Spotting the Fix
+  text: Three signs a prop should become composition instead.
+  steps:
+    - label: 'A component receives a prop it never actually reads'
+    - label: 'The same prop is re-passed through 3+ layers'
+    - label: "Replace the passthrough layers with {children} and move the prop to
+        where it's used"
+
+---
+# Slide 6 (Bullet List)
+bullet-list:
+  headline: 'The Full Series, Recap'
+  items:
+    - 'Components & JSX — functions that return UI'
+    - 'Props vs State — data in, data owned'
+    - 'Hooks — state and effects in functions'
+    - 'Virtual DOM — diff first, patch second'
+    - 'Server vs Client — pick where code runs'
+    - 'Composition — pass components, not just props'
+
+---
+# Slide 7 (Minimal)
+minimal:
+  headline: Which of these six is still tripping you up?
+  text: Six parts down — curious which one to go deeper on next.
+  imageUrl: ''

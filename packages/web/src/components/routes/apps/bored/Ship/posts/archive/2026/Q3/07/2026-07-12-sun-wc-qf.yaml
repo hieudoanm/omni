@@ -1,0 +1,164 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  headline: 'World Cup Quarter-Finals: Two Extra-Time Thrillers, Two Statement Wins'
+  highlights:
+    - Extra-Time Thrillers
+    - Statement Wins
+  text: France, Spain, England and Argentina booked their semi-final spots
+
+---
+# Post 2 (Scorecard)
+scorecard:
+  headline: World Cup 2026 — Quarter-Final 1
+  text: Mbappé and Dembélé settle a tense rematch of 2022
+  homeTeam: France
+  awayTeam: Morocco
+  homeScore: 2
+  awayScore: 0
+  date: Thu 9 Jul
+  venue: Boston Stadium
+  scorers:
+    - name: Mbappé
+      minute: '60'
+      team: home
+    - name: Dembélé
+      minute: '66'
+      team: home
+  stats:
+    - label: Possession
+      home: 46%
+      away: 46%
+    - label: Shots
+      home: '22'
+      away: '5'
+    - label: On Target
+      home: '8'
+      away: '1'
+
+---
+# Post 3 (Scorecard)
+scorecard:
+  headline: World Cup 2026 — Quarter-Final 2
+  text: Merino strikes again off the bench to sink Belgium
+  homeTeam: Spain
+  awayTeam: Belgium
+  homeScore: 2
+  awayScore: 1
+  date: Fri 10 Jul
+  venue: Los Angeles Stadium
+  scorers:
+    - name: Ruiz
+      minute: '30'
+      team: home
+    - name: De Ketelaere
+      minute: '41'
+      team: away
+    - name: Merino
+      minute: '88'
+      team: home
+  stats:
+    - label: Possession
+      home: 61%
+      away: 30%
+    - label: Shots
+      home: '17'
+      away: '5'
+    - label: On Target
+      home: '8'
+      away: '2'
+
+---
+# Post 4 (Scorecard)
+scorecard:
+  headline: World Cup 2026 — Quarter-Final 3
+  text: Bellingham's brace drags England through extra time
+  homeTeam: Norway
+  awayTeam: England
+  homeScore: 1
+  awayScore: 2
+  date: Sat 11 Jul
+  venue: Miami Stadium
+  scorers:
+    - name: Schjelderup
+      minute: '36'
+      team: home
+    - name: Bellingham
+      minute: 45+2
+      team: away
+    - name: Bellingham
+      minute: '93'
+      team: away
+  stats:
+    - label: Possession
+      home: 44%
+      away: 47%
+    - label: Shots
+      home: '13'
+      away: '14'
+    - label: On Target
+      home: '4'
+      away: '7'
+
+---
+# Post 5 (Scorecard)
+scorecard:
+  headline: World Cup 2026 — Quarter-Final 4
+  text: Argentina survive Switzerland after a red card and extra time
+  homeTeam: Argentina
+  awayTeam: Switzerland
+  homeScore: 3
+  awayScore: 1
+  date: Sat 11 Jul
+  venue: Kansas City Stadium
+  scorers:
+    - name: Mac Allister
+      minute: '10'
+      team: home
+    - name: Ndoye
+      minute: '67'
+      team: away
+    - name: Alvarez
+      minute: '112'
+      team: home
+    - name: Lautaro Martínez
+      minute: 120+1
+      team: home
+  stats:
+    - label: Possession
+      home: 54%
+      away: 37%
+    - label: Shots
+      home: '22'
+      away: '11'
+    - label: On Target
+      home: '7'
+      away: '5'
+
+---
+# Post 6 (References)
+references:
+  title: Sources
+  items:
+    - author: FIFA
+      title: 'France v Morocco: Result & Stats — Quarter-final'
+      year: '2026'
+      url: https://www.fifa.com/en/match-centre/match/17/285023/289289/400021536
+    - author: FIFA
+      title: 'Spain v Belgium: Result & Stats — Quarter-final'
+      year: '2026'
+      url: https://www.fifa.com/en/match-centre/match/17/285023/289289/400021538
+    - author: FIFA
+      title: 'Norway v England: Result & Stats — Quarter-final'
+      year: '2026'
+      url: https://www.fifa.com/en/match-centre/match/17/285023/289289/400021539
+    - author: FIFA
+      title: 'Argentina v Switzerland: Result & Stats — Quarter-final'
+      year: '2026'
+      url: https://www.fifa.com/en/match-centre/match/17/285023/289290/400021537
+
+---
+# Post 7 (This or That)
+this-or-that:
+  headline: 'Toughest Quarter-Final to Watch?'
+  optionA: England vs Norway
+  optionB: Argentina vs Switzerland

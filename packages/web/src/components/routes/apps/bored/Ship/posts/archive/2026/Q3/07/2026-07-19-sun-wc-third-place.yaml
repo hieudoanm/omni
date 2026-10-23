@@ -1,0 +1,171 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  title: Bronze Final That Rewrote The Record Books
+  highlights:
+    - Rewrote
+  text: England 6-4 France, World Cup 2026
+  citation: ''
+
+---
+# Post 2 (Scorecard)
+scorecard:
+  title: FIFA World Cup 2026 — Third Place Playoff
+  text: Miami Stadium, Sat 18 Jul 2026
+  homeTeam: England
+  awayTeam: France
+  homeScore: 6
+  awayScore: 4
+  date: Sat 18 Jul 2026
+  venue: Miami Stadium, Miami Gardens
+  scorers:
+    - name: Rice
+      minute: '3'
+      team: home
+    - name: Konsa
+      minute: '18'
+      team: home
+    - name: Saka
+      minute: '35'
+      team: home
+    - name: Saka
+      minute: '40'
+      team: home
+    - name: Mbappé
+      minute: '48'
+      team: away
+    - name: Barcola
+      minute: '54'
+      team: away
+    - name: Mbappé
+      minute: '66'
+      team: away
+    - name: Saka
+      minute: 87 (pen)
+      team: home
+    - name: Dembélé
+      minute: 90+
+      team: away
+    - name: Bellingham
+      minute: 90+
+      team: home
+  stats:
+    - label: Halftime Score
+      home: '4'
+      away: '0'
+    - label: Final Goal Tally
+      home: '6'
+      away: '4'
+  citation: ''
+
+---
+# Post 3 (Player Stats)
+player-stats:
+  name: Kylian Mbappé
+  team: France
+  position: Forward
+  stats:
+    - label: Goals This World Cup
+      value: '10'
+    - label: All-Time WC Goals
+      value: 22 (Record)
+    - label: Passed
+      value: Messi (21)
+    - label: Last 10+ Goal Season
+      value: Müller, 1970
+  citation: ''
+
+---
+# Post 4 (Player Stats)
+player-stats:
+  name: Michael Olise
+  team: France
+  position: Winger
+  stats:
+    - label: Assists This World Cup
+      value: 7 (Record)
+    - label: Previous Record
+      value: Pelé, 6 in 1970
+    - label: Assists to Mbappé
+      value: 5 (Record Combo)
+    - label: Record Since
+      value: 1966 (Opta Era)
+  citation: ''
+
+---
+# Post 5 (Player Stats)
+player-stats:
+  name: Bukayo Saka
+  team: England
+  position: Forward
+  stats:
+    - label: Goals in This Match
+      value: 3 (Hat-Trick)
+    - label: England WC Hat-Tricks
+      value: 4th Ever
+    - label: Joins
+      value: Hurst, Lineker, Kane
+    - label: Knockout Hat-Trick
+      value: 2nd After Hurst, 1966
+  citation: ''
+
+---
+# Post 6 (Stat Row)
+stat-row:
+  title: Bellingham's Record Tournament
+  text: Seven goals and counting for England
+  stats:
+    - value: '7'
+      label: Goals This World Cup
+    - value: '#1'
+      label: Most By an Englishman
+    - value: Best Ever
+      label: At a WC or Euros
+  citation: ''
+
+---
+# Post 7 (Bullet List)
+bullet-list:
+  title: More Records From The Chaos
+  items:
+    - Most goals in a WC match since Hungary 10-1 in 1982
+    - Highest-scoring third-place match in World Cup history
+    - England's best World Cup finish since 1966
+    - France lost back-to-back World Cup games for first time since 2010
+    - France conceded 4 first-half goals for first time since 1968
+  citation: ''
+
+---
+# Post 8 (Takeaway)
+takeaway:
+  title: One Match, A Dozen Records
+  text: Mbappé became the all-time top scorer, Olise broke Pelé
+  source: FIFA World Cup 2026, Miami
+  citation: ''
+
+---
+# Post 9 (References)
+references:
+  title: References
+  items:
+    - author: ESPN
+      title: 'FIFA World Cup 2026 Stats: Mbappé Tops Messi With 22'
+      year: '2026'
+      url: https://www.espn.com/soccer/story/_/id/49394546
+    - author: Yahoo Sports
+      title: All the Records Broken in England's Wild World Cup Win vs France
+      year: '2026'
+      url: https://sports.yahoo.com/articles/records-broken-englands-wild-world-235913829.html
+    - author: football360
+      title: 'Mbappe, Olise and Bellingham: The History Made'
+      year: '2026'
+      url: https://football360.com.au/france-england-world-cup-third-place-playoff-what-history-was-made-mbappe-olise-bellingham/
+  citation: ''
+
+---
+# Post 10 (Minimal)
+minimal:
+  title: Which Record Impressed You Most?
+  text: Mbappé's all-time scoring record, Olise's assist haul, or Saka's hat-trick —
+    drop your pick below.
+  imageUrl: ''
+  citation: ''

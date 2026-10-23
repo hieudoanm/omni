@@ -1,0 +1,60 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  headline: My 2026 DevTools
+  highlights:
+    - DevTools
+  text: What keeps my projects clean and fast
+
+---
+# Post 2 (Icon + Text)
+icon-text:
+  icon: 📦
+  headline: pnpm
+  text: Fast, disk-efficient package manager. A must for monorepos with shared
+    dependencies.
+
+---
+# Post 3 (Icon + Text)
+icon-text:
+  icon: 🔍
+  headline: ESLint
+  text: Catches bugs and bad patterns before they ship — not just style nitpicks.
+
+---
+# Post 4 (Icon + Text)
+icon-text:
+  icon: ✨
+  headline: Prettier
+  text: Formats code automatically so nobody argues about tabs vs spaces again.
+
+---
+# Post 5 (Icon + Text)
+icon-text:
+  icon: 🧪
+  headline: Jest
+  text: Unit and integration tests that catch regressions before users do.
+
+---
+# Post 6 (Icon + Text)
+icon-text:
+  icon: 🎭
+  headline: Playwright
+  text: End-to-end tests across real browsers, so the whole flow actually works.
+
+---
+# Post 7 (Bullet List)
+bullet-list:
+  headline: The Tools, Recap
+  items:
+    - pnpm — package manager
+    - ESLint — code quality
+    - Prettier — formatting
+    - Jest — unit tests
+    - Playwright — E2E tests
+
+---
+# Post 8 (Minimal)
+minimal:
+  headline: What tools keep your codebase sane?
+  text: Curious what other builders lean on — drop yours below.
+  imageUrl: ''

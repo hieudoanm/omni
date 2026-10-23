@@ -1,0 +1,1736 @@
+[
+  {
+    "id": "web",
+    "emoji": "🌐",
+    "label": "Web",
+    "reels": [
+      {
+        "type": "cms",
+        "emoji": "📝",
+        "label": "Cms",
+        "options": [
+          {
+            "name": "Blog CMS (WordPress)",
+            "link": ""
+          },
+          {
+            "name": "Content Platform (Contentful)",
+            "link": ""
+          },
+          {
+            "name": "Headless CMS (Strapi)",
+            "link": ""
+          },
+          {
+            "name": "Enterprise CMS (Drupal)",
+            "link": ""
+          },
+          {
+            "name": "Knowledge Base (Notion)",
+            "link": ""
+          },
+          {
+            "name": "Documentation Site (GitBook)",
+            "link": ""
+          },
+          {
+            "name": "Portfolio Builder (Webflow)",
+            "link": ""
+          },
+          {
+            "name": "Landing Pages (Unbounce)",
+            "link": ""
+          },
+          {
+            "name": "Course Platform (Teachable)",
+            "link": ""
+          },
+          {
+            "name": "Job Board (Greenhouse)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "e-commerce",
+        "emoji": "🛒",
+        "label": "E-commerce",
+        "options": [
+          {
+            "name": "Online Store (Shopify)",
+            "link": ""
+          },
+          {
+            "name": "Digital Storefront (WooCommerce)",
+            "link": ""
+          },
+          {
+            "name": "Marketplace (Magento)",
+            "link": ""
+          },
+          {
+            "name": "Subscription Service (ReCharge)",
+            "link": ""
+          },
+          {
+            "name": "Booking System (Calendly)",
+            "link": ""
+          },
+          {
+            "name": "Food Delivery (DoorDash)",
+            "link": ""
+          },
+          {
+            "name": "Auction Platform (eBay)",
+            "link": ""
+          },
+          {
+            "name": "Rental Marketplace (Airbnb)",
+            "link": ""
+          },
+          {
+            "name": "Crowdfunding Platform (Kickstarter)",
+            "link": ""
+          },
+          {
+            "name": "Classified Ads (OfferUp)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "analytics",
+        "emoji": "📊",
+        "label": "Analytics",
+        "options": [
+          {
+            "name": "Site Analytics (Plausible)",
+            "link": ""
+          },
+          {
+            "name": "Product Analytics (Mixpanel)",
+            "link": ""
+          },
+          {
+            "name": "BI Dashboard (Metabase)",
+            "link": ""
+          },
+          {
+            "name": "SEO Dashboard (Ahrefs)",
+            "link": ""
+          },
+          {
+            "name": "Real-time Monitor (Grafana)",
+            "link": ""
+          },
+          {
+            "name": "A/B Testing (Optimizely)",
+            "link": ""
+          },
+          {
+            "name": "Heatmap Tool (Hotjar)",
+            "link": ""
+          },
+          {
+            "name": "Log Analytics (Splunk)",
+            "link": ""
+          },
+          {
+            "name": "User Insights (Amplitude)",
+            "link": ""
+          },
+          {
+            "name": "Social Analytics (Sprout Social)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "collaboration",
+        "emoji": "🤝",
+        "label": "Collaboration",
+        "options": [
+          {
+            "name": "Task Manager (Asana)",
+            "link": ""
+          },
+          {
+            "name": "Kanban Board (Trello)",
+            "link": ""
+          },
+          {
+            "name": "Document Editor (Coda)",
+            "link": ""
+          },
+          {
+            "name": "Team Wiki (Confluence)",
+            "link": ""
+          },
+          {
+            "name": "Whiteboard (Miro)",
+            "link": ""
+          },
+          {
+            "name": "Meeting Notes (Roam)",
+            "link": ""
+          },
+          {
+            "name": "Workflow Builder (Zapier)",
+            "link": ""
+          },
+          {
+            "name": "Smart Sheet (Airtable)",
+            "link": ""
+          },
+          {
+            "name": "OKR Tracker (Gtmhub)",
+            "link": ""
+          },
+          {
+            "name": "Survey Tool (Typeform)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "social",
+        "emoji": "❓",
+        "label": "Social",
+        "options": [
+          {
+            "name": "Microblog Platform (Twitter)",
+            "link": ""
+          },
+          {
+            "name": "Photo Sharing (Instagram)",
+            "link": ""
+          },
+          {
+            "name": "Video Platform (YouTube)",
+            "link": ""
+          },
+          {
+            "name": "Forum Software (Discourse)",
+            "link": ""
+          },
+          {
+            "name": "Group Chat (Discord)",
+            "link": ""
+          },
+          {
+            "name": "Review Platform (Yelp)",
+            "link": ""
+          },
+          {
+            "name": "Q&A Community (Stack Overflow)",
+            "link": ""
+          },
+          {
+            "name": "Event Platform (Meetup)",
+            "link": ""
+          },
+          {
+            "name": "Visual Discovery (Pinterest)",
+            "link": ""
+          },
+          {
+            "name": "Professional Network (LinkedIn)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "publishing",
+        "emoji": "📰",
+        "label": "Publishing",
+        "options": [
+          {
+            "name": "Newsletter Platform (Substack)",
+            "link": ""
+          },
+          {
+            "name": "Blog Platform (Medium)",
+            "link": ""
+          },
+          {
+            "name": "Documentation Portal (ReadTheDocs)",
+            "link": ""
+          },
+          {
+            "name": "Journal App (Day One)",
+            "link": ""
+          },
+          {
+            "name": "Story Platform (Wattpad)",
+            "link": ""
+          },
+          {
+            "name": "Research Tool (Zotero)",
+            "link": ""
+          },
+          {
+            "name": "Developer Blog (Dev.to)",
+            "link": ""
+          },
+          {
+            "name": "Photography Portfolio (500px)",
+            "link": ""
+          },
+          {
+            "name": "Writer Platform (Ghost)",
+            "link": ""
+          },
+          {
+            "name": "Link Sharing (Linktree)",
+            "link": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mobile",
+    "emoji": "📱",
+    "label": "Mobile",
+    "reels": [
+      {
+        "type": "social",
+        "emoji": "❓",
+        "label": "Social",
+        "options": [
+          {
+            "name": "Photo Sharing (Instagram)",
+            "link": ""
+          },
+          {
+            "name": "Short Video (TikTok)",
+            "link": ""
+          },
+          {
+            "name": "Ephemeral Chat (Snapchat)",
+            "link": ""
+          },
+          {
+            "name": "Messaging App (WhatsApp)",
+            "link": ""
+          },
+          {
+            "name": "Encrypted Chat (Signal)",
+            "link": ""
+          },
+          {
+            "name": "Dating App (Tinder)",
+            "link": ""
+          },
+          {
+            "name": "Live Streaming (Twitch)",
+            "link": ""
+          },
+          {
+            "name": "Social Audio (Clubhouse)",
+            "link": ""
+          },
+          {
+            "name": "Anonymous Chat (Yik Yak)",
+            "link": ""
+          },
+          {
+            "name": "Group Messaging (GroupMe)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "game",
+        "emoji": "🎮",
+        "label": "Game",
+        "options": [
+          {
+            "name": "Puzzle Game (Tetris)",
+            "link": ""
+          },
+          {
+            "name": "Word Game (Wordle)",
+            "link": ""
+          },
+          {
+            "name": "Arcade Game (Flappy Bird)",
+            "link": ""
+          },
+          {
+            "name": "Endless Runner (Temple Run)",
+            "link": ""
+          },
+          {
+            "name": "Card Game (Solitaire)",
+            "link": ""
+          },
+          {
+            "name": "Board Game (Chess)",
+            "link": ""
+          },
+          {
+            "name": "Trivia Quiz (QuizUp)",
+            "link": ""
+          },
+          {
+            "name": "Match-3 Puzzle (Candy Crush)",
+            "link": ""
+          },
+          {
+            "name": "Music Rhythm (Beat Saber)",
+            "link": ""
+          },
+          {
+            "name": "Strategy Battle (Clash of Clans)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "productivity",
+        "emoji": "❓",
+        "label": "Productivity",
+        "options": [
+          {
+            "name": "To-Do List (Todoist)",
+            "link": ""
+          },
+          {
+            "name": "Habit Tracker (Habitica)",
+            "link": ""
+          },
+          {
+            "name": "Note Taking (Evernote)",
+            "link": ""
+          },
+          {
+            "name": "Task Manager (Trello)",
+            "link": ""
+          },
+          {
+            "name": "Calendar App (Fantastical)",
+            "link": ""
+          },
+          {
+            "name": "Pomodoro Timer (Forest)",
+            "link": ""
+          },
+          {
+            "name": "Goal Tracker (Strides)",
+            "link": ""
+          },
+          {
+            "name": "Expense Tracker (Mint)",
+            "link": ""
+          },
+          {
+            "name": "Journal App (Day One)",
+            "link": ""
+          },
+          {
+            "name": "Mood Tracker (Daylio)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "lifestyle",
+        "emoji": "🌿",
+        "label": "Lifestyle",
+        "options": [
+          {
+            "name": "Fitness Tracker (Strava)",
+            "link": ""
+          },
+          {
+            "name": "Meal Planner (MyFitnessPal)",
+            "link": ""
+          },
+          {
+            "name": "Sleep Tracker (Calm)",
+            "link": ""
+          },
+          {
+            "name": "Meditation App (Headspace)",
+            "link": ""
+          },
+          {
+            "name": "Recipe App (Yummly)",
+            "link": ""
+          },
+          {
+            "name": "Workout Logger (Strong)",
+            "link": ""
+          },
+          {
+            "name": "Water Tracker (Plant Nanny)",
+            "link": ""
+          },
+          {
+            "name": "Period Tracker (Clue)",
+            "link": ""
+          },
+          {
+            "name": "Step Counter (Pedometer)",
+            "link": ""
+          },
+          {
+            "name": "Yoga Practice (Down Dog)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "utility",
+        "emoji": "🔧",
+        "label": "Utility",
+        "options": [
+          {
+            "name": "Flashlight Tool (Flashlight)",
+            "link": ""
+          },
+          {
+            "name": "QR Scanner (QR Code Reader)",
+            "link": ""
+          },
+          {
+            "name": "Unit Converter (Convert Units)",
+            "link": ""
+          },
+          {
+            "name": "Voice Recorder (Voice Memos)",
+            "link": ""
+          },
+          {
+            "name": "Digital Compass (Compass GPS)",
+            "link": ""
+          },
+          {
+            "name": "Level Gauge (Bubble Level)",
+            "link": ""
+          },
+          {
+            "name": "Barcode Scanner (ShopSavvy)",
+            "link": ""
+          },
+          {
+            "name": "Tip Calculator (Tip Calc)",
+            "link": ""
+          },
+          {
+            "name": "Interval Timer (HIIT Timer)",
+            "link": ""
+          },
+          {
+            "name": "Drawing Pad (Sketchbook)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "education",
+        "emoji": "📚",
+        "label": "Education",
+        "options": [
+          {
+            "name": "Language Learning (Duolingo)",
+            "link": ""
+          },
+          {
+            "name": "Flashcard App (Anki)",
+            "link": ""
+          },
+          {
+            "name": "Quiz Platform (Quizlet)",
+            "link": ""
+          },
+          {
+            "name": "Coding Tutorial (Mimo)",
+            "link": ""
+          },
+          {
+            "name": "Math Practice (Khan Academy)",
+            "link": ""
+          },
+          {
+            "name": "Science Learning (Brilliant)",
+            "link": ""
+          },
+          {
+            "name": "History Timeline (HistoryMaps)",
+            "link": ""
+          },
+          {
+            "name": "Music Tutor (Yousician)",
+            "link": ""
+          },
+          {
+            "name": "Typing Tutor (Typing Club)",
+            "link": ""
+          },
+          {
+            "name": "Speed Reading (Spreeder)",
+            "link": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "desktop",
+    "emoji": "💻",
+    "label": "Desktop",
+    "reels": [
+      {
+        "type": "editor",
+        "emoji": "✏️",
+        "label": "Editor",
+        "options": [
+          {
+            "name": "Code Editor (VS Code)",
+            "link": ""
+          },
+          {
+            "name": "Markdown Editor (Typora)",
+            "link": ""
+          },
+          {
+            "name": "Text Editor (Sublime Text)",
+            "link": ""
+          },
+          {
+            "name": "Image Editor (Photoshop)",
+            "link": ""
+          },
+          {
+            "name": "Video Editor (DaVinci Resolve)",
+            "link": ""
+          },
+          {
+            "name": "Audio Editor (Audacity)",
+            "link": ""
+          },
+          {
+            "name": "PDF Editor (Acrobat)",
+            "link": ""
+          },
+          {
+            "name": "SVG Editor (Inkscape)",
+            "link": ""
+          },
+          {
+            "name": "LaTeX Editor (Overleaf)",
+            "link": ""
+          },
+          {
+            "name": "Hex Editor (Hex Fiend)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "creative",
+        "emoji": "🎨",
+        "label": "Creative",
+        "options": [
+          {
+            "name": "Photo Editor (Lightroom)",
+            "link": ""
+          },
+          {
+            "name": "Vector Graphics (Illustrator)",
+            "link": ""
+          },
+          {
+            "name": "3D Modeler (Blender)",
+            "link": ""
+          },
+          {
+            "name": "Animation Tool (After Effects)",
+            "link": ""
+          },
+          {
+            "name": "UI Design (Figma)",
+            "link": ""
+          },
+          {
+            "name": "Icon Designer (Sketch)",
+            "link": ""
+          },
+          {
+            "name": "Font Creator (FontForge)",
+            "link": ""
+          },
+          {
+            "name": "Screen Recorder (OBS Studio)",
+            "link": ""
+          },
+          {
+            "name": "Color Palette Tool (Coolors)",
+            "link": ""
+          },
+          {
+            "name": "Screenshot App (Snagit)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "media",
+        "emoji": "🎬",
+        "label": "Media",
+        "options": [
+          {
+            "name": "Music Player (Spotify)",
+            "link": ""
+          },
+          {
+            "name": "Video Player (VLC)",
+            "link": ""
+          },
+          {
+            "name": "Podcast App (Overcast)",
+            "link": ""
+          },
+          {
+            "name": "Media Server (Plex)",
+            "link": ""
+          },
+          {
+            "name": "Audio Converter (XLD)",
+            "link": ""
+          },
+          {
+            "name": "Video Converter (HandBrake)",
+            "link": ""
+          },
+          {
+            "name": "Streaming Client (Kodi)",
+            "link": ""
+          },
+          {
+            "name": "CD Ripper (EAC)",
+            "link": ""
+          },
+          {
+            "name": "Tag Editor (Mp3tag)",
+            "link": ""
+          },
+          {
+            "name": "Graphic Equalizer (Boom 3D)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "productivity",
+        "emoji": "❓",
+        "label": "Productivity",
+        "options": [
+          {
+            "name": "Note Taking (Obsidian)",
+            "link": ""
+          },
+          {
+            "name": "Knowledge Base (Logseq)",
+            "link": ""
+          },
+          {
+            "name": "Outliner (Dynalist)",
+            "link": ""
+          },
+          {
+            "name": "Journal App (Day One)",
+            "link": ""
+          },
+          {
+            "name": "Mind Mapper (XMind)",
+            "link": ""
+          },
+          {
+            "name": "Task Manager (Things)",
+            "link": ""
+          },
+          {
+            "name": "Spreadsheet App (Excel)",
+            "link": ""
+          },
+          {
+            "name": "Calendar App (Fantastical)",
+            "link": ""
+          },
+          {
+            "name": "Database App (Airtable)",
+            "link": ""
+          },
+          {
+            "name": "Diagram Tool (Draw.io)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "communication",
+        "emoji": "💬",
+        "label": "Communication",
+        "options": [
+          {
+            "name": "Messaging App (Slack)",
+            "link": ""
+          },
+          {
+            "name": "Email Client (Thunderbird)",
+            "link": ""
+          },
+          {
+            "name": "VoIP Client (Zoom)",
+            "link": ""
+          },
+          {
+            "name": "IRC Client (HexChat)",
+            "link": ""
+          },
+          {
+            "name": "Matrix Client (Element)",
+            "link": ""
+          },
+          {
+            "name": "Video Calls (FaceTime)",
+            "link": ""
+          },
+          {
+            "name": "Screen Sharing (TeamViewer)",
+            "link": ""
+          },
+          {
+            "name": "Team Chat (Discord)",
+            "link": ""
+          },
+          {
+            "name": "File Transfer (FileZilla)",
+            "link": ""
+          },
+          {
+            "name": "Remote Desktop (AnyDesk)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "utility",
+        "emoji": "🔧",
+        "label": "Utility",
+        "options": [
+          {
+            "name": "App Launcher (Alfred)",
+            "link": ""
+          },
+          {
+            "name": "Clipboard Manager (CopyClip)",
+            "link": ""
+          },
+          {
+            "name": "Window Manager (Rectangle)",
+            "link": ""
+          },
+          {
+            "name": "File Manager (Finder)",
+            "link": ""
+          },
+          {
+            "name": "Archive Tool (The Unarchiver)",
+            "link": ""
+          },
+          {
+            "name": "System Monitor (iStat Menus)",
+            "link": ""
+          },
+          {
+            "name": "Password Manager (1Password)",
+            "link": ""
+          },
+          {
+            "name": "Menu Bar Manager (Bartender)",
+            "link": ""
+          },
+          {
+            "name": "Screenshot Editor (CleanShot)",
+            "link": ""
+          },
+          {
+            "name": "Color Picker (Sip)",
+            "link": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "game",
+    "emoji": "🎮",
+    "label": "Game",
+    "reels": [
+      {
+        "type": "puzzle",
+        "emoji": "🧩",
+        "label": "Puzzle",
+        "options": [
+          {
+            "name": "Block Puzzle Game (Tetris)",
+            "link": ""
+          },
+          {
+            "name": "Portal Clone (Portal)",
+            "link": ""
+          },
+          {
+            "name": "Time Manipulation (Braid)",
+            "link": ""
+          },
+          {
+            "name": "Perspective Puzzle (Fez)",
+            "link": ""
+          },
+          {
+            "name": "Logic Puzzle (Baba Is You)",
+            "link": ""
+          },
+          {
+            "name": "Visual Mystery (The Witness)",
+            "link": ""
+          },
+          {
+            "name": "Architecture Puzzle (Monument Valley)",
+            "link": ""
+          },
+          {
+            "name": "Atmospheric Puzzle (Limbo)",
+            "link": ""
+          },
+          {
+            "name": "Dark Puzzle Platformer (Inside)",
+            "link": ""
+          },
+          {
+            "name": "Shape Metamorphosis (Cocoon)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "platformer",
+        "emoji": "🏃",
+        "label": "Platformer",
+        "options": [
+          {
+            "name": "Side-Scroller (Mario)",
+            "link": ""
+          },
+          {
+            "name": "Speed Runner (Sonic)",
+            "link": ""
+          },
+          {
+            "name": "Precision Platformer (Celeste)",
+            "link": ""
+          },
+          {
+            "name": "Metroidvania (Hollow Knight)",
+            "link": ""
+          },
+          {
+            "name": "Cinematic Platformer (Ori)",
+            "link": ""
+          },
+          {
+            "name": "Action Platformer (Shovel Knight)",
+            "link": ""
+          },
+          {
+            "name": "Hardcore Platformer (Super Meat Boy)",
+            "link": ""
+          },
+          {
+            "name": "Boss Rush (Cuphead)",
+            "link": ""
+          },
+          {
+            "name": "Classic Platformer (Rayman)",
+            "link": ""
+          },
+          {
+            "name": "Collectathon (Crash Bandicoot)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "rpg",
+        "emoji": "⚔️",
+        "label": "Rpg",
+        "options": [
+          {
+            "name": "Turn-based RPG (Final Fantasy)",
+            "link": ""
+          },
+          {
+            "name": "Action RPG (The Witcher)",
+            "link": ""
+          },
+          {
+            "name": "Open World RPG (Skyrim)",
+            "link": ""
+          },
+          {
+            "name": "Souls-like (Dark Souls)",
+            "link": ""
+          },
+          {
+            "name": "Tactical RPG (Baldur's Gate)",
+            "link": ""
+          },
+          {
+            "name": "Time Travel RPG (Chrono Trigger)",
+            "link": ""
+          },
+          {
+            "name": "Dungeon Crawler (Diablo)",
+            "link": ""
+          },
+          {
+            "name": "Japanese RPG (Dragon Quest)",
+            "link": ""
+          },
+          {
+            "name": "Sci-fi RPG (Mass Effect)",
+            "link": ""
+          },
+          {
+            "name": "Post-apocalyptic RPG (Fallout)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "shooter",
+        "emoji": "🔫",
+        "label": "Shooter",
+        "options": [
+          {
+            "name": "First-person Shooter (Doom)",
+            "link": ""
+          },
+          {
+            "name": "Arena Shooter (Quake)",
+            "link": ""
+          },
+          {
+            "name": "Story-driven Shooter (Half-Life)",
+            "link": ""
+          },
+          {
+            "name": "Military Shooter (Call of Duty)",
+            "link": ""
+          },
+          {
+            "name": "Sci-fi Shooter (Halo)",
+            "link": ""
+          },
+          {
+            "name": "Hero Shooter (Overwatch)",
+            "link": ""
+          },
+          {
+            "name": "Tactical Shooter (Counter-Strike)",
+            "link": ""
+          },
+          {
+            "name": "Competitive Shooter (Valorant)",
+            "link": ""
+          },
+          {
+            "name": "Battle Royale (Fortnite)",
+            "link": ""
+          },
+          {
+            "name": "Legend Shooter (Apex Legends)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "strategy",
+        "emoji": "🧠",
+        "label": "Strategy",
+        "options": [
+          {
+            "name": "Real-time Strategy (StarCraft)",
+            "link": ""
+          },
+          {
+            "name": "Historical RTS (Age of Empires)",
+            "link": ""
+          },
+          {
+            "name": "Turn-based Strategy (Civilization)",
+            "link": ""
+          },
+          {
+            "name": "Factory Automation (Factorio)",
+            "link": ""
+          },
+          {
+            "name": "Colony Sim (Dwarf Fortress)",
+            "link": ""
+          },
+          {
+            "name": "City Builder (SimCity)",
+            "link": ""
+          },
+          {
+            "name": "Grand Strategy (Europa Universalis)",
+            "link": ""
+          },
+          {
+            "name": "Tactics Game (Total War)",
+            "link": ""
+          },
+          {
+            "name": "Squad Tactics (XCOM)",
+            "link": ""
+          },
+          {
+            "name": "Survival Colony (RimWorld)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "simulation",
+        "emoji": "🌍",
+        "label": "Simulation",
+        "options": [
+          {
+            "name": "Life Simulator (The Sims)",
+            "link": ""
+          },
+          {
+            "name": "Sandbox Builder (Minecraft)",
+            "link": ""
+          },
+          {
+            "name": "Adventure Builder (Terraria)",
+            "link": ""
+          },
+          {
+            "name": "Farming RPG (Stardew Valley)",
+            "link": ""
+          },
+          {
+            "name": "Vehicle Simulator (Euro Truck)",
+            "link": ""
+          },
+          {
+            "name": "Flight Simulator (Flight Simulator)",
+            "link": ""
+          },
+          {
+            "name": "Space Program (Kerbal Space Program)",
+            "link": ""
+          },
+          {
+            "name": "Theme Park Builder (RollerCoaster Tycoon)",
+            "link": ""
+          },
+          {
+            "name": "Life Simulation (Animal Crossing)",
+            "link": ""
+          },
+          {
+            "name": "Park Builder (Planet Coaster)",
+            "link": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cli",
+    "emoji": "⌨️",
+    "label": "CLI",
+    "reels": [
+      {
+        "type": "dev-tool",
+        "emoji": "🛠️",
+        "label": "Dev-tool",
+        "options": [
+          {
+            "name": "Package Manager (npm)",
+            "link": ""
+          },
+          {
+            "name": "Build Tool (cargo)",
+            "link": ""
+          },
+          {
+            "name": "Container Runtime (docker)",
+            "link": ""
+          },
+          {
+            "name": "Orchestration Tool (kubectl)",
+            "link": ""
+          },
+          {
+            "name": "CLI Client (gh)",
+            "link": ""
+          },
+          {
+            "name": "Python Package Manager (uv)",
+            "link": ""
+          },
+          {
+            "name": "JavaScript Runtime (bun)",
+            "link": ""
+          },
+          {
+            "name": "Go Toolchain (go)",
+            "link": ""
+          },
+          {
+            "name": "Homebrew Package Manager (brew)",
+            "link": ""
+          },
+          {
+            "name": "Secrets Manager (sops)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "automation",
+        "emoji": "🤖",
+        "label": "Automation",
+        "options": [
+          {
+            "name": "Config Management (Ansible)",
+            "link": ""
+          },
+          {
+            "name": "Infrastructure as Code (Pulumi)",
+            "link": ""
+          },
+          {
+            "name": "Cloud Control Plane (Crossplane)",
+            "link": ""
+          },
+          {
+            "name": "Task Runner (Task)",
+            "link": ""
+          },
+          {
+            "name": "Command Runner (Just)",
+            "link": ""
+          },
+          {
+            "name": "Build Automation (Make)",
+            "link": ""
+          },
+          {
+            "name": "Build System (Cmake)",
+            "link": ""
+          },
+          {
+            "name": "Build Tool (Bazel)",
+            "link": ""
+          },
+          {
+            "name": "Package Manager (Nix)",
+            "link": ""
+          },
+          {
+            "name": "Build Framework (Earthly)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "monitoring",
+        "emoji": "📡",
+        "label": "Monitoring",
+        "options": [
+          {
+            "name": "Process Viewer (htop)",
+            "link": ""
+          },
+          {
+            "name": "System Monitor (btop)",
+            "link": ""
+          },
+          {
+            "name": "System Glance (glances)",
+            "link": ""
+          },
+          {
+            "name": "System Info (neofetch)",
+            "link": ""
+          },
+          {
+            "name": "Disk Usage (duf)",
+            "link": ""
+          },
+          {
+            "name": "Disk Analyzer (dust)",
+            "link": ""
+          },
+          {
+            "name": "Disk Usage Tracker (ncdu)",
+            "link": ""
+          },
+          {
+            "name": "Process Manager (procs)",
+            "link": ""
+          },
+          {
+            "name": "System Dashboard (bottom)",
+            "link": ""
+          },
+          {
+            "name": "Terminal Dashboard (ytop)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "emoji": "📝",
+        "label": "Text",
+        "options": [
+          {
+            "name": "Search Tool (ripgrep)",
+            "link": ""
+          },
+          {
+            "name": "File Finder (fd)",
+            "link": ""
+          },
+          {
+            "name": "File Viewer (bat)",
+            "link": ""
+          },
+          {
+            "name": "Fuzzy Finder (fzf)",
+            "link": ""
+          },
+          {
+            "name": "JSON Processor (jq)",
+            "link": ""
+          },
+          {
+            "name": "YAML Processor (yq)",
+            "link": ""
+          },
+          {
+            "name": "Find & Replace (sd)",
+            "link": ""
+          },
+          {
+            "name": "Regex Generator (grex)",
+            "link": ""
+          },
+          {
+            "name": "Diff Viewer (difftastic)",
+            "link": ""
+          },
+          {
+            "name": "Column Selector (choose)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "network",
+        "emoji": "🌐",
+        "label": "Network",
+        "options": [
+          {
+            "name": "HTTP Client (curl)",
+            "link": ""
+          },
+          {
+            "name": "Download Tool (wget)",
+            "link": ""
+          },
+          {
+            "name": "Port Scanner (nmap)",
+            "link": ""
+          },
+          {
+            "name": "Network Connector (netcat)",
+            "link": ""
+          },
+          {
+            "name": "Network Benchmark (iperf)",
+            "link": ""
+          },
+          {
+            "name": "Network Diagnostic (mtr)",
+            "link": ""
+          },
+          {
+            "name": "DNS Lookup (dog)",
+            "link": ""
+          },
+          {
+            "name": "HTTPie Client (httpie)",
+            "link": ""
+          },
+          {
+            "name": "DNS Resolver (drill)",
+            "link": ""
+          },
+          {
+            "name": "Traceroute Tool (trippy)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "file",
+        "emoji": "📁",
+        "label": "File",
+        "options": [
+          {
+            "name": "Disk Usage Reporter (du)",
+            "link": ""
+          },
+          {
+            "name": "Disk Free Reporter (df)",
+            "link": ""
+          },
+          {
+            "name": "Archive Tool (tar)",
+            "link": ""
+          },
+          {
+            "name": "Remote Sync (rsync)",
+            "link": ""
+          },
+          {
+            "name": "Cloud Sync (rclone)",
+            "link": ""
+          },
+          {
+            "name": "Backup Tool (restic)",
+            "link": ""
+          },
+          {
+            "name": "Deduplicating Backup (borg)",
+            "link": ""
+          },
+          {
+            "name": "Encrypted Backup (kopia)",
+            "link": ""
+          },
+          {
+            "name": "Duplicacy Backup (duplicati)",
+            "link": ""
+          },
+          {
+            "name": "Encryption Tool (age)",
+            "link": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "data-science",
+    "emoji": "📊",
+    "label": "Data Science",
+    "reels": [
+      {
+        "type": "analysis",
+        "emoji": "🔬",
+        "label": "Analysis",
+        "options": [
+          {
+            "name": "Notebook Environment (Jupyter)",
+            "link": ""
+          },
+          {
+            "name": "Statistical Computing (RStudio)",
+            "link": ""
+          },
+          {
+            "name": "Reactive Notebook (Observable)",
+            "link": ""
+          },
+          {
+            "name": "Collaborative Notebook (Hex)",
+            "link": ""
+          },
+          {
+            "name": "Team Notebook (Deepnote)",
+            "link": ""
+          },
+          {
+            "name": "Competition Platform (Kaggle)",
+            "link": ""
+          },
+          {
+            "name": "Cloud Notebook (Colab)",
+            "link": ""
+          },
+          {
+            "name": "Unified Analytics (Databricks)",
+            "link": ""
+          },
+          {
+            "name": "ML Platform (SageMaker)",
+            "link": ""
+          },
+          {
+            "name": "AI Studio (Watson Studio)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "pipeline",
+        "emoji": "🔄",
+        "label": "Pipeline",
+        "options": [
+          {
+            "name": "Workflow Orchestrator (Airflow)",
+            "link": ""
+          },
+          {
+            "name": "Python Pipeline (Prefect)",
+            "link": ""
+          },
+          {
+            "name": "Data Pipeline (Dagster)",
+            "link": ""
+          },
+          {
+            "name": "ML Platform (Kubeflow)",
+            "link": ""
+          },
+          {
+            "name": "Experiment Tracking (MLflow)",
+            "link": ""
+          },
+          {
+            "name": "Production Pipeline (TFX)",
+            "link": ""
+          },
+          {
+            "name": "MLOps Framework (ZenML)",
+            "link": ""
+          },
+          {
+            "name": "Cloud Orchestrator (Flyte)",
+            "link": ""
+          },
+          {
+            "name": "Event-driven Pipeline (Kestra)",
+            "link": ""
+          },
+          {
+            "name": "Batch Processor (Luigi)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "viz",
+        "emoji": "📐",
+        "label": "Viz",
+        "options": [
+          {
+            "name": "Business Intelligence (Tableau)",
+            "link": ""
+          },
+          {
+            "name": "BI Platform (Power BI)",
+            "link": ""
+          },
+          {
+            "name": "Data Explorer (Looker)",
+            "link": ""
+          },
+          {
+            "name": "Open-source BI (Metabase)",
+            "link": ""
+          },
+          {
+            "name": "Dashboard Builder (Superset)",
+            "link": ""
+          },
+          {
+            "name": "Python Charting (Plotly)",
+            "link": ""
+          },
+          {
+            "name": "Interactive Visualization (D3.js)",
+            "link": ""
+          },
+          {
+            "name": "Statistical Plots (Bokeh)",
+            "link": ""
+          },
+          {
+            "name": "Declarative Charts (Altair)",
+            "link": ""
+          },
+          {
+            "name": "Graphics Grammar (Vega)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "ml",
+        "emoji": "🧠",
+        "label": "Ml",
+        "options": [
+          {
+            "name": "Deep Learning Framework (PyTorch)",
+            "link": ""
+          },
+          {
+            "name": "ML Framework (TensorFlow)",
+            "link": ""
+          },
+          {
+            "name": "Classic ML (Scikit-learn)",
+            "link": ""
+          },
+          {
+            "name": "Gradient Boosting (XGBoost)",
+            "link": ""
+          },
+          {
+            "name": "Fast Boosting (LightGBM)",
+            "link": ""
+          },
+          {
+            "name": "Categorical Boosting (CatBoost)",
+            "link": ""
+          },
+          {
+            "name": "Differentiable Computing (JAX)",
+            "link": ""
+          },
+          {
+            "name": "NLP Library (Hugging Face)",
+            "link": ""
+          },
+          {
+            "name": "LLM Framework (LangChain)",
+            "link": ""
+          },
+          {
+            "name": "NLP Toolkit (SpaCy)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "database",
+        "emoji": "🗄️",
+        "label": "Database",
+        "options": [
+          {
+            "name": "Relational Database (PostgreSQL)",
+            "link": ""
+          },
+          {
+            "name": "Embedded Analytics (DuckDB)",
+            "link": ""
+          },
+          {
+            "name": "Column Store (ClickHouse)",
+            "link": ""
+          },
+          {
+            "name": "Cloud Warehouse (Snowflake)",
+            "link": ""
+          },
+          {
+            "name": "Big Data Query (BigQuery)",
+            "link": ""
+          },
+          {
+            "name": "Data Warehouse (Redshift)",
+            "link": ""
+          },
+          {
+            "name": "Lakehouse Platform (Databricks)",
+            "link": ""
+          },
+          {
+            "name": "Serverless Analytics (MotherDuck)",
+            "link": ""
+          },
+          {
+            "name": "Real-time Analytics (Pinot)",
+            "link": ""
+          },
+          {
+            "name": "Distributed OLAP (Druid)",
+            "link": ""
+          }
+        ]
+      },
+      {
+        "type": "etl",
+        "emoji": "🔗",
+        "label": "Etl",
+        "options": [
+          {
+            "name": "Data Transformation (dbt)",
+            "link": ""
+          },
+          {
+            "name": "Distributed Processing (Spark)",
+            "link": ""
+          },
+          {
+            "name": "Stream Processing (Flink)",
+            "link": ""
+          },
+          {
+            "name": "Event Streaming (Kafka)",
+            "link": ""
+          },
+          {
+            "name": "Data Flow Automation (NiFi)",
+            "link": ""
+          },
+          {
+            "name": "Data Integration (Airbyte)",
+            "link": ""
+          },
+          {
+            "name": "Cloud ETL (Fivetran)",
+            "link": ""
+          },
+          {
+            "name": "Data Pipeline Tool (Stitch)",
+            "link": ""
+          },
+          {
+            "name": "Open-source Data Platform (Meltano)",
+            "link": ""
+          },
+          {
+            "name": "Data Extraction (Singer)",
+            "link": ""
+          }
+        ]
+      }
+    ]
+  }
+]

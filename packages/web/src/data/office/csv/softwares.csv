@@ -1,0 +1,205 @@
+category,id,name,link
+browser,arc,Arc,https://arc.net
+browser,brave,Brave,https://brave.com
+browser,chrome,Chrome,https://www.google.com/chrome/download/
+browser,edge,Edge,https://www.microsoft.com/en-us/edge/download
+browser,opera,Opera,https://www.opera.com/download
+browser,vivaldi,Vivaldi,https://vivaldi.com/download/
+browser,whale,Whale,https://whale.naver.com/
+browser,yandex,Yandex,https://browser.yandex.com/
+browser,firefox,Firefox,https://www.mozilla.org/en-US/firefox/download/
+browser,tor,Tor,https://www.torproject.org/
+browser,zen,Zen,https://zen-browser.app/
+browser,duckduckgo,DuckDuckGo,https://duckduckgo.com/
+browser,safari,Safari,https://www.apple.com/safari/download/
+messaging,discord,Discord,https://discord.com
+messaging,facebook-messenger,Facebook Messenger,https://www.messenger.com/
+messaging,signal,Signal,https://signal.org
+messaging,slack,Slack,https://slack.com
+messaging,telegram,Telegram,https://telegram.org
+messaging,whatsapp,WhatsApp,https://www.whatsapp.com
+messaging,wechat,WeChat,https://www.wechat.com/
+os,windows,Windows,https://www.microsoft.com/en-us/windows
+os,macos,macOS,https://www.apple.com/macos/
+os,ubuntu,Ubuntu,https://ubuntu.com/
+os,fedora,Fedora,https://getfedora.org/
+os,arch-linux,Arch Linux,https://archlinux.org/
+os,manjaro,Manjaro,https://manjaro.org/
+os,debian,Debian,https://www.debian.org/
+os,centos,CentOS,https://www.centos.org/
+os,opensuse,openSUSE,https://www.opensuse.org/
+os,raspbian,Raspbian,https://www.raspberrypi.org/software/raspbian/
+os,android,Android,https://www.android.com/
+os,ios,iOS,https://www.apple.com/os/ios/
+os,kaios,KaiOS,https://www.kaios.com/
+workspace,google-calendar,Google Calendar,https://calendar.google.com/
+workspace,google-chat,Google Chat,https://chat.google.com/
+workspace,google-docs,Google Docs,https://docs.google.com/
+workspace,google-drive,Google Drive,https://drive.google.com/
+workspace,gmail,Gmail,https://mail.google.com/
+workspace,google-keep,Google Keep,https://keep.google.com/
+workspace,google-meet,Google Meet,https://meet.google.com/
+workspace,google-sheets,Google Sheets,https://sheets.google.com/
+workspace,google-slides,Google Slides,https://slides.google.com/
+workspace,microsoft-calendar,Microsoft Calendar,https://calendar.microsoft.com
+workspace,microsoft-teams,Microsoft Teams,https://teams.microsoft.com
+workspace,microsoft-word,Microsoft Word,https://www.microsoft.com/en-us/microsoft-365/word
+workspace,microsoft-onedrive,Microsoft OneDrive,https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage
+workspace,microsoft-outlook,Microsoft Outlook,https://outlook.live.com
+workspace,microsoft-onenote,Microsoft OneNote,https://www.onenote.com
+workspace,microsoft-excel,Microsoft Excel,https://www.microsoft.com/en-us/microsoft-365/excel
+workspace,microsoft-powerpoint,Microsoft PowerPoint,https://www.microsoft.com/en-us/microsoft-365/powerpoint
+design,adobe-illustrator,Adobe Illustrator,https://www.adobe.com/products/illustrator.html
+design,adobe-photoshop,Adobe Photoshop,https://www.adobe.com/products/photoshop.html
+design,adobe-lightroom,Adobe Lightroom,https://www.adobe.com/products/lightroom.html
+design,canva,Canva,https://www.canva.com
+design,figma,Figma,https://www.figma.com
+llm,chatgpt,ChatGPT,https://chat.openai.com
+llm,gemini,Gemini,https://gemini.google.com
+llm,claude,Claude,https://claude.com
+llm,deepseek,DeepSeek,https://deepseek.com
+llm,perplexity,Perplexity,https://perplexity.ai
+llm,copilot,Copilot,https://copilot.microsoft.com/
+llm,grok,Grok,https://grok.com/
+llm,llama,Llama,https://llama.meta.com/
+llm,poe,Poe,https://poe.com/
+ai,midjourney,Midjourney,https://www.midjourney.com/
+ai,stable-diffusion,Stable Diffusion,https://stable-diffusion.com/
+dns,1.1.1.1,1.1.1.1,https://one.one.one.one/
+dns,8.8.8.8,8.8.8.8,https://developers.google.com/speed/public-dns/docs/using
+dns,9.9.9.9,9.9.9.9,https://www.quad9.net/
+dns,185.228.168.9,185.228.168.9,https://cleanbrowsing.org/
+dns,208.67.222.222,208.67.222.222,https://www.opendns.com/
+social,x,X,https://x.com/
+social,threads,Threads,https://threads.com
+social,twitter,Twitter,https://twitter.com
+social,facebook,Facebook,https://facebook.com
+social,linkedin,LinkedIn,https://linkedin.com
+social,reddit,Reddit,https://reddit.com
+social,instagram,Instagram,https://instagram.com
+social,tiktok,Tiktok,https://tiktok.com
+social,youtube,YouTube,https://youtube.com
+analytics,power-bi,Power BI,https://www.microsoft.com/en-us/power-platform/products/power-bi
+analytics,tableau,Tableau,https://www.tableau.com
+api,bruno,Bruno,https://www.usebruno.com
+api,insomnia,Insomnia,https://insomnia.rest
+api,postman,Postman,https://www.postman.com
+api,rapi-doc,RapiDoc,https://rapidocweb.com/
+api,redoc,Redocly,https://redocly.com/
+api,stoplight,Stoplight,https://stoplight.io/
+api,swagger,Swagger,https://swagger.io/
+editor,cursor,Cursor,https://www.cursor.com
+editor,vscode,Visual Studio Code,https://code.visualstudio.com
+editor,vscodium,VSCodium,https://vscodium.com
+editor,windsurf,Windsurf,https://windsurf.com
+editor,zed,Zed,https://zed.dev
+editor,neovim,Neovim,https://neovim.io
+editor,claude-code,Claude Code,https://claude.com/product/claude-code
+editor,codex,Codex,https://openai.com/codex/
+ide,android-studio,Android Studio,https://developer.android.com/studio
+ide,visual-studio,Visual Studio,https://visualstudio.microsoft.com
+ide,xcode,Xcode,https://developer.apple.com/xcode/
+ide,web-storm,WebStorm,https://www.jetbrains.com/webstorm/
+ide,intellij-idea,IntelliJ IDEA,https://www.jetbrains.com/idea/
+ide,py-charm,PyCharm,https://www.jetbrains.com/pycharm/
+ide,goland,GoLand,https://www.jetbrains.com/go/
+ide,rider,Rider,https://www.jetbrains.com/rider/
+ide,dataspell,DataSpell,https://www.jetbrains.com/dataspell/
+ide,php-storm,PhpStorm,https://www.jetbrains.com/phpstorm/
+ide,appcode,AppCode,https://www.jetbrains.com/appcode/
+ide,clion,CLion,https://www.jetbrains.com/clion/
+ide,ruby-mine,RubyMine,https://www.jetbrains.com/ruby/
+ide,rust-rover,RustRover,https://www.jetbrains.com/rust/
+ide,unity,Unity,https://unity.com/download
+ide,unreal-engine,Unreal Engine,https://www.unrealengine.com/download
+ide,godot,Godot Engine,https://godotengine.org/download/
+ide,photon,Photon,https://www.photonengine.com/
+dev-tool,clang-format,clang-format,https://clang.llvm.org/docs/ClangFormat.html
+dev-tool,gofmt,gofmt,https://pkg.go.dev/cmd/gofmt
+dev-tool,black,Black,https://pypi.org/project/black/
+dev-tool,flake8,Flake8,https://pypi.org/project/flake8/
+dev-tool,pylint,Pylint,https://pypi.org/project/pylint/
+dev-tool,ruff,Ruff,https://docs.astral.sh/ruff/
+dev-tool,shell-check,ShellCheck,https://www.shellcheck.net/
+dev-tool,biome,Biome,https://biomejs.dev/
+dev-tool,eslint,ESLint,https://eslint.org/
+dev-tool,oxc,Oxc,https://oxc.rs/
+dev-tool,prettier,Prettier,https://prettier.io/
+monorepo,bit,Bit,https://bit.dev/
+monorepo,lerna,Lerna,https://lerna.js.org/
+monorepo,nx,Nx,https://nx.dev/
+monorepo,pnpm-workspaces,pnpm Workspaces,https://pnpm.io/workspaces
+monorepo,turborepo,Turborepo,https://turbo.build/
+monorepo,yarn-workspaces,Yarn Workspaces,https://classic.yarnpkg.com/lang/en/docs/workspaces/
+version-control,launchpad,Launchpad,https://launchpad.net/
+version-control,helix-core,Helix Core,https://www.perforce.com/products/helix-core
+version-control,svn,Apache Subversion,https://subversion.apache.org/
+container,rancher,Rancher,https://www.rancher.com/
+container,kubernetes,Kubernetes,https://kubernetes.io/
+container,nomad,Nomad,https://developer.hashicorp.com/nomad
+container,containerd,containerd,https://containerd.io/
+container,docker,Docker,https://www.docker.com/
+container,hadolint,Hadolint,https://github.com/hadolint/hadolint
+container,podman,Podman,https://podman.io/
+iac,aws-cloudformation,AWS CloudFormation,https://aws.amazon.com/cloudformation/
+iac,open-tofu,OpenTofu,https://opentofu.org/
+iac,terraform,Terraform,https://developer.hashicorp.com/terraform
+hosting,appwrite,Appwrite,https://appwrite.io/
+hosting,firebase,Firebase,https://firebase.google.com/
+hosting,nhost,Nhost,https://nhost.io/
+hosting,pocketbase,PocketBase,https://pocketbase.io/
+hosting,supabase,Supabase,https://supabase.com/
+hosting,aws,Amazon Web Services,https://aws.amazon.com/
+hosting,azure,Microsoft Azure,https://azure.microsoft.com/
+hosting,digital-ocean,DigitalOcean,https://www.digitalocean.com/
+hosting,google-cloud,Google Cloud,https://cloud.google.com/
+hosting,ibm-cloud,IBM Cloud,https://www.ibm.com/cloud
+hosting,google-app-engine,Google App Engine,https://cloud.google.com/appengine
+hosting,heroku,Heroku,https://www.heroku.com/
+hosting,open-shift,OpenShift,https://www.redhat.com/en/technologies/cloud-computing/openshift
+hosting,railway,Railway,https://railway.app/
+hosting,render,Render,https://render.com/
+hosting,cloudflare-workers,Cloudflare Workers,https://workers.cloudflare.com/
+hosting,deno-deploy,Deno Deploy,https://deno.com/deploy
+hosting,fly,Fly,https://fly.io/
+hosting,netlify,Netlify,https://www.netlify.com/
+hosting,vercel,Vercel,https://vercel.com/
+hosting,cloudflare-pages,Cloudflare Pages,https://pages.cloudflare.com/
+hosting,github-pages,GitHub Pages,https://pages.github.com/
+observability,aws-cloudwatch,Amazon CloudWatch,https://aws.amazon.com/cloudwatch/
+observability,datadog,Datadog,https://www.datadoghq.com/
+observability,grafana,Grafana,https://grafana.com/
+observability,kibana,Kibana,https://www.elastic.co/kibana
+observability,splunk,Splunk,https://www.splunk.com/
+secrets,aws-secrets-manager,AWS Secrets Manager,https://aws.amazon.com/secrets-manager/
+secrets,azure-key-vault,Azure Key Vault,https://azure.microsoft.com/en-us/products/key-vault/
+secrets,hashicorp-vault,HashiCorp Vault,https://www.vaultproject.io/
+secrets,infisical,Infisical,https://infisical.com/
+secrets,kubernetes-secrets,Kubernetes Secrets,https://kubernetes.io/docs/concepts/configuration/secret/
+secrets,open-bao,OpenBao,https://openbao.org/
+os,alpine-linux,Alpine Linux,https://alpinelinux.org/
+os,chromeos,ChromeOS,https://www.chromeos.com/
+os,freebsd,FreeBSD,https://www.freebsd.org/
+os,kali,Kali Linux,https://www.kali.org/
+os,kernel,Linux Kernel,https://www.kernel.org/
+os,linux,Linux,https://www.linux.org/
+os,mint,Linux Mint,https://linuxmint.com/
+os,red-hat-enterprise-linux,Red Hat Enterprise Linux,https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux
+os,harmonyos,HarmonyOS,https://developer.huawei.com/consumer/cn/harmonyos/
+os,ubuntu-touch,Ubuntu Touch,https://ubuntu-touch.io/
+runtime,node.js,Node.js,https://nodejs.org/
+runtime,deno,Deno,https://deno.com/
+runtime,bun,Bun,https://bun.sh/
+runtime,llrt,LLRT,https://github.com/awslabs/llrt
+runtime,winter.js,WinterJS,https://winterjs.org/
+package-manager,npm,npm,https://www.npmjs.com/
+package-manager,pnpm,pnpm,https://pnpm.io/
+package-manager,yarn,Yarn,https://yarnpkg.com/
+package-manager,volt,Volt,https://volt.sh/
+registry,github-packages,GitHub Packages,https://github.com/features/packages
+registry,jsr,JSR,https://jsr.io/
+engine,hermes,Hermes,https://hermesengine.dev/
+engine,javascript-core,JavaScriptCore,https://developer.apple.com/documentation/javascriptcore
+engine,quick.js,QuickJS,https://bellard.org/quickjs/
+engine,spider-monkey,SpiderMonkey,https://spidermonkey.dev/
+engine,v8,V8,https://v8.dev/
