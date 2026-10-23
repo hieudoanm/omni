@@ -47,7 +47,7 @@ jobs:
         run: make build
         working-directory: packages/android
       - name: Upload Android APK
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: android-apk
           path: packages/android/app/build/outputs/apk/debug/*.apk
@@ -75,7 +75,7 @@ jobs:
         run: make app
         working-directory: packages/macos
       - name: Upload macOS app
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: macos-app
           path: packages/macos/build/Omni.app
@@ -112,7 +112,7 @@ jobs:
         run: make build-all
         working-directory: packages/cli
       - name: Upload CLI binaries
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: cli-binaries
           path: packages/cli/bin/omni-*
@@ -143,7 +143,7 @@ jobs:
         run: pnpm build
         working-directory: packages/browser
       - name: Upload browser build
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: browser-extension
           path: packages/browser/dist
@@ -159,22 +159,22 @@ jobs:
       contents: write
     steps:
       - name: Download CLI binaries
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: cli-binaries
           path: dist/cli
       - name: Download Android APK
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: android-apk
           path: dist/android
       - name: Download macOS app
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: macos-app
           path: dist/macos
       - name: Download browser extension
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: browser-extension
           path: dist/browser
