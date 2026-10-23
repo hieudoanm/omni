@@ -124,10 +124,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 12.15.0
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 26.12.1
           cache: 'pnpm'
           cache-dependency-path: packages/browser/pnpm-lock.yaml
       - name: Install dependencies
