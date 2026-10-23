@@ -1,0 +1,19 @@
+```mermaid
+sequenceDiagram
+  participant C as Content
+  participant PW as Page World
+  participant B as Background
+  participant P as Popup
+  C->>PW: inject probe (postMessage)
+  PW-->>C: Shopify globals
+  C->>B: SHOPIFY_RESULT_ACTION { result } (fire-and-forget)
+  B->>B: cache per tab; set badge 'S'
+  P->>B: GET_SHOPIFY_STATE_ACTION (cache-only)
+  B-->>P: result or undefined
+  alt manual check
+    P->>B: GET_SHOPIFY_ACTION
+    B->>PW: executeScript in MAIN world
+    PW-->>B: detection result
+    B-->>P: result
+  end
+```
