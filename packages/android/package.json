@@ -1,0 +1,11 @@
+{
+  "name": "@omni/android",
+  "version": "0.0.1",
+  "description": "Omni Android",
+  "scripts": {
+    "format": "make format",
+    "build": "make build",
+    "test": "make test",
+    "lint": "make lint"
+  }
+}

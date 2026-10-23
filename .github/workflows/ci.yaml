@@ -1,0 +1,207 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Android: Linux runner with Android SDK
+  android:
+    name: Android
+    runs-on: ubuntu-latest
+    env:
+      ANDROID_HOME: /opt/android-sdk
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          api-level: 37
+          ndk-version: r27c
+          cmdline-tools-version: latest
+      - name: Cache Gradle
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-${{ runner.os }}-${{ hashFiles('packages/android/**/*.kts', 'packages/android/**/*.toml') }}
+          restore-keys: gradle-${{ runner.os }}-
+      - name: Run Android lint
+        run: make lint
+        working-directory: packages/android
+      - name: Run Android tests
+        run: make test
+        working-directory: packages/android
+      - name: Build Android debug APK
+        run: make build
+        working-directory: packages/android
+      - name: Upload Android APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-apk
+          path: packages/android/app/build/outputs/apk/debug/*.apk
+          retention-days: 7
+
+  # macOS: macOS runner for Swift
+  macos:
+    name: macOS
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run macOS format check
+        run: make format
+        working-directory: packages/macos
+      - name: Run macOS lint (build)
+        run: make lint
+        working-directory: packages/macos
+      - name: Run macOS tests
+        run: make test
+        working-directory: packages/macos
+      - name: Build macOS release
+        run: make build
+        working-directory: packages/macos
+      - name: Create macOS app bundle
+        run: make app
+        working-directory: packages/macos
+      - name: Upload macOS app
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-app
+          path: packages/macos/build/Omni.app
+          retention-days: 7
+
+  # CLI: Linux runner for Go
+  cli:
+    name: CLI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+          cache-dependency-path: packages/cli/go.sum
+      - name: Install Zig (for cross-compilation)
+        uses: goto-bus-stop/setup-zig@v2
+        with:
+          version: 0.13.0
+      - name: Run CLI format
+        run: make format
+        working-directory: packages/cli
+      - name: Run CLI lint
+        run: make lint
+        working-directory: packages/cli
+      - name: Run CLI tests
+        run: make test
+        working-directory: packages/cli
+      - name: Build CLI native
+        run: make build
+        working-directory: packages/cli
+      - name: Cross-compile CLI (all platforms)
+        run: make build-all
+        working-directory: packages/cli
+      - name: Upload CLI binaries
+        uses: actions/upload-artifact@v4
+        with:
+          name: cli-binaries
+          path: packages/cli/bin/omni-*
+          retention-days: 7
+
+  # Browser: Linux runner for Node.js
+  browser:
+    name: Browser
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+          cache-dependency-path: packages/browser/pnpm-lock.yaml
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+        working-directory: packages/browser
+      - name: Run browser lint
+        run: pnpm lint
+        working-directory: packages/browser
+      - name: Run browser tests
+        run: pnpm test
+        working-directory: packages/browser
+      - name: Build browser extension
+        run: pnpm build
+        working-directory: packages/browser
+      - name: Upload browser build
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-extension
+          path: packages/browser/dist
+          retention-days: 7
+
+  # Rolling release: on push to master, update the "latest" GitHub Release
+  release-latest:
+    name: Release (latest)
+    needs: [android, macos, cli, browser]
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download CLI binaries
+        uses: actions/download-artifact@v4
+        with:
+          name: cli-binaries
+          path: dist/cli
+      - name: Download Android APK
+        uses: actions/download-artifact@v4
+        with:
+          name: android-apk
+          path: dist/android
+      - name: Download macOS app
+        uses: actions/download-artifact@v4
+        with:
+          name: macos-app
+          path: dist/macos
+      - name: Download browser extension
+        uses: actions/download-artifact@v4
+        with:
+          name: browser-extension
+          path: dist/browser
+      - name: Create/Update "latest" Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: "Omni Latest"
+          body: |
+            Rolling release updated on ${{ github.sha }}
+
+            **CLI** (4 platforms):
+            - `omni-linux-amd64`
+            - `omni-linux-arm64`
+            - `omni-darwin-amd64`
+            - `omni-darwin-arm64`
+
+            **Android**: `app-debug.apk`
+
+            **macOS**: `Omni.app`
+
+            **Browser**: `dist/` (Manifest V2 & V3)
+          files: |
+            dist/cli/*
+            dist/android/*.apk
+            dist/macos/*
+            dist/browser/**
+          draft: false
+          prerelease: false
+          make_latest: true
