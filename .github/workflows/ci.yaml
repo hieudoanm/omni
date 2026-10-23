@@ -12,10 +12,10 @@ jobs:
         package: [android, macos, cli, browser]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4.4.0
+      - uses: actions/setup-node@v4.4.0
         with:
-          node-version: 20
+          node-version: 20.20.2
       - run: npm ci
         working-directory: packages/${{ matrix.package }}
       - run: npm run lint
@@ -24,7 +24,7 @@ jobs:
         working-directory: packages/${{ matrix.package }}
       - run: npm run build
         working-directory: packages/${{ matrix.package }}
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4.6.2
         with:
           name: ${{ matrix.package }}-artifact
           path: packages/${{ matrix.package }}/dist
@@ -34,7 +34,7 @@ jobs:
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4
-      - uses: softprops/action-gh-release@v2
+      - uses: actions/download-artifact@v4.3.0
+      - uses: softprops/action-gh-release@v2.6.2
         with:
           files: "**/*"
