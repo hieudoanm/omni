@@ -17,20 +17,20 @@ jobs:
     env:
       ANDROID_HOME: /opt/android-sdk
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.4.0
       - name: Setup JDK
-        uses: actions/setup-java@v6
+        uses: actions/setup-java@v6.1.0
         with:
           distribution: temurin
-          java-version: 21
+          java-version: 21.0.13+9.0.LTS
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v4
+        uses: android-actions/setup-android@v4.0.4
         with:
           api-level: 37
           ndk-version: r27c
           cmdline-tools-version: latest
       - name: Cache Gradle
-        uses: actions/cache@v6
+        uses: actions/cache@v6.1.0
         with:
           path: |
             ~/.gradle/caches
@@ -47,7 +47,7 @@ jobs:
         run: make build
         working-directory: packages/android
       - name: Upload Android APK
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: android-apk
           path: packages/android/app/build/outputs/apk/debug/*.apk
@@ -58,7 +58,7 @@ jobs:
     name: macOS
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.4.0
       - name: Run macOS format check
         run: make format
         working-directory: packages/macos
@@ -75,7 +75,7 @@ jobs:
         run: make app
         working-directory: packages/macos
       - name: Upload macOS app
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: macos-app
           path: packages/macos/build/Omni.app
@@ -86,14 +86,14 @@ jobs:
     name: CLI
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.4.0
       - name: Setup Go
-        uses: actions/setup-go@v7
+        uses: actions/setup-go@v7.0.0
         with:
-          go-version: '1.27'
+          go-version: '1.27.3'
           cache-dependency-path: packages/cli/go.sum
       - name: Install Zig (for cross-compilation)
-        uses: goto-bus-stop/setup-zig@v2
+        uses: goto-bus-stop/setup-zig@v2.2.1
         with:
           version: 0.13.0
       - name: Run CLI format
@@ -112,7 +112,7 @@ jobs:
         run: make build-all
         working-directory: packages/cli
       - name: Upload CLI binaries
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: cli-binaries
           path: packages/cli/bin/omni-*
@@ -123,13 +123,13 @@ jobs:
     name: Browser
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.4.0
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v4.4.0
         with:
           version: 12.15.0
       - name: Setup Node.js
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@v7.1.0
         with:
           node-version: 26.12.1
           cache: 'pnpm'
@@ -147,7 +147,7 @@ jobs:
         run: pnpm build
         working-directory: packages/browser
       - name: Upload browser build
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: browser-extension
           path: packages/browser/dist
@@ -163,27 +163,27 @@ jobs:
       contents: write
     steps:
       - name: Download CLI binaries
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v4.3.0
         with:
           name: cli-binaries
           path: dist/cli
       - name: Download Android APK
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v4.3.0
         with:
           name: android-apk
           path: dist/android
       - name: Download macOS app
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v4.3.0
         with:
           name: macos-app
           path: dist/macos
       - name: Download browser extension
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v4.3.0
         with:
           name: browser-extension
           path: dist/browser
       - name: Create/Update "latest" Release
-        uses: softprops/action-gh-release@v3
+        uses: softprops/action-gh-release@v3.0.3
         with:
           tag_name: latest
           name: "Omni Latest"
