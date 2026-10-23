@@ -1,0 +1,307 @@
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Bebas+Neue&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #050a14;
+      --surface: #0b1020;
+      --border: #13233d;
+      --accent: #0F7BFF;
+      --accent2: #7FC9FF;
+      --text: #e6f0ff;
+      --muted: #7a8aa8;
+      --danger: #ff4757;
+      --radius: 8px;
+    }
+
+    body {
+      width: 320px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .header {
+      padding: 20px 20px 16px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 100px; height: 100px;
+      background: radial-gradient(circle, rgba(15,123,255,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .brand { display: flex; align-items: baseline; gap: 8px; }
+    .brand-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .brand-tag {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .tab-info {
+      margin-top: 10px;
+      font-size: 10px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .tab-info span { color: var(--accent2); }
+
+    .tabbar {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 10px 4px;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .tab-btn.hidden { display: none; }
+
+    .verdict {
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .indicators {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 0;
+      margin: 8px 0 0;
+    }
+    .indicators li {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 10px;
+      color: var(--text);
+    }
+    .indicators li .on { color: var(--accent); }
+    .indicators li .off { color: var(--muted); }
+
+    .usage-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .usage-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .usage-label {
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .usage-value {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .usage-reset {
+      font-size: 9px;
+      color: var(--muted);
+    }
+
+    .body {
+      padding: 16px 20px 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pane { display: none; flex-direction: column; gap: 12px; }
+    .pane.active { display: flex; }
+
+    .mode-flex { display: flex; gap: 8px; }
+    .mode-btn {
+      flex: 1;
+      padding: 16px 12px;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: 'DM Mono', monospace;
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .mode-btn:hover { border-color: var(--accent); }
+    .mode-title { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .mode-desc { font-size: 9px; color: var(--muted); }
+
+    .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+    .option-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .option-label {
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .toggle-label { font-size: 10px; color: var(--text); }
+
+    .toggle { position: relative; width: 38px; height: 20px; flex-shrink: 0; }
+    .toggle input { position: absolute; opacity: 0; width: 0; height: 0; }
+    .toggle-track {
+      position: absolute; inset: 0;
+      background: var(--border);
+      border-radius: 999px;
+      transition: background 0.15s;
+    }
+    .toggle-thumb {
+      position: absolute; top: 2px; left: 2px;
+      width: 16px; height: 16px;
+      background: var(--muted);
+      border-radius: 50%;
+      transition: transform 0.15s, background 0.15s;
+    }
+    .toggle input:checked ~ .toggle-track { background: rgba(15,123,255,0.5); }
+    .toggle input:checked ~ .toggle-thumb { transform: translateX(18px); background: var(--accent); }
+
+    .url-input {
+      width: 100%;
+      padding: 8px 10px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--text);
+    }
+    .url-input:focus { outline: 1px solid var(--accent); border-color: var(--accent); }
+
+    .btn-row { display: flex; gap: 8px; }
+    .btn-primary, .btn-secondary {
+      flex: 1;
+      padding: 10px 12px;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+      letter-spacing: 0.05em;
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+    .status {
+      font-size: 10px;
+      text-align: center;
+      color: var(--muted);
+      min-height: 14px;
+      letter-spacing: 0.05em;
+      transition: color 0.3s;
+    }
+    .status.ok { color: var(--accent); }
+    .status.err { color: var(--danger); }
+
+    .sound-count {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .tab-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 0;
+      margin: 0;
+      max-height: 220px;
+      overflow-y: auto;
+    }
+    .sound-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sound-favicon {
+      width: 16px;
+      height: 16px;
+      border-radius: 3px;
+      flex-shrink: 0;
+      background: var(--border);
+    }
+    .sound-info {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .sound-title {
+      font-size: 10px;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sound-meta {
+      font-size: 9px;
+      color: var(--muted);
+    }
+    .sound-row.audible .sound-meta { color: var(--accent); }
+    .sound-row.muted .sound-title {
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+    .sound-toggle {
+      flex-shrink: 0;
+      padding: 5px 10px;
+      font-size: 9px;
+      max-width: 72px;
+    }
+    .sound-empty {
+      font-size: 10px;
+      color: var(--muted);
+      padding: 6px 0;
+    }

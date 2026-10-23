@@ -1,0 +1,21 @@
+digraph graph {
+  rankdir=TB;
+  splines=polyline;
+  "AGENTS.md" [label="AGENTS.md", shape=note];
+  "ARCHITECTURE.md" [label="ARCHITECTURE.md", shape=note];
+  "CONTRIBUTING.md" [label="CONTRIBUTING.md", shape=note];
+  "DOWNLOADS.md" [label="DOWNLOADS.md", shape=note];
+  "PACKAGING.md" [label="PACKAGING.md", shape=note];
+  "ROADMAP.md" [label="ROADMAP.md", shape=note];
+  "AGENTS.md" -> ".";
+  "AGENTS.md" -> "ARCHITECTURE.md";
+  "AGENTS.md" -> "CONTRIBUTING.md";
+  "AGENTS.md" -> "DOWNLOADS.md";
+  "AGENTS.md" -> "PACKAGING.md";
+  "AGENTS.md" -> "ROADMAP.md";
+  "DOWNLOADS.md" -> "CONTRIBUTING.md";
+  "DOWNLOADS.md" -> "LICENSE";
+  "DOWNLOADS.md" -> "PACKAGING.md";
+  "DOWNLOADS.md" -> "ROADMAP.md";
+  "ROADMAP.md" -> "ARCHITECTURE.md";
+}

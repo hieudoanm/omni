@@ -1,0 +1,16 @@
+{
+  "name": "@omni/cli",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Omni CLI - a personal CLI toolbox with 33 modules and an MCP server",
+  "bin": {
+    "omni": "bin/omni"
+  },
+  "scripts": {
+    "format": "make format",
+    "lint": "make lint",
+    "test": "make test",
+    "build": "make build",
+    "typecheck": "go vet ./..."
+  }
+}

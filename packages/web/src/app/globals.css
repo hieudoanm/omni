@@ -1,0 +1,22 @@
+@import 'tailwindcss';
+
+:root {
+  --background: #020813;
+  --foreground: #ededed;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-orbitron);
+  --font-mono: var(--font-orbitron);
+}
+
+body {
+  @apply m-0 h-screen w-screen overflow-hidden bg-[#020813] p-0;
+  font-family: var(--font-orbitron), 'Courier New', monospace;
+}
+
+canvas {
+  @apply fixed inset-0 block;
+}
