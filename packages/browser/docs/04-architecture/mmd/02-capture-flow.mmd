@@ -1,0 +1,15 @@
+```mermaid
+sequenceDiagram
+  participant P as Popup
+  participant B as Background
+  participant C as Content
+  P->>B: CAPTURE_FULLPAGE
+  B->>C: SNAP_GET_LAYOUT
+  C-->>B: LayoutInfo
+  loop steps
+    B->>C: SNAP_SCROLL_TO(y)
+    Note over B: wait SETTLE_EXTRA_MS
+  end
+  B->>B: stitchChunks via OffscreenCanvas
+  B-->>P: { dataUrl } or { error }
+```

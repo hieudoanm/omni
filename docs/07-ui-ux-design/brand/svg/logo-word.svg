@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 256" width="1024" height="256">
+  <defs>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0066FF"/>
+      <stop offset="100%" stop-color="#0039CC"/>
+    </linearGradient>
+  </defs>
+
+  <text x="512" y="170"
+        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+        font-size="200"
+        font-weight="700"
+        text-anchor="middle"
+        fill="url(#textGrad)">omni</text>
+</svg>

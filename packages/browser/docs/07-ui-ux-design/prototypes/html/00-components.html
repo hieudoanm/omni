@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Omni Components</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      :root {
+        --bg: #12090a;
+        --surface: #1a0d0e;
+        --border: #331416;
+        --accent: #d71921;
+        --accent2: #ffd700;
+        --text: #f0e6e6;
+        --muted: #6f5a5f;
+        --danger: #ff4757;
+      }
+      body {
+        font-family: 'DM Mono', monospace;
+        background: var(--bg);
+        color: var(--text);
+      }
+      .theme-switcher {
+        position: fixed;
+        right: 1rem;
+        bottom: 1rem;
+        z-index: 60;
+        display: flex;
+        gap: 0.25rem;
+        padding: 0.25rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      }
+      .theme-switcher button {
+        font: inherit;
+        font-size: 12px;
+        padding: 0.35rem 0.7rem;
+        border-radius: 999px;
+        border: 0;
+        background: transparent;
+        color: var(--text);
+        opacity: 0.65;
+        cursor: pointer;
+      }
+      .theme-switcher button[aria-pressed='true'] {
+        background: var(--border);
+        opacity: 1;
+      }
+      .brand-name {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 28px;
+        letter-spacing: 0.1em;
+        color: var(--accent);
+      }
+      .tab-btn {
+        color: var(--muted);
+        border-bottom: 2px solid transparent;
+      }
+      .tab-btn.active {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+      }
+    </style>
+  </head>
+  <body class="p-4">
+    <div class="max-w-md mx-auto space-y-4">
+      <div class="brand-name">tab-x</div>
+      <div role="tablist" class="tabs tabs-boxed bg-base-300">
+        <button class="tab tab-btn active">Ads</button
+        ><button class="tab tab-btn">Snap</button
+        ><button class="tab tab-btn">Sound</button>
+      </div>
+      <div class="card bg-base-300 shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title">Toggles</h3>
+          <label class="label cursor-pointer"
+            ><span class="label-text">Block Ads</span
+            ><input type="checkbox" class="toggle toggle-error" checked
+          /></label>
+          <label class="label cursor-pointer"
+            ><span class="label-text">Redirect new tabs</span
+            ><input type="checkbox" class="toggle toggle-error" checked
+          /></label>
+        </div>
+      </div>
+      <div class="card bg-base-300 shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title">Buttons</h3>
+          <div class="flex flex-col gap-2">
+            <button class="btn btn-error btn-sm">Current View</button>
+            <button class="btn btn-outline btn-sm">Full Page</button>
+          </div>
+        </div>
+      </div>
+      <div class="card bg-base-300 shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title">Usage</h3>
+          <div class="grid grid-cols-2 gap-2 text-center">
+            <div>
+              <div class="text-xs opacity-60">Daily</div>
+              <div class="text-xl">45/100</div>
+            </div>
+            <div>
+              <div class="text-xs opacity-60">Weekly</div>
+              <div class="text-xl">120/500</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="theme-switcher">
+      <button id="theme-light">Light</button
+      ><button id="theme-dark" aria-pressed="true">Dark</button>
+    </div>
+    <script>
+      const root = document.documentElement,
+        light = document.getElementById('theme-light'),
+        dark = document.getElementById('theme-dark');
+      const apply = (t) => {
+        root.setAttribute('data-theme', t);
+        light.setAttribute('aria-pressed', String(t === 'light'));
+        dark.setAttribute('aria-pressed', String(t === 'dark'));
+      };
+      light.onclick = () => apply('light');
+      dark.onclick = () => apply('dark');
+      apply('dark');
+    </script>
+  </body>
+</html>
