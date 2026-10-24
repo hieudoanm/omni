@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
-  <rect width="1024" height="1024" rx="185" ry="185" fill="#000000"/>
-  <circle cx="512" cy="512" r="300" fill="#d4af37"/>
-  <circle cx="512" cy="512" r="293" fill="#a87f1f"/>
-  <circle cx="512" cy="512" r="285" fill="#d4af37"/>
-  <circle cx="512" cy="512" r="221" fill="#a87f1f"/>
-  <circle cx="512" cy="512" r="212" fill="#000000"/>
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0066FF"/>
+      <stop offset="100%" stop-color="#0039CC"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <rect x="80" y="80" width="864" height="864" rx="160" ry="160" fill="url(#bgGrad)" filter="url(#softShadow)"/>
+  <circle cx="512" cy="512" r="220" fill="none" stroke="#FFFFFF" stroke-width="48"/>
+  <circle cx="512" cy="512" r="140" fill="#FFFFFF" opacity="0.9"/>
 </svg>
