@@ -187,8 +187,8 @@ importers:
         specifier: 8.0.3
         version: 8.0.3(supports-color@8.1.1)
       '@types/chrome':
-        specifier: 0.3.6
-        version: 0.3.6
+        specifier: 0.3.7
+        version: 0.3.7
       '@types/firefox-webext-browser':
         specifier: 143.0.1
         version: 143.0.1
@@ -838,8 +838,8 @@ packages:
     cpu: [arm64]
     os: [win32]
 
-  '@types/chrome@0.3.6':
-    resolution: {integrity: sha512-NXCrCBefCHCKMVbkaxfBQqyP766Wg85S2FQhixCCxq7AtjJwoEaja2y5NSqCzpihIi9mPqhaF5RuybTnrdYD2Q==}
+  '@types/chrome@0.3.7':
+    resolution: {integrity: sha512-jWZgbHqWbTL1a5+PoyN0OJutNyejWgyZ5MdcvKo6iJE1TNRtXR3FxsC4WzNl52yZWPidfWC8NV/VUNZf+OFKcA==}
 
   '@types/debug@4.1.13':
     resolution: {integrity: sha512-KSVgmQmzMwPlmtljOomayoR89W4FynCAi3E8PPs7vmDVPe84hT+vGPKkJfThkmXs0x0jAaa9U8uW8bbfyS2fWw==}
@@ -4669,7 +4669,7 @@ snapshots:
   '@turbo/windows-arm64@2.11.10':
     optional: true
 
-  '@types/chrome@0.3.6':
+  '@types/chrome@0.3.7':
     dependencies:
       '@types/har-format': 1.2.16
 
