@@ -172,7 +172,7 @@ jobs:
   # Rolling release: on push to master, update the "latest" GitHub Release
   release-latest:
     name: Release (latest)
-    needs: [android, macos, cli, browser]
+    needs: [android, macos, cli, browser, web]
     if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
@@ -240,3 +240,47 @@ jobs:
           draft: false
           prerelease: false
           make_latest: true
+
+  # Web: Linux runner for Next.js
+  web:
+    name: Web
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6.1.1
+        with:
+          version: 12.16.1
+      - name: Setup Node.js
+        uses: actions/setup-node@v7.1.0
+        with:
+          node-version: 26.13.0
+          cache: "pnpm"
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+        working-directory: packages/web
+      - name: Build web
+        run: pnpm build
+        working-directory: packages/web
+      - name: Upload web artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: packages/web/out
+
+  # Deploy to GitHub Pages
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: [web]
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
