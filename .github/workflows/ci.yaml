@@ -220,7 +220,7 @@ jobs:
           gh release delete latest --yes --cleanup-tag || true
           git push origin :refs/tags/latest || true
       - name: Create/Update "latest" Release
-        uses: softprops/action-gh-release@v3.0.3
+        uses: softprops/action-gh-release@v3.0.4
         with:
           tag_name: latest
           name: "Omni (latest)"
