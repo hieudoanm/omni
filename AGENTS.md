@@ -74,7 +74,7 @@ pnpm build            # turbo run build (all packages)
 - **Format** — `go fmt ./...`
 - **Lint** — `go vet ./...`
 - **Test** — `go test ./...` (479 packages).
-- **Install script** — `scripts/install.sh` downloads from `latest` release, `REPO=hieudoanm/omni`, `RELEASE=latest`, asset `omni-{os}-{arch}`.
+- **Install scripts** — `scripts/install.sh` installs release artifacts; `scripts/install-local.sh` builds from source (`--cli`, `--macos`, `--android`, `--browser`, `--web`).
 
 ### Browser (`packages/browser`)
 
