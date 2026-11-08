@@ -22,18 +22,44 @@ INSTALL_DIR="${INSTALL_DIR:-$HOME/.local/bin}"
 DOWNLOAD_DIR="${DOWNLOAD_DIR:-$HOME/Downloads}"
 BASE_URL="https://github.com/$REPO/releases/download/$RELEASE"
 
+# --- logging ---------------------------------------------------------------
+if [[ -t 1 ]]; then
+  C_RESET=$'\e[0m'; C_DIM=$'\e[2m'
+  C_CYAN=$'\e[36m'; C_GREEN=$'\e[32m'; C_YELLOW=$'\e[33m'; C_RED=$'\e[31m'
+else
+  C_RESET=''; C_DIM=''; C_CYAN=''; C_GREEN=''; C_YELLOW=''; C_RED=''
+fi
+
+log() {
+  local level="$1"; shift
+  local color label
+  case "$level" in
+    ok)    color="$C_GREEN";  label=" OK " ;;
+    info)  color="$C_CYAN";   label="INFO" ;;
+    warn)  color="$C_YELLOW"; label="WARN" ;;
+    error) color="$C_RED";    label="ERR " ;;
+    step)  color="$C_DIM";    label="    " ;;
+  esac
+  printf '%s[%s]%s %s[%s]%s %s\n' \
+    "$C_DIM" "$(date +%H:%M:%S)" "$C_RESET" \
+    "$color" "$label" "$C_RESET" "$*"
+}
+
+err() { log error "$@" >&2; }
+
+# --- platform detection ----------------------------------------------------
 OS="$(uname -s | tr '[:upper:]' '[:lower:]')"
 ARCH="$(uname -m)"
 
 case "$ARCH" in
   x86_64|amd64) ARCH="amd64" ;;
   aarch64|arm64) ARCH="arm64" ;;
-  *) printf "Unsupported architecture: %s\n" "$ARCH" >&2; exit 1 ;;
+  *) err "Unsupported architecture: $ARCH"; exit 1 ;;
 esac
 
 case "$OS" in
   linux|darwin) ;;
-  *) printf "Unsupported OS: %s\n" "$OS" >&2; exit 1 ;;
+  *) err "Unsupported OS: $OS"; exit 1 ;;
 esac
 
 want_cli=true
@@ -53,15 +79,15 @@ if [[ $# -gt 0 ]]; then
         sed -n '2,20p' "$0"
         exit 0
         ;;
-      *) printf "Unknown flag: %s\n" "$arg" >&2; exit 1 ;;
+      *) err "Unknown flag: $arg"; exit 1 ;;
     esac
   done
 fi
 
 download() {
   local url="$1" dest="$2"
-  printf 'Downloading %s ...\n' "${url##*/}"
-  curl -fsSL "$url" -o "$dest"
+  log info "Downloading ${url##*/}"
+  curl -fsSL --connect-timeout 10 --max-time 300 "$url" -o "$dest"
 }
 
 install_cli() {
@@ -73,11 +99,11 @@ install_cli() {
   mkdir -p "$INSTALL_DIR"
   mv "$tmp" "$INSTALL_DIR/omni"
   trap - RETURN
-  printf 'Installed CLI to %s/omni\n' "$INSTALL_DIR"
+  log ok "CLI installed to $INSTALL_DIR/omni"
   if [[ ":$PATH:" != *":$INSTALL_DIR:"* ]]; then
-    printf '  Add it to your PATH: export PATH="%s:$PATH"\n' "$INSTALL_DIR"
+    log warn "Add it to your PATH: export PATH=\"$INSTALL_DIR:\$PATH\""
   fi
-  printf '  Try: omni version\n'
+  log step "Try: omni version"
 }
 
 install_macos_app() {
@@ -87,31 +113,28 @@ install_macos_app() {
   zip="$staging/Omni.app.zip"
   download "$BASE_URL/Omni.app.zip" "$zip"
   unzip -q "$zip" -d "$staging"
-  app_dst="/Applications/Omni.app"
   if [[ -w /Applications ]]; then
-    rm -rf "$app_dst"
-    cp -R "$staging/Omni.app" "$app_dst"
-    printf 'Installed Omni.app to /Applications\n'
-    open "$app_dst" 2>/dev/null || true
+    app_dst="/Applications/Omni.app"
   else
     app_dst="$HOME/Applications/Omni.app"
     mkdir -p "$HOME/Applications"
-    rm -rf "$app_dst"
-    cp -R "$staging/Omni.app" "$app_dst"
-    printf 'Installed Omni.app to ~/Applications (no /Applications write access)\n'
-    open "$app_dst" 2>/dev/null || true
+    log warn "No write access to /Applications, using ~/Applications"
   fi
+  rm -rf "$app_dst"
+  cp -R "$staging/Omni.app" "$app_dst"
   rm -rf "$staging"
+  log ok "Omni.app installed to $app_dst"
+  open "$app_dst" 2>/dev/null || true
 }
 
 install_android() {
   mkdir -p "$DOWNLOAD_DIR"
   download "$BASE_URL/app-debug.apk" "$DOWNLOAD_DIR/app-debug.apk"
-  printf 'Downloaded APK to %s\n' "$DOWNLOAD_DIR/app-debug.apk"
+  log ok "APK downloaded to $DOWNLOAD_DIR/app-debug.apk"
   if command -v adb >/dev/null 2>&1; then
-    printf 'Install with: adb install %s\n' "$DOWNLOAD_DIR/app-debug.apk"
+    log step "Install with: adb install $DOWNLOAD_DIR/app-debug.apk"
   else
-    printf 'Sideload it on your device, or install adb to use: adb install\n'
+    log step "Sideload it on your device, or install adb to use: adb install"
   fi
 }
 
@@ -119,14 +142,18 @@ install_browser() {
   local variant="${BROWSER_VARIANT:-v3}"
   mkdir -p "$DOWNLOAD_DIR"
   download "$BASE_URL/omni-$variant.zip" "$DOWNLOAD_DIR/omni-$variant.zip"
-  printf 'Downloaded omni-%s.zip to %s\n' "$variant" "$DOWNLOAD_DIR"
+  log ok "omni-$variant.zip downloaded to $DOWNLOAD_DIR"
   case "$variant" in
-    v2) printf 'Firefox: about:debugging -> This Firefox -> Load Temporary Add-on -> pick manifest.json inside the unzipped folder.\n' ;;
-    v3) printf 'Chrome/Edge: chrome://extensions -> Developer mode -> Load unpacked -> pick the unzipped folder.\n' ;;
+    v2) log step "Firefox: about:debugging -> This Firefox -> Load Temporary Add-on -> pick manifest.json inside the unzipped folder." ;;
+    v3) log step "Chrome/Edge: chrome://extensions -> Developer mode -> Load unpacked -> pick the unzipped folder." ;;
   esac
 }
+
+log info "Installing Omni from $REPO@$RELEASE ($OS/$ARCH)"
 
 if $want_cli; then install_cli; fi
 if $want_app; then install_macos_app; fi
 if $want_android; then install_android; fi
 if $want_browser; then install_browser; fi
+
+log ok "Done."
