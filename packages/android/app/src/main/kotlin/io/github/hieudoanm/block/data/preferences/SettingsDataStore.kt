@@ -33,7 +33,7 @@ class SettingsDataStore(private val context: Context) {
     }
 
     val darkMode: Flow<Boolean> = context.dataStore.data.map { prefs ->
-        prefs[Keys.DARK_MODE] ?: false
+        prefs[Keys.DARK_MODE] ?: true
     }
 
     val accessibilityEnabled: Flow<Boolean> = context.dataStore.data.map { prefs ->

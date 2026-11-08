@@ -19,8 +19,8 @@ struct ChipButton: View {
                 .tracking(2)
                 .padding(.horizontal, Spacing.xl)
                 .padding(.vertical, Spacing.xs)
-                .background(isSelected ? Color.accentColor : Palette.controlFill, in: Capsule())
-                .foregroundColor(isSelected ? .white : .primary)
+                .background(isSelected ? Palette.accent : Palette.controlFill, in: Capsule())
+                .foregroundColor(isSelected ? Palette.onAccent : .primary)
         }
         .buttonStyle(.plain)
         .accessibilityLabel(accessibilityLabel ?? title)

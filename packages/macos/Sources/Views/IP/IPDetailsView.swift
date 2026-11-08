@@ -53,7 +53,7 @@ struct IPDetailsView: View {
                         .font(.caption)
                 }
                 .buttonStyle(.plain)
-                .foregroundColor(.accentColor)
+                .foregroundColor(Palette.accent)
                 .padding(.top, Spacing.xs)
             }
 

@@ -14,7 +14,7 @@ import javax.inject.Inject
 data class SettingsState(
     val blockingEnabled: Boolean = false,
     val launchOnBoot: Boolean = false,
-    val darkMode: Boolean = false,
+    val darkMode: Boolean = true,
     val ignoreSystemApps: Boolean = true,
 )
 

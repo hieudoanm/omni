@@ -62,7 +62,7 @@ struct WatchfaceView: View {
                     angle: hourAngle,
                     radius: minDimension * 0.30,
                     size: 26,
-                    color: .accentColor
+                    color: Palette.accent
                 )
                 handDot(
                     angle: minuteAngle,

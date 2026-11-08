@@ -42,7 +42,7 @@ struct PomodoroView: View {
         CapsuleBadge(
             text: "\(viewModel.phase.title) · \(viewModel.round) / ∞",
             font: .system(.caption, design: .monospaced),
-            tint: viewModel.phase == .work ? .accentColor : .green,
+            tint: viewModel.phase == .work ? Palette.accent : .green,
             labelColor: .secondary
         )
         .accessibilityLabel(viewModel.statusText)
@@ -84,6 +84,6 @@ struct PomodoroView: View {
     }
 
     private var faceColor: Color {
-        viewModel.phase == .work ? .accentColor : .green
+        viewModel.phase == .work ? Palette.accent : .green
     }
 }

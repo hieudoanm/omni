@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 data class SettingsState(
     val autoOpenUrl: Boolean = false,
-    val darkMode: Boolean = false,
+    val darkMode: Boolean = true,
 )
 
 @HiltViewModel

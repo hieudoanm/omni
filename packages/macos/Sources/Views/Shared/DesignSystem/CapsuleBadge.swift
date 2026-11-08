@@ -7,8 +7,8 @@ import SwiftUI
 struct CapsuleBadge: View {
     let text: String
     var font: Font = .caption2
-    var tint: Color = .accentColor
-    var labelColor: Color = .accentColor
+    var tint: Color = Palette.accent
+    var labelColor: Color = Palette.accent
 
     var body: some View {
         Text(text)

@@ -9,17 +9,32 @@
     />
     <title>Omni</title>
     <style>
+      @font-face {
+        font-family: 'Orbitron';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url('fonts/orbitron-700.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'DM Mono';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('fonts/dmmono-400.woff2') format('woff2');
+      }
       :root {
-        --bg: #f7f8fa;
-        --card: #ffffff;
-        --card-hover: #f0f2f5;
-        --border: #d9dde3;
-        --border-soft: #eceff3;
-        --text: #181d25;
-        --muted: #555f6e;
-        --faint: #8a93a2;
-        --accent: #D71921;
-        --ok: #0e9f6e;
+        --bg: #020813;
+        --card: #0a1424;
+        --card-hover: #0f1e33;
+        --border: #14304a;
+        --border-soft: #0f1e33;
+        --text: #ededed;
+        --muted: #7d93ad;
+        --faint: #4a5d75;
+        --accent: #16dfff;
+        --accent-dim: #008cff;
+        --ok: #34d399;
         --radius: 10px;
         --radius-sm: 6px;
       }
@@ -38,13 +53,12 @@
         background: var(--bg);
         color: var(--text);
         font-family:
-          system-ui,
-          -apple-system,
-          'Segoe UI',
-          Roboto,
-          'Helvetica Neue',
-          Arial,
-          sans-serif;
+          'DM Mono',
+          ui-monospace,
+          'Cascadia Code',
+          Menlo,
+          Consolas,
+          monospace;
         line-height: 1.55;
         -webkit-font-smoothing: antialiased;
       }
@@ -146,8 +160,10 @@
       .title-block h1 {
         margin: 0;
         font-size: 30px;
+        font-family: 'Orbitron', 'DM Mono', sans-serif;
         font-weight: 700;
-        letter-spacing: -0.02em;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
       }
 
       .badges {
@@ -203,14 +219,14 @@
       }
 
       .btn-primary {
-        color: #ffffff;
+        color: #020813;
         background: var(--accent);
         border-color: var(--accent);
       }
 
       .btn-primary:hover {
-        background: #b0131a;
-        border-color: #b0131a;
+        background: var(--accent-dim);
+        border-color: var(--accent-dim);
       }
 
       .btn-ghost {
@@ -297,14 +313,14 @@
         height: 18px;
         width: 55%;
         border-radius: 4px;
-        background: #d9dde3;
+        background: #14304a;
         margin-bottom: 16px;
       }
 
       .mock-line {
         height: 10px;
         border-radius: 4px;
-        background: #eceff3;
+        background: #0f1e33;
         margin-bottom: 12px;
       }
 
@@ -321,24 +337,24 @@
         background:
           repeating-linear-gradient(
             0deg,
-            #eceff3 0,
-            #eceff3 10px,
-            #f4f6f8 10px,
-            #f4f6f8 20px
+            #0f1e33 0,
+            #0f1e33 10px,
+            #16304a 10px,
+            #16304a 20px
           );
       }
 
       .mock-snap .page-head {
         height: 16px;
         border-radius: 4px;
-        background: #d9dde3;
+        background: #14304a;
         margin-bottom: 10px;
       }
 
       .mock-snap .text {
         height: 8px;
         border-radius: 4px;
-        background: #dfe3e9;
+        background: #1a3a5c;
         margin-bottom: 6px;
       }
 
@@ -396,8 +412,10 @@
       .card h2 {
         margin: 0 0 6px;
         font-size: 20px;
+        font-family: 'Orbitron', 'DM Mono', sans-serif;
         font-weight: 700;
-        letter-spacing: -0.01em;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
       }
 
       .card .sub {
@@ -438,7 +456,7 @@
         font-size: 11px;
         font-weight: 600;
         color: var(--accent);
-        border: 1px solid rgba(53, 107, 255, 0.4);
+        border: 1px solid rgba(22, 223, 255, 0.4);
         border-radius: 999px;
         padding: 2px 8px;
         text-transform: uppercase;
@@ -658,7 +676,7 @@
       <section class="screen-mock" aria-hidden="true">
         <div class="mock-bar">
           <span class="dot" style="background: #c9ced6"></span>
-          <span class="dot" style="background: #d9dde3"></span>
+          <span class="dot" style="background: #14304a"></span>
           <span class="dot" style="background: #e5e8ed"></span>
           <span class="mock-url">https://hieudoanm.github.io/</span>
         </div>

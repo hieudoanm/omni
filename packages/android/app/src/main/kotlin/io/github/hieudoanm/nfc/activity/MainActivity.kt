@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
         handleIntent(intent)
 
         setContent {
-            val darkMode by settingsDataStore.darkMode.collectAsState(initial = false)
+            val darkMode by settingsDataStore.darkMode.collectAsState(initial = true)
             NfcToolkitTheme(darkTheme = darkMode) {
                 AppNavGraph()
             }

@@ -78,9 +78,9 @@ const buildStyles = (): string => `
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { height: 100%; }
   body {
-    font-family: system-ui, -apple-system, sans-serif;
-    background: radial-gradient(circle at top, #1f2937, #0f172a);
-    color: #f8fafc;
+    font-family: ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
+    background: radial-gradient(circle at top, #0a1424, #020813);
+    color: #ededed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -90,22 +90,23 @@ const buildStyles = (): string => `
   .block-wall { max-width: 640px; width: 100%; text-align: center; }
   .block-ball { font-size: 4rem; margin-bottom: 0.5rem; }
   h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-  .lede { color: #94a3b8; margin-bottom: 1rem; }
+  .lede { color: #7d93ad; margin-bottom: 1rem; }
   .domain {
     display: inline-block;
     margin-bottom: 1.5rem;
     padding: 0.4rem 1rem;
-    background: #1e293b;
+    background: #0a1424;
+    border: 1px solid #14304a;
     border-radius: 9999px;
-    font-family: monospace;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
     font-size: 0.9rem;
-    color: #ef4444;
+    color: #16dfff;
   }
-  h2 { font-size: 1.15rem; margin: 1.5rem 0 0.75rem; color: #cbd5e1; }
+  h2 { font-size: 1.15rem; margin: 1.5rem 0 0.75rem; color: #8afaff; letter-spacing: 0.08em; text-transform: uppercase; }
   .better-sites { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.6rem; }
   .better-sites a {
-    color: #0f172a;
-    background: #f59e0b;
+    color: #020813;
+    background: linear-gradient(90deg, #008cff, #16dfff);
     text-decoration: none;
     font-weight: 600;
     padding: 0.6rem 0.8rem;
@@ -120,14 +121,14 @@ const buildStyles = (): string => `
     align-items: center;
     justify-content: center;
     padding: 0.9rem 1.2rem;
-    background: #1e293b;
-    border: 2px solid #334155;
+    background: #0a1424;
+    border: 2px solid #14304a;
     border-radius: 1rem;
     font-size: 1.05rem;
     line-height: 1.4;
-    color: #e2e8f0;
+    color: #ededed;
   }
-  .wheel-display.spinning { color: #94a3b8; font-style: italic; }
+  .wheel-display.spinning { color: #7d93ad; font-style: italic; }
   .wheel-button {
     margin-top: 0.9rem;
     border: none;
@@ -135,8 +136,8 @@ const buildStyles = (): string => `
     font: inherit;
     font-size: 1rem;
     font-weight: 700;
-    color: #0f172a;
-    background: linear-gradient(90deg, #ef4444, #f59e0b);
+    color: #020813;
+    background: linear-gradient(90deg, #008cff, #16dfff);
     padding: 0.8rem 1.8rem;
     border-radius: 9999px;
     transition: transform 0.12s ease, filter 0.12s ease;

@@ -7,7 +7,7 @@ import SwiftUI
 struct CircleIconButton: View {
     let systemImage: String
     var size: CGFloat = 46
-    var color: Color = .accentColor
+    var color: Color = Palette.accent
     let action: () -> Void
 
     var body: some View {

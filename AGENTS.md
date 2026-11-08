@@ -93,6 +93,23 @@ pnpm build            # turbo run build (all packages)
 - **Typecheck** — `pnpm typecheck` runs `next typegen && tsc --noEmit` (`next-env.d.ts` and `.next/types` are gitignored and regenerated).
 - **Format** — `prettier --write` / `format:check`; **Lint** — `eslint` (flat config `eslint.config.mjs`).
 
+## Design Baseline
+
+`packages/web` is the UI baseline for every package — a dark sci-fi HUD theme.
+
+- **Palette** — bg `#020813`, surface `#0a1424` / `#0f1e33`, border `#14304a`,
+  accent `#16dfff`, accent-2 `#8afaff`, accent-dim `#008cff`, text `#ededed`,
+  muted `#7d93ad`. Tokens live in `packages/web/src/app/globals.css`.
+- **Typography** — Orbitron for display/title/label roles, DM Mono for body.
+  Fonts are bundled locally (OFL): `packages/browser/public/fonts/*.woff2`,
+  `packages/android/app/src/main/res/font/{orbitron,dmmono_*}.ttf`.
+- **Per package** — browser: `public/popup.css` + `public/index.html` +
+  injected wall styles in `src/lib/block.ts`; Android: `*/ui/theme/{Color,Theme}.kt`
+  (identical HUD palette in omni/block/nfc, dark-first with light variant);
+  CLI: ANSI-256 approximations in `src/libs/theme/theme.go`; macOS:
+  `Palette.accent`/`onAccent` dynamic colors in
+  `Sources/Views/Shared/DesignSystem/Palette.swift`.
+
 ## Non-Negotiables
 
 - **Per-package Makefiles** — root `pnpm` scripts delegate; never call Gradle/Swift/Go directly from root.

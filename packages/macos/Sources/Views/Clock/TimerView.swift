@@ -45,7 +45,7 @@ struct TimerView: View {
         ClockRing(
             size: size,
             progress: viewModel.progress,
-            color: viewModel.isFinished ? .green : Color.accentColor
+            color: viewModel.isFinished ? .green : Palette.accent
         ) {
             VStack(spacing: Spacing.xxs) {
                 Text(viewModel.timeText)
@@ -54,7 +54,7 @@ struct TimerView: View {
                 Text(viewModel.isFinished ? "done" : "remaining")
                     .font(.caption)
                     .tracking(2)
-                    .foregroundColor(viewModel.isFinished ? Color.secondary : Color.accentColor)
+                    .foregroundColor(viewModel.isFinished ? Color.secondary : Palette.accent)
                     .textCase(.uppercase)
             }
         }
@@ -70,7 +70,7 @@ struct TimerView: View {
             CircleIconButton(
                 systemImage: viewModel.isRunning ? "pause.fill" : "play.fill",
                 size: 64,
-                color: viewModel.isRunning ? .red : .accentColor
+                color: viewModel.isRunning ? .red : Palette.accent
             ) {
                 viewModel.toggleRunning()
             }

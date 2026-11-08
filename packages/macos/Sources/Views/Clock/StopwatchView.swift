@@ -37,7 +37,7 @@ struct StopwatchView: View {
             CircleIconButton(
                 systemImage: viewModel.isRunning ? "pause.fill" : "play.fill",
                 size: 70,
-                color: viewModel.isRunning ? .red : .accentColor
+                color: viewModel.isRunning ? .red : Palette.accent
             ) {
                 if viewModel.isRunning {
                     viewModel.stop()

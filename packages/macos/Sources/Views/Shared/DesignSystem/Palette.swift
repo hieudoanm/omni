@@ -52,4 +52,22 @@ enum Palette {
     static func tint(_ color: Color) -> Color {
         color.opacity(0.15)
     }
+
+    /// The brand accent — the cyan HUD colour from the web baseline. It
+    /// resolves per appearance so Light Mode gets a deeper cyan that keeps
+    /// contrast on light surfaces.
+    static let accent = Color(nsColor: NSColor(name: nil) { appearance in
+        if appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua {
+            return NSColor(srgbRed: 0.086, green: 0.875, blue: 1, alpha: 1)
+        }
+        return NSColor(srgbRed: 0, green: 0.549, blue: 1, alpha: 1)
+    })
+
+    /// Content drawn on top of `accent`.
+    static let onAccent = Color(nsColor: NSColor(name: nil) { appearance in
+        if appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua {
+            return NSColor(srgbRed: 0.008, green: 0.047, blue: 0.075, alpha: 1)
+        }
+        return .white
+    })
 }

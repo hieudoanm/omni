@@ -1,8 +1,16 @@
 @import 'tailwindcss';
 
 :root {
+  /* Omni HUD palette — the design baseline for every package. */
   --background: #020813;
+  --surface: #0a1424;
+  --surface-variant: #0f1e33;
+  --border: #14304a;
+  --accent: #16dfff;
+  --accent-2: #8afaff;
+  --accent-dim: #008cff;
   --foreground: #ededed;
+  --muted: #7d93ad;
 }
 
 @theme inline {

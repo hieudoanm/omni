@@ -98,7 +98,7 @@ struct BatterySectionView: View {
 
     private func chargeColor(_ info: BatteryInfo) -> Color {
         if info.isACPowered && !info.isCharging {
-            return Color.accentColor
+            return Palette.accent
         }
         if info.chargePercentage < 20 {
             return .red
@@ -106,7 +106,7 @@ struct BatterySectionView: View {
         if info.chargePercentage < 40 {
             return .orange
         }
-        return info.isCharging ? .green : Color.accentColor
+        return info.isCharging ? .green : Palette.accent
     }
 
     private func accessibilityOverviewLabel(_ info: BatteryInfo) -> String {

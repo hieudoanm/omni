@@ -1,24 +1,61 @@
-    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Bebas+Neue&display=swap');
+    @font-face {
+      font-family: 'Orbitron';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('fonts/orbitron-400.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Orbitron';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('fonts/orbitron-700.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Orbitron';
+      font-style: normal;
+      font-weight: 900;
+      font-display: swap;
+      src: url('fonts/orbitron-900.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'DM Mono';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('fonts/dmmono-400.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'DM Mono';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('fonts/dmmono-500.woff2') format('woff2');
+    }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #050a14;
-      --surface: #0b1020;
-      --border: #13233d;
-      --accent: #0F7BFF;
-      --accent2: #7FC9FF;
-      --text: #e6f0ff;
-      --muted: #7a8aa8;
-      --danger: #ff4757;
+      --bg: #020813;
+      --surface: #0a1424;
+      --border: #14304a;
+      --accent: #16dfff;
+      --accent2: #8afaff;
+      --deep: #008cff;
+      --text: #ededed;
+      --muted: #7d93ad;
+      --danger: #ff5d6c;
       --radius: 8px;
+      --font-display: 'Orbitron', 'Segoe UI', sans-serif;
+      --font-mono: 'DM Mono', ui-monospace, monospace;
     }
 
     body {
       width: 320px;
       background: var(--bg);
       color: var(--text);
-      font-family: 'DM Mono', monospace;
+      font-family: var(--font-mono);
       padding: 0;
       overflow: hidden;
     }
@@ -34,13 +71,13 @@
       position: absolute;
       top: -30px; right: -30px;
       width: 100px; height: 100px;
-      background: radial-gradient(circle, rgba(15,123,255,0.18) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(22,223,255,0.18) 0%, transparent 70%);
       pointer-events: none;
     }
 
     .brand { display: flex; align-items: baseline; gap: 8px; }
     .brand-name {
-      font-family: 'Bebas Neue', sans-serif;
+      font-family: var(--font-display);
       font-size: 28px;
       letter-spacing: 0.1em;
       color: var(--accent);
@@ -75,7 +112,7 @@
       border: none;
       border-bottom: 2px solid transparent;
       color: var(--muted);
-      font-family: 'DM Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 10px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -153,7 +190,7 @@
       color: var(--text);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      font-family: 'DM Mono', monospace;
+      font-family: var(--font-mono);
       cursor: pointer;
       text-align: left;
       display: flex;
@@ -201,7 +238,7 @@
       border-radius: 50%;
       transition: transform 0.15s, background 0.15s;
     }
-    .toggle input:checked ~ .toggle-track { background: rgba(15,123,255,0.5); }
+    .toggle input:checked ~ .toggle-track { background: rgba(22,223,255,0.5); }
     .toggle input:checked ~ .toggle-thumb { transform: translateX(18px); background: var(--accent); }
 
     .url-input {
@@ -210,7 +247,7 @@
       background: transparent;
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      font-family: 'DM Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 10px;
       color: var(--text);
     }
@@ -224,7 +261,7 @@
       color: var(--text);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      font-family: 'DM Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 11px;
       cursor: pointer;
       transition: border-color 0.15s, color 0.15s;
@@ -304,4 +341,14 @@
       font-size: 10px;
       color: var(--muted);
       padding: 6px 0;
+    }
+
+    .brand-name,
+    .tab-btn,
+    .verdict,
+    .mode-title,
+    .usage-label,
+    .option-label,
+    .sound-count {
+      font-family: var(--font-display);
     }
