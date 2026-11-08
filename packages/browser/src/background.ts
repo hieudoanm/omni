@@ -81,6 +81,7 @@ const contentAudibleTabs = new Set<number>();
 let adsBlockEnabled = true;
 
 void chrome.storage.sync.get(ADS_KEY, (result) => {
+  if (chrome.runtime.lastError) return;
   adsBlockEnabled = result[ADS_KEY] !== false;
   applyNetworkBlockState();
 });

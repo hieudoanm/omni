@@ -75,6 +75,10 @@ func runRGB(cmd *cobra.Command, args []string) error {
 		fmt.Println("Error (B)    :", err)
 		return nil
 	}
+	if r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255 {
+		fmt.Println("Error        : RGB values must be between 0 and 255")
+		return nil
+	}
 	if jsonOutput {
 		rgb := internal.RGB{R: r, G: g, B: b}
 		hexStr, _ := rgb.ToHex()

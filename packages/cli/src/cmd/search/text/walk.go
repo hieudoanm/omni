@@ -11,7 +11,11 @@ import (
 
 func walkTextFile(re *regexp.Regexp, root string, maxDepth int, include *regexp.Regexp, results *[]textMatch, maxCount int, seen map[string]bool) {
 	walkFn := func(path string, fi os.FileInfo, err error) error {
-		if err != nil || fi.IsDir() {
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "error accessing %s: %v\n", path, err)
+			return nil
+		}
+		if fi.IsDir() {
 			return nil
 		}
 		if include != nil && !include.MatchString(fi.Name()) {

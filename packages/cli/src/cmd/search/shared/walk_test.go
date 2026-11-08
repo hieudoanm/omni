@@ -1,8 +1,10 @@
 package shared
 
 import (
+	"errors"
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 )
 
@@ -150,5 +152,66 @@ func TestWalkWithDepthMaxDepth1(t *testing.T) {
 
 	if len(visited) != 1 || visited[0] != "root.txt" {
 		t.Errorf("expected only root.txt, got %v", visited)
+	}
+}
+
+func TestWalkWithDepthVisitsEachPathOnce(t *testing.T) {
+	dir := t.TempDir()
+	os.MkdirAll(filepath.Join(dir, "sub"), 0755)
+	os.WriteFile(filepath.Join(dir, "sub", "f.txt"), []byte("x"), 0644)
+
+	counts := make(map[string]int)
+	WalkWithDepth(dir, 0, 5, func(path string, fi os.FileInfo, err error) error {
+		if err == nil {
+			rel, _ := filepath.Rel(dir, path)
+			counts[rel]++
+		}
+		return nil
+	})
+	for p, n := range counts {
+		if n != 1 {
+			t.Errorf("path %q visited %d times, want 1", p, n)
+		}
+	}
+}
+
+func TestWalkWithDepthHonorsSkipDir(t *testing.T) {
+	dir := t.TempDir()
+	os.MkdirAll(filepath.Join(dir, "hidden", "deep"), 0755)
+	os.WriteFile(filepath.Join(dir, "hidden", "deep", "f.txt"), []byte("x"), 0644)
+	os.WriteFile(filepath.Join(dir, "visible.txt"), []byte("x"), 0644)
+
+	var visited []string
+	WalkWithDepth(dir, 0, 5, func(path string, fi os.FileInfo, err error) error {
+		if err != nil {
+			return nil
+		}
+		if fi.IsDir() && fi.Name() == "hidden" {
+			return filepath.SkipDir
+		}
+		rel, _ := filepath.Rel(dir, path)
+		visited = append(visited, rel)
+		return nil
+	})
+	for _, v := range visited {
+		if v == "hidden" || filepath.Dir(v) == "hidden" || strings.HasPrefix(v, "hidden"+string(os.PathSeparator)) {
+			t.Errorf("hidden dir contents visited: %q", v)
+		}
+	}
+}
+
+func TestWalkWithDepthPropagatesError(t *testing.T) {
+	dir := t.TempDir()
+	os.WriteFile(filepath.Join(dir, "f.txt"), []byte("x"), 0644)
+
+	sentinel := errors.New("stop")
+	err := WalkWithDepth(dir, 0, 5, func(path string, fi os.FileInfo, err error) error {
+		if err == nil {
+			return sentinel
+		}
+		return nil
+	})
+	if !errors.Is(err, sentinel) {
+		t.Errorf("WalkWithDepth error = %v, want %v", err, sentinel)
 	}
 }

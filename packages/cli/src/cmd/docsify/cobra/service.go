@@ -231,7 +231,11 @@ func findCmds(dir string) (map[string]*cmdRef, map[string]string, error) {
 	skipNames := map[string]bool{"completion": true, "help": true, "docs": true}
 
 	err := filepath.Walk(dir, func(path string, fi os.FileInfo, err error) error {
-		if err != nil || fi.IsDir() || !strings.HasSuffix(path, ".go") {
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "error accessing %s: %v\n", path, err)
+			return nil
+		}
+		if fi.IsDir() || !strings.HasSuffix(path, ".go") {
 			return nil
 		}
 

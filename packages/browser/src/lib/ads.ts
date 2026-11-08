@@ -29,7 +29,18 @@ export const AD_NETWORK_DOMAINS = [
 
 const AD_SELECTOR = AD_SELECTORS.join(', ');
 
+const hiddenElements = new Map<
+  HTMLElement,
+  { value: string; priority: string }
+>();
+
 const hideElement = (el: HTMLElement): void => {
+  if (!hiddenElements.has(el)) {
+    hiddenElements.set(el, {
+      value: el.style.getPropertyValue('display'),
+      priority: el.style.getPropertyPriority('display'),
+    });
+  }
   if (el.style.display !== 'none') {
     el.style.setProperty('display', 'none', 'important');
   }
@@ -64,6 +75,10 @@ let pendingRoots: Element[] = [];
 
 const flushPending = (): void => {
   scheduled = false;
+  if (!adsEnabled) {
+    pendingRoots = [];
+    return;
+  }
   const batch = pendingRoots;
   pendingRoots = [];
   scanRoots(batch);
@@ -76,6 +91,9 @@ const scheduleScan = (roots: readonly Element[]): void => {
   onNextFrame(flushPending);
 };
 
+let adsEnabled = true;
+let observer: MutationObserver | null = null;
+
 const observe = (): void => {
   const target = document.documentElement ?? document.body;
   if (!target) {
@@ -85,7 +103,7 @@ const observe = (): void => {
 
   scanDocument();
 
-  const observer = new MutationObserver((mutations) => {
+  observer = new MutationObserver((mutations) => {
     const roots: Element[] = [];
     collectAddedRoots(mutations, roots);
     if (roots.length > 0) scheduleScan(roots);
@@ -94,9 +112,34 @@ const observe = (): void => {
   observer.observe(target, { childList: true, subtree: true });
 };
 
+const setAdsEnabled = (enabled: boolean): void => {
+  adsEnabled = enabled;
+  if (enabled) {
+    if (!observer) observe();
+    return;
+  }
+  observer?.disconnect();
+  observer = null;
+  for (const [el, prior] of hiddenElements) {
+    if (prior.value) {
+      el.style.setProperty('display', prior.value, prior.priority);
+    } else {
+      el.style.removeProperty('display');
+    }
+  }
+  hiddenElements.clear();
+};
+
 export const maybeRunAdsBlocker = (): void => {
   chrome.storage.sync.get(ADS_KEY, (result) => {
-    if (chrome.runtime.lastError || result[ADS_KEY] === false) return;
-    observe();
+    if (chrome.runtime.lastError) return;
+    adsEnabled = result[ADS_KEY] !== false;
+    if (adsEnabled) observe();
+  });
+
+  chrome.storage.onChanged.addListener((changes, area) => {
+    if (area === 'sync' && ADS_KEY in changes) {
+      setAdsEnabled(changes[ADS_KEY].newValue !== false);
+    }
   });
 };

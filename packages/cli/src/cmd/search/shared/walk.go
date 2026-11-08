@@ -5,31 +5,48 @@ import (
 	"path/filepath"
 )
 
-func WalkWithDepth(root string, depth, maxDepth int, fn filepath.WalkFunc) {
+// WalkWithDepth walks root like filepath.Walk but only descends to maxDepth
+// levels. It honors the callback's return value: filepath.SkipDir prunes a
+// directory, and any other non-nil error stops the walk and is returned.
+func WalkWithDepth(root string, depth, maxDepth int, fn filepath.WalkFunc) error {
 	info, err := os.Stat(root)
 	if err != nil {
-		fn(root, nil, err)
-		return
+		return fn(root, nil, err)
 	}
-	fn(root, info, nil)
-	if info.IsDir() && depth < maxDepth {
-		entries, err := os.ReadDir(root)
+	if err := fn(root, info, nil); err != nil {
+		return err
+	}
+	return walkDir(root, info, depth, maxDepth, fn)
+}
+
+func walkDir(root string, info os.FileInfo, depth, maxDepth int, fn filepath.WalkFunc) error {
+	if !info.IsDir() || depth >= maxDepth {
+		return nil
+	}
+	entries, err := os.ReadDir(root)
+	if err != nil {
+		return fn(root, nil, err)
+	}
+	for _, entry := range entries {
+		path := filepath.Join(root, entry.Name())
+		fi, err := entry.Info()
 		if err != nil {
-			fn(root, nil, err)
-			return
+			if fnErr := fn(path, nil, err); fnErr != nil && fnErr != filepath.SkipDir {
+				return fnErr
+			}
+			continue
 		}
-		for _, entry := range entries {
-			path := filepath.Join(root, entry.Name())
-			fi, err := entry.Info()
-			if err != nil {
-				fn(path, nil, err)
+		if err := fn(path, fi, nil); err != nil {
+			if err == filepath.SkipDir {
 				continue
 			}
-			if fi.IsDir() {
-				WalkWithDepth(path, depth+1, maxDepth, fn)
-			} else {
-				fn(path, fi, nil)
+			return err
+		}
+		if fi.IsDir() {
+			if err := walkDir(path, fi, depth+1, maxDepth, fn); err != nil {
+				return err
 			}
 		}
 	}
+	return nil
 }

@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"strings"
 )
 
 func runTail(filePath string, lines int, jsonOutput bool) error {
@@ -14,16 +15,20 @@ func runTail(filePath string, lines int, jsonOutput bool) error {
 	}
 	defer f.Close()
 
-	sc := bufio.NewScanner(f)
+	reader := bufio.NewReader(f)
 	ring := make([]string, 0, lines)
-	for sc.Scan() {
-		if len(ring) >= lines {
-			ring = ring[1:]
+	for {
+		line, err := reader.ReadString('\n')
+		line = strings.TrimRight(line, "\r\n")
+		if line != "" || err == nil {
+			if len(ring) >= lines {
+				ring = ring[1:]
+			}
+			ring = append(ring, line)
 		}
-		ring = append(ring, sc.Text())
-	}
-	if err := sc.Err(); err != nil {
-		return err
+		if err != nil {
+			break
+		}
 	}
 
 	if jsonOutput {

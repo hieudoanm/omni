@@ -9,6 +9,7 @@ const log = createLogger('Insta:');
 let gestureEnabled = true;
 
 void chrome.storage.sync.get(GESTURE_KEY, (result) => {
+  if (chrome.runtime.lastError) return;
   gestureEnabled = result[GESTURE_KEY] !== false;
   log.info(`gesture enabled=${gestureEnabled}`);
 });

@@ -26,7 +26,11 @@ func searchCodeSymbols(symbol string, root string, lang string, kind string, max
 	var results []symbolMatch
 
 	filepath.Walk(root, func(path string, fi os.FileInfo, err error) error {
-		if err != nil || fi.IsDir() {
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "error accessing %s: %v\n", path, err)
+			return nil
+		}
+		if fi.IsDir() {
 			return nil
 		}
 

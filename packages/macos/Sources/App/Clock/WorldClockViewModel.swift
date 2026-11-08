@@ -79,9 +79,20 @@ final class WorldClockViewModel: ObservableObject {
 
     private func refreshWeather() async {
         lastWeatherFetch = Date()
-        for (index, city) in cities.enumerated() {
-            if let sample = try? await weatherService.weather(latitude: city.latitude, longitude: city.longitude) {
-                weather[index] = sample
+        await withTaskGroup(of: (Int, WeatherSample?).self) { group in
+            for (index, city) in cities.enumerated() {
+                group.addTask {
+                    let sample = try? await self.weatherService.weather(
+                        latitude: city.latitude,
+                        longitude: city.longitude
+                    )
+                    return (index, sample)
+                }
+            }
+            for await (index, sample) in group {
+                if let sample {
+                    weather[index] = sample
+                }
             }
         }
     }

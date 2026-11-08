@@ -7,6 +7,7 @@ const log = createLogger('GitHub:');
 let routingEnabled = true;
 
 void chrome.storage.sync.get(EXTERNAL_LINKS_KEY, (result) => {
+  if (chrome.runtime.lastError) return;
   routingEnabled = result[EXTERNAL_LINKS_KEY] !== false;
   log.info(`routing enabled=${routingEnabled}`);
 });

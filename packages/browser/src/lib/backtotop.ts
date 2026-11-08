@@ -8,6 +8,7 @@ const log = createLogger('BackToTop:');
 let backToTopEnabled = true;
 
 void chrome.storage.sync.get(BACK_TO_TOP_KEY, (result) => {
+  if (chrome.runtime.lastError) return;
   backToTopEnabled = result[BACK_TO_TOP_KEY] !== false;
   log.info(`back to top enabled=${backToTopEnabled}`);
 });

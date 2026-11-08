@@ -33,11 +33,17 @@ func run(cmd *cobra.Command, dir, pattern, name, fileType string, maxDepth int, 
 	if !info.IsDir() {
 		return fmt.Errorf("%q is not a directory", dir)
 	}
+	if pattern != "" {
+		if _, err := filepath.Match(pattern, ""); err != nil {
+			return fmt.Errorf("invalid pattern %q: %w", pattern, err)
+		}
+	}
 
 	var results []findEntry
 
 	walkFn := func(path string, fi os.FileInfo, err error) error {
 		if err != nil {
+			fmt.Fprintf(os.Stderr, "error accessing %s: %v\n", path, err)
 			return nil
 		}
 
@@ -239,12 +245,14 @@ func isHiddenPath(rel string) bool {
 func walkWithDepth(root string, depth, maxDepth int, fn filepath.WalkFunc) {
 	entries, err := os.ReadDir(root)
 	if err != nil {
+		fmt.Fprintf(os.Stderr, "error reading %s: %v\n", root, err)
 		return
 	}
 	for _, e := range entries {
 		path := filepath.Join(root, e.Name())
 		fi, err := e.Info()
 		if err != nil {
+			fmt.Fprintf(os.Stderr, "error accessing %s: %v\n", path, err)
 			continue
 		}
 		if fn(path, fi, err) != nil {

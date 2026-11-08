@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { log } from '@/utils/log';
 
 export type KeyHandler = (event: KeyboardEvent) => void;
@@ -8,10 +8,16 @@ export type KeyHandler = (event: KeyboardEvent) => void;
 export type KeyMap = Record<string, KeyHandler>;
 
 export const useKeyboard = (keyMap: KeyMap) => {
+  const keyMapRef = useRef(keyMap);
+
+  useEffect(() => {
+    keyMapRef.current = keyMap;
+  });
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       log.trace(`Key pressed: ${event.key}`);
-      const handler = keyMap[event.key];
+      const handler = keyMapRef.current[event.key];
       if (handler) {
         log.debug(`Handling key: ${event.key}`);
         handler(event);
@@ -23,7 +29,7 @@ export const useKeyboard = (keyMap: KeyMap) => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [keyMap]);
+  }, []);
 };
 
 export default useKeyboard;

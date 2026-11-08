@@ -19,6 +19,9 @@ func findFilesWithGlob(pattern, root string, maxDepth int, fileType string, hidd
 	if !info.IsDir() {
 		return nil, fmt.Errorf("%q is not a directory", root)
 	}
+	if _, err := filepath.Match(pattern, ""); err != nil {
+		return nil, fmt.Errorf("invalid pattern %q: %w", pattern, err)
+	}
 
 	var results []string
 	absRoot, _ := filepath.Abs(root)
@@ -26,6 +29,7 @@ func findFilesWithGlob(pattern, root string, maxDepth int, fileType string, hidd
 
 	walkFn := func(path string, fi os.FileInfo, err error) error {
 		if err != nil {
+			fmt.Fprintf(os.Stderr, "error accessing %s: %v\n", path, err)
 			return nil
 		}
 
