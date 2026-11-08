@@ -64,7 +64,12 @@ final class WorldClockViewModel: ObservableObject {
             }
             return CityRow(city: city, index: index)
         }
-        return filtered.sorted { $0.city.isFavorite && !$1.city.isFavorite }
+        return filtered.sorted { lhs, rhs in
+            if lhs.city.isFavorite != rhs.city.isFavorite {
+                return lhs.city.isFavorite
+            }
+            return lhs.city.label < rhs.city.label
+        }
     }
 
     private func updateTimes() {

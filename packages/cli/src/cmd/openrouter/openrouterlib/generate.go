@@ -59,7 +59,7 @@ func Generate(model, prompt string) (string, error) {
 	req.Header.Set("HTTP-Referer", "https://github.com/hieudoanm/omni/packages/cli")
 	req.Header.Set("X-Title", "omni")
 
-	resp, err := http.DefaultClient.Do(req)
+	resp, err := httpClient.Do(req)
 	if err != nil {
 		return "", fmt.Errorf("request failed: %w", err)
 	}

@@ -18,6 +18,10 @@ func runSize(path string, jsonOutput bool) error {
 		var total int64
 		filepath.Walk(path, func(p string, fi os.FileInfo, err error) error {
 			if err != nil {
+				fmt.Fprintf(os.Stderr, "error accessing %s: %v\n", p, err)
+				return nil
+			}
+			if fi.IsDir() {
 				return nil
 			}
 			total += fi.Size()

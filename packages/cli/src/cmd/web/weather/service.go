@@ -7,10 +7,13 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"time"
 )
 
+var httpClient = &http.Client{Timeout: 15 * time.Second}
+
 func detectLocation() (string, error) {
-	resp, err := http.Get("https://ipinfo.io/json")
+	resp, err := httpClient.Get("https://ipinfo.io/json")
 	if err != nil {
 		return "", err
 	}
@@ -60,7 +63,7 @@ func weatherRun(city string, forecast bool, units string, jsonOutput bool) error
 		}
 	}
 
-	resp, err := http.Get(requestURL)
+	resp, err := httpClient.Get(requestURL)
 	if err != nil {
 		return fmt.Errorf("fetch error: %w", err)
 	}

@@ -7,7 +7,10 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"time"
 )
+
+var httpClient = &http.Client{Timeout: 15 * time.Second}
 
 func ytThumbURL(videoID, qualityID string) string {
 	return fmt.Sprintf("https://img.youtube.com/vi/%s/%s.jpg", videoID, qualityID)
@@ -16,7 +19,7 @@ func ytThumbURL(videoID, qualityID string) string {
 func ytDownloadThumb(videoID, qualityID, outDir string) (string, error) {
 	rawURL := ytThumbURL(videoID, qualityID)
 
-	resp, err := http.Get(rawURL)
+	resp, err := httpClient.Get(rawURL)
 	if err != nil {
 		return "", fmt.Errorf("fetch failed: %w", err)
 	}

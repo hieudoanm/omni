@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"sort"
 
 	"github.com/hieudoanm/omni/packages/cli/src/cmd/file/internal"
 )
@@ -12,7 +13,11 @@ import (
 func runDuplicates(dir string, minSize int64, jsonOutput bool) error {
 	bySize := make(map[int64][]string)
 	filepath.Walk(dir, func(path string, fi os.FileInfo, err error) error {
-		if err != nil || fi.IsDir() || fi.Size() < minSize {
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "error accessing %s: %v\n", path, err)
+			return nil
+		}
+		if fi.IsDir() || fi.Size() < minSize {
 			return nil
 		}
 		bySize[fi.Size()] = append(bySize[fi.Size()], path)
@@ -21,7 +26,14 @@ func runDuplicates(dir string, minSize int64, jsonOutput bool) error {
 
 	var dupGroups []map[string]interface{}
 
-	for size, paths := range bySize {
+	sizes := make([]int64, 0, len(bySize))
+	for size := range bySize {
+		sizes = append(sizes, size)
+	}
+	sort.Slice(sizes, func(i, j int) bool { return sizes[i] > sizes[j] })
+
+	for _, size := range sizes {
+		paths := bySize[size]
 		if len(paths) < 2 {
 			continue
 		}
@@ -33,7 +45,13 @@ func runDuplicates(dir string, minSize int64, jsonOutput bool) error {
 			}
 			byHash[h] = append(byHash[h], p)
 		}
-		for _, dups := range byHash {
+		hashes := make([]string, 0, len(byHash))
+		for h := range byHash {
+			hashes = append(hashes, h)
+		}
+		sort.Strings(hashes)
+		for _, h := range hashes {
+			dups := byHash[h]
 			if len(dups) < 2 {
 				continue
 			}

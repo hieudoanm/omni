@@ -24,7 +24,10 @@ func captureOutput(fn func()) string {
 func TestGeneratePronounceable_length(t *testing.T) {
 	lengths := []int{1, 2, 4, 8, 16, 32, 64, 100}
 	for _, n := range lengths {
-		pw := GeneratePronounceable(n)
+		pw, err := GeneratePronounceable(n)
+		if err != nil {
+			t.Fatalf("GeneratePronounceable: %v", err)
+		}
 		if len(pw) != n {
 			t.Errorf("length %d: got len %d", n, len(pw))
 		}
@@ -34,7 +37,10 @@ func TestGeneratePronounceable_length(t *testing.T) {
 func TestGeneratePronounceable_chars(t *testing.T) {
 	valid := passwdVowels + passwdCons
 	for range 200 {
-		pw := GeneratePronounceable(100)
+		pw, err := GeneratePronounceable(100)
+		if err != nil {
+			t.Fatalf("GeneratePronounceable: %v", err)
+		}
 		for _, r := range pw {
 			if !strings.ContainsRune(valid, r) {
 				t.Fatalf("unexpected character %q in %q", r, pw)
@@ -45,7 +51,10 @@ func TestGeneratePronounceable_chars(t *testing.T) {
 
 func TestGeneratePronounceable_consonantVowelPattern(t *testing.T) {
 	for range 100 {
-		pw := GeneratePronounceable(20)
+		pw, err := GeneratePronounceable(20)
+		if err != nil {
+			t.Fatalf("GeneratePronounceable: %v", err)
+		}
 		for i, r := range pw {
 			isVowel := strings.ContainsRune(passwdVowels, r)
 			if i%2 == 0 && isVowel {
@@ -59,14 +68,20 @@ func TestGeneratePronounceable_consonantVowelPattern(t *testing.T) {
 }
 
 func TestGeneratePronounceable_zeroLength(t *testing.T) {
-	pw := GeneratePronounceable(0)
+	pw, err := GeneratePronounceable(0)
+	if err != nil {
+		t.Fatalf("GeneratePronounceable: %v", err)
+	}
 	if len(pw) != 0 {
 		t.Errorf("got len %d, want 0", len(pw))
 	}
 }
 
 func TestGeneratePronounceable_lengthOne(t *testing.T) {
-	pw := GeneratePronounceable(1)
+	pw, err := GeneratePronounceable(1)
+	if err != nil {
+		t.Fatalf("GeneratePronounceable: %v", err)
+	}
 	if len(pw) != 1 {
 		t.Errorf("got len %d, want 1", len(pw))
 	}

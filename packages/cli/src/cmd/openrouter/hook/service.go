@@ -156,6 +156,8 @@ func sendTelegramMessage(chatID int64, text string) error {
 	return nil
 }
 
+var httpClient = &http.Client{Timeout: 60 * time.Second}
+
 func sendChunk(token string, chatID int64, text string) error {
 	apiURL := fmt.Sprintf("https://api.telegram.org/bot%s/sendMessage", token)
 
@@ -169,7 +171,7 @@ func sendChunk(token string, chatID int64, text string) error {
 		return fmt.Errorf("failed to marshal payload: %w", err)
 	}
 
-	resp, err := http.Post(apiURL, "application/json", bytes.NewReader(body))
+	resp, err := httpClient.Post(apiURL, "application/json", bytes.NewReader(body))
 	if err != nil {
 		return fmt.Errorf("failed to post message: %w", err)
 	}
@@ -199,7 +201,7 @@ func sendChunkPlain(token string, chatID int64, text string) error {
 		return fmt.Errorf("failed to marshal plain payload: %w", err)
 	}
 
-	resp, err := http.Post(apiURL, "application/json", bytes.NewReader(body))
+	resp, err := httpClient.Post(apiURL, "application/json", bytes.NewReader(body))
 	if err != nil {
 		return fmt.Errorf("failed to post plain message: %w", err)
 	}
@@ -265,7 +267,7 @@ func setTelegramWebhook(publicURL string) error {
 		return fmt.Errorf("failed to marshal payload: %w", err)
 	}
 
-	resp, err := http.Post(apiURL, "application/json", bytes.NewReader(body))
+	resp, err := httpClient.Post(apiURL, "application/json", bytes.NewReader(body))
 	if err != nil {
 		return fmt.Errorf("failed to call setWebhook: %w", err)
 	}
@@ -437,7 +439,7 @@ func queryOpenRouter(text string) (string, error) {
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Authorization", "Bearer "+apiKey)
 
-	resp, err := http.DefaultClient.Do(req)
+	resp, err := httpClient.Do(req)
 	if err != nil {
 		return "", fmt.Errorf("failed to call OpenRouter: %w", err)
 	}

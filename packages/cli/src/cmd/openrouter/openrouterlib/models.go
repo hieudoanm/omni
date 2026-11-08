@@ -6,7 +6,10 @@ import (
 	"net/http"
 	"sort"
 	"strings"
+	"time"
 )
+
+var httpClient = &http.Client{Timeout: 120 * time.Second}
 
 const BaseURL = "https://openrouter.ai/api/v1"
 
@@ -29,7 +32,7 @@ type modelsResponse struct {
 }
 
 func FetchFreeModels() ([]Model, error) {
-	resp, err := http.Get(BaseURL + "/models")
+	resp, err := httpClient.Get(BaseURL + "/models")
 	if err != nil {
 		return nil, fmt.Errorf("request failed: %w", err)
 	}

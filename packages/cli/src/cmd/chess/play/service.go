@@ -30,8 +30,12 @@ func runPlay(cmd *cobra.Command, args []string) error {
 
 		fmt.Printf("%s to move: ", game.Position().Turn())
 
-		input, _ := reader.ReadString('\n')
+		input, readErr := reader.ReadString('\n')
 		input = strings.TrimSpace(input)
+		if readErr != nil && input == "" {
+			fmt.Println("Exiting game (EOF).")
+			break
+		}
 
 		if input == "exit" {
 			fmt.Println("Exiting game.")

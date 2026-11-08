@@ -50,7 +50,7 @@ func ProbeModel(m Model, apiKey string) ProbeResult {
 	req.Header.Set("X-Title", "freerouter")
 
 	start := time.Now()
-	resp, err := http.DefaultClient.Do(req)
+	resp, err := httpClient.Do(req)
 	elapsed := time.Since(start).Milliseconds()
 	if err != nil {
 		return ProbeResult{Model: m, Status: StatusError, Message: err.Error()}

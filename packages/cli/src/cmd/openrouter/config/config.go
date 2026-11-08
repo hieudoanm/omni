@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
-	"log"
 	"os"
 	"path/filepath"
 	"strings"
@@ -88,13 +87,14 @@ func LoadAPIKey() string {
 	reader := bufio.NewReader(os.Stdin)
 	key, err := reader.ReadString('\n')
 	if err != nil {
-		log.Fatal("failed to read API key:", err)
+		fmt.Fprintln(os.Stderr, "failed to read API key:", err)
+		return ""
 	}
 
 	key = strings.TrimSpace(key)
 
 	if key == "" {
-		log.Fatal("API key cannot be empty")
+		return ""
 	}
 
 	os.Setenv("OPEN_ROUTER_API_KEY", key)

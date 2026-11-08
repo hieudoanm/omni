@@ -1,9 +1,10 @@
 package passwd
 
 import (
+	"crypto/rand"
 	"encoding/json"
 	"fmt"
-	"math/rand"
+	"math/big"
 	"strings"
 )
 
@@ -16,16 +17,29 @@ const (
 	passwdCons    = "bcdfghjklmnpqrstvwxyz"
 )
 
+// randIndex returns a uniform random index in [0, n) using crypto/rand.
+func randIndex(n int) (int, error) {
+	v, err := rand.Int(rand.Reader, big.NewInt(int64(n)))
+	if err != nil {
+		return 0, err
+	}
+	return int(v.Int64()), nil
+}
+
 func runPasswd(length, count int, digits, symbols, noUpper, pin, clip, pronounceable, jsonOutput bool) error {
 	var passwords []string
 
-	gen := func() string {
+	gen := func() (string, error) {
 		if pin {
 			pinStr := make([]byte, length)
 			for j := range pinStr {
-				pinStr[j] = passwdDigits[rand.Intn(len(passwdDigits))]
+				idx, err := randIndex(len(passwdDigits))
+				if err != nil {
+					return "", err
+				}
+				pinStr[j] = passwdDigits[idx]
 			}
-			return string(pinStr)
+			return string(pinStr), nil
 		}
 
 		if pronounceable {
@@ -45,13 +59,21 @@ func runPasswd(length, count int, digits, symbols, noUpper, pin, clip, pronounce
 
 		pw := make([]byte, length)
 		for j := range pw {
-			pw[j] = charset[rand.Intn(len(charset))]
+			idx, err := randIndex(len(charset))
+			if err != nil {
+				return "", err
+			}
+			pw[j] = charset[idx]
 		}
-		return string(pw)
+		return string(pw), nil
 	}
 
 	for i := 0; i < count; i++ {
-		passwords = append(passwords, gen())
+		pw, err := gen()
+		if err != nil {
+			return err
+		}
+		passwords = append(passwords, pw)
 	}
 
 	if jsonOutput {
@@ -72,7 +94,7 @@ func runPasswd(length, count int, digits, symbols, noUpper, pin, clip, pronounce
 		fmt.Println(string(b))
 	} else {
 		for i, p := range passwords {
-			if clip && i == 0 {
+			if clip && i == len(passwords)-1 {
 				fmt.Print(p)
 			} else {
 				fmt.Println(p)
@@ -82,11 +104,19 @@ func runPasswd(length, count int, digits, symbols, noUpper, pin, clip, pronounce
 	return nil
 }
 
-func GeneratePronounceable(length int) string {
+func GeneratePronounceable(length int) (string, error) {
 	var sb strings.Builder
 	for sb.Len() < length {
-		sb.WriteByte(passwdCons[rand.Intn(len(passwdCons))])
-		sb.WriteByte(passwdVowels[rand.Intn(len(passwdVowels))])
+		consIdx, err := randIndex(len(passwdCons))
+		if err != nil {
+			return "", err
+		}
+		sb.WriteByte(passwdCons[consIdx])
+		vowelIdx, err := randIndex(len(passwdVowels))
+		if err != nil {
+			return "", err
+		}
+		sb.WriteByte(passwdVowels[vowelIdx])
 	}
-	return sb.String()[:length]
+	return sb.String()[:length], nil
 }

@@ -20,7 +20,11 @@ func runStats(dir string, jsonOutput bool) error {
 	var totalSize int64
 
 	filepath.Walk(dir, func(path string, fi os.FileInfo, err error) error {
-		if err != nil || fi.IsDir() {
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "error accessing %s: %v\n", path, err)
+			return nil
+		}
+		if fi.IsDir() {
 			return nil
 		}
 		totalFiles++

@@ -1,6 +1,7 @@
 package grep
 
 import (
+	"bytes"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -79,5 +80,17 @@ var binaryExtensions = map[string]bool{
 
 func isBinary(path string) bool {
 	ext := strings.ToLower(filepath.Ext(path))
-	return binaryExtensions[ext]
+	if binaryExtensions[ext] {
+		return true
+	}
+	// Sniff the first bytes for a NUL, like grep does, so binaries without a
+	// known extension are not treated as text.
+	f, err := os.Open(path)
+	if err != nil {
+		return false
+	}
+	defer f.Close()
+	buf := make([]byte, 512)
+	n, _ := f.Read(buf)
+	return bytes.IndexByte(buf[:n], 0) >= 0
 }
