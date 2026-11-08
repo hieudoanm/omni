@@ -36,9 +36,11 @@ const MutationObserverCtor =
 
 let observer: MutationObserver | null = null;
 let scheduledHide = false;
+let enabled = false;
 const pendingRoots: Element[] = [];
 
 const scheduleHide = (mutations: MutationRecord[]): void => {
+  if (!enabled) return;
   for (const mutation of mutations) {
     for (const node of mutation.addedNodes) {
       if (node instanceof Element) pendingRoots.push(node);
@@ -60,8 +62,16 @@ const observe = (): void => {
 };
 
 const start = (): void => {
+  enabled = true;
   hideAll();
   observe();
+};
+
+const stop = (): void => {
+  enabled = false;
+  observer?.disconnect();
+  observer = null;
+  pendingRoots.length = 0;
 };
 
 const isChessFocusEnabled = (): Promise<boolean> =>
@@ -81,12 +91,23 @@ export const registerChessFocus = (): void => {
     .toLowerCase();
   if (hostname !== 'chess.com' && !hostname.endsWith('.chess.com')) return;
 
-  void isChessFocusEnabled().then((enabled) => {
-    if (!enabled) return;
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', start, { once: true });
-    } else {
+  void isChessFocusEnabled().then((on) => {
+    if (on) {
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', start, { once: true });
+      } else {
+        start();
+      }
+    }
+  });
+
+  chrome.storage.onChanged.addListener((changes, area) => {
+    if (area !== 'sync' || !(CHESS_KEY in changes)) return;
+    const on = changes[CHESS_KEY]?.newValue !== false;
+    if (on) {
       start();
+    } else {
+      stop();
     }
   });
 };

@@ -37,7 +37,7 @@ func searchTextInRoots(pattern string, searchRoots []string, re *regexp.Regexp, 
 		if !info.IsDir() {
 			matches := searchFileText(root, pattern, re, maxCount)
 			for _, m := range matches {
-				key := m.File + ":" + m.Content
+				key := fmt.Sprintf("%s:%d", m.File, m.Line)
 				if seen[key] {
 					continue
 				}

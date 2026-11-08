@@ -20,19 +20,20 @@ var (
 	testClipboardIters int
 )
 
-func runWatcher() {
+func runWatcher() error {
 	db, err := sqlOpen("sqlite3", "~/.omni/omni.db")
 	if err != nil {
-		log.Fatal(err)
+		return fmt.Errorf("clipboard watcher: %w", err)
 	}
 	defer db.Close()
 
 	if err := createClipTable(db); err != nil {
-		log.Fatal(err)
+		return fmt.Errorf("clipboard watcher: %w", err)
 	}
 
 	fmt.Println("Clipboard watcher started... (Ctrl+C to stop)")
 	clipboardLoop(db, clipReadAll, clipWait, testClipboardIters)
+	return nil
 }
 
 func clipboardLoop(db *sql.DB, readFn func() (string, error), sleepFn func(time.Duration), maxIters int) {

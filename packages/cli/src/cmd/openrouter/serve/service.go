@@ -3,7 +3,6 @@ package serve
 import (
 	"encoding/json"
 	"fmt"
-	"log"
 	"net/http"
 
 	or "github.com/hieudoanm/omni/packages/cli/src/cmd/openrouter/openrouterlib"
@@ -74,7 +73,7 @@ func runServe(servePort string) error {
 	fmt.Println("  POST /chat -> {\"prompt\":\"...\",\"model\":\"...\"}")
 
 	if err := http.ListenAndServe(addr, mux); err != nil {
-		log.Fatalf("Server error: %v", err)
+		return fmt.Errorf("server error: %w", err)
 	}
 	return nil
 }

@@ -6,11 +6,13 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.hieudoanm.block.data.entity.BlockedApp
 import io.github.hieudoanm.block.repository.FocusRepository
 import io.github.hieudoanm.block.repository.InstalledApp
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 data class AppListState(
@@ -56,7 +58,7 @@ class AppListViewModel @Inject constructor(
 
     private fun loadApps() {
         viewModelScope.launch {
-            val apps = repository.getInstalledApps()
+            val apps = withContext(Dispatchers.IO) { repository.getInstalledApps() }
             _state.update { it.copy(installedApps = apps, loading = false) }
         }
     }

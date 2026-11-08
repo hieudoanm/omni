@@ -51,10 +51,13 @@ class FocusAccessibilityService : AccessibilityService() {
     override fun onInterrupt() {}
 
     private fun shouldIgnore(packageName: String): Boolean {
-        return packageName == "io.github.hieudoanm.block" ||
+        // All features share one applicationId, so compare against this
+        // service's own package rather than a hardcoded feature name.
+        return packageName == this.packageName ||
             packageName.startsWith("com.android.systemui") ||
             packageName.startsWith("com.google.android.permissioncontroller") ||
-            packageName.startsWith("com.android.launcher")
+            packageName.startsWith("com.android.launcher") ||
+            packageName.startsWith("com.google.android.apps.nexuslauncher")
     }
 
     private fun launchBlockActivity(packageName: String) {

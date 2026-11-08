@@ -12,7 +12,6 @@ import io.github.hieudoanm.nfc.domain.model.TagInfo
 import kotlinx.coroutines.flow.Flow
 import org.json.JSONArray
 import org.json.JSONObject
-import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -31,7 +30,7 @@ class NfcRepository @Inject constructor(
         val (records, usedSize) = if (ndef != null) {
             try {
                 ndefReader.read(ndef)
-            } catch (_: IOException) {
+            } catch (_: Exception) {
                 emptyList<NdefRecordModel>() to 0
             }
         } else if (ndefFormatable != null) {

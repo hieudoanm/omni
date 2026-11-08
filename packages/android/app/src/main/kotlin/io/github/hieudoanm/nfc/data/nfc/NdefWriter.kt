@@ -28,9 +28,12 @@ class NdefWriter @Inject constructor() {
         if (ndef != null) {
             return try {
                 ndef.connect()
-                ndef.writeNdefMessage(message)
-                ndef.close()
-                WriteResult.Success
+                try {
+                    ndef.writeNdefMessage(message)
+                    WriteResult.Success
+                } finally {
+                    runCatching { ndef.close() }
+                }
             } catch (e: IOException) {
                 WriteResult.Error(e.message ?: "Write failed")
             }
@@ -40,9 +43,12 @@ class NdefWriter @Inject constructor() {
         if (ndefFormatable != null) {
             return try {
                 ndefFormatable.connect()
-                ndefFormatable.format(message)
-                ndefFormatable.close()
-                WriteResult.Success
+                try {
+                    ndefFormatable.format(message)
+                    WriteResult.Success
+                } finally {
+                    runCatching { ndefFormatable.close() }
+                }
             } catch (e: IOException) {
                 WriteResult.Error(e.message ?: "Format failed")
             }
@@ -55,9 +61,12 @@ class NdefWriter @Inject constructor() {
         val ndef = Ndef.get(tag) ?: return WriteResult.Error("Tag is not NDEF")
         return try {
             ndef.connect()
-            ndef.makeReadOnly()
-            ndef.close()
-            WriteResult.Success
+            try {
+                ndef.makeReadOnly()
+                WriteResult.Success
+            } finally {
+                runCatching { ndef.close() }
+            }
         } catch (e: IOException) {
             WriteResult.Error(e.message ?: "Failed to make read-only")
         }

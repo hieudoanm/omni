@@ -33,7 +33,11 @@ export const stitchChunks = async (
 
   for (const chunk of chunks) {
     const bitmap = await dataUrlToBitmap(chunk.dataUrl);
-    ctx.drawImage(bitmap, 0, chunk.y);
+    try {
+      ctx.drawImage(bitmap, 0, chunk.y);
+    } finally {
+      bitmap.close();
+    }
   }
 
   const blob = await canvas.convertToBlob({ type: 'image/png' });

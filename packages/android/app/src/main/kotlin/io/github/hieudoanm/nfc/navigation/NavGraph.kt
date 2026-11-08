@@ -24,7 +24,8 @@ fun AppNavGraph(navController: NavHostController = rememberNavController()) {
     NavHost(navController = navController, startDestination = Routes.HOME) {
         composable(Routes.HOME) {
             val context = LocalContext.current
-            val nfcAdapter = remember { NfcAdapter.getDefaultAdapter(context) }
+            val nfcAdapter =
+                remember { context.getSystemService(NfcAdapter::class.java) }
             HomeScreen(
                 onNavigateToHistory = { navController.navigate(Routes.HISTORY) },
                 onNavigateToSettings = { navController.navigate(Routes.SETTINGS) },

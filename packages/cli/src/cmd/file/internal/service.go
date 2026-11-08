@@ -15,12 +15,12 @@ func SplitLines(s string) []string {
 	var start int
 	for i := 0; i < len(s); i++ {
 		if s[i] == '\n' {
-			lines = append(lines, s[start:i])
+			lines = append(lines, strings.TrimSuffix(s[start:i], "\r"))
 			start = i + 1
 		}
 	}
 	if start <= len(s) {
-		lines = append(lines, s[start:])
+		lines = append(lines, strings.TrimSuffix(s[start:], "\r"))
 	}
 	return lines
 }

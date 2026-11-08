@@ -49,8 +49,9 @@ func searchFile(re *regexp.Regexp, path string, context int, maxCount int) ([]li
 					}
 					ctxLines = append(ctxLines, fmt.Sprintf("%s%5d| %s", mark, j+1, lines[j]))
 				}
-				m.Before = strings.Join(ctxLines[:context], "\n")
-				m.After = strings.Join(ctxLines, "\n")
+				matchIdx := i - start
+				m.Before = strings.Join(ctxLines[:matchIdx], "\n")
+				m.After = strings.Join(ctxLines[matchIdx+1:], "\n")
 			}
 			matches = append(matches, m)
 			if maxCount > 0 && len(matches) >= maxCount {

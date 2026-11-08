@@ -366,6 +366,7 @@ const renderIndicator = (data: ClaudeLimitData): void => {
 };
 
 const tryMount = (): void => {
+  if (!enabled) return;
   const data = loadData();
   if (data && (data.daily.limit > 0 || data.weekly.limit > 0))
     renderIndicator(data);
@@ -379,6 +380,8 @@ const applyPatch = (patch: PeriodPatch): void => {
 
 let monitoring = false;
 let mountRetryScheduled = false;
+let usageObserver: MutationObserver | null = null;
+let refreshTimer: number | undefined;
 
 const scheduleMountRetry = (): void => {
   if (mountRetryScheduled) return;
@@ -401,12 +404,13 @@ const startMonitoring = (): void => {
       }
     ).WebKitMutationObserver;
   if (MutationObserverCtor) {
-    const observer = new MutationObserverCtor(scheduleMountRetry);
-    observer.observe(document, { childList: true, subtree: true });
+    usageObserver = new MutationObserverCtor(scheduleMountRetry);
+    usageObserver.observe(document, { childList: true, subtree: true });
   }
   window.setTimeout(tryMount, 1000);
   window.setTimeout(tryMount, 3000);
-  window.setInterval(() => {
+  refreshTimer = window.setInterval(() => {
+    if (!enabled) return;
     const data = loadData();
     if (data) renderIndicator(data);
   }, 60_000);
@@ -421,6 +425,14 @@ const start = (): void => {
 
 const stop = (): void => {
   enabled = false;
+  monitoring = false;
+  mountRetryScheduled = false;
+  usageObserver?.disconnect();
+  usageObserver = null;
+  if (refreshTimer !== undefined) {
+    window.clearInterval(refreshTimer);
+    refreshTimer = undefined;
+  }
   document.getElementById(INDICATOR_ID)?.remove();
   pushClear();
 };

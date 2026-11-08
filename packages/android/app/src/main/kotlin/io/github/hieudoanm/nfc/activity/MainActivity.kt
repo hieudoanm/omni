@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        nfcAdapter = NfcAdapter.getDefaultAdapter(this)
+        nfcAdapter = getSystemService(NfcAdapter::class.java)
         tagDispatcher.setup(this)
 
         handleIntent(intent)

@@ -18,7 +18,7 @@ public final class ClipboardStore: ObservableObject {
         if let d = directoryURL {
             dir = d
         } else {
-            let appSupport = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+            let appSupport = FileManager.default.applicationSupportDirectoryURL
             dir = appSupport.appendingPathComponent("Clipper", isDirectory: true)
         }
         try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)

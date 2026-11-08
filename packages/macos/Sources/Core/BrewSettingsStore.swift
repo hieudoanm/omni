@@ -21,10 +21,7 @@ public final class BrewSettingsStore: ObservableObject {
         if let directoryURL {
             dir = directoryURL
         } else {
-            let appSupport = FileManager.default.urls(
-                for: .applicationSupportDirectory,
-                in: .userDomainMask
-            ).first!
+            let appSupport = FileManager.default.applicationSupportDirectoryURL
             dir = appSupport.appendingPathComponent("Omni")
         }
         try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)

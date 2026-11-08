@@ -11,7 +11,7 @@ public final class WorkspaceStore: WorkspaceStoring {
 
     public init(directoryURL: URL? = nil) {
         self.directoryURL = directoryURL
-            ?? FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+            ?? FileManager.default.applicationSupportDirectoryURL
             .appendingPathComponent("Workspaces")
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         encoder.dateEncodingStrategy = .iso8601

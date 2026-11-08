@@ -115,8 +115,9 @@ export const useGlobe = () => {
     window.addEventListener('resize', onResize);
 
     let time = 0;
+    let animationFrame = 0;
     const animate = () => {
-      requestAnimationFrame(animate);
+      animationFrame = requestAnimationFrame(animate);
       time += 0.01;
       const pulse = (Math.sin(time * 1.8) + 1) / 2;
       sphere.scale.setScalar(1 + pulse * 0.14);
@@ -130,6 +131,7 @@ export const useGlobe = () => {
     animate();
 
     return () => {
+      cancelAnimationFrame(animationFrame);
       window.removeEventListener('resize', onResize);
       controls.dispose();
       if (container && renderer.domElement.parentNode === container) {

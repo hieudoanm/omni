@@ -11,8 +11,7 @@ func NewCmd() *cobra.Command {
 		Long:    `Monitors the system clipboard for changes and saves each unique entry to a local SQLite database.`,
 		Example: `  system clipboard`,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			runWatcherFn()
-			return nil
+			return runWatcherFn()
 		},
 	}
 	cmd.Flags().BoolVarP(&jsonOutput, "json", "j", false, "Output in JSON format")

@@ -19,7 +19,7 @@ func walkTextFile(re *regexp.Regexp, root string, maxDepth int, include *regexp.
 		}
 		matches := searchFileText(path, "", re, maxCount)
 		for _, m := range matches {
-			key := m.File + ":" + m.Content
+			key := fmt.Sprintf("%s:%d", m.File, m.Line)
 			if seen[key] {
 				continue
 			}

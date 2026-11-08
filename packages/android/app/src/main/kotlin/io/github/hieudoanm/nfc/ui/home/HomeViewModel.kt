@@ -39,6 +39,7 @@ class HomeViewModel @Inject constructor(
     }
 
     fun resetState() {
+        savedTags.clear()
         _state.value = HomeUiState.WaitingForTag
     }
 

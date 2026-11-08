@@ -115,8 +115,9 @@ func TestWalkTextFileDedup(t *testing.T) {
 	re := regexp.MustCompile("hello")
 	walkTextFile(re, dir, 0, nil, &results, 0, seen)
 
-	if len(results) != 1 {
-		t.Errorf("expected 1 deduped result, got %d", len(results))
+	// Identical lines on different line numbers are distinct matches.
+	if len(results) != 2 {
+		t.Errorf("expected 2 results for identical lines, got %d", len(results))
 	}
 }
 

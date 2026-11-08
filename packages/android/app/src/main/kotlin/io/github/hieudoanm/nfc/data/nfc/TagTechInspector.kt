@@ -1,15 +1,9 @@
 package io.github.hieudoanm.nfc.data.nfc
 
 import android.nfc.Tag
-import android.nfc.tech.IsoDep
-import android.nfc.tech.MifareClassic
-import android.nfc.tech.MifareUltralight
 import android.nfc.tech.Ndef
 import android.nfc.tech.NdefFormatable
 import android.nfc.tech.NfcA
-import android.nfc.tech.NfcB
-import android.nfc.tech.NfcF
-import android.nfc.tech.NfcV
 import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -26,13 +20,27 @@ class TagTechInspector @Inject constructor() {
         val maxSize = ndef?.maxSize ?: 0
         val nfcA = NfcA.get(tag)
 
-        val atqa: String? = try {
-            nfcA?.let { it.connect(); val a = it.atqa; it.close(); a.joinToString("") { "%02X".format(it) } }
-        } catch (_: IOException) { null }
+        val atqa: String? = nfcA?.let { tech ->
+            try {
+                tech.connect()
+                tech.atqa.joinToString("") { "%02X".format(it) }
+            } catch (_: IOException) {
+                null
+            } finally {
+                runCatching { tech.close() }
+            }
+        }
 
-        val sak: String? = try {
-            nfcA?.let { it.connect(); val s = it.sak; it.close(); "%02X".format(s) }
-        } catch (_: IOException) { null }
+        val sak: String? = nfcA?.let { tech ->
+            try {
+                tech.connect()
+                "%02X".format(tech.sak)
+            } catch (_: IOException) {
+                null
+            } finally {
+                runCatching { tech.close() }
+            }
+        }
 
         return TagTechResult(
             uid = uid,

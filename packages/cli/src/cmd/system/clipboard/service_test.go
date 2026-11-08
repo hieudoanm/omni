@@ -190,7 +190,9 @@ func TestRunClipboardWatcher_Success(t *testing.T) {
 	defer func() { testClipboardIters = origIters }()
 
 	captureOutput(func() {
-		runWatcher()
+		if err := runWatcher(); err != nil {
+			t.Errorf("runWatcher: %v", err)
+		}
 	})
 }
 

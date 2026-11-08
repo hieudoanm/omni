@@ -19,7 +19,7 @@ func TestNewCmd(t *testing.T) {
 
 func TestNewCmd_RunE(t *testing.T) {
 	orig := runWatcherFn
-	runWatcherFn = func() {}
+	runWatcherFn = func() error { return nil }
 	defer func() { runWatcherFn = orig }()
 
 	cmd := NewCmd()

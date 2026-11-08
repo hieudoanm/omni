@@ -25,36 +25,28 @@ public struct LsofPortDiscoveryService: PortDiscovering {
     }
 
     private func run(arguments: [String]) async throws -> String {
-        try await Task.detached(priority: .userInitiated) {
-            let process = Process()
-            process.executableURL = self.lsofURL
-            process.arguments = arguments
+        // ProcessRunner drains stdout/stderr concurrently with the wait —
+        // `lsof -i` output can exceed the pipe buffer and deadlock a naive
+        // waitUntilExit-then-read implementation.
+        let result: ProcessResult
+        do {
+            result = try await ProcessRunner().run(
+                executableURL: lsofURL,
+                arguments: arguments
+            )
+        } catch {
+            throw PortDiscoveryError.binaryUnavailable(lsofURL.path)
+        }
 
-            let stdoutPipe = Pipe()
-            let stderrPipe = Pipe()
-            process.standardOutput = stdoutPipe
-            process.standardError = stderrPipe
-
-            do {
-                try process.run()
-            } catch {
-                throw PortDiscoveryError.binaryUnavailable(self.lsofURL.path)
-            }
-            process.waitUntilExit()
-
-            let output = stdoutPipe.fileHandleForReading.readDataToEndOfFile()
-            let errorOutput = stderrPipe.fileHandleForReading.readDataToEndOfFile()
-
-            if process.terminationStatus == 1 {
-                return ""
-            }
-            guard process.terminationStatus == 0 else {
-                throw PortDiscoveryError.commandFailed(
-                    status: process.terminationStatus,
-                    message: String(data: errorOutput, encoding: .utf8) ?? ""
-                )
-            }
-            return String(data: output, encoding: .utf8) ?? ""
-        }.value
+        if result.exitCode == 1 {
+            return ""
+        }
+        guard result.exitCode == 0 else {
+            throw PortDiscoveryError.commandFailed(
+                status: result.exitCode,
+                message: result.stderr
+            )
+        }
+        return result.stdout
     }
 }
