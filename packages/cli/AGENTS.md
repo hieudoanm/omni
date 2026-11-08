@@ -6,18 +6,19 @@ file only adds the commands, layout and conventions specific to this Go module.
 
 ## Commands
 
-| Command          | Description                                          |
-| ---------------- | ---------------------------------------------------- |
-| `make all`       | `format` + `lint` + `test` + `build`                 |
-| `make format`    | `go fmt ./...`                                       |
-| `make lint`      | `go vet ./...`                                       |
-| `make test`      | `go test ./...`                                      |
-| `make build`     | Build `bin/omni` (native)                            |
-| `make build-all` | Cross-compile 4 platforms into `bin/` (zig)          |
-| `make coverage`  | HTML coverage report in `./coverage`                 |
-| `make tidy`      | `go mod tidy`                                        |
-| `make install`   | Build to `~/bin/omni`                                |
-| `make clean`     | Remove `./bin` and `./coverage`                      |
+| Command             | Description                                                 |
+| ------------------- | ----------------------------------------------------------- |
+| `make all`          | `format` + `lint` + `test` + `build`                        |
+| `make format`       | `go fmt ./...`                                              |
+| `make lint`         | `go vet ./...`                                              |
+| `make test`         | `go test ./...`                                             |
+| `make build`        | Build `bin/omni` (native)                                   |
+| `make build-all`    | Cross-compile 4 platforms into `bin/` (zig)                 |
+| `make build-darwin` | Build `bin/omni-darwin-{amd64,arm64}` with cgo (macOS only) |
+| `make coverage`     | HTML coverage report in `./coverage`                        |
+| `make tidy`         | `go mod tidy`                                               |
+| `make install`      | Build to `~/bin/omni`                                       |
+| `make clean`        | Remove `./bin` and `./coverage`                             |
 
 Version is injected at build time via `-ldflags` into
 `src/cmd/version.V` as `<date>.<time>-<git-short-sha>`.
@@ -58,16 +59,16 @@ Verification before handoff: `make lint` exits 0, `make test` passes.
 
 ## Shared Libraries (`src/libs/`)
 
-| Library      | Purpose                                              |
-| ------------ | ---------------------------------------------------- |
-| `requests`   | HTTP client with retries/timeouts/headers/debug mode |
-| `browser`    | Headless Chrome via go-rod (fetch HTML, screenshot)  |
-| `chat`       | Shared BubbleTea base model for AI chat TUIs         |
-| `colors`     | ANSI helpers with TTY detection                      |
-| `history`    | JSONL command history at `~/.omni/history.jsonl`     |
-| `mcp`        | MCP JSON-RPC protocol types + server loop            |
-| `number`     | Integer formatting (zero-pad, comma)                 |
-| `theme`      | Lipgloss styles + status glyphs                      |
+| Library    | Purpose                                              |
+| ---------- | ---------------------------------------------------- |
+| `requests` | HTTP client with retries/timeouts/headers/debug mode |
+| `browser`  | Headless Chrome via go-rod (fetch HTML, screenshot)  |
+| `chat`     | Shared BubbleTea base model for AI chat TUIs         |
+| `colors`   | ANSI helpers with TTY detection                      |
+| `history`  | JSONL command history at `~/.omni/history.jsonl`     |
+| `mcp`      | MCP JSON-RPC protocol types + server loop            |
+| `number`   | Integer formatting (zero-pad, comma)                 |
+| `theme`    | Lipgloss styles + status glyphs                      |
 
 ## MCP Server
 
@@ -100,11 +101,11 @@ Verification before handoff: `make lint` exits 0, `make test` passes.
 
 ## Documentation
 
-| Document        | Description                                  |
-| --------------- | -------------------------------------------- |
-| [docs](./docs/) | Architecture, contributing, downloads, packaging, roadmap |
-| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | Modules, libs, MCP internals |
-| [docs/CONTRIBUTING.md](./docs/CONTRIBUTING.md) | Setup, commands, conventions, testing |
-| [docs/DOWNLOADS.md](./docs/DOWNLOADS.md) | Get the binaries or build from source |
-| [docs/PACKAGING.md](./docs/PACKAGING.md) | Build + CI artifact pipeline |
-| [docs/ROADMAP.md](./docs/ROADMAP.md) | Phased feature roadmap |
+| Document                                       | Description                                               |
+| ---------------------------------------------- | --------------------------------------------------------- |
+| [docs](./docs/)                                | Architecture, contributing, downloads, packaging, roadmap |
+| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | Modules, libs, MCP internals                              |
+| [docs/CONTRIBUTING.md](./docs/CONTRIBUTING.md) | Setup, commands, conventions, testing                     |
+| [docs/DOWNLOADS.md](./docs/DOWNLOADS.md)       | Get the binaries or build from source                     |
+| [docs/PACKAGING.md](./docs/PACKAGING.md)       | Build + CI artifact pipeline                              |
+| [docs/ROADMAP.md](./docs/ROADMAP.md)           | Phased feature roadmap                                    |

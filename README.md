@@ -1,8 +1,8 @@
 # Omni
 
-**Four native platforms, one codebase — Android, macOS, CLI, and Browser.**
+**Four native platforms plus a static web page, one codebase — Android, macOS, CLI, Browser, and Web.**
 
-Omni is a personal toolbox that runs everywhere: a focus blocker and NFC toolkit on Android, a menu-bar system monitor on macOS, a 33-module CLI with an MCP server, and a browser extension. All four share a single monorepo, a single CI pipeline, and a single rolling `latest` release.
+Omni is a personal toolbox that runs everywhere: a focus blocker and NFC toolkit on Android, a menu-bar system monitor on macOS, a 33-module CLI with an MCP server, a browser extension, and a J.A.R.V.I.S.-style web page deployed to GitHub Pages. All five share a single monorepo, a single CI pipeline, and a single rolling `latest` release.
 
 [📱 Android](#android) · [🖥️ macOS](#macos) · [⌨️ CLI](#cli) · [🌐 Browser](#browser) · [🔧 Technical Docs](AGENTS.md)
 
@@ -22,13 +22,14 @@ Omni keeps each platform **native** while unifying the rest:
 | macOS    | Swift      | SwiftUI             | `packages/macos`   |
 | CLI      | Go         | Bubble Tea / Cobra  | `packages/cli`     |
 | Browser  | TypeScript | Manifest V3 / React | `packages/browser` |
+| Web      | TypeScript | Next.js 16 / React  | `packages/web`     |
 
 - **Single monorepo** (pnpm + Turborepo) — one `pnpm install`, one `pnpm lint`, one `pnpm test`, one `pnpm build`.
 - **Single CI** (`.github/workflows/ci.yaml`) — per-platform runners (Ubuntu for Android/CLI/Browser, macOS for macOS), proper toolchains, artifact uploads.
 - **Single rolling release** — every push to `master` force-updates the `latest` GitHub Release with all four platform artifacts.
 - **Single install script** — `curl -fsSL https://raw.githubusercontent.com/hieudoanm/omni/master/packages/cli/scripts/install.sh | bash` gets the right binary for your OS/arch.
 
-No Electron. No shared UI layer. Just four best-in-class native apps that happen to live together.
+No Electron. No shared UI layer. Just four best-in-class native apps and a static site that happen to live together.
 
 ## Features
 
@@ -71,7 +72,7 @@ Menu-bar system monitor:
 | **Write**  | grammar, rewrite, summarize, translate                                                           |
 | **MCP**    | `omni mcp serve` — exposes all modules as MCP tools                                              |
 
-**Stack:** Go 1.23, Cobra, Bubble Tea, Zig for cross-compilation, pdfcpu v0.15 (pinned), vendored Gemini API client. 479 test packages.
+**Stack:** Go 1.27, Cobra, Bubble Tea, Zig for cross-compilation, pdfcpu v0.15 (pinned), vendored Gemini API client. 479 test packages.
 
 ### Browser (`packages/browser`)
 
@@ -79,6 +80,13 @@ Manifest V3 extension with React:
 
 - Content script injection, background service worker, popup, options page.
 - TypeScript, ESLint, Webpack 5, React 19, Tailwind CSS 4.
+
+### Web (`packages/web`)
+
+Static site deployed to GitHub Pages:
+
+- Next.js 16 App Router with static export (`output: "export"`), Tailwind CSS 4, Turbopack.
+- J.A.R.V.I.S.-style interface with speech recognition word lists in `public/data/`.
 
 ## Key Benefits
 
@@ -97,10 +105,10 @@ Manifest V3 extension with React:
 | ----------- | ------------------------------------------- |
 | Node.js     | 26 (see `.node-version` / `.nvmrc`)         |
 | pnpm        | 12                                          |
-| JDK         | 21 (Temurin)                                |
+| JDK         | 25 (Temurin)                                |
 | Android SDK | API 37 (via Android Studio or `sdkmanager`) |
 | Xcode       | 15+ (macOS)                                 |
-| Go          | 1.23                                        |
+| Go          | 1.27                                        |
 | Zig         | 0.13 (for CLI cross-compilation)            |
 
 ### Run locally
@@ -136,22 +144,24 @@ pnpm build        # dist/ for Manifest V3
 
 ```sh
 # From repo root
-pnpm lint         # all 4 packages
-pnpm test         # all 4 packages
-pnpm build        # all 4 packages
+pnpm lint         # all workspace packages
+pnpm typecheck    # browser, cli, web
+pnpm test         # all workspace packages
+pnpm build        # all workspace packages
 ```
 
 ## CI Pipeline
 
 `.github/workflows/ci.yaml` runs on every push/PR to `master`:
 
-| Job                | Runner          | Steps                                                                                                         |
-| ------------------ | --------------- | ------------------------------------------------------------------------------------------------------------- |
-| **android**        | `ubuntu-latest` | JDK 21 + Android SDK → `make lint` → `make test` → `make build` → upload `app-debug.apk`                      |
-| **macos**          | `macos-latest`  | `make format` → `make lint` → `make test` → `make build` → `make app` → upload `Omni.app`                     |
-| **cli**            | `ubuntu-latest` | Go 1.23 + Zig → `make format` → `make lint` → `make test` → `make build` → `make build-all` → upload `omni-*` |
-| **browser**        | `ubuntu-latest` | Node 20 + pnpm → `pnpm install` → `pnpm lint` → `pnpm test` → `pnpm build` → upload `dist/`                   |
-| **release-latest** | `ubuntu-latest` | *on push to master* → downloads all artifacts → force-updates GitHub Release `latest`                         |
+| Job                | Runner          | Steps                                                                                                                                          |
+| ------------------ | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| **android**        | `ubuntu-latest` | JDK 25 + Android SDK → `make lint` → `make test` → `make build` → upload `app-debug.apk`                                                        |
+| **macos**          | `macos-latest`  | `make format-check` → `make lint` → `make test` → `make build` → `make app` → `make dmg` → CLI `make build-darwin` → upload `Omni.app` + `omni-darwin-*` |
+| **cli**            | `ubuntu-latest` | Go 1.27 + Zig → `make format` → `make lint` → `make test` → `make build` → `make build-all` → upload `omni-*`                                  |
+| **browser**        | `ubuntu-latest` | Node 26 + pnpm → `pnpm install` → `pnpm typecheck` → `pnpm lint:check` → `pnpm format:check` → `pnpm test` → `pnpm build` → upload `dist/`      |
+| **web**            | `ubuntu-latest` | Node 26 + pnpm → `pnpm install` → `pnpm build` → upload Pages artifact                                                                         |
+| **release-latest** | `ubuntu-latest` | *on push to master* → downloads all artifacts → force-updates GitHub Release `latest`; web deploys to GitHub Pages                             |
 
 The `latest` release is the **single source of truth** for downloads. The CLI install script, Dockerfile, and docs all reference `https://github.com/hieudoanm/omni/releases/download/latest/...`.
 
@@ -174,11 +184,11 @@ omni/
 ├── pnpm-workspace.yaml           # packages/**
 ├── package.json                  # Root scripts: format, lint, test, build
 ├── packages/
-│   ├── android/                  # Kotlin + Compose
+│   ├── android/                  # Kotlin + Compose (not a pnpm workspace package)
 │   │   ├── app/                  # Main module
 │   │   ├── build.gradle.kts      # Spotless + ktlint 0.50
 │   │   ├── Makefile              # format/lint/test/build/clean
-│   │   └── package.json          # @omni/android
+│   │   └── docs/                 # Android dev docs
 │   ├── macos/                    # Swift + SwiftUI
 │   │   ├── Sources/              # OmniCore, Omni (app)
 │   │   ├── Tests/                # 219 tests, 36 suites
@@ -190,12 +200,15 @@ omni/
 │   │   ├── src/                  # 33 modules under cmd/
 │   │   ├── scripts/install.sh    # Rolling release downloader
 │   │   ├── docker/Dockerfile     # Alpine + install script
-│   │   ├── Makefile              # format/lint/test/build/build-all/coverage/tidy/install/clean
+│   │   ├── Makefile              # format/lint/test/build/build-all/build-darwin/coverage/tidy/install/clean
 │   │   └── package.json          # @omni/cli
-│   └── browser/                  # TypeScript + Manifest V3 + React
-│       ├── src/                  # apps/, libs/, components/
-│       ├── Makefile              # format/lint/test/build/clean
-│       └── package.json          # @omni/browser
+│   ├── browser/                  # TypeScript + Manifest V3 + React
+│   │   ├── src/                  # apps/, libs/, components/ (+ vitest unit tests)
+│   │   ├── Makefile              # format/lint/test/build/clean
+│   │   └── package.json          # @omni/browser
+│   └── web/                      # Next.js 16 static export → GitHub Pages
+│       ├── src/app/              # App Router pages
+│       └── package.json          # @omni/web
 ├── AGENTS.md                     # Technical reference
 └── LICENSE                       # MIT
 ```

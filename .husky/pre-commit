@@ -2,4 +2,4 @@
 
 pnpm run lint
 pnpm run format
-git add -A
+git add -u

@@ -60,7 +60,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7.0.1
       - name: Run macOS format check
-        run: make format
+        run: make format-check
         working-directory: packages/macos
       - name: Run macOS lint (build)
         run: make lint
@@ -88,6 +88,20 @@ jobs:
           path: |
             packages/macos/build/Omni.app.zip
             packages/macos/build/Omni-*.dmg
+          retention-days: 7
+      - name: Setup Go
+        uses: actions/setup-go@v7.0.0
+        with:
+          go-version: "1.27.3"
+          cache-dependency-path: packages/cli/go.sum
+      - name: Build CLI darwin binaries (with cgo)
+        run: make build-darwin
+        working-directory: packages/cli
+      - name: Upload CLI darwin binaries
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: cli-binaries-darwin
+          path: packages/cli/bin/omni-darwin-*
           retention-days: 7
 
   # CLI: Linux runner for Go
@@ -146,8 +160,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
         working-directory: packages/browser
+      - name: Run browser typecheck
+        run: pnpm typecheck
+        working-directory: packages/browser
       - name: Run browser lint
-        run: pnpm lint
+        run: pnpm lint:check
+        working-directory: packages/browser
+      - name: Run browser format check
+        run: pnpm format:check
         working-directory: packages/browser
       - name: Run browser tests
         run: pnpm test
@@ -190,6 +210,11 @@ jobs:
         uses: actions/download-artifact@v8.0.2
         with:
           name: cli-binaries
+          path: dist/cli
+      - name: Download CLI darwin binaries (overwrite cgo stubs)
+        uses: actions/download-artifact@v8.0.2
+        with:
+          name: cli-binaries-darwin
           path: dist/cli
       - name: Download Android APK
         uses: actions/download-artifact@v8.0.2

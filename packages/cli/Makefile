@@ -12,7 +12,7 @@ COMMIT       := $(shell git rev-parse --short HEAD 2>/dev/null || echo "unknown"
 FULL_VERSION := $(VERSION)-$(COMMIT)
 LDFLAGS      := -ldflags="-s -w -X '$(OWNER)/src/cmd/version.V=$(FULL_VERSION)'"
 
-.PHONY: help all format lint test build build-all coverage clean tidy install
+.PHONY: help all format lint test build build-all build-darwin coverage clean tidy install
 
 help:
 	@echo "omni — personal CLI toolbox"
@@ -24,6 +24,7 @@ help:
 	@echo "  test       go test ./..."
 	@echo "  build      build $(BINARY)"
 	@echo "  build-all  cross-compile for $(PLATFORMS) into $(BIN_DIR) (zig)"
+	@echo "  build-darwin  build darwin/{amd64,arm64} with cgo (requires macOS + Xcode)"
 	@echo "  coverage   generate HTML coverage report"
 	@echo "  tidy       go mod tidy"
 	@echo "  install    build and install to $(HOME)/bin"
@@ -71,6 +72,12 @@ build-all:
 	done
 	@echo "Binaries in $(BIN_DIR)/:"
 	@ls -1 $(BIN_DIR)/
+
+build-darwin:
+	@mkdir -p $(BIN_DIR)
+	CGO_ENABLED=1 GOOS=darwin GOARCH=amd64 $(GO) build $(LDFLAGS) -o $(BIN_DIR)/$(BIN_NAME)-darwin-amd64 $(SRC)
+	CGO_ENABLED=1 GOOS=darwin GOARCH=arm64 $(GO) build $(LDFLAGS) -o $(BIN_DIR)/$(BIN_NAME)-darwin-arm64 $(SRC)
+	@echo "built darwin binaries with cgo (requires macOS SDK)"
 
 coverage:
 	@mkdir -p $(COVERAGE_DIR)

@@ -6,8 +6,8 @@
 
 ## Read this first
 
-- **Four native packages, one monorepo** — no shared UI, no Electron.
-- `pnpm` + Turborepo for Node workspaces (browser only); Gradle, SwiftPM, Go for native.
+- **Five packages, one monorepo** — four native apps plus a static web page; no shared UI, no Electron.
+- `pnpm` + Turborepo for Node workspaces (browser, CLI, macOS tooling, web); Gradle for Android.
 - Root scripts delegate to per-package Makefiles: `format`, `lint`, `test`, `build`.
 - CI uses per-platform runners: Ubuntu (Android, CLI, Browser), macOS (macOS).
 - Rolling `latest` release on every push to `master`.
@@ -20,15 +20,17 @@
 | `packages/macos`   | Swift      | `swift build -c release`  | `swiftformat Sources Tests Package.swift` | `swift build`         | `swift test`                  |
 | `packages/cli`     | Go         | `go build`                | `go fmt ./...`                            | `go vet ./...`        | `go test ./...`               |
 | `packages/browser` | TypeScript | `pnpm build`              | `prettier --write`                        | `eslint --fix`        | `vitest`                      |
+| `packages/web`     | TypeScript | `pnpm build`              | `prettier --write`                        | `eslint`              | —                             |
 
 ## Root Commands
 
 ```bash
 pnpm install          # installs browser deps only
-pnpm format           # turbo run format (all 4)
-pnpm lint             # turbo run lint (all 4)
-pnpm test             # turbo run test (all 4)
-pnpm build            # turbo run build (all 4)
+pnpm format           # turbo run format (all packages)
+pnpm lint             # turbo run lint (all packages)
+pnpm typecheck        # turbo run typecheck (browser, cli, web)
+pnpm test             # turbo run test (all packages)
+pnpm build            # turbo run build (all packages)
 ```
 
 ## Per-Package Conventions
@@ -61,13 +63,13 @@ pnpm build            # turbo run build (all 4)
 
 ### CLI (`packages/cli`)
 
-- **Go 1.23**, Cobra for commands, Bubble Tea for TUI modules.
+- **Go 1.27** (go.mod `1.27.2`), Cobra for commands, Bubble Tea for TUI modules.
 - **Module path** — `github.com/hieudoanm/omni/packages/cli`.
 - **33 modules** under `src/cmd/` — each has `cmd.go`, optional `service.go`, `*_test.go`.
 - **MCP server** — `src/cmd/mcp/serve.go` exposes all modules as MCP tools over stdio.
 - **Vendored API** — Gemini client at `src/libs/api/gemini.google.com/` (copied from old `github.com/hieudoanm/api`).
 - **Pinned deps** — `pdfcpu v0.15.0` (v0.16.x breaks `pdf` command).
-- **Cross-compile** — `make build-all` uses Zig CC for non-native targets (`linux/amd64`, `linux/arm64`, `darwin/amd64`, `darwin/arm64`).
+- **Cross-compile** — `make build-all` uses Zig CC for non-native targets (`linux/amd64`, `linux/arm64`, `darwin/amd64`, `darwin/arm64`); darwin binaries are `CGO_ENABLED=0` stubs (no Apple SDK headers under zig), so `make build-darwin` on macOS produces the real cgo-enabled darwin binaries used by the release.
 - **Version** — `-ldflags="-X github.com/hieudoanm/omni/packages/cli/src/cmd/version.V=date-sha"`.
 - **Format** — `go fmt ./...`
 - **Lint** — `go vet ./...`
@@ -82,6 +84,14 @@ pnpm build            # turbo run build (all 4)
 - **Prettier** — Tailwind plugin for class sorting.
 - **Vitest** — unit tests, jsdom environment.
 - **Structure** — `apps/` (background, content, popup, options), `libs/` (shared), `components/` (React).
+- **Checks** — `pnpm lint` mutates (`--fix`); use `pnpm lint:check` / `pnpm format:check` in CI. `pnpm typecheck` runs `tsc --noEmit`.
+
+### Web (`packages/web`)
+
+- **Next.js 16** App Router, static export (`output: "export"` → `out/`), Tailwind 4, Turbopack, React 19.
+- **Deploy** — GitHub Pages via `actions/upload-pages-artifact` + `deploy-pages`; `basePath` is `/omni` in production.
+- **Typecheck** — `pnpm typecheck` runs `next typegen && tsc --noEmit` (`next-env.d.ts` and `.next/types` are gitignored and regenerated).
+- **Format** — `prettier --write` / `format:check`; **Lint** — `eslint` (flat config `eslint.config.mjs`).
 
 ## Non-Negotiables
 
@@ -107,8 +117,9 @@ pnpm build            # turbo run build (all 4)
 | macOS   | `Omni.app`         | `packages/macos/build/`                         |
 | CLI     | `omni-{os}-{arch}` | `packages/cli/bin/`                             |
 | Browser | `dist/`            | `packages/browser/dist/`                        |
+| Web     | GitHub Pages       | `packages/web/out/`                             |
 
-All uploaded to `latest` release on master push.
+CLI, Android, macOS, and Browser artifacts are uploaded to the `latest` release on master push; Web deploys to GitHub Pages.
 
 ## Gotchas
 

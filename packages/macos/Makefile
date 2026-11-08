@@ -1,4 +1,4 @@
-.PHONY: build app dmg install clean dev test icons format lint
+.PHONY: build app dmg install clean dev test icons format format-check lint
 
 APP_NAME := Omni
 BUNDLE_ID := io.github.hieudoanm.Omni
@@ -90,6 +90,9 @@ dev:
 
 format:
 	swiftformat Sources Tests Package.swift
+
+format-check:
+	swiftformat Sources Tests Package.swift --lint
 
 lint:
 	swift build
