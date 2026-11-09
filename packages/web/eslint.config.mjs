@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     'out/**',
     'build/**',
     'next-env.d.ts',
+    'jest.config.ts',
+    'jest.setup.ts',
   ]),
   {
     // Vendored from hieudoanm.github.io docs app — keep its own lint baseline.
@@ -24,7 +26,7 @@ const eslintConfig = defineConfig([
       'src/content/**',
       'src/examples/**',
       'src/lib/**',
-      'src/hooks/useSWRegister.ts',
+      'src/hooks/**',
       'src/utils/canvas.ts',
     ],
     rules: {
@@ -34,6 +36,7 @@ const eslintConfig = defineConfig([
       'react-hooks/immutability': 'off',
       'react-hooks/refs': 'off',
       'react-hooks/purity': 'off',
+      'react-hooks/error-boundaries': 'off',
     },
   },
 ]);

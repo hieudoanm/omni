@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { java as javaLang } from '@codemirror/lang-java';
 import { javascript } from '@codemirror/lang-javascript';
 import { json as jsonLang } from '@codemirror/lang-json';

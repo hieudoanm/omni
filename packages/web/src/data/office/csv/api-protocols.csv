@@ -1,0 +1,8 @@
+category,name
+protocol,AMQP
+protocol,gRPC
+protocol,HTTP(S)
+protocol,MQTT
+protocol,TCP
+protocol,UDP
+protocol,WebSocket

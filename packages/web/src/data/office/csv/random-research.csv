@@ -1,0 +1,58 @@
+id,category,question
+01,Sleep,What is REM (Rapid Eye Movement) Sleep?
+02,Sleep,What is NREM (Non-Rapid Eye Movement) Sleep?
+03,Sleep,What is Sleep Apnea?
+04,Sleep,What is Sleep Insomnia?
+05,Sleep,What is Sleep Paralysis?
+06,Sleep,How sleep affects cardiovascular health?
+07,Sleep,How sleep affects brain health?
+08,Sleep,How sleep affects metabolic health?
+09,Sleep,How sleep affects immune system?
+10,Sleep,How sleep affects gut health?
+11,Sleep,How sleep affects hormonal balance?
+12,Sleep,How sleep affects physical performance?
+13,Sleep,How sleep affects cognitive function?
+14,Sleep,How sleep affects emotional regulation?
+15,Stress,What is Stress?
+16,Stress,What is Cortisol?
+17,Stress,What is Adrenaline?
+18,Stress,What is Endorphin?
+19,Stress,How stress affects cardiovascular health?
+20,Stress,How stress affects brain health?
+21,Stress,How stress affects metabolic health?
+22,Stress,How stress affects immune system?
+23,Stress,How stress affects gut health?
+24,Stress,How stress affects hormonal balance?
+25,Stress,How stress affects physical performance?
+26,Stress,How stress affects cognitive function?
+27,Stress,How stress affects emotional regulation?
+28,Research,What is Quantitative Research?
+29,Research,What is Qualitative Research?
+30,Research,What is Meta Analysis Research?
+31,Research,What is Randomized Controlled Trial (RCT)?
+32,Research,What is Cohort Study?
+33,Research,What is Case-Control Study?
+34,Research,What is Cross-Sectional Study?
+35,Research,What is Systematic Review?
+36,Data Science,What is Reinforcement Learning?
+37,Data Science,What is Supervised Learning?
+38,Data Science,What is Unsupervised Learning?
+39,Data Science,What is Deep Learning?
+40,Data Science,What is Neural Network?
+41,NeuroScience,What is EEG (Electroencephalogram)?
+42,NeuroScience,What is fMRI (Functional Magnetic Resonance Imaging)?
+43,NeuroScience,What is PET (Positron Emission Tomography)?
+44,NeuroScience,What is MEG (Magnetoencephalography)?
+45,Productivity,What is Eisenhower Matrix?
+46,Productivity,What is Pomodoro Technique?
+47,Productivity,What is the Causes of Procratination
+48,Mental Health,What is Anxiety?
+49,Mental Health,What is Depression?
+50,Mental Health,What is Bipolar Disorder?
+51,Mental Health,What is Schizophrenia?
+52,Mental Health,What is PTSD?
+53,Mental Health,What is OCD?
+54,Mental Health,What is ADHD?
+55,Mental Health,What is Eating Disorder?
+56,Mental Health,What is Borderline Personality Disorder?
+57,Mental Health,What is Autism Spectrum Disorder?

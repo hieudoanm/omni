@@ -1,0 +1,35 @@
+category,country,network,show,person
+Drama,United Kingdom,HBO,Game of Thrones,
+Drama,United Kingdom,HBO,House of the Dragon,
+Drama,United States,AMC,Breaking Bad,
+Drama,United States,AMC,Better Call Saul,
+Drama,United States,Fox,Brooklyn 99,
+Drama,United States,,The West Wing,Aaron Sorkin
+Drama,United States,,The Newsroom,Aaron Sorkin
+Drama,United Kingdom,,Sandman,
+Drama,United States,,The Big Bang Theory,
+Drama,United States,,Young Sheldon,
+Drama,United States,,How I Met Your Mother,
+Drama,United States,,Friends,
+Drama,United States,,House of Cards (US),
+Drama,United Kingdom,,House of Cards (UK),
+Drama,United States,,Agents of S.H.I.E.L.D.,
+Drama,United States,,Loki,
+Drama,United States,,Wanda Vision,
+Drama,United States,,What If,
+Drama,United States,,The Good Place,
+Drama,United Kingdom,,Sherlock,
+Late Night,United States,CBS,The Late Show,David Letterman
+Late Night,United States,CBS,The Late Show,Stephen Colbert
+Late Night,United States,Comedy Central,The Daily Show,Jon Stewart
+Late Night,United States,Comedy Central,The Daily Show,Trevor Noah
+Late Night,United States,HBO,Last Week Tonight,John Oliver
+Late Night,United States,HBO,Real Time,Bill Maher
+Late Night,United States,NBC,Late Night,Seth Meyers
+Late Night,United States,TBS,Conan,Conan
+Stand Up,United States,,,Bill Burr
+Stand Up,United Kingdom,,,Jimmy Carr
+Stand Up,United Kingdom,,,Ricky Gervais
+Stand Up,United States,,,George Carlin
+Stand Up,United States,,,Dave Chappelle
+Stand Up,United States,,,Louis C.K.

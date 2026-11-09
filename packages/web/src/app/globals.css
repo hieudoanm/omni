@@ -5,7 +5,9 @@
     luxury --default,
     nothing,
     light,
-    dark;
+    dark,
+    office-light,
+    office-dark;
 }
 
 @plugin 'daisyui/theme' {
@@ -70,4 +72,71 @@ body {
 
 canvas {
   @apply fixed inset-0 block;
+}
+
+/* Office suite themes — scoped to /apps/office via data-theme. */
+@plugin 'daisyui/theme' {
+  name: 'office-light';
+  color-scheme: 'light';
+  --color-base-100: #ffffff;
+  --color-base-200: #f8f9fa;
+  --color-base-300: #e9eaed;
+  --color-base-content: #202124;
+  --color-primary: #1a73e8;
+  --color-primary-content: #ffffff;
+  --color-secondary: #188038;
+  --color-secondary-content: #ffffff;
+  --color-accent: #9334e6;
+  --color-accent-content: #ffffff;
+  --color-neutral: #5f6368;
+  --color-neutral-content: #ffffff;
+  --color-info: #1a73e8;
+  --color-info-content: #ffffff;
+  --color-success: #188038;
+  --color-success-content: #ffffff;
+  --color-warning: #f9ab00;
+  --color-warning-content: #271a00;
+  --color-error: #d93025;
+  --color-error-content: #ffffff;
+  --radius-selector: 2rem;
+  --radius-field: 2rem;
+  --radius-box: 2rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@plugin 'daisyui/theme' {
+  name: 'office-dark';
+  color-scheme: 'dark';
+  --color-base-100: #000000;
+  --color-base-200: #1a1a1a;
+  --color-base-300: #292a2d;
+  --color-base-content: #e8eaed;
+  --color-primary: #8ab4f8;
+  --color-primary-content: #062e6f;
+  --color-secondary: #81c995;
+  --color-secondary-content: #04281a;
+  --color-accent: #a142f4;
+  --color-accent-content: #1c0033;
+  --color-neutral: #5f6368;
+  --color-neutral-content: #e8eaed;
+  --color-info: #8ab4f8;
+  --color-info-content: #062e6f;
+  --color-success: #81c995;
+  --color-success-content: #04281a;
+  --color-warning: #fdd663;
+  --color-warning-content: #332400;
+  --color-error: #f28b82;
+  --color-error-content: #40000a;
+  --radius-selector: 2rem;
+  --radius-field: 2rem;
+  --radius-box: 2rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
 }
