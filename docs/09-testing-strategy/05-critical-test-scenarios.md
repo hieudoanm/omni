@@ -122,7 +122,7 @@
 44. **PDF (pdfcpu v0.15)** — All subcommands work; v0.16.x rejected.
 45. **Golden tests** — CLI output matches `testdata/golden/`.
 
-## Browser (`packages/browser`)
+## Browser (`packages/extensions/browser`)
 
 ### Extension Core
 

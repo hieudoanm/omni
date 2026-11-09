@@ -181,7 +181,7 @@ Non-negotiable:
 
 **Rejected:** golangci-lint (extra tool, slow), staticcheck (overlaps with vet), testify (stdlib `testing` sufficient).
 
-## 7. Browser (`packages/browser`)
+## 7. Browser (`packages/extensions/browser`)
 
 ### 7.1 TypeScript + Manifest V3 + React
 

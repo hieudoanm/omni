@@ -8,7 +8,7 @@ packages:
 minimumReleaseAge: 0
 ```
 
-Only `packages/browser` has a `package.json` with dependencies. Other packages use Makefiles.
+`packages/extensions/browser` and `packages/extensions/vscode` have `package.json` files with real dependencies; other packages use Makefiles or stub manifests.
 
 ## Root `package.json`
 
@@ -58,7 +58,7 @@ Only `packages/browser` has a `package.json` with dependencies. Other packages u
   "scripts": { ... }
 }
 
-// packages/browser/package.json
+// packages/extensions/browser/package.json
 {
   "name": "@omni/browser",
   "scripts": {
@@ -74,7 +74,7 @@ Only `packages/browser` has a `package.json` with dependencies. Other packages u
 ## Commands
 
 ```bash
-# Install browser deps only (other packages use system toolchains)
+# Install workspace deps (browser, vscode extension, web)
 pnpm install
 
 # Run across all packages via Turbo
@@ -83,7 +83,7 @@ pnpm lint     # turbo run lint
 pnpm test     # turbo run test
 pnpm build    # turbo run build
 
-# Browser-specific (from packages/browser/)
+# Browser-specific (from packages/extensions/browser/)
 pnpm dev
 pnpm build
 pnpm lint
@@ -93,8 +93,7 @@ pnpm format
 
 ## Lockfiles
 
-- Root: `pnpm-lock.yaml` (tracks browser deps + root devDeps)
-- Browser: `packages/browser/pnpm-lock.yaml` (tracked in CI cache key)
+- Root: `pnpm-lock.yaml` (tracks browser + vscode extension + web deps and root devDeps; single lockfile for the whole workspace)
 
 ## CI Cache
 
@@ -103,7 +102,7 @@ pnpm format
   with:
     node-version: 26.12.1
     cache: 'pnpm'
-    cache-dependency-path: packages/browser/pnpm-lock.yaml
+    cache-dependency-path: pnpm-lock.yaml
 ```
 
 ## Version Pinning

@@ -6,8 +6,8 @@
 
 ## Read this first
 
-- **Five packages, one monorepo** — four native apps plus a static web page; no shared UI, no Electron.
-- `pnpm` + Turborepo for Node workspaces (browser, CLI, macOS tooling, web); Gradle for Android.
+- **Six packages, one monorepo** — four native apps, a static web page, and editor extensions under `packages/extensions/`; no shared UI, no Electron.
+- `pnpm` + Turborepo for Node workspaces (browser + VS Code extensions, web); Gradle for Android.
 - Root scripts delegate to per-package Makefiles: `format`, `lint`, `test`, `build`.
 - CI uses per-platform runners: Ubuntu (Android, CLI, Browser), macOS (macOS).
 - Rolling `latest` release on every push to `master`.
@@ -19,16 +19,17 @@
 | `packages/android` | Kotlin     | `./gradlew assembleDebug` | `./gradlew spotlessApply`                 | `./gradlew lintDebug` | `./gradlew testDebugUnitTest` |
 | `packages/macos`   | Swift      | `swift build -c release`  | `swiftformat Sources Tests Package.swift` | `swift build`         | `swift test`                  |
 | `packages/cli`     | Go         | `go build`                | `go fmt ./...`                            | `go vet ./...`        | `go test ./...`               |
-| `packages/browser` | TypeScript | `pnpm build`              | `prettier --write`                        | `eslint --fix`        | `vitest`                      |
+| `packages/extensions/browser` | TypeScript | `pnpm build`     | `prettier --write`                        | `eslint --fix`        | `vitest`                      |
+| `packages/extensions/vscode`  | TypeScript | `vsce package`   | `prettier --write`                        | —                     | —                             |
 | `packages/web`     | TypeScript | `pnpm build`              | `prettier --write`                        | `eslint`              | —                             |
 
 ## Root Commands
 
 ```bash
-pnpm install          # installs browser deps only
+pnpm install          # installs all workspace deps (browser, vscode, web)
 pnpm format           # turbo run format (all packages)
 pnpm lint             # turbo run lint (all packages)
-pnpm typecheck        # turbo run typecheck (browser, cli, web)
+pnpm typecheck        # turbo run typecheck (browser, web)
 pnpm test             # turbo run test (all packages)
 pnpm build            # turbo run build (all packages)
 ```
@@ -76,7 +77,7 @@ pnpm build            # turbo run build (all packages)
 - **Test** — `go test ./...` (479 packages).
 - **Install scripts** — `scripts/install.sh` installs release artifacts; `scripts/install-local.sh` builds from source (`--cli`, `--macos`, `--android`, `--browser`, `--web`).
 
-### Browser (`packages/browser`)
+### Browser Extension (`packages/extensions/browser`)
 
 - **TypeScript 6.0**, Manifest V3, React 19, Tailwind 4.
 - **Webpack 5** — separate configs for background, content, popup, options.
@@ -85,6 +86,13 @@ pnpm build            # turbo run build (all packages)
 - **Vitest** — unit tests, jsdom environment.
 - **Structure** — `apps/` (background, content, popup, options), `libs/` (shared), `components/` (React).
 - **Checks** — `pnpm lint` mutates (`--fix`); use `pnpm lint:check` / `pnpm format:check` in CI. `pnpm typecheck` runs `tsc --noEmit`.
+
+### VS Code Extension (`packages/extensions/vscode`)
+
+- **Nothing-inspired dark theme** — single theme JSON at `themes/nothing.json`, icons in `icons/`.
+- **`@omni/vscode`** — VS Code extension manifest in `package.json` (`contributes.themes`); theme-only, no `main`/activation code.
+- **Package** — `pnpm package` runs `vsce package` → `build/nothing-vscode-theme-0.0.1.vsix`.
+- **Format** — `prettier --write` / `format:check`; no lint/typecheck/test scripts.
 
 ### Web (`packages/web`)
 
@@ -101,7 +109,7 @@ pnpm build            # turbo run build (all packages)
   accent `#16dfff`, accent-2 `#8afaff`, accent-dim `#008cff`, text `#ededed`,
   muted `#7d93ad`. Tokens live in `packages/web/src/app/globals.css`.
 - **Typography** — Orbitron for display/title/label roles, DM Mono for body.
-  Fonts are bundled locally (OFL): `packages/browser/public/fonts/*.woff2`,
+  Fonts are bundled locally (OFL): `packages/extensions/browser/public/fonts/*.woff2`,
   `packages/android/app/src/main/res/font/{orbitron,dmmono_*}.ttf`.
 - **Per package** — browser: `public/popup.css` + `public/index.html` +
   injected wall styles in `src/lib/block.ts`; Android: `*/ui/theme/{Color,Theme}.kt`
@@ -133,7 +141,7 @@ pnpm build            # turbo run build (all packages)
 | Android | `app-debug.apk`    | `packages/android/app/build/outputs/apk/debug/` |
 | macOS   | `Omni.app`         | `packages/macos/build/`                         |
 | CLI     | `omni-{os}-{arch}` | `packages/cli/bin/`                             |
-| Browser | `dist/`            | `packages/browser/dist/`                        |
+| Browser | `dist/`            | `packages/extensions/browser/dist/`              |
 | Web     | GitHub Pages       | `packages/web/out/`                             |
 
 CLI, Android, macOS, and Browser artifacts are uploaded to the `latest` release on master push; Web deploys to GitHub Pages.
@@ -143,7 +151,7 @@ CLI, Android, macOS, and Browser artifacts are uploaded to the `latest` release 
 - **Android** — `ANDROID_HOME` must be set; `local.properties` is gitignored.
 - **macOS** — must run on macOS runner; `codesign` requires entitlements.
 - **CLI** — cross-compile needs Zig; `CGO_ENABLED=1` for native, `CC="zig cc -target ..."` for others.
-- **Browser** — `pnpm install` only at root; browser has its own `pnpm-lock.yaml`.
+- **Browser** — `pnpm install` only at root; lockfile is the root `pnpm-lock.yaml`.
 - **Turborepo** — `globalEnv` passes `ANDROID_HOME`, `ANDROID_SDK_ROOT`, `JAVA_HOME` to tasks.
 
 ## Useful Docs

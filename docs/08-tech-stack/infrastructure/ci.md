@@ -84,19 +84,19 @@ browser:
     - uses: pnpm/action-setup@v4
       with: { version: 12.15.0 }
     - uses: actions/setup-node@v4
-      with: { node-version: 26.12.1, cache: 'pnpm', cache-dependency-path: packages/browser/pnpm-lock.yaml }
+      with: { node-version: 26.12.1, cache: 'pnpm', cache-dependency-path: pnpm-lock.yaml }
     - run: pnpm install --frozen-lockfile
-      working-directory: packages/browser
+      working-directory: packages/extensions/browser
     - run: pnpm lint
-      working-directory: packages/browser
+      working-directory: packages/extensions/browser
     - run: pnpm test
-      working-directory: packages/browser
+      working-directory: packages/extensions/browser
     - run: pnpm build
-      working-directory: packages/browser
+      working-directory: packages/extensions/browser
     - uses: actions/upload-artifact@v4
       with:
         name: browser-extension
-        path: packages/browser/dist
+        path: packages/extensions/browser/dist
 ```
 
 ### Release Latest (ubuntu-latest)

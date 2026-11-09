@@ -1,40 +1,35 @@
 @import 'tailwindcss';
 
 @plugin 'daisyui' {
-  themes:
-    luxury --default,
-    nothing,
-    light,
-    dark,
-    office-light,
-    office-dark;
+  themes: omni, office-light, office-dark;
 }
 
+/* Omni HUD theme — dark navy/cyan baseline for /apps. */
 @plugin 'daisyui/theme' {
-  name: 'nothing';
+  name: 'omni';
   default: true;
   prefersdark: true;
   color-scheme: 'dark';
-  --color-base-100: #000000;
-  --color-base-200: #0a0a0a;
-  --color-base-300: #1f1f1f;
-  --color-base-content: #f5f5f5;
-  --color-primary: #ff0030;
-  --color-primary-content: #f5f5f5;
-  --color-secondary: #f5f5f5;
-  --color-secondary-content: #1f1f1f;
-  --color-accent: #6e7b86;
-  --color-accent-content: #f5f5f5;
-  --color-neutral: #8a8a8a;
-  --color-neutral-content: #000000;
-  --color-info: #4da3ff;
-  --color-info-content: #f5f5f5;
-  --color-success: #00c853;
-  --color-success-content: #f5f5f5;
-  --color-warning: #ffb000;
-  --color-warning-content: #f5f5f5;
-  --color-error: #ff0030;
-  --color-error-content: #f5f5f5;
+  --color-base-100: #020813;
+  --color-base-200: #0a1424;
+  --color-base-300: #14304a;
+  --color-base-content: #ededed;
+  --color-primary: #16dfff;
+  --color-primary-content: #020813;
+  --color-secondary: #008cff;
+  --color-secondary-content: #ffffff;
+  --color-accent: #8afaff;
+  --color-accent-content: #020813;
+  --color-neutral: #7d93ad;
+  --color-neutral-content: #020813;
+  --color-info: #60a5fa;
+  --color-info-content: #ffffff;
+  --color-success: #34d399;
+  --color-success-content: #052e1b;
+  --color-warning: #fbbf24;
+  --color-warning-content: #2b1d00;
+  --color-error: #ff3355;
+  --color-error-content: #ffffff;
   --radius-selector: 2rem;
   --radius-field: 2rem;
   --radius-box: 2rem;
@@ -61,42 +56,43 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-orbitron);
-  --font-mono: var(--font-orbitron);
+  --font-sans: var(--font-dm-mono);
+  --font-mono: var(--font-dm-mono);
+  --font-display: var(--font-orbitron);
 }
 
 body {
-  @apply m-0 h-screen w-screen overflow-hidden bg-[#020813] p-0;
-  font-family: var(--font-orbitron), 'Courier New', monospace;
+  @apply bg-background m-0 h-screen w-screen overflow-hidden p-0;
+  font-family: var(--font-dm-mono), monospace;
 }
 
 canvas {
   @apply fixed inset-0 block;
 }
 
-/* Office suite themes — scoped to /apps/office via data-theme. */
+/* Office suite themes — light/dark HUD variants scoped to /apps/office. */
 @plugin 'daisyui/theme' {
   name: 'office-light';
   color-scheme: 'light';
-  --color-base-100: #ffffff;
-  --color-base-200: #f8f9fa;
-  --color-base-300: #e9eaed;
-  --color-base-content: #202124;
-  --color-primary: #1a73e8;
+  --color-base-100: #f5f8fc;
+  --color-base-200: #e9eff8;
+  --color-base-300: #c9d8ec;
+  --color-base-content: #0f1e33;
+  --color-primary: #008cff;
   --color-primary-content: #ffffff;
-  --color-secondary: #188038;
+  --color-secondary: #0e7490;
   --color-secondary-content: #ffffff;
-  --color-accent: #9334e6;
+  --color-accent: #0ea5e9;
   --color-accent-content: #ffffff;
-  --color-neutral: #5f6368;
+  --color-neutral: #64748b;
   --color-neutral-content: #ffffff;
-  --color-info: #1a73e8;
+  --color-info: #2563eb;
   --color-info-content: #ffffff;
-  --color-success: #188038;
+  --color-success: #059669;
   --color-success-content: #ffffff;
-  --color-warning: #f9ab00;
-  --color-warning-content: #271a00;
-  --color-error: #d93025;
+  --color-warning: #f59e0b;
+  --color-warning-content: #2b1d00;
+  --color-error: #dc2626;
   --color-error-content: #ffffff;
   --radius-selector: 2rem;
   --radius-field: 2rem;
@@ -111,26 +107,26 @@ canvas {
 @plugin 'daisyui/theme' {
   name: 'office-dark';
   color-scheme: 'dark';
-  --color-base-100: #000000;
-  --color-base-200: #1a1a1a;
-  --color-base-300: #292a2d;
-  --color-base-content: #e8eaed;
-  --color-primary: #8ab4f8;
-  --color-primary-content: #062e6f;
-  --color-secondary: #81c995;
-  --color-secondary-content: #04281a;
-  --color-accent: #a142f4;
-  --color-accent-content: #1c0033;
-  --color-neutral: #5f6368;
-  --color-neutral-content: #e8eaed;
-  --color-info: #8ab4f8;
-  --color-info-content: #062e6f;
-  --color-success: #81c995;
-  --color-success-content: #04281a;
-  --color-warning: #fdd663;
-  --color-warning-content: #332400;
-  --color-error: #f28b82;
-  --color-error-content: #40000a;
+  --color-base-100: #020813;
+  --color-base-200: #0a1424;
+  --color-base-300: #14304a;
+  --color-base-content: #ededed;
+  --color-primary: #16dfff;
+  --color-primary-content: #020813;
+  --color-secondary: #008cff;
+  --color-secondary-content: #ffffff;
+  --color-accent: #8afaff;
+  --color-accent-content: #020813;
+  --color-neutral: #7d93ad;
+  --color-neutral-content: #020813;
+  --color-info: #60a5fa;
+  --color-info-content: #ffffff;
+  --color-success: #34d399;
+  --color-success-content: #052e1b;
+  --color-warning: #fbbf24;
+  --color-warning-content: #2b1d00;
+  --color-error: #ff3355;
+  --color-error-content: #ffffff;
   --radius-selector: 2rem;
   --radius-field: 2rem;
   --radius-box: 2rem;

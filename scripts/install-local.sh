@@ -6,7 +6,7 @@
 #   - CLI       -> make build in packages/cli, binary -> $INSTALL_DIR/omni
 #   - macOS app -> make install in packages/macos (-> /Applications, macOS only)
 #   - Android   -> ./gradlew assembleDebug, APK copied to $DOWNLOAD_DIR
-#   - Browser   -> pnpm build in packages/browser, loads dist/v2 into
+#   - Browser   -> pnpm build in packages/extensions/browser, loads dist/v2 into
 #                  Firefox/Firefox Dev Edition via web-ext (temporary install)
 #   - Web       -> pnpm build in packages/web, prints the static export path
 #
@@ -139,7 +139,7 @@ firefox_binary() {
 install_browser() {
   have_pnpm || { log warn "browser: skipped (pnpm not found)"; return; }
   log info "browser: building extension"
-  (cd "$ROOT/packages/browser" && pnpm install --frozen-lockfile && pnpm build)
+  (cd "$ROOT/packages/extensions/browser" && pnpm install --frozen-lockfile && pnpm build)
 
   local fx
   if fx="$(firefox_binary)"; then
@@ -147,7 +147,7 @@ install_browser() {
     log info "browser: launching Firefox with omni installed (temporary)"
     log step "Detached via web-ext; log: $logf"
     log step "Close Firefox to remove the extension; re-run to reload."
-    (cd "$ROOT/packages/browser" && nohup pnpm web-ext run \
+    (cd "$ROOT/packages/extensions/browser" && nohup pnpm web-ext run \
       --source-dir=dist/v2 \
       --firefox="$fx" \
       --no-input >"$logf" 2>&1 &)
@@ -155,8 +155,8 @@ install_browser() {
   else
     log warn "Firefox not found. Load manually:"
     log step "about:debugging -> This Firefox -> Load Temporary Add-on"
-    log step "-> $ROOT/packages/browser/download/v2/omni.xpi"
-    log step "Chrome/Edge: load unpacked from $ROOT/packages/browser/dist/v3"
+    log step "-> $ROOT/packages/extensions/browser/download/v2/omni.xpi"
+    log step "Chrome/Edge: load unpacked from $ROOT/packages/extensions/browser/dist/v3"
   fi
 }
 

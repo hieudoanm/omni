@@ -57,7 +57,7 @@ func loadGolden(t *testing.T, name string) string {
 }
 ```
 
-## Browser (`packages/browser/test/fixtures/`)
+## Browser (`packages/extensions/browser/test/fixtures/`)
 
 | File | Purpose |
 |------|---------|

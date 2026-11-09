@@ -1,8 +1,8 @@
 # Omni
 
-**Four native platforms plus a static web page, one codebase — Android, macOS, CLI, Browser, and Web.**
+**Four native platforms plus extensions and a static web page, one codebase — Android, macOS, CLI, Browser, VS Code, and Web.**
 
-Omni is a personal toolbox that runs everywhere: a focus blocker and NFC toolkit on Android, a menu-bar system monitor on macOS, a 33-module CLI with an MCP server, a browser extension, and a J.A.R.V.I.S.-style web page deployed to GitHub Pages. All five share a single monorepo, a single CI pipeline, and a single rolling `latest` release.
+Omni is a personal toolbox that runs everywhere: a focus blocker and NFC toolkit on Android, a menu-bar system monitor on macOS, a 33-module CLI with an MCP server, a browser extension, a VS Code theme, and a J.A.R.V.I.S.-style web page deployed to GitHub Pages. All six share a single monorepo, a single CI pipeline, and a single rolling `latest` release.
 
 [📱 Android](#android) · [🖥️ macOS](#macos) · [⌨️ CLI](#cli) · [🌐 Browser](#browser) · [🔧 Technical Docs](AGENTS.md)
 
@@ -21,7 +21,8 @@ Omni keeps each platform **native** while unifying the rest:
 | Android  | Kotlin     | Jetpack Compose     | `packages/android` |
 | macOS    | Swift      | SwiftUI             | `packages/macos`   |
 | CLI      | Go         | Bubble Tea / Cobra  | `packages/cli`     |
-| Browser  | TypeScript | Manifest V3 / React | `packages/browser` |
+| Browser  | TypeScript | Manifest V3 / React | `packages/extensions/browser` |
+| VS Code  | TypeScript | Theme                | `packages/extensions/vscode`  |
 | Web      | TypeScript | Next.js 16 / React  | `packages/web`     |
 
 - **Single monorepo** (pnpm + Turborepo) — one `pnpm install`, one `pnpm lint`, one `pnpm test`, one `pnpm build`.
@@ -74,7 +75,7 @@ Menu-bar system monitor:
 
 **Stack:** Go 1.27, Cobra, Bubble Tea, Zig for cross-compilation, pdfcpu v0.15 (pinned), vendored Gemini API client. 479 test packages.
 
-### Browser (`packages/browser`)
+### Browser (`packages/extensions/browser`)
 
 Manifest V3 extension with React:
 
@@ -118,7 +119,7 @@ Static site deployed to GitHub Pages:
 git clone https://github.com/hieudoanm/omni.git
 cd omni
 
-# Install Node deps (browser only)
+# Install Node deps (extensions + web)
 pnpm install
 
 # Android
@@ -135,9 +136,13 @@ make build        # native binary at bin/omni
 make build-all    # all 4 platforms at bin/omni-{os}-{arch}
 
 # Browser
-cd ../browser
+cd ../extensions/browser
 pnpm dev          # webpack dev server
 pnpm build        # dist/ for Manifest V3
+
+# VS Code theme
+cd ../vscode
+pnpm package      # vsce package → build/*.vsix
 ```
 
 ### Quick test matrix
@@ -145,7 +150,7 @@ pnpm build        # dist/ for Manifest V3
 ```sh
 # From repo root
 pnpm lint         # all workspace packages
-pnpm typecheck    # browser, cli, web
+pnpm typecheck    # browser, web
 pnpm test         # all workspace packages
 pnpm build        # all workspace packages
 ```
@@ -202,10 +207,14 @@ omni/
 │   │   ├── docker/Dockerfile     # Alpine + install script
 │   │   ├── Makefile              # format/lint/test/build/build-all/build-darwin/coverage/tidy/install/clean
 │   │   └── package.json          # @omni/cli
-│   ├── browser/                  # TypeScript + Manifest V3 + React
-│   │   ├── src/                  # apps/, libs/, components/ (+ vitest unit tests)
-│   │   ├── Makefile              # format/lint/test/build/clean
-│   │   └── package.json          # @omni/browser
+│   ├── extensions/               # Editor extensions
+│   │   ├── browser/              # TypeScript + Manifest V3 + React
+│   │   │   ├── src/              # apps/, libs/, components/ (+ vitest unit tests)
+│   │   │   ├── Makefile          # format/lint/test/build/clean
+│   │   │   └── package.json      # @omni/browser
+│   │   └── vscode/               # Nothing-inspired VS Code theme
+│   │       ├── themes/           # nothing.json
+│   │       └── package.json      # @omni/vscode
 │   └── web/                      # Next.js 16 static export → GitHub Pages
 │       ├── src/app/              # App Router pages
 │       └── package.json          # @omni/web

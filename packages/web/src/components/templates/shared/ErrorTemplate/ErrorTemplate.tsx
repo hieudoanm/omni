@@ -39,7 +39,7 @@ export const ErrorTemplate: FC<{
   return (
     <div
       className='bg-base-100 text-base-content relative flex min-h-screen items-center justify-center px-12 py-24'
-      data-theme='luxury'>
+      data-theme='omni'>
       {/* Ambient glow — mirrors Hero's radial blob */}
       <div className='bg-primary/5 pointer-events-none absolute top-1/2 left-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl' />
 

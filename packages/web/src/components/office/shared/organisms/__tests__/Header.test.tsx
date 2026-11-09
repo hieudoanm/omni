@@ -22,29 +22,29 @@ describe('Header', () => {
     expect(screen.getByRole('button', { name: /toggle theme/i })).toBeInTheDocument();
   });
 
-  it('sets default data-theme to light', () => {
+  it('sets default data-theme to dark', () => {
     render(<Header />);
-    expect(document.documentElement.getAttribute('data-theme')).toBe('office-light');
+    expect(document.documentElement.getAttribute('data-theme')).toBe('office-dark');
   });
 
   it('toggles theme on click', () => {
     render(<Header />);
     fireEvent.click(screen.getByRole('button', { name: /toggle theme/i }));
-    expect(document.documentElement.getAttribute('data-theme')).toBe('office-dark');
+    expect(document.documentElement.getAttribute('data-theme')).toBe('office-light');
   });
 
-  it('toggles back to light theme', () => {
+  it('toggles back to dark theme', () => {
     render(<Header />);
     const toggle = screen.getByRole('button', { name: /toggle theme/i });
     fireEvent.click(toggle);
     fireEvent.click(toggle);
-    expect(document.documentElement.getAttribute('data-theme')).toBe('office-light');
+    expect(document.documentElement.getAttribute('data-theme')).toBe('office-dark');
   });
 
   it('persists theme to localStorage', () => {
     render(<Header />);
     fireEvent.click(screen.getByRole('button', { name: /toggle theme/i }));
-    expect(localStorage.getItem('office-theme')).toBe('office-dark');
+    expect(localStorage.getItem('office-theme')).toBe('office-light');
   });
 
   it('restores the saved theme from localStorage', () => {

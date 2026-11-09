@@ -9,4 +9,4 @@
 | [format-lint-test.md](format-lint-test.md) | Prettier, ESLint, Vitest, Playwright, coverage              |
 | [ci.md](ci.md)                             | Node 26, pnpm 12, cache, build, artifact upload             |
 
-See also: `packages/browser/Makefile`, `packages/browser/package.json`
+See also: `packages/extensions/browser/Makefile`, `packages/extensions/browser/package.json`

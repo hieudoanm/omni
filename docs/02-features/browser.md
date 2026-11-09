@@ -1,4 +1,4 @@
-# Browser Features (`packages/browser`)
+# Browser Features (`packages/extensions/browser`)
 
 Manifest V3 (Chromium) and MV2 (Firefox) browser extension with extensive productivity and content control features.
 

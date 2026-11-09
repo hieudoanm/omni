@@ -110,7 +110,7 @@ func TestCalculateAge(t *testing.T) {
 - Golden files in `testdata/` for CLI output comparison
 - `tests/` package for cross-module integration tests
 
-### Browser (`packages/browser`)
+### Browser (`packages/extensions/browser`)
 
 **Framework:** Vitest 5 + jsdom + React Testing Library.
 

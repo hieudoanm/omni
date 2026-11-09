@@ -10,8 +10,8 @@ const THEME_DARK: string = 'office-dark';
 const THEME_LIGHT: string = 'office-light';
 
 const getInitialTheme = (): string => {
-  if (typeof window === 'undefined') return THEME_LIGHT;
-  return localStorage.getItem(THEME_KEY) || THEME_LIGHT;
+  if (typeof window === 'undefined') return THEME_DARK;
+  return localStorage.getItem(THEME_KEY) || THEME_DARK;
 };
 
 export const Header: FC = () => {
@@ -30,7 +30,9 @@ export const Header: FC = () => {
     <header className='border-base-300 bg-base-100 sticky top-0 z-10 w-full border-b px-4 py-3 sm:px-6'>
       <div className='flex items-center justify-between'>
         <div>
-          <Link href='/apps/office' className='text-base-content text-sm font-bold'>
+          <Link
+            href='/apps/office'
+            className='text-base-content font-display text-sm font-bold tracking-widest uppercase'>
             {APP_NAME}
           </Link>
         </div>

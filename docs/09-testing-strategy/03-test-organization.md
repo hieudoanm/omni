@@ -78,7 +78,7 @@ src/
 - Test functions: `Test<FunctionName>` (e.g., `TestCalculateAge`)
 - Table-driven subtests: `t.Run("case name", ...)`
 
-## Browser (`packages/browser`)
+## Browser (`packages/extensions/browser`)
 
 ```
 src/
