@@ -1,0 +1,89 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  headline: 'World Cup Semi-Finals: Two Upsets One Final'
+  highlights:
+    - Two
+    - Upsets
+  text: Spain and Argentina are through to Sunday
+
+---
+# Post 2 (Scorecard)
+scorecard:
+  headline: World Cup 2026 — Semi-Final 1
+  text: Spain shut down the 2022 runners-up
+  homeTeam: France
+  awayTeam: Spain
+  homeScore: 0
+  awayScore: 2
+  date: Tue 14 Jul
+  venue: Dallas Stadium
+  scorers:
+    - name: Oyarzabal
+      minute: 22 (P)
+      team: away
+    - name: Porro
+      minute: '58'
+      team: away
+  stats:
+    - label: Possession
+      home: 49%
+      away: 51%
+    - label: Shots
+      home: '14'
+      away: '10'
+    - label: On Target
+      home: '4'
+      away: '2'
+
+---
+# Post 3 (Scorecard)
+scorecard:
+  headline: World Cup 2026 — Semi-Final 2
+  text: Messi sets up a late Argentina comeback
+  homeTeam: England
+  awayTeam: Argentina
+  homeScore: 1
+  awayScore: 2
+  date: Wed 15 Jul
+  venue: Atlanta Stadium
+  scorers:
+    - name: Gordon
+      minute: '55'
+      team: home
+    - name: Enzo Fernández
+      minute: '85'
+      team: away
+    - name: Lautaro Martínez
+      minute: 90+2
+      team: away
+  stats:
+    - label: Possession
+      home: 36%
+      away: 64%
+    - label: Shots
+      home: '6'
+      away: '14'
+    - label: On Target
+      home: '3'
+      away: '6'
+
+---
+# Post 4 (References)
+references:
+  title: Sources
+  items:
+    - author: FIFA
+      title: 'France v Spain: Result & Stats — Semi-final'
+      year: '2026'
+      url: https://www.fifa.com/en/match-centre/match/17/285023/289290/400021541
+    - author: FIFA
+      title: 'England v Argentina: Result & Stats — Semi-final'
+      year: '2026'
+      url: https://www.fifa.com/en/match-centre/match/17/285023/289290/400021540
+
+---
+# Post 5 (This or That)
+this-or-that:
+  headline: "Sunday's Final: Who Wins It All?"
+  optionA: Argentina
+  optionB: Spain

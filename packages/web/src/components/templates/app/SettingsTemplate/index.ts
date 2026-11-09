@@ -1,0 +1,1 @@
+export { SettingsTemplate } from './SettingsTemplate';

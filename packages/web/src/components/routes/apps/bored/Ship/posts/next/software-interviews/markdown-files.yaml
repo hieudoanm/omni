@@ -1,0 +1,110 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  title: 5 Files Every Project Needs
+  highlights:
+    - 5
+    - Files
+  text: The docs that make your repo easy to understand, join, and trust.
+  citation: ''
+
+---
+# Post 2 (Bullet List)
+bullet-list:
+  title: The Docs Stack
+  items:
+    - README — what it is & how to run it
+    - ARCHITECTURE — how it's structured
+    - ROADMAP — what's coming next
+    - CONTRIBUTING — how to help
+    - API — how to use it
+  citation: ''
+
+---
+# Post 3 (Bullet List)
+bullet-list:
+  title: README.md
+  items:
+    - What the project does
+    - How to install & run it
+    - Basic usage examples
+    - Links to deeper docs
+  citation: ''
+
+---
+# Post 4 (Bullet List)
+bullet-list:
+  title: ARCHITECTURE.md
+  items:
+    - Module & package boundaries
+    - How data flows through the system
+    - Why key decisions were made
+    - Diagrams over dense prose
+  citation: ''
+
+---
+# Post 5 (Bullet List)
+bullet-list:
+  title: ROADMAP.md
+  items:
+    - Planned features
+    - Known limitations
+    - What's out of scope
+    - Rough timelines, not promises
+  citation: ''
+
+---
+# Post 6 (Bullet List)
+bullet-list:
+  title: CONTRIBUTING.md
+  items:
+    - Local setup steps
+    - Coding & commit conventions
+    - Branch & PR workflow
+    - How to run tests
+  citation: ''
+
+---
+# Post 7 (Bullet List)
+bullet-list:
+  title: API.md
+  items:
+    - Every function or endpoint
+    - Parameters & return types
+    - CLI flags & commands
+    - Example calls
+  citation: ''
+
+---
+# Post 8 (References)
+references:
+  title: References
+  items:
+    - author: Preston-Werner, T.
+      title: Readme Driven Development
+      year: '2010'
+      url: https://tom.preston-werner.com/2010/08/23/readme-driven-development.html
+    - author: Nygard, M.
+      title: Documenting Architecture Decisions
+      year: '2011'
+      url: https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
+    - author: Lacan, O.
+      title: Keep a Changelog
+      year: '2014'
+      url: https://keepachangelog.com
+    - author: GitHub
+      title: Setting Guidelines for Repository Contributors
+      year: '2024'
+      url: https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors
+    - author: OpenAPI Initiative
+      title: OpenAPI Specification
+      year: '2024'
+      url: https://www.openapis.org
+  citation: ''
+
+---
+# Post 9 (This or That)
+this-or-that:
+  title: Which habit is yours?
+  optionA: Docs Before Code
+  optionB: Docs After Code
+  citation: ''

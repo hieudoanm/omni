@@ -1,0 +1,65 @@
+{
+  "name": "Omni Apps",
+  "short_name": "Omni Apps",
+  "description": "Developer tools, calculators, clocks and utilities.",
+  "start_url": "/apps/",
+  "scope": "/apps/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#ff0030",
+  "orientation": "any",
+  "lang": "en",
+  "dir": "ltr",
+  "id": "/apps/",
+  "categories": ["utilities"],
+  "iarc_rating_id": "",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "shortcuts": [
+    {
+      "name": "Open Omni Apps",
+      "short_name": "Omni Apps",
+      "description": "Developer tools and utilities",
+      "url": "/apps/",
+      "icons": [
+        {
+          "src": "/icons/icon-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

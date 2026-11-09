@@ -2,3 +2,6 @@ packages:
   - 'packages/**'
 
 minimumReleaseAge: 0
+
+patchedDependencies:
+  daisyui@5.7.50: patches/daisyui@5.7.50.patch

@@ -23,9 +23,10 @@
     "prepare": "husky || true",
     "format": "turbo run format",
     "build": "turbo run build",
-    "lint": "ANDROID_HOME=${ANDROID_HOME:-$HOME/Library/Android/sdk} turbo run lint",
+    "dev": "turbo run dev",
     "typecheck": "turbo run typecheck",
-    "test": "turbo run test"
+    "test": "turbo run test",
+    "lint": "ANDROID_HOME=${ANDROID_HOME:-$HOME/Library/Android/sdk} turbo run lint"
   },
   "devDependencies": {
     "husky": "9.1.7",

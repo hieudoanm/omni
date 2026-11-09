@@ -1,0 +1,44 @@
+# Slide 1 (Highlighted Title)
+highlighted-title:
+  headline: JS/TS Package Managers in 2026
+  text: npm, yarn, or pnpm — which one should you use?
+
+---
+# Slide 2 (Icon + Text)
+icon-text:
+  icon: '📦'
+  headline: npm
+  text: The default. Ships with Node, works everywhere, and has the largest install
+    base by far.
+
+---
+# Slide 3 (Icon + Text)
+icon-text:
+  icon: '🧶'
+  headline: Yarn
+  text: Faster than early npm, with workspaces built in. Yarn Berry adds Plug'n'Play
+    for zero-install setups.
+
+---
+# Slide 4 (Icon + Text)
+icon-text:
+  icon: '⚡'
+  headline: pnpm
+  text: Content-addressable storage saves disk space and speeds up installs — ideal
+    for monorepos.
+
+---
+# Slide 5 (Bullet List)
+bullet-list:
+  headline: The Package Managers, Recap
+  items:
+    - 'npm — default, largest install base'
+    - 'Yarn — workspaces, PnP option'
+    - 'pnpm — disk-efficient, monorepo-friendly'
+
+---
+# Slide 6 (Minimal)
+minimal:
+  headline: Which package manager runs your projects?
+  text: Curious what's winning in real monorepos right now — drop yours below.
+  imageUrl: ''

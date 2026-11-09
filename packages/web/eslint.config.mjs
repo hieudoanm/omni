@@ -13,6 +13,29 @@ const eslintConfig = defineConfig([
     'build/**',
     'next-env.d.ts',
   ]),
+  {
+    // Vendored from hieudoanm.github.io docs app — keep its own lint baseline.
+    files: [
+      'src/components/**',
+      'src/app/apps/**',
+      'src/data/**',
+      'src/json/**',
+      'src/services/**',
+      'src/content/**',
+      'src/examples/**',
+      'src/lib/**',
+      'src/hooks/useSWRegister.ts',
+      'src/utils/canvas.ts',
+    ],
+    rules: {
+      'react/no-unescaped-entities': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
+      'react-hooks/set-state-in-effect': 'off',
+      'react-hooks/immutability': 'off',
+      'react-hooks/refs': 'off',
+      'react-hooks/purity': 'off',
+    },
+  },
 ]);
 
 export default eslintConfig;

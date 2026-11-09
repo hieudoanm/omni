@@ -1,0 +1,70 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  headline: Hi, I'm Hieu 👋
+  highlights:
+    - Hieu
+  text: Welcome — here's what this page is about.
+
+---
+# Post 2 (Profile Header)
+profile-header:
+  name: Hieu
+  title: Software Developer
+  tagline: Developing Software since 2015 while chasing curiosity about the brain,
+    chess and football.
+  email: ''
+  phone: ''
+  location: ''
+  instagram: ''
+  x: hieudoanm
+  github: hieudoanm
+  linkedin: hieudoanm
+  website: hieudoanm.github.io
+
+---
+# Post 3 (Listicle)
+listicle:
+  headline: What I Post About
+  text: A running notebook of everything I'm curious about.
+  items:
+    - Software Development
+    - Data Science
+    - Psychology
+    - Neuroscience
+    - Computational Neuroscience
+    - 'Sports: Chess & Footbal'
+  imageUrl: ''
+
+---
+# Post 4 (Education)
+education:
+  title: Education
+  degrees:
+    - institution: University of Birmingham
+      degree: M.Sc.
+      field: Cognitive Neuroimaging & Data Science (Computational Neuroscience)
+      period: 2026 to 2027
+      gpa: ''
+      location: 🇬🇧 United Kingdom
+    - institution: RMIT University
+      degree: Bachelor
+      field: Psychology
+      period: 2022 to 2025
+      location: 🇻🇳 Vietnam
+      gpa: ''
+    - institution: LAB University
+      degree: B.B.A.
+      field: Business Information Technology
+      period: 2013 to 2016
+      gpa: ''
+      location: 🇫🇮 Finland
+
+---
+# Post 5 (Share CTA)
+share-cta:
+  headline: Stick Around
+  text: Code and cognition don't usually share a page — but here they do. Follow
+    along for software, data science, neuro science, chess, football, and
+    everything in between.
+  buttonLabel: Follow for More
+  hashtag: '#AboutMe'

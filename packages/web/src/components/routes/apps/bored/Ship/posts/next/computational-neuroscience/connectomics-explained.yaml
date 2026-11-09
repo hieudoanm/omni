@@ -1,0 +1,124 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  title: What Is Connectomics?
+  highlights:
+    - Connectomics?
+  text: Mapping every wire in the brain — neuron by neuron.
+  citation: ''
+
+---
+# Post 2 (Icon + Text)
+icon-text:
+  icon: 🧠
+  title: A Circuit Diagram for the Brain
+  text: Connectomics is the science of mapping a complete "connectome" — every
+    neuron and every connection between them.
+  citation: ''
+
+---
+# Post 3 (Bullet List)
+bullet-list:
+  title: Why It Matters
+  items:
+    - Knowing where neurons are isn't enough
+    - Behavior comes from how they're wired together
+    - A wiring diagram lets scientists trace circuits, not just cells
+    - It's the closest thing to a brain's "source code"
+  citation: ''
+
+---
+# Post 4 (Timeline)
+timeline:
+  title: Key Milestones
+  entries:
+    - date: '1986'
+      event: 'First complete connectome: a 302-neuron worm, mapped by hand'
+    - date: '2011'
+      event: Human Connectome Project launched
+    - date: '2024'
+      event: Full adult fruit fly brain connectome completed
+    - date: '2025'
+      event: Connectomics named Nature's Method of the Year
+  imageUrl: ''
+  citation: Dorkenwald et al., 2024; Nature Methods, 2025
+
+---
+# Post 5 (Stat Row)
+stat-row:
+  title: The Fly Brain, By the Numbers
+  text: The most complete brain connectome mapped so far.
+  stats:
+    - value: 139,255
+      label: Neurons
+    - value: 50M
+      label: Synapses
+    - value: '2024'
+      label: Completed
+  citation: Dorkenwald et al., 2024, Nature
+
+---
+# Post 6 (Checklist)
+checklist:
+  title: Where It's Used
+  text: Structural maps are already reshaping neuroscience.
+  items:
+    - Linking brain wiring to behavior and disease
+    - Planning safer brain surgery
+    - Inspiring AI and neuromorphic chip design
+    - Tracking connectivity changes in psychiatric disorders
+  citation: ''
+
+---
+# Post 7 (Myth vs Fact)
+myth-vs-fact:
+  title: A Common Misconception
+  myth: A complete connectome will fully explain how the brain works.
+  fact: A wiring diagram shows structure, not signal strength or activity over time
+    — it's a map, not the whole story.
+  citation: ''
+
+---
+# Post 8 (Cheat Sheet)
+cheat-sheet:
+  title: Connectomics Cheat Sheet
+  subject: Neuroscience
+  items:
+    - label: What
+      content: A complete neural wiring diagram
+    - label: How
+      content: Electron microscopy + Reconstruction
+    - label: Solved
+      content: Worm, fruit fly
+    - label: In progress
+      content: Mouse brain (cubic millimeters)
+    - label: Not yet
+      content: Full human brain
+  citation: ''
+
+---
+# Post 9 (References)
+references:
+  title: References
+  items:
+    - author: White, J.G. et al.
+      title: The Structure of the Nervous System of the Nematode Caenorhabditis
+        elegans
+      year: '1986'
+      url: https://doi.org/10.1098/rstb.1986.0056
+    - author: Dorkenwald, S. et al.
+      title: Neuronal wiring diagram of an adult brain
+      year: '2024'
+      url: https://www.nature.com/articles/s41586-024-07558-y
+    - author: Nature Methods
+      title: 'Method of the Year 2025: Connectomics'
+      year: '2025'
+      url: https://www.nature.com/articles/s41592-025-02598-8
+  citation: ''
+
+---
+# Post 10 (Minimal)
+minimal:
+  title: What Part of the Brain Would You Want Mapped First?
+  text: Let me know in the comments 👇
+  imageUrl: ''
+  citation: ''

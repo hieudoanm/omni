@@ -1,0 +1,62 @@
+# Slide 1 (Highlighted Title)
+highlighted-title:
+  headline: Meta Frameworks in 2026
+  text: The full-stack layer on top of your favorite UI library
+
+---
+# Slide 2 (Icon + Text)
+icon-text:
+  icon: '▲'
+  headline: Next.js
+  text: The React meta framework. Server components, routing, and API routes in one
+    package.
+
+---
+# Slide 3 (Icon + Text)
+icon-text:
+  icon: '🅰️'
+  headline: Angular SSR
+  text: Server-side rendering built into Angular. Hydration and prerendering without
+    extra tooling.
+
+---
+# Slide 4 (Icon + Text)
+icon-text:
+  icon: '💚'
+  headline: Nuxt
+  text: The Vue meta framework. File-based routing, SSR, and auto-imports out of the
+    box.
+
+---
+# Slide 5 (Icon + Text)
+icon-text:
+  icon: '🔥'
+  headline: SvelteKit
+  text: Svelte's official framework. Fast builds, simple routing, and minimal
+    runtime overhead.
+
+---
+# Slide 6 (Icon + Text)
+icon-text:
+  icon: '🟦'
+  headline: SolidStart
+  text: Solid's meta framework. Fine-grained reactivity carried through to
+    full-stack routing.
+
+---
+# Slide 7 (Bullet List)
+bullet-list:
+  headline: The Meta Frameworks, Recap
+  items:
+    - 'Next.js — React'
+    - 'Angular SSR — Angular'
+    - 'Nuxt — Vue'
+    - 'SvelteKit — Svelte'
+    - 'SolidStart — Solid'
+
+---
+# Slide 8 (Minimal)
+minimal:
+  headline: Which meta framework powers your stack?
+  text: Curious what's carrying real production apps right now — drop yours below.
+  imageUrl: ''

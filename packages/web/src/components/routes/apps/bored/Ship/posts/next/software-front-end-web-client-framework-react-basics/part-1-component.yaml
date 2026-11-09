@@ -1,0 +1,61 @@
+# Post 1 (Highlighted Title)
+highlighted-title:
+  headline: 'React Basics: Components & JSX'
+  highlights:
+    - React
+  text: Part 1 of 6 — everything else builds on this
+
+---
+# Post 2 (Minimal)
+minimal:
+  headline: A component is just a function that returns UI
+  text: No special syntax to memorize, no framework magic. If you can write a
+    JavaScript function, you already understand the shape of a React component.
+  imageUrl: ''
+
+---
+# Post 3 (Code)
+laptop:
+  headline: A Component in Practice
+  description: JSX isn't a template language — it compiles down to plain
+    React.createElement calls, which is why { } inside it can hold any real
+    JavaScript expression.
+  code: |-
+    function Greeting({ name }) {
+      return <h1>Hello, {name}!</h1>;
+    }
+
+    export default Greeting;
+  language: TypeScript
+
+---
+# Post 4 (Myth vs Fact)
+myth-vs-fact:
+  headline: Common Misconception
+  myth: JSX is basically HTML written inside JavaScript, so it follows HTML rules.
+  fact: JSX compiles to function calls, not HTML — className, not class.
+
+---
+# Post 5 (Tip Card)
+tip-card:
+  number: '01'
+  headline: One Component, One Job
+  text: If you need a comment to explain what a component does, it is probably doing
+    too much. Split it into smaller pieces — each one handling a single, clear
+    responsibility.
+
+---
+# Post 6 (Bullet List)
+bullet-list:
+  headline: Before You Move to Part 2
+  items:
+    - You can read any component top to bottom like a function
+    - JSX expressions can hold logic, not just values
+    - Small, focused components are easier to test and reuse
+
+---
+# Post 7 (Minimal)
+minimal:
+  headline: What's the one JSX gotcha that tripped you up first?
+  text: Curious what everyone's "aha" moment was — drop yours below.
+  imageUrl: ''
