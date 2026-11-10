@@ -65,7 +65,7 @@ Menu-bar system monitor:
 - **CPU** — per-core usage, thermal pressure, frequency.
 - **Design system** — tokens for color, spacing, typography, elevation; reduced-motion support; snapshot tests.
 
-**Stack:** Swift 6, SwiftUI, Swift Testing (219 tests, 36 suites), Swift Package Manager, `swiftformat`.
+**Stack:** Swift, SwiftUI, Xcode project (`Omni.xcodeproj` via xcodegen), Swift Testing (219 tests, 36 suites), `swiftformat`.
 
 ### CLI (`packages/cli`)
 
@@ -142,9 +142,9 @@ ANDROID_HOME=$HOME/Library/Android/sdk ./gradlew assembleDebug
 cd ../ios
 make build        # simulator build via xcodebuild
 
-# macOS
+# macOS (requires Xcode)
 cd ../macos
-swift build -c release && make app
+make app           # release build + Omni.app bundle
 
 # CLI
 cd ../cli
@@ -216,10 +216,12 @@ omni/
 │   │       ├── Omni.xcodeproj    # Xcode project
 │   │       └── Makefile          # build/test/format/clean
 │   ├── macos/                    # Swift + SwiftUI
-│   │   ├── Sources/              # OmniCore, Omni (app)
-│   │   ├── Tests/                # 219 tests, 36 suites
-│   │   ├── Resources/            # Info.plist, Omni.entitlements, AppIcon
-│   │   ├── Package.swift         # SwiftPM
+│   │   ├── Omni.xcodeproj        # Xcode project (xcodegen)
+│   │   ├── project.yml           # xcodegen spec — edit this
+│   │   ├── Omni/                 # App target (App/, Services/, Views/, Resources/)
+│   │   ├── OmniCore/             # Framework target (models, services)
+│   │   ├── OmniTests/            # 219 tests, 36 suites
+│   │   ├── Resources/            # AppIcon.iconset sources
 │   │   ├── Makefile              # format/lint/test/build/app/dmg/install/clean
 │   │   └── package.json          # @omni/macos
 │   ├── cli/                      # Go + Cobra + Bubble Tea

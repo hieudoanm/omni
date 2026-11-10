@@ -35,13 +35,13 @@ Omni is a small native macOS menu-bar utility that answers four questions: _how 
 | Battery     | IOKit power sources + smart battery registry         |
 | IP / DNS    | `URLSession` + public APIs (ipify, ipinfo, Cloudflare) |
 | Testability | `PortDiscovering` / `ProcessTerminating` protocols    |
-| Build       | Swift Package Manager                                 |
+| Build       | Xcode project (`xcodegen` + `xcodebuild`)             |
 | Min macOS   | 13 Ventura                                            |
 
 ## Build
 
 ```bash
-make build     # Swift debug build
+make build     # Release build via xcodebuild
 make test      # Run unit tests
 make app       # Assemble Omni.app bundle
 make dev       # Build (debug) and launch
@@ -64,7 +64,7 @@ Monitoring logic is UI-independent, and port discovery/termination are separated
 ## Design system
 
 Spacing, radius, colour, type, motion and surface geometry live in
-`Sources/Views/Shared/DesignSystem/`, with the rules, patterns and
+`Omni/Views/Shared/DesignSystem/`, with the rules, patterns and
 anti-patterns in [`07-ui-ux-design.md`](../../../docs/07-ui-ux-design/macos.md).
 `DesignSystemTests` fails the build if a raw spacing, radius, opacity or
 duration literal reappears in a view, so the tokens stay the source of truth.

@@ -43,7 +43,7 @@ Pre-commit (Husky): `pnpm turbo run lint` then `pnpm turbo run format` — whole
 CI is the merge gate (`.github/workflows/ci.yaml`):
 
 - **Android** — `make lint` (Spotless + Android Lint), `make test` (Robolectric), `make build`
-- **macOS** — `make format` (swiftformat), `make lint` (swift build), `make test` (Swift Testing), `make build`
+- **macOS** — `make format` (swiftformat), `make lint` (xcodebuild), `make test` (Swift Testing), `make build`
 - **CLI** — `make format` (go fmt), `make lint` (go vet), `make test` (go test ./...), `make build`
 - **Browser** — ESLint, `tsc --noEmit`, `pnpm test:coverage` (80% gate), `pnpm build`
 

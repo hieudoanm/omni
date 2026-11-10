@@ -70,11 +70,11 @@ A native menu-bar utility and dashboard app. The menu-bar popover covers eight t
 
 ## Design & UX
 
-- Design system in `Sources/Views/Shared/DesignSystem/` — spacing, radius, palette, typography, motion, surface metrics; `DesignSystemTests` fails the build on raw literals.
+- Design system in `Omni/Views/Shared/DesignSystem/` — spacing, radius, palette, typography, motion, surface metrics; `DesignSystemTests` fails the build on raw literals.
 - Semantic system colours only; Light/Dark Mode, increased transparency, Reduce Motion.
 - Accessibility: labels on icon-only controls, combined VoiceOver labels, `Unable to read` error states (never `0 GB`).
 - Snapshot tests via `ImageRenderer` + `assertSnapshot`.
 
-**Tech Stack:** Swift 6, SwiftUI, Swift Package Manager (`OmniCore` + `Omni` targets), Swift Testing, `swiftformat`; no third-party runtime dependencies.
+**Tech Stack:** Swift, SwiftUI, Xcode project (`OmniCore` framework + `Omni` app targets via xcodegen), Swift Testing, `swiftformat`; no third-party runtime dependencies.
 
 See also: [macOS — UI/UX Design](../07-ui-ux-design/macos.md) · [macOS — Architecture](../04-architecture/macos.md) · [macOS — Operations](../12-operations/macos.md)

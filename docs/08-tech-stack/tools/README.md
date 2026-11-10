@@ -8,7 +8,6 @@
 | [node.md](node.md) | .node-version, .nvmrc, engines, CI alignment |
 | [go.md](go.md) | go.mod, go.sum, toolchain, vendor, go.work (if needed) |
 | [gradle.md](gradle.md) | Wrapper, version catalog, plugins, KSP, dependency locking |
-| [swiftpm.md](swiftpm.md) | Package.swift, package.resolved, swift package commands |
 
 ## pnpm + Turborepo Quick Reference
 

@@ -61,7 +61,7 @@
 ```
 @omni/workspace (root)
 ├── @omni/android    (Gradle)
-├── @omni/macos      (SwiftPM)
+├── @omni/macos      (Xcode)
 ├── @omni/cli        (Go)
 └── @omni/browser    (pnpm)
 ```
@@ -82,8 +82,8 @@ pnpm build
 ## Cache Invalidation
 
 Changes to these files invalidate cache:
-- Source files (`src/**`, `Sources/**`, `app/**`)
-- Config files (`*.kts`, `*.toml`, `Package.swift`, `go.mod`, `webpack.config.js`)
+- Source files (`src/**`, `Omni*/**`, `app/**`)
+- Config files (`*.kts`, `*.toml`, `project.yml`, `go.mod`, `webpack.config.js`)
 - `turbo.json` itself
 - `package.json` scripts
 
@@ -95,6 +95,6 @@ Turbo runs locally and in CI. No remote cache configured (optional: `turbo login
 
 ## Why Not Nx/Bazel
 
-- Turborepo: minimal config, Go/ Gradle/ SwiftPM agnostic, fast
+- Turborepo: minimal config, Go/ Gradle/ Xcode agnostic, fast
 - Nx: heavy, opinionated, better for JS-heavy monorepos
 - Bazel: steep learning curve, overkill for 4 packages

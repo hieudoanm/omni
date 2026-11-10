@@ -31,8 +31,8 @@ All four jobs must pass for `release-latest` to run:
 | Step | Command | Failure Condition |
 |------|---------|-------------------|
 | Format | `make format` (swiftformat) | Any formatting change needed |
-| Lint | `make lint` (`swift build`) | Any compiler warning (warnings as errors) |
-| Test | `make test` (`swift test`) | Any test failure (219 tests) |
+| Lint | `make lint` (`xcodebuild build`) | Any compiler warning |
+| Test | `make test` (`xcodebuild test`) | Any test failure (219 tests) |
 | Build | `make build` + `make app` | Compile/link/bundle failure |
 
 **No coverage gate** — Swift Testing + warnings-as-errors are the gate.

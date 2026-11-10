@@ -3,7 +3,7 @@ import Testing
 
 /// Guards the design system's tokens against drift.
 ///
-/// The tokens in `Sources/Views/Shared/DesignSystem/` are the only place a
+/// The tokens in `Omni/Views/Shared/DesignSystem/` are the only place a
 /// spacing, radius, colour opacity or duration is allowed to be written down.
 /// These tests read the view sources as text and fail when a raw literal turns
 /// up, because a magic number that nobody owns is how a design system dies.
@@ -14,11 +14,15 @@ import Testing
 struct DesignSystemTests {
     // MARK: Token discipline
 
-    private static let sourcesDirectory = URL(fileURLWithPath: #filePath)
+    private static let packageRoot = URL(fileURLWithPath: #filePath)
         .deletingLastPathComponent() // Core
-        .deletingLastPathComponent() // Tests
+        .deletingLastPathComponent() // OmniTests
         .deletingLastPathComponent() // package root
-        .appendingPathComponent("Sources")
+
+    private static let sourcesDirectories = [
+        packageRoot.appendingPathComponent("Omni"),
+        packageRoot.appendingPathComponent("OmniCore"),
+    ]
 
     /// Patterns that must not appear outside the token files themselves.
     private static let forbidden: [(name: String, pattern: String)] = [
@@ -29,15 +33,18 @@ struct DesignSystemTests {
         ("duration", #"duration:\s*\d"#),
     ]
 
-    private static let tokenDirectory = sourcesDirectory
-        .appendingPathComponent("Views/Shared/DesignSystem")
+    private static let tokenDirectory = packageRoot
+        .appendingPathComponent("Omni/Views/Shared/DesignSystem")
 
     @Test("no raw spacing, radius, opacity or duration literals in the views")
     func noRawLiterals() throws {
         var offenders: [String] = []
         for url in try Self.viewSources() {
             let text = try String(contentsOf: url, encoding: .utf8)
-            let path = url.path.replacingOccurrences(of: Self.sourcesDirectory.path + "/", with: "")
+            let path = url.path.replacingOccurrences(
+                of: Self.packageRoot.path + "/",
+                with: ""
+            )
             let lines = text.split(separator: "\n")
             for (index, line) in lines.enumerated() {
                 for rule in Self.forbidden where line.range(of: rule.pattern, options: .regularExpression) != nil {
@@ -100,14 +107,17 @@ struct DesignSystemTests {
     // MARK: Helpers
 
     private static func viewSources() throws -> [URL] {
-        let manager = FileManager.default
-        guard let walker = manager.enumerator(at: sourcesDirectory, includingPropertiesForKeys: nil) else {
-            return []
+        var urls: [URL] = []
+        for directory in sourcesDirectories {
+            let manager = FileManager.default
+            guard let walker = manager.enumerator(at: directory, includingPropertiesForKeys: nil) else {
+                continue
+            }
+            urls += walker
+                .compactMap { $0 as? URL }
+                .filter { $0.pathExtension == "swift" }
+                .filter { !$0.path.hasPrefix(tokenDirectory.path) }
         }
-        return walker
-            .compactMap { $0 as? URL }
-            .filter { $0.pathExtension == "swift" }
-            .filter { !$0.path.hasPrefix(tokenDirectory.path) }
-            .sorted { $0.path < $1.path }
+        return urls.sorted { $0.path < $1.path }
     }
 }

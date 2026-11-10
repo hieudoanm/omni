@@ -36,7 +36,7 @@ The **only** permission Omni can request is **Accessibility**, and only the Work
 
 ### Launch at Login (Implemented)
 
-- [x] `SMAppService.mainApp.register()` / `unregister()` from `ServiceManagement` (see `Sources/App/Shared/LaunchAtLogin.swift`)
+- [x] `SMAppService.mainApp.register()` / `unregister()` from `ServiceManagement` (see `Omni/App/Shared/LaunchAtLogin.swift`)
 - [x] Toggle in Settings
 - [x] Do not use shell scripts or deprecated login items — confirmed, none used
 

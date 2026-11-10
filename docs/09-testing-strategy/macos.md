@@ -4,7 +4,7 @@ Test layers, fixtures, and acceptance criteria for Omni.
 
 ## Test layers
 
-Unit (Core models and services), UI (Light Mode, Dark Mode, increased transparency, Reduce Motion), Build (`swift build`), Smoke (`make dev`).
+Unit (Core models and services), UI (Light Mode, Dark Mode, increased transparency, Reduce Motion), Build (`xcodebuild`), Smoke (`make dev`).
 
 ## Unit tests
 
@@ -92,7 +92,7 @@ Before you push:
 
 ## Tools
 
-- `swift test` — unit tests
-- `swift build` — compile check
+- `make test` (`xcodebuild test`) — unit tests
+- `make lint` (`xcodebuild build`) — compile check
 - `make dev` — smoke test
 

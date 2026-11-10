@@ -82,7 +82,7 @@ To enable, add `.lintstagedrc`:
 | Package | Format Command |
 |---------|----------------|
 | Android | `./gradlew spotlessApply` |
-| macOS | `swiftformat Sources Tests Package.swift` |
+| macOS | `swiftformat Omni OmniCore OmniTests` |
 | CLI | `go fmt ./...` |
 | Browser | `prettier --write "{src,apps,libs,test}/**/*.ts"` |
 

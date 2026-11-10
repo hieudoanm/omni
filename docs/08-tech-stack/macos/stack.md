@@ -44,7 +44,7 @@ Omni should have minimal runtime overhead.
 | Front | `NSWorkspace` + `CGWindowListCopyWindowInfo` | Running apps, window counts |
 | Windows | CoreGraphics (capture) + Accessibility AX (arrange) | Workspace capture/restore |
 | Persistence | Codable + JSON + FileManager | Clipboard, workspaces, settings |
-| Build | Swift Package Manager | Dependency management and build |
+| Build | Xcode project (`xcodegen` + `xcodebuild`) | Targets, signing, bundling |
 
 ## Allowed frameworks
 
@@ -68,5 +68,5 @@ Do not introduce Tauri, Electron, React, or WebViews. Keep monitoring logic sepa
 
 - Prefer Apple's built-in frameworks.
 - No third-party runtime dependencies.
-- Swift Package Manager only.
+- Xcode project only — no third-party dependencies.
 

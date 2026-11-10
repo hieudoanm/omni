@@ -7,7 +7,10 @@ Contributing, build, and development operations for Omni.
 ### Prerequisites
 
 - macOS 13 Ventura or later
-- Xcode 15+ (Swift 5.9+)
+- Xcode 16+ (for `xcodegen` projects and Swift Testing)
+- `xcodegen` (`brew install xcodegen`) — only needed to regenerate
+  `Omni.xcodeproj` after editing `project.yml`; the project is committed, so
+  builds work without it
 
 ### Build
 

@@ -2,7 +2,7 @@
 
 UI tokens, layout, states, and accessibility for Omni.
 
-Code is the source of truth: `Sources/Views/Shared/DesignSystem/`. This document explains *why* those values exist and what to do when a screen needs something new. Where the two disagree, the code is the system and this file is the bug.
+Code is the source of truth: `Omni/Views/Shared/DesignSystem/`. This document explains *why* those values exist and what to do when a screen needs something new. Where the two disagree, the code is the system and this file is the bug.
 
 ## Principles
 
@@ -32,7 +32,7 @@ The rule behind it: the panel competes with the rest of the screen, so it shows 
 
 ## Tokens
 
-All in `Sources/Views/Shared/DesignSystem/`. Raw numbers for spacing, radius, colour opacity and duration are **banned** outside these files — `DesignSystemTests` fails the build if one appears.
+All in `Omni/Views/Shared/DesignSystem/`. Raw numbers for spacing, radius, colour opacity and duration are **banned** outside these files — `DesignSystemTests` fails the build if one appears.
 
 ### Spacing — the 4pt grid
 
@@ -170,9 +170,9 @@ When a pattern appears three times, it becomes a component. When it appears twic
 
 ## Governance
 
-**Changing a token** — edit the file, then `swift test`. `DesignSystemTests` pins the scale order, the grid, and the surface geometry.
+**Changing a token** — edit the file, then `make test`. `DesignSystemTests` pins the scale order, the grid, and the surface geometry.
 
 **Adding a component** — it lives in `DesignSystem/` if more than one section uses it, next to the views that use it if only one does. Update §5 of this file in the same change.
 
-**Verifying** — `swift build`, `swift test`, then look at the app: `make dev`. Check Light Mode, Dark Mode, increased transparency and Reduce Motion.
+**Verifying** — `make lint`, `make test`, then look at the app: `make dev`. Check Light Mode, Dark Mode, increased transparency and Reduce Motion.
 

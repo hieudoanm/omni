@@ -178,6 +178,8 @@ importers:
 
   packages/cli: {}
 
+  packages/desktop/macos: {}
+
   packages/extensions/browser:
     devDependencies:
       '@eslint/js':
@@ -268,7 +270,7 @@ importers:
         specifier: 6.1.4
         version: 6.1.4
 
-  packages/desktop/macos: {}
+  packages/mobile/ios: {}
 
   packages/web:
     dependencies:

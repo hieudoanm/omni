@@ -15,7 +15,7 @@
 │  Android    │   │   macOS     │   │    CLI      │   │  Browser    │
 │  ubuntu     │   │  macOS      │   │  ubuntu     │   │  ubuntu     │
 │  JDK 21     │   │  Xcode 15   │   │  Go 1.23    │   │  Node 26    │
-│  Android    │   │  SwiftPM    │   │  Zig 0.13   │   │  pnpm 12    │
+│  Android    │   │  Xcode      │   │  Zig 0.13   │   │  pnpm 12    │
 │  SDK API 37 │   │             │   │             │   │             │
 └──────┬──────┘   └──────┬──────┘   └──────┬──────┘   └──────┬──────┘
        │                 │                 │                 │

@@ -163,7 +163,7 @@ Not yet implemented — Playwright E2E planned for:
 
 ## Snapshot (macOS Only)
 
-`Tests/SnapshotTests/` — `ImageRenderer` renders SwiftUI views, compares to reference PNG.
+`OmniTests/SnapshotTests/` — `ImageRenderer` renders SwiftUI views, compares to reference PNG.
 
 ```swift
 @Test("MemoryView matches snapshot")
@@ -174,7 +174,7 @@ func memoryViewSnapshot() {
 }
 ```
 
-Run: `swift test` (includes snapshots). Reference images in `Tests/SnapshotTests/__Snapshots__/`.
+Run: `make test` (includes snapshots). Reference images in `OmniTests/SnapshotTests/__Snapshots__/`.
 
 ## E2E
 

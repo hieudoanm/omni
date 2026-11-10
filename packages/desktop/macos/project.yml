@@ -1,0 +1,65 @@
+name: Omni
+options:
+  bundleIdPrefix: io.github.hieudoanm
+  deploymentTarget:
+    macOS: "13.0"
+settings:
+  base:
+    MARKETING_VERSION: "0.0.1"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "5.0"
+targets:
+  OmniCore:
+    type: framework
+    platform: macOS
+    sources:
+      - path: OmniCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.hieudoanm.OmniCore
+        GENERATE_INFOPLIST_FILE: YES
+        SKIP_INSTALL: YES
+  Omni:
+    type: application
+    platform: macOS
+    sources:
+      - path: Omni
+    dependencies:
+      - target: OmniCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.hieudoanm.Omni
+        INFOPLIST_FILE: Omni/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Omni/Omni.entitlements
+        CODE_SIGN_IDENTITY: "-"
+        CODE_SIGN_STYLE: Manual
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+  OmniTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: OmniTests
+    dependencies:
+      - target: OmniCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.hieudoanm.OmniTests
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  Omni:
+    build:
+      targets:
+        Omni: all
+        OmniCore: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - OmniTests
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release
