@@ -44,3 +44,23 @@ Manifest V3 (Chromium) and MV2 (Firefox) browser extension with extensive produc
 | Cross-Browser Support | Works on Chromium (MV3) and Firefox (MV2) |
 
 **Tech Stack:** TypeScript 6, React 19, Tailwind CSS 4, Webpack 5, Manifest V3/V2
+
+## Feature Specifications
+
+Each feature has a detailed spec in [`browser/`](browser/):
+
+| Feature | Spec |
+| ------- | ---- |
+| New Tab Redirect | [FEATURE-01](browser/FEATURE-01-New-Tab-Redirect.md) |
+| Distraction Block Wall | [FEATURE-02](browser/FEATURE-02-Distraction-Block-Wall.md) |
+| Ad Blocking | [FEATURE-03](browser/FEATURE-03-Ad-Blocking.md) |
+| Capture (View & Full Page) | [FEATURE-04](browser/FEATURE-04-Capture.md) |
+| GitHub External Links | [FEATURE-05](browser/FEATURE-05-GitHub-External-Links.md) |
+| Instagram Gesture | [FEATURE-06](browser/FEATURE-06-Instagram-Gesture.md) |
+| Shopify Detection | [FEATURE-07](browser/FEATURE-07-Shopify-Detection.md) |
+| Chess.com Focus | [FEATURE-08](browser/FEATURE-08-Chess-Focus.md) |
+| Claude.ai Usage | [FEATURE-09](browser/FEATURE-09-Claude-Usage.md) |
+| Sound & Tab Audio Control | [FEATURE-10](browser/FEATURE-10-Sound-Tab-Audio.md) |
+| Back to Top | [FEATURE-11](browser/FEATURE-11-Back-to-Top.md) |
+
+Priorities: **P0** = required for usable MVP, **P1** = important enhancement, **P2** = advanced/future.

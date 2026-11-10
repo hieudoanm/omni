@@ -2,6 +2,7 @@
 
 | Guide                                | Description                                           |
 | ------------------------------------ | ----------------------------------------------------- |
+| [stack.md](stack.md)                 | Allowed tech, API stack (Mach/lsof/IOKit), dep policy  |
 | [swiftpm.md](swiftpm.md)             | Package.swift, targets, dependencies, Swift 6 config  |
 | [swiftui.md](swiftui.md)             | SwiftUI patterns, Observable, Environment, previews   |
 | [design-tokens.md](design-tokens.md) | DesignTokens.swift, EnvironmentValues, theming        |
@@ -11,4 +12,4 @@
 | [dmg.md](dmg.md)                     | make dmg, hdiutil, notarization (future)              |
 | [ci.md](ci.md)                       | macos-latest runner, xcodebuild, artifact upload      |
 
-See also: [`packages/macos/Docs/CONTRIBUTING.md`](../../../packages/macos/Docs/CONTRIBUTING.md)
+See also: [`macOS — Operations`](../../12-operations/macos.md)

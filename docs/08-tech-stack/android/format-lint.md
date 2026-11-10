@@ -55,7 +55,7 @@ Runs `:app:lintDebug` — produces:
 ```yaml
 - name: Run Android lint
   run: make lint
-  working-directory: packages/android
+  working-directory: packages/mobile/android
 ```
 
 Fails on any lint error. Warnings allowed (but zero in this project).

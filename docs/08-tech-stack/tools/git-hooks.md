@@ -64,8 +64,8 @@ To enable, add `.lintstagedrc`:
 
 ```json
 {
-  "*.{kt,kts}": ["cd packages/android && make format"],
-  "*.swift": ["cd packages/macos && make format"],
+  "*.{kt,kts}": ["cd packages/mobile/android && make format"],
+  "*.swift": ["cd packages/desktop/macos && make format"],
   "*.go": ["cd packages/cli && make format"],
   "*.{ts,tsx,json,md}": ["cd packages/extensions/browser && pnpm format"]
 }

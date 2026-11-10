@@ -3,7 +3,7 @@
 ## Gradle Wrapper
 
 ```
-packages/android/
+packages/mobile/android/
 ├── gradlew
 ├── gradlew.bat
 └── gradle/wrapper/
@@ -55,7 +55,7 @@ KSP version must match Kotlin version (see `gradle/libs.versions.toml`).
 ## Build Commands
 
 ```bash
-# From packages/android/
+# From packages/mobile/android/
 ANDROID_HOME=$HOME/Library/Android/sdk ./gradlew assembleDebug
 # or
 make build
@@ -72,5 +72,5 @@ ANDROID_HOME=$HOME/Library/Android/sdk ./gradlew assembleRelease
     path: |
       ~/.gradle/caches
       ~/.gradle/wrapper
-    key: gradle-${{ runner.os }}-${{ hashFiles('packages/android/**/*.kts', 'packages/android/**/*.toml') }}
+    key: gradle-${{ runner.os }}-${{ hashFiles('packages/mobile/android/**/*.kts', 'packages/mobile/android/**/*.toml') }}
 ```

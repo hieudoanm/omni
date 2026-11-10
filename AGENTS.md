@@ -6,18 +6,19 @@
 
 ## Read this first
 
-- **Six packages, one monorepo** — four native apps, a static web page, and editor extensions under `packages/extensions/`; no shared UI, no Electron.
-- `pnpm` + Turborepo for Node workspaces (browser + VS Code extensions, web); Gradle for Android.
+- **Seven packages, one monorepo** — five native apps, a static web page, and editor extensions under `packages/extensions/`; no shared UI, no Electron.
+- `pnpm` + Turborepo for Node workspaces (browser + VS Code extensions, web); Gradle for Android; Xcode for iOS.
 - Root scripts delegate to per-package Makefiles: `format`, `lint`, `test`, `build`.
-- CI uses per-platform runners: Ubuntu (Android, CLI, Browser), macOS (macOS).
+- CI uses per-platform runners: Ubuntu (Android, CLI, Browser), macOS (macOS). iOS builds locally via `xcodebuild` (not yet in CI).
 - Rolling `latest` release on every push to `master`.
 
 ## Package Quick Reference
 
 | Package            | Language   | Build                     | Format                                    | Lint                  | Test                          |
 | ------------------ | ---------- | ------------------------- | ----------------------------------------- | --------------------- | ----------------------------- |
-| `packages/android` | Kotlin     | `./gradlew assembleDebug` | `./gradlew spotlessApply`                 | `./gradlew lintDebug` | `./gradlew testDebugUnitTest` |
-| `packages/macos`   | Swift      | `swift build -c release`  | `swiftformat Sources Tests Package.swift` | `swift build`         | `swift test`                  |
+| `packages/mobile/android` | Kotlin     | `./gradlew assembleDebug` | `./gradlew spotlessApply`                 | `./gradlew lintDebug` | `./gradlew testDebugUnitTest` |
+| `packages/mobile/ios`     | Swift      | `xcodebuild -scheme Omni build` | `swiftformat Omni OmniTests`       | `xcodebuild build`    | `xcodebuild test`             |
+| `packages/desktop/macos`   | Swift      | `swift build -c release`  | `swiftformat Sources Tests Package.swift` | `swift build`         | `swift test`                  |
 | `packages/cli`     | Go         | `go build`                | `go fmt ./...`                            | `go vet ./...`        | `go test ./...`               |
 | `packages/extensions/browser` | TypeScript | `pnpm build`     | `prettier --write`                        | `eslint --fix`        | `vitest`                      |
 | `packages/extensions/vscode`  | TypeScript | `vsce package`   | `prettier --write`                        | —                     | —                             |
@@ -36,7 +37,7 @@ pnpm build            # turbo run build (all packages)
 
 ## Per-Package Conventions
 
-### Android (`packages/android`)
+### Android (`packages/mobile/android`)
 
 - **Kotlin 2.4**, Compose BOM 2026.09, Gradle 9.8 (wrapper).
 - **Hilt** for DI — `@HiltAndroidApp` on `OmniApp`, `@AndroidEntryPoint` on Activities, `@HiltViewModel` on ViewModels.
@@ -49,7 +50,17 @@ pnpm build            # turbo run build (all packages)
 - **Lint** — Android Lint (`:app:lintDebug`), zero warnings.
 - **No `local.properties`** — `ANDROID_HOME` from env / CI.
 
-### macOS (`packages/macos`)
+### iOS (`packages/mobile/ios`)
+
+- **Swift 6 / SwiftUI**, native Xcode project (`Omni.xcodeproj`, generated layout kept in sync manually — no xcodegen spec checked in).
+- **Core NFC** — `NFCTagReaderSession` one-shot read/write; `NfcService` is a plain `@unchecked Sendable` class because CoreNFC callbacks arrive on the session's serial queue.
+- **SwiftData** — tag scan history; **UserDefaults** — NFC settings (`SettingsStore`).
+- **Scope vs Android** — Omni hub + NFC Toolkit (read/write/history). **No Focus Blocker** (no iOS equivalent of AccessibilityService app blocking) and **no HCE** (iOS cannot emulate NFC cards to other readers).
+- **Tests** — Swift Testing (`OmniTests/`) covering `NdefCodec`, `NdefRecord` Codable, `SettingsStore`.
+- **Build** — `make build` / `make test` wrap `xcodebuild` (simulator destination `iPhone 16`, override `DESTINATION=`). Requires macOS + Xcode; real NFC scans need a physical device.
+- **Format** — `swiftformat Omni OmniTests` (`make format` / `make format-check`).
+
+### macOS (`packages/desktop/macos`)
 
 - **Swift 6**, SwiftUI, Swift Package Manager.
 - **Architecture** — `OmniCore` (models, services, providers), `Omni` (app, views).
@@ -110,13 +121,15 @@ pnpm build            # turbo run build (all packages)
   muted `#7d93ad`. Tokens live in `packages/web/src/app/globals.css`.
 - **Typography** — Orbitron for display/title/label roles, DM Mono for body.
   Fonts are bundled locally (OFL): `packages/extensions/browser/public/fonts/*.woff2`,
-  `packages/android/app/src/main/res/font/{orbitron,dmmono_*}.ttf`.
+  `packages/mobile/android/app/src/main/res/font/{orbitron,dmmono_*}.ttf`;
+  iOS copies at `packages/mobile/ios/Omni/Resources/Fonts/`.
 - **Per package** — browser: `public/popup.css` + `public/index.html` +
   injected wall styles in `src/lib/block.ts`; Android: `*/ui/theme/{Color,Theme}.kt`
   (identical HUD palette in omni/block/nfc, dark-first with light variant);
   CLI: ANSI-256 approximations in `src/libs/theme/theme.go`; macOS:
   `Palette.accent`/`onAccent` dynamic colors in
-  `Sources/Views/Shared/DesignSystem/Palette.swift`.
+  `Sources/Views/Shared/DesignSystem/Palette.swift`; iOS:
+  `Omni/Theme/{Palette,Typography,OmniTheme}.swift`.
 
 ## Non-Negotiables
 
@@ -138,8 +151,8 @@ pnpm build            # turbo run build (all packages)
 
 | Package | Artifact           | Path                                            |
 | ------- | ------------------ | ----------------------------------------------- |
-| Android | `app-debug.apk`    | `packages/android/app/build/outputs/apk/debug/` |
-| macOS   | `Omni.app`         | `packages/macos/build/`                         |
+| Android | `app-debug.apk`    | `packages/mobile/android/app/build/outputs/apk/debug/` |
+| macOS   | `Omni.app`         | `packages/desktop/macos/build/`                         |
 | CLI     | `omni-{os}-{arch}` | `packages/cli/bin/`                             |
 | Browser | `dist/`            | `packages/extensions/browser/dist/`              |
 | Web     | GitHub Pages       | `packages/web/out/`                             |
@@ -150,14 +163,16 @@ CLI, Android, macOS, and Browser artifacts are uploaded to the `latest` release 
 
 - **Android** — `ANDROID_HOME` must be set; `local.properties` is gitignored.
 - **macOS** — must run on macOS runner; `codesign` requires entitlements.
+- **iOS** — must run on macOS with Xcode; Core NFC only works on physical devices (simulator builds but cannot scan).
 - **CLI** — cross-compile needs Zig; `CGO_ENABLED=1` for native, `CC="zig cc -target ..."` for others.
 - **Browser** — `pnpm install` only at root; lockfile is the root `pnpm-lock.yaml`.
 - **Turborepo** — `globalEnv` passes `ANDROID_HOME`, `ANDROID_SDK_ROOT`, `JAVA_HOME` to tasks.
 
 ## Useful Docs
 
-- `packages/android/docs/12-operations.md` — Android dev commands
-- `packages/macos/Docs/CONTRIBUTING.md` — macOS contributing
+- `docs/12-operations/android.md` — Android dev commands
+- `packages/mobile/ios/Makefile` — iOS build/test commands (`make build`, `make test`)
+- `docs/12-operations/macos.md` — macOS contributing/dev commands
 - `packages/cli/docs/PACKAGING.md` — CLI release/packaging
 - `packages/cli/docs/DOWNLOADS.md` — Download URLs for `latest`
 - `.github/workflows/ci.yaml` — Full CI definition

@@ -36,22 +36,22 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
-          key: gradle-${{ runner.os }}-${{ hashFiles('packages/android/**/*.kts', 'packages/android/**/*.toml') }}
+          key: gradle-${{ runner.os }}-${{ hashFiles('packages/mobile/android/**/*.kts', 'packages/mobile/android/**/*.toml') }}
           restore-keys: gradle-${{ runner.os }}-
       - name: Run Android lint
         run: make lint
-        working-directory: packages/android
+        working-directory: packages/mobile/android
       - name: Run Android tests
         run: make test
-        working-directory: packages/android
+        working-directory: packages/mobile/android
       - name: Build Android debug APK
         run: make build
-        working-directory: packages/android
+        working-directory: packages/mobile/android
       - name: Upload Android APK
         uses: actions/upload-artifact@v7.0.2
         with:
           name: android-apk
-          path: packages/android/app/build/outputs/apk/debug/*.apk
+          path: packages/mobile/android/app/build/outputs/apk/debug/*.apk
           retention-days: 7
 
   # macOS: macOS runner for Swift
@@ -63,33 +63,33 @@ jobs:
         uses: actions/checkout@v7.0.1
       - name: Run macOS format check
         run: make format-check
-        working-directory: packages/macos
+        working-directory: packages/desktop/macos
       - name: Run macOS lint (build)
         run: make lint
-        working-directory: packages/macos
+        working-directory: packages/desktop/macos
       - name: Run macOS tests
         run: make test
-        working-directory: packages/macos
+        working-directory: packages/desktop/macos
       - name: Build macOS release
         run: make build
-        working-directory: packages/macos
+        working-directory: packages/desktop/macos
       - name: Create macOS app bundle
         run: make app
-        working-directory: packages/macos
+        working-directory: packages/desktop/macos
       - name: Create macOS DMG
         run: make dmg
-        working-directory: packages/macos
+        working-directory: packages/desktop/macos
       - name: Zip macOS app for release
         run: |
-          cd packages/macos/build
+          cd packages/desktop/macos/build
           zip -r Omni.app.zip Omni.app
       - name: Upload macOS app
         uses: actions/upload-artifact@v7.0.2
         with:
           name: macos-app
           path: |
-            packages/macos/build/Omni.app.zip
-            packages/macos/build/Omni-*.dmg
+            packages/desktop/macos/build/Omni.app.zip
+            packages/desktop/macos/build/Omni-*.dmg
           retention-days: 7
       - name: Setup Go
         uses: actions/setup-go@v7.0.0

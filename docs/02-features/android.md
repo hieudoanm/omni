@@ -1,4 +1,4 @@
-# Android Features (`packages/android`)
+# Android Features (`packages/mobile/android`)
 
 Android is a single APK "super app" with two bundled features under one launcher icon.
 
@@ -33,3 +33,5 @@ Android is a single APK "super app" with two bundled features under one launcher
 | Animated UI | Pulse animation while waiting for tag scan |
 
 **Tech Stack:** Kotlin 2.4, Jetpack Compose BOM 2026.09, Hilt 2.60, Room, DataStore, Navigation Compose, Robolectric 4.17
+
+See also: [Android — Architecture](../04-architecture/android.md) · [Android — Operations](../12-operations/android.md)

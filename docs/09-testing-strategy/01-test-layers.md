@@ -2,7 +2,7 @@
 
 ## Unit
 
-### Android (`packages/android`)
+### Android (`packages/mobile/android`)
 
 **Framework:** Robolectric 4.17 + JUnit 4 + Turbine (Flow testing) + MockK 1.14.
 
@@ -41,7 +41,7 @@ class HomeViewModelTest {
 
 **Excluded from unit:** App-level integration, NFC hardware, accessibility service.
 
-### macOS (`packages/macos`)
+### macOS (`packages/desktop/macos`)
 
 **Framework:** Swift Testing (Swift 6 native) — `@Suite`, `@Test`, `#expect`, `#require`.
 

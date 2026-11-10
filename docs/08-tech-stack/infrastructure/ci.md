@@ -24,14 +24,14 @@ android:
         path: |
           ~/.gradle/caches
           ~/.gradle/wrapper
-        key: gradle-${{ runner.os }}-${{ hashFiles('packages/android/**/*.kts', 'packages/android/**/*.toml') }}
+        key: gradle-${{ runner.os }}-${{ hashFiles('packages/mobile/android/**/*.kts', 'packages/mobile/android/**/*.toml') }}
     - run: make lint
     - run: make test
     - run: make build
     - uses: actions/upload-artifact@v4
       with:
         name: android-apk
-        path: packages/android/app/build/outputs/apk/debug/*.apk
+        path: packages/mobile/android/app/build/outputs/apk/debug/*.apk
 ```
 
 ### macOS (macos-latest)
@@ -49,7 +49,7 @@ macos:
     - uses: actions/upload-artifact@v4
       with:
         name: macos-app
-        path: packages/macos/build/Omni.app
+        path: packages/desktop/macos/build/Omni.app
 ```
 
 ### CLI (ubuntu-latest)

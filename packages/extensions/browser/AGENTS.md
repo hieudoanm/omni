@@ -2,15 +2,10 @@
 
 ## Documentation
 
-Reference docs live in `docs/`:
-
-| Doc                    | Covers                                              |
-| ---------------------- | --------------------------------------------------- |
-| `docs/ARCHITECTURE.md` | Tech stack, build pipeline, MV2/MV3 strategy        |
-| `docs/ROADMAP.md`      | Phased feature roadmap with progress tracking       |
-| `docs/CONTRIBUTING.md` | Setup, dev commands, coding and testing conventions |
-| `docs/PACKAGING.md`    | Packaging and store-submission checklist            |
-| `docs/DOWNLOADS.md`    | Download links and supported browsers               |
+The product spec lives in the repo-level [`docs/`](../../../docs/README.md)
+tree — see `docs/<topic>/browser.md` (and `browser/` subdirectories) for the
+browser extension's overview, requirements, features, architecture, UI/UX,
+tech stack, testing, deployment, and operations docs.
 
 ## Key Conventions
 

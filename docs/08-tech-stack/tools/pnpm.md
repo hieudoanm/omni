@@ -34,7 +34,7 @@ minimumReleaseAge: 0
 ## Per-Package `package.json`
 
 ```json
-// packages/android/package.json
+// packages/mobile/android/package.json
 {
   "name": "@omni/android",
   "scripts": {
@@ -45,7 +45,7 @@ minimumReleaseAge: 0
   }
 }
 
-// packages/macos/package.json
+// packages/desktop/macos/package.json
 {
   "name": "@omni/macos",
   "scripts": { ... }

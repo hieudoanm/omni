@@ -1,10 +1,10 @@
 # Omni
 
-**Four native platforms plus extensions and a static web page, one codebase — Android, macOS, CLI, Browser, VS Code, and Web.**
+**Five native platforms plus extensions and a static web page, one codebase — Android, iOS, macOS, CLI, Browser, VS Code, and Web.**
 
-Omni is a personal toolbox that runs everywhere: a focus blocker and NFC toolkit on Android, a menu-bar system monitor on macOS, a 33-module CLI with an MCP server, a browser extension, a VS Code theme, and a J.A.R.V.I.S.-style web page deployed to GitHub Pages. All six share a single monorepo, a single CI pipeline, and a single rolling `latest` release.
+Omni is a personal toolbox that runs everywhere: a focus blocker and NFC toolkit on Android, an NFC toolkit on iOS, a menu-bar system monitor on macOS, a 33-module CLI with an MCP server, a browser extension, a VS Code theme, and a J.A.R.V.I.S.-style web page deployed to GitHub Pages. All seven share a single monorepo, a single CI pipeline, and a single rolling `latest` release.
 
-[📱 Android](#android) · [🖥️ macOS](#macos) · [⌨️ CLI](#cli) · [🌐 Browser](#browser) · [🔧 Technical Docs](AGENTS.md)
+[📱 Android](#android) · [📲 iOS](#ios) · [🖥️ macOS](#macos) · [⌨️ CLI](#cli) · [🌐 Browser](#browser) · [🔧 Technical Docs](AGENTS.md)
 
 ## The Problem
 
@@ -18,23 +18,24 @@ Omni keeps each platform **native** while unifying the rest:
 
 | Platform | Language   | UI Framework        | Package            |
 | -------- | ---------- | ------------------- | ------------------ |
-| Android  | Kotlin     | Jetpack Compose     | `packages/android` |
-| macOS    | Swift      | SwiftUI             | `packages/macos`   |
+| Android  | Kotlin     | Jetpack Compose     | `packages/mobile/android` |
+| iOS      | Swift      | SwiftUI             | `packages/mobile/ios`     |
+| macOS    | Swift      | SwiftUI             | `packages/desktop/macos`   |
 | CLI      | Go         | Bubble Tea / Cobra  | `packages/cli`     |
 | Browser  | TypeScript | Manifest V3 / React | `packages/extensions/browser` |
 | VS Code  | TypeScript | Theme                | `packages/extensions/vscode`  |
 | Web      | TypeScript | Next.js 16 / React  | `packages/web`     |
 
 - **Single monorepo** (pnpm + Turborepo) — one `pnpm install`, one `pnpm lint`, one `pnpm test`, one `pnpm build`.
-- **Single CI** (`.github/workflows/ci.yaml`) — per-platform runners (Ubuntu for Android/CLI/Browser, macOS for macOS), proper toolchains, artifact uploads.
+- **Single CI** (`.github/workflows/ci.yaml`) — per-platform runners (Ubuntu for Android/CLI/Browser, macOS for macOS), proper toolchains, artifact uploads. iOS builds locally via `xcodebuild` (not yet in CI).
 - **Single rolling release** — every push to `master` force-updates the `latest` GitHub Release with all four platform artifacts.
 - **Single install script** — `curl -fsSL https://raw.githubusercontent.com/hieudoanm/omni/master/packages/cli/scripts/install.sh | bash` gets the right binary for your OS/arch.
 
-No Electron. No shared UI layer. Just four best-in-class native apps and a static site that happen to live together.
+No Electron. No shared UI layer. Just five best-in-class native apps and a static site that happen to live together.
 
 ## Features
 
-### Android (`packages/android`)
+### Android (`packages/mobile/android`)
 
 Two tools in one app:
 
@@ -43,7 +44,18 @@ Two tools in one app:
 
 **Stack:** Kotlin 2.4, Compose BOM 2026.09, Gradle 9.8, KSP, Hilt 2.60, Room 2.8, DataStore 1.3, ktlint 0.50 via Spotless.
 
-### macOS (`packages/macos`)
+### iOS (`packages/mobile/ios`)
+
+The mobile hub plus the NFC Toolkit ported to iPhone:
+
+- **Omni hub** — home screen with app cards, same HUD visual language as Android/web.
+- **NFC Toolkit** — Core NFC tag discovery, NDEF read/write, tag metadata, scan history (SwiftData), settings. Local Orbitron/DM Mono fonts.
+
+Platform limits vs Android: **no Focus Blocker** (iOS has no AccessibilityService-style app blocking) and **no HCE** (iOS cannot emulate NFC cards to external readers). Real tag scans require a physical device; the simulator builds and runs the UI but cannot scan.
+
+**Stack:** Swift 6, SwiftUI, Core NFC, SwiftData, Xcode project (`Omni.xcodeproj`), `xcodebuild` via Makefile, `swiftformat`, Swift Testing.
+
+### macOS (`packages/desktop/macos`)
 
 Menu-bar system monitor:
 
@@ -123,8 +135,12 @@ cd omni
 pnpm install
 
 # Android
-cd packages/android
+cd packages/mobile/android
 ANDROID_HOME=$HOME/Library/Android/sdk ./gradlew assembleDebug
+
+# iOS (requires Xcode)
+cd ../ios
+make build        # simulator build via xcodebuild
 
 # macOS
 cd ../macos
@@ -189,11 +205,16 @@ omni/
 ├── pnpm-workspace.yaml           # packages/**
 ├── package.json                  # Root scripts: format, lint, test, build
 ├── packages/
-│   ├── android/                  # Kotlin + Compose (not a pnpm workspace package)
-│   │   ├── app/                  # Main module
-│   │   ├── build.gradle.kts      # Spotless + ktlint 0.50
-│   │   ├── Makefile              # format/lint/test/build/clean
-│   │   └── docs/                 # Android dev docs
+│   ├── mobile/                   # Mobile apps
+│   │   ├── android/              # Kotlin + Compose (not a pnpm workspace package)
+│   │   │   ├── app/              # Main module
+│   │   │   ├── build.gradle.kts  # Spotless + ktlint 0.50
+│   │   │   ├── Makefile          # format/lint/test/build/clean
+│   │   └── ios/                  # Swift + SwiftUI + Core NFC (not a pnpm workspace package)
+│   │       ├── Omni/             # App sources (Hub, NFC, Theme)
+│   │       ├── OmniTests/        # Swift Testing unit tests
+│   │       ├── Omni.xcodeproj    # Xcode project
+│   │       └── Makefile          # build/test/format/clean
 │   ├── macos/                    # Swift + SwiftUI
 │   │   ├── Sources/              # OmniCore, Omni (app)
 │   │   ├── Tests/                # 219 tests, 36 suites
@@ -238,4 +259,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-**Omni** — one toolbox, four native homes.
+**Omni** — one toolbox, five native homes.

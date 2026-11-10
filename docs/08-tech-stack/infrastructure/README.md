@@ -33,8 +33,8 @@
 
 | Job     | Artifact Name     | Path                                                 | Retention |
 | ------- | ----------------- | ---------------------------------------------------- | --------- |
-| android | android-apk       | `packages/android/app/build/outputs/apk/debug/*.apk` | 7 days    |
-| macos   | macos-app         | `packages/macos/build/Omni.app`                      | 7 days    |
+| android | android-apk       | `packages/mobile/android/app/build/outputs/apk/debug/*.apk` | 7 days    |
+| macos   | macos-app         | `packages/desktop/macos/build/Omni.app`                      | 7 days    |
 | cli     | cli-binaries      | `packages/cli/bin/omni-*`                            | 7 days    |
 | browser | browser-extension | `packages/extensions/browser/dist`                              | 7 days    |
 

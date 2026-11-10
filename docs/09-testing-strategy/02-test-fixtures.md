@@ -2,7 +2,7 @@
 
 Fixtures are synthetic, deterministic, and commit-safe. No PII, no credentials.
 
-## Android (`packages/android/app/src/test/resources/`)
+## Android (`packages/mobile/android/app/src/test/resources/`)
 
 | File | Purpose |
 |------|---------|
@@ -17,7 +17,7 @@ val nfcTag = NfcTagFixture.load("nfc_tag_ndef.json")
 val record = nfcTag.ndefMessage?.records?.first()
 ```
 
-## macOS (`packages/macos/Tests/Fixtures/`)
+## macOS (`packages/desktop/macos/Tests/Fixtures/`)
 
 | File | Purpose |
 |------|---------|

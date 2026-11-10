@@ -1,6 +1,6 @@
 # Omni — Test Organisation
 
-## Android (`packages/android`)
+## Android (`packages/mobile/android`)
 
 ```
 app/src/test/
@@ -25,7 +25,7 @@ app/src/test/
 
 **Shared:** `app/src/test/kotlin/io/github/hieudoanm/testutil/` — `TestCoroutineRule`, `MockKExtensions`.
 
-## macOS (`packages/macos`)
+## macOS (`packages/desktop/macos`)
 
 ```
 Tests/

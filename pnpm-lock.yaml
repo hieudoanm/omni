@@ -268,7 +268,7 @@ importers:
         specifier: 6.1.4
         version: 6.1.4
 
-  packages/macos: {}
+  packages/desktop/macos: {}
 
   packages/web:
     dependencies:

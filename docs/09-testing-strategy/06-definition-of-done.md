@@ -28,4 +28,4 @@ A change is not done until:
 - `README.md` / `AGENTS.md` for user-facing changes
 - `docs/08-tech-stack/` for dependency/stack changes
 - `docs/09-testing-strategy/` for test pattern changes
-- Package-level docs (`packages/*/docs/`, `packages/*/Docs/`)
+- Platform docs under `docs/<topic>/<platform>.md` and package docs (`packages/*/docs/`)

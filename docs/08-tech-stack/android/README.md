@@ -2,6 +2,7 @@
 
 | Guide                            | Description                                                  |
 | -------------------------------- | ------------------------------------------------------------ |
+| [stack.md](stack.md)             | Allowed tech, dependency versions, resource conventions      |
 | [build.md](build.md)             | Gradle wrapper, Compose compiler, KSP, version catalog       |
 | [hilt.md](hilt.md)               | Hilt setup, modules, ViewModel injection, testing            |
 | [compose.md](compose.md)         | Compose BOM, Material3, theming, preview, testing            |
@@ -12,4 +13,4 @@
 | [format-lint.md](format-lint.md) | Spotless, ktlint, Android Lint, CI integration               |
 | [ci.md](ci.md)                   | android-actions/setup-android, Gradle cache, artifact upload |
 
-See also: [`packages/android/docs/12-operations.md`](../../../packages/android/docs/12-operations.md)
+See also: [`Android — Operations`](../../12-operations/android.md)

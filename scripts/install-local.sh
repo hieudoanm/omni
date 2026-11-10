@@ -4,7 +4,7 @@
 #
 # What gets built/installed depends on the toolchains available:
 #   - CLI       -> make build in packages/cli, binary -> $INSTALL_DIR/omni
-#   - macOS app -> make install in packages/macos (-> /Applications, macOS only)
+#   - macOS app -> make install in packages/desktop/macos (-> /Applications, macOS only)
 #   - Android   -> ./gradlew assembleDebug, APK copied to $DOWNLOAD_DIR
 #   - Browser   -> pnpm build in packages/extensions/browser, loads dist/v2 into
 #                  Firefox/Firefox Dev Edition via web-ext (temporary install)
@@ -56,10 +56,10 @@ have_go()     { command -v go     >/dev/null 2>&1; }
 have_swift()  { command -v swift  >/dev/null 2>&1; }
 have_pnpm()   { command -v pnpm   >/dev/null 2>&1; }
 have_java()   { command -v java   >/dev/null 2>&1; }
-have_gradlew(){ [[ -x "$ROOT/packages/android/gradlew" ]]; }
+have_gradlew(){ [[ -x "$ROOT/packages/mobile/android/gradlew" ]]; }
 have_android_sdk() {
   [[ -n "${ANDROID_HOME:-${ANDROID_SDK_ROOT:-}}" ]] && return 0
-  [[ -f "$ROOT/packages/android/local.properties" ]] && return 0
+  [[ -f "$ROOT/packages/mobile/android/local.properties" ]] && return 0
   [[ -d "$HOME/Library/Android/sdk" || -d "/opt/android-sdk" || -d "/usr/lib/android-sdk" ]]
 }
 
@@ -105,7 +105,7 @@ install_macos() {
   [[ "$OS" == "darwin" ]] || { log warn "macos: skipped (not macOS)"; return; }
   have_swift || { log warn "macos: skipped (swift not found)"; return; }
   log info "macos: building and installing Omni.app"
-  make -C "$ROOT/packages/macos" install
+  make -C "$ROOT/packages/desktop/macos" install
 }
 
 install_android() {
@@ -113,8 +113,8 @@ install_android() {
   have_gradlew || { log warn "android: skipped (no gradlew)"; return; }
   have_android_sdk || { log warn "android: skipped (no Android SDK — set ANDROID_HOME)"; return; }
   log info "android: building debug APK"
-  "$ROOT/packages/android/gradlew" -p "$ROOT/packages/android" assembleDebug
-  local apk="$ROOT/packages/android/app/build/outputs/apk/debug/app-debug.apk"
+  "$ROOT/packages/mobile/android/gradlew" -p "$ROOT/packages/mobile/android" assembleDebug
+  local apk="$ROOT/packages/mobile/android/app/build/outputs/apk/debug/app-debug.apk"
   if [[ -f "$apk" ]]; then
     mkdir -p "$DOWNLOAD_DIR"
     cp "$apk" "$DOWNLOAD_DIR/app-debug.apk"

@@ -14,6 +14,17 @@ The design must be:
 
 Every subsystem document below is normative. Where a subsystem document and this index disagree, the subsystem document governs.
 
+## Native Apps
+
+| Document                                              | Covers                                              |
+| ----------------------------------------------------- | --------------------------------------------------- |
+| [`macos.md`](./macos.md)                              | Desktop app design system: tokens, surfaces, rules  |
+| [`android.md`](./android.md)                          | Android app: Compose/M3 conventions, theming         |
+
+> The sections below cover the **browser extension popup** design system.
+> The spec index is [`browser.md`](./browser.md); interactive HTML
+> prototypes and screenshots live in [`prototypes/`](./prototypes/).
+
 ## 2. Design Tokens
 
 | Document                                                          | Covers                                      |

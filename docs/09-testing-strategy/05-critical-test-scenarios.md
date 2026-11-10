@@ -1,6 +1,6 @@
 # Omni — Critical Test Scenarios
 
-## Android (`packages/android`)
+## Android (`packages/mobile/android`)
 
 ### Focus Blocker
 
@@ -24,7 +24,7 @@
 12. **Lint clean** — Zero Android Lint errors/warnings.
 13. **Robolectric coverage** — All ViewModels, repositories, use cases tested.
 
-## macOS (`packages/macos`)
+## macOS (`packages/desktop/macos`)
 
 ### System Monitoring
 

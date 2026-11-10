@@ -37,7 +37,7 @@ Non-negotiable:
 | CI Runner       | Ubuntu (android-actions) | macOS-latest  | Ubuntu (Go + Zig)  | Ubuntu (Node + pnpm)       | GitHub Actions   |
 | Artifacts       | `app-debug.apk`          | `Omni.app`    | `omni-{os}-{arch}` | `dist/` (V2+V3)            | `latest` release |
 
-## 4. Android (`packages/android`)
+## 4. Android (`packages/mobile/android`)
 
 ### 4.1 Kotlin + Jetpack Compose
 
@@ -87,7 +87,7 @@ Non-negotiable:
 
 **Rejected:** ktfmt (Google style only), detekt (rules overlap with ktlint + Android Lint), manual formatting.
 
-## 5. macOS (`packages/macos`)
+## 5. macOS (`packages/desktop/macos`)
 
 ### 5.1 Swift + SwiftUI
 
@@ -277,7 +277,7 @@ Non-negotiable:
 - `AGENTS.md` — Technical reference index
 - `README.md` — Project overview, quick start
 - `.github/workflows/ci.yaml` — Full CI definition
-- `packages/android/docs/12-operations.md` — Android dev commands
-- `packages/macos/Docs/CONTRIBUTING.md` — macOS contributing
+- `docs/12-operations/android.md` — Android dev commands
+- `docs/12-operations/macos.md` — macOS contributing/dev commands
 - `packages/cli/docs/PACKAGING.md` — CLI release/packaging
 - `packages/cli/docs/DOWNLOADS.md` — Download URLs for `latest`

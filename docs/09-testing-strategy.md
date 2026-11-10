@@ -12,6 +12,9 @@ Ensure correctness and repeatability across four native platforms: Android (Kotl
 - [`04-quality-gates.md`](./09-testing-strategy/04-quality-gates.md)
 - [`05-critical-test-scenarios.md`](./09-testing-strategy/05-critical-test-scenarios.md)
 - [`06-definition-of-done.md`](./09-testing-strategy/06-definition-of-done.md)
+- [`macos.md`](./09-testing-strategy/macos.md) — macOS app test layers & acceptance criteria
+- [`android.md`](./09-testing-strategy/android.md) — Android app test layers & commands
+- [`browser.md`](./09-testing-strategy/browser.md) — Browser extension test layers & coverage gate
 
 ## 3. Guiding Principles
 

@@ -97,7 +97,7 @@ make dmg
 ```yaml
 - name: Run macOS lint
   run: make lint
-  working-directory: packages/macos
+  working-directory: packages/desktop/macos
 ```
 
 `make lint` = `swift build` (warnings as errors via `-w` in Package.swift).
