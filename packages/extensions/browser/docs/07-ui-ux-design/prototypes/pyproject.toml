@@ -3,5 +3,5 @@ name = "omni-prototypes"
 version = "0.1.0"
 requires-python = "==3.15.2"
 dependencies = [
-  "playwright==1.64.1",
+  "playwright==1.65.0",
 ]
