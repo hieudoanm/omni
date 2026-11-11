@@ -1,5 +1,8 @@
 # Omni
 
+[![CI](https://github.com/hieudoanm/omni/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/hieudoanm/omni/actions/workflows/ci.yaml?branch=master)  [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+
 **Five native platforms plus extensions and a static web page, one codebase — Android, iOS, macOS, CLI, Browser, VS Code, and Web.**
 
 Omni is a personal toolbox that runs everywhere: a focus blocker and NFC toolkit on Android, an NFC toolkit on iOS, a menu-bar system monitor on macOS, a 33-module CLI with an MCP server, a browser extension, a VS Code theme, and a J.A.R.V.I.S.-style web page deployed to GitHub Pages. All seven share a single monorepo, a single CI pipeline, and a single rolling `latest` release.
