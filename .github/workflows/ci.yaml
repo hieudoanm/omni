@@ -197,7 +197,7 @@ jobs:
   # Rolling release: on push to master, update the "latest" GitHub Release
   release-latest:
     name: Release (latest)
-    needs: [android, macos, cli, browser, web]
+    needs: [android, macos, cli, browser, landing-build]
     if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
@@ -272,8 +272,8 @@ jobs:
           make_latest: true
 
   # Web: Linux runner for Next.js
-  web:
-    name: Web
+  landing-build:
+    name: Landing - Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -292,18 +292,20 @@ jobs:
       - name: Build web
         run: pnpm build
         working-directory: packages/web
-      - name: Upload web artifact
+      - name: Upload Pages artifact
+        if: github.ref == 'refs/heads/master'
         uses: actions/upload-pages-artifact@v5.0.0
         with:
           path: packages/web/out
 
   # Deploy to GitHub Pages
-  deploy:
-    name: Deploy to GitHub Pages
-    needs: [web]
-    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+  landing-deploy:
+    name: Landing - Deploy
+    needs: [landing-build]
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       pages: write
       id-token: write
     steps:
