@@ -4,9 +4,14 @@ on:
   push:
     branches: [master]
   pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 concurrency:
-  group: ci-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -93,6 +98,8 @@ jobs:
           retention-days: 7
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
+      - name: Cache cargo
+        uses: Swatinem/rust-cache@v2.9.3
       - name: Build CLI darwin binaries (Rust)
         run: make build-darwin
         working-directory: packages/cli
@@ -114,6 +121,8 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
         with:
           components: rustfmt, clippy
+      - name: Cache cargo
+        uses: Swatinem/rust-cache@v2.9.3
       - name: Rust CLI format check
         run: cargo fmt --check
         working-directory: packages/cli
@@ -147,12 +156,10 @@ jobs:
         uses: actions/checkout@v7.0.1
       - name: Setup pnpm
         uses: pnpm/action-setup@v6.1.1
-        with:
-          version: 12.18.0
       - name: Setup Node.js
         uses: actions/setup-node@v7.1.0
         with:
-          node-version: 26.13.0
+          node-version-file: .nvmrc
           cache: "pnpm"
           cache-dependency-path: pnpm-lock.yaml
       - name: Install dependencies
@@ -273,12 +280,10 @@ jobs:
         uses: actions/checkout@v7.0.1
       - name: Setup pnpm
         uses: pnpm/action-setup@v6.1.1
-        with:
-          version: 12.18.0
       - name: Setup Node.js
         uses: actions/setup-node@v7.1.0
         with:
-          node-version: 26.13.0
+          node-version-file: .nvmrc
           cache: "pnpm"
           cache-dependency-path: pnpm-lock.yaml
       - name: Install dependencies
@@ -301,9 +306,6 @@ jobs:
     permissions:
       pages: write
       id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
