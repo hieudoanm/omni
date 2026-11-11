@@ -92,7 +92,7 @@ Phased port — modules land one at a time, mirroring `cli.go/src/cmd/`:
 | ----------------------- | -------------------------------- | ------ |
 | `history`               | `history.rs`                     | done   |
 | `requests`              | `requests.rs` (ureq, blocking)   | done   |
-| `theme`, `colors`       | ANSI styling approximated in ratatui widgets (no lipgloss) | |
+| `theme`, `colors`       | `tui/theme.rs` — ANSI-256 palette matching Go lipgloss colours in ratatui widgets | done |
 | `browser` (go-rod)      | `browser.rs` (headless_chrome)   | done   |
 | `chat`                   | done — `src/tui/chat.rs` shared chat view (markdown via termimad→ansi-to-tui) | |
 | `mcp`                   | `mcp.rs`                         | done   |

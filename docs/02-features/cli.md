@@ -60,7 +60,7 @@
 | `pdf.inspect` | Inspection | File info and metadata view/set |
 | `pdf.maintain` | Maintenance | OCR via tesseract; repair via re-save |
 | `pdf.rearrange` | Rearranging | Reorder pages (`3,1,2` or `reverse`) |
-| `pdf.security` | Security | Encrypt (RC4-128) and decrypt PDFs |
+| `pdf.security` | Security | Encrypt (AES-256) and decrypt PDFs |
 
 ## File Operations
 | Module | Feature | Description |

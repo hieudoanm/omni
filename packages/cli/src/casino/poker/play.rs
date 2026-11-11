@@ -1,11 +1,11 @@
 //! Interactive Texas Hold'em TUI (port of the Go Bubble Tea program).
 use super::super::internal::{cards_display, new_shuffled_deck, Card};
 use super::hand::{self, Rank};
+use crate::tui::theme;
 use crate::tui::{key_name, AppEvent, TuiApp};
 use anyhow::Result;
 use clap::Args;
 use ratatui::layout::{Alignment, Rect};
-use ratatui::style::{Color, Modifier, Style};
 use ratatui::text::{Line, Span};
 use ratatui::widgets::Paragraph;
 use ratatui::Frame;
@@ -343,14 +343,10 @@ impl TuiApp for App {
         let area = frame.area();
         let title = Line::from(Span::styled(
             "♠ ♥ ♦ ♣  TEXAS HOLD'EM  ♠ ♥ ♦ ♣",
-            Style::default()
-                .fg(Color::White)
-                .add_modifier(Modifier::BOLD),
+            theme::screen_title(),
         ));
-        let gold = Style::default()
-            .fg(Color::Yellow)
-            .add_modifier(Modifier::BOLD);
-        let info = Style::default().fg(Color::Cyan);
+        let gold = theme::gold();
+        let info = theme::info();
         let mut lines = vec![
             title,
             Line::from(""),
@@ -406,7 +402,7 @@ impl TuiApp for App {
         lines.push(Line::from(""));
         lines.push(Line::from(Span::styled(
             format!("  ■ {}", self.street.name()),
-            Style::default().fg(Color::Magenta),
+            theme::amber(),
         )));
         if !self.last_action.is_empty() {
             lines.push(Line::from(Span::styled(
@@ -417,11 +413,11 @@ impl TuiApp for App {
 
         if self.street == Street::Showdown {
             let msg_style = if self.result.contains("win") {
-                Style::default().fg(Color::Green)
+                theme::success()
             } else if self.result.contains("fold") || self.result.contains("wins") {
-                Style::default().fg(Color::Red)
+                theme::error()
             } else {
-                Style::default().fg(Color::White)
+                theme::message()
             };
             lines.push(Line::from(""));
             lines.push(Line::from(Span::styled(
@@ -431,7 +427,7 @@ impl TuiApp for App {
             lines.push(Line::from(""));
             lines.push(Line::from(Span::styled(
                 "  Enter to play again  •  q to quit",
-                Style::default().fg(Color::DarkGray),
+                theme::dim(),
             )));
         } else {
             if !self.message.is_empty() {
@@ -442,18 +438,15 @@ impl TuiApp for App {
             if self.hero_bet < self.villain_bet {
                 lines.push(Line::from(Span::styled(
                     "  [f] Fold  [c] Call  [r] Raise",
-                    Style::default().fg(Color::Cyan),
+                    theme::info(),
                 )));
             } else {
                 lines.push(Line::from(Span::styled(
                     "  [f] Fold  [c] Check  [b] Bet",
-                    Style::default().fg(Color::Cyan),
+                    theme::info(),
                 )));
             }
-            lines.push(Line::from(Span::styled(
-                "  [q] Quit",
-                Style::default().fg(Color::DarkGray),
-            )));
+            lines.push(Line::from(Span::styled("  [q] Quit", theme::dim())));
         }
 
         let p = Paragraph::new(lines).alignment(Alignment::Left);

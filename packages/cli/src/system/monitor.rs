@@ -1,4 +1,5 @@
 use super::go_duration;
+use crate::tui::theme;
 use anyhow::Result;
 use clap::Args;
 use serde::Serialize;
@@ -44,7 +45,6 @@ struct MonitorApp {
 impl crate::tui::TuiApp for MonitorApp {
     fn draw(&mut self, frame: &mut ratatui::Frame) {
         use ratatui::layout::Alignment;
-        use ratatui::style::{Color, Modifier, Style};
         use ratatui::text::{Line, Span};
         use ratatui::widgets::Paragraph;
 
@@ -53,28 +53,20 @@ impl crate::tui::TuiApp for MonitorApp {
         if let Some(e) = &self.err {
             lines.push(Line::from(Span::styled(
                 format!("error: {e}"),
-                Style::default().fg(Color::Red),
+                theme::error_soft(),
             )));
         } else if let Some(m) = &self.metrics {
-            lines.push(Line::from(Span::styled(
-                "SYSTEM MONITOR",
-                Style::default()
-                    .fg(Color::White)
-                    .add_modifier(Modifier::BOLD),
-            )));
+            lines.push(Line::from(Span::styled("SYSTEM MONITOR", theme::title())));
             lines.push(Line::from(""));
             lines.push(Line::from(format!("CPU: {:.1}%", m.cpu_total)));
             lines.push(Line::from(format!("RAM: {:.1}%", m.ram_pct)));
             lines.push(Line::from(format!("Uptime: {}", go_duration(m.uptime))));
             lines.push(Line::from(""));
-            lines.push(Line::from(Span::styled(
-                "Press q to quit",
-                Style::default().fg(Color::DarkGray),
-            )));
+            lines.push(Line::from(Span::styled("Press q to quit", theme::dim())));
         } else {
             lines.push(Line::from(Span::styled(
                 "Gathering metrics...",
-                Style::default().fg(Color::DarkGray),
+                theme::dim(),
             )));
         }
         frame.render_widget(

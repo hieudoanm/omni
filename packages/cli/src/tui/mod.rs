@@ -1,6 +1,7 @@
 //! Shared terminal-UI helpers (ratatui + crossterm), mirroring the Bubble Tea
 //! programs in packages/cli.go.
 pub mod chat;
+pub mod theme;
 
 use anyhow::Result;
 use crossterm::event;

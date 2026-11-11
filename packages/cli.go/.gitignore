@@ -1,7 +1,0 @@
-# Build
-bin
-
-# Tests
-coverage/*
-*.out
-test.txt

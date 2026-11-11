@@ -1,6 +1,7 @@
 use crate::pdf::internal::*;
 use anyhow::{bail, Result};
 use clap::Args;
+use lopdf::Document;
 
 #[derive(Args)]
 pub struct DecryptArgs {
@@ -15,11 +16,16 @@ pub struct DecryptArgs {
 }
 
 pub fn run(args: &DecryptArgs) -> Result<()> {
-    let mut doc = load(&args.file)?;
-    if doc.is_encrypted() {
-        doc.decrypt(&args.password)
-            .map_err(|e| anyhow::anyhow!("decrypt failed: {}", e))?;
-    } else if !doc.was_encrypted() {
+    let mut doc = match Document::load_with_password(&args.file, &args.password) {
+        Ok(doc) => doc,
+        Err(lopdf::Error::InvalidPassword) => {
+            bail!("incorrect password for {}", args.file)
+        }
+        Err(e) => {
+            return Err(anyhow::Error::new(e).context(format!("cannot open {}", args.file)));
+        }
+    };
+    if !doc.was_encrypted() {
         bail!("{} is not encrypted", args.file);
     }
     let out = output_or(&args.file, &args.output);

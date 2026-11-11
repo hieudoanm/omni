@@ -1,5 +1,6 @@
 pub mod addnumbers;
 pub mod annotate;
+pub mod cmap;
 pub mod combine;
 pub mod convert;
 pub mod create;

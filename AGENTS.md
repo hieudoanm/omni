@@ -136,7 +136,7 @@ pnpm build            # turbo run build (all packages)
 - **Per package** — browser: `public/popup.css` + `public/index.html` +
   injected wall styles in `src/lib/block.ts`; Android: `*/ui/theme/{Color,Theme}.kt`
   (identical HUD palette in omni/block/nfc, dark-first with light variant);
-  CLI: ANSI-256 approximations in `src/libs/theme/theme.go`; macOS:
+  CLI: ANSI-256 approximations in `packages/cli/src/tui/theme.rs` (Go reference: `cli.go/src/libs/theme/theme.go`); macOS:
   `Palette.accent`/`onAccent` dynamic colors in
   `Omni/Views/Shared/DesignSystem/Palette.swift`; iOS:
   `Omni/Theme/{Palette,Typography,OmniTheme}.swift`.

@@ -1,9 +1,10 @@
 //! Shared chat-TUI building blocks used by `gemini code` and `openrouter code`
 //! (ports of libs/chat in packages/cli.go).
+use crate::tui::theme;
 use crate::tui::{char_key, key_name};
 use crossterm::event::{KeyEvent, MouseButton, MouseEventKind};
 use ratatui::layout::{Constraint, Direction, Layout};
-use ratatui::style::{Color, Modifier, Style};
+use ratatui::style::Style;
 use ratatui::text::{Line, Span, Text};
 use ratatui::widgets::{Block, Borders, Paragraph, Scrollbar, ScrollbarState};
 use ratatui::Frame;
@@ -27,12 +28,12 @@ impl Role {
         }
     }
 
-    fn color(self) -> Color {
+    fn style(self) -> Style {
         match self {
-            Role::User => Color::Cyan,
-            Role::Assistant => Color::Green,
-            Role::Error => Color::Red,
-            Role::Thought => Color::Yellow,
+            Role::User => theme::label_user(),
+            Role::Assistant => theme::label_assistant(),
+            Role::Error => theme::label_error(),
+            Role::Thought => theme::dim(),
         }
     }
 }
@@ -108,15 +109,13 @@ impl ChatLog {
             let role = self.msgs[i].role;
             if role == Role::Thought {
                 for line in t.lines.iter() {
-                    out.push(line.clone().style(Style::default().fg(Color::DarkGray)));
+                    out.push(line.clone().style(theme::dim()));
                 }
             } else {
                 let label = role.label();
                 out.push(Line::from(vec![Span::styled(
                     format!("● {label}"),
-                    Style::default()
-                        .fg(role.color())
-                        .add_modifier(Modifier::BOLD),
+                    role.style(),
                 )]));
                 out.extend(t.lines.iter().cloned());
             }
@@ -125,7 +124,7 @@ impl ChatLog {
         if loading {
             out.push(Line::from(vec![Span::styled(
                 format!("  {spinner} thinking..."),
-                Style::default().fg(Color::Yellow),
+                theme::warning(),
             )]));
         }
         Text::from(out)
@@ -311,7 +310,7 @@ pub fn draw_chat(frame: &mut Frame, view: &mut ChatView) {
         let mut lines = vec![Line::from("")];
         for (cmd, desc) in view.commands {
             lines.push(Line::from(vec![
-                Span::styled(*cmd, Style::default().fg(Color::DarkGray)),
+                Span::styled(*cmd, theme::dim()),
                 Span::raw(format!("  {desc}")),
             ]));
         }
@@ -321,7 +320,7 @@ pub fn draw_chat(frame: &mut Frame, view: &mut ChatView) {
     // Input box (bordered, input line + model label)
     let input_block = Block::default()
         .borders(Borders::ALL)
-        .border_style(Style::default().fg(Color::Magenta));
+        .border_style(theme::input_border());
     let inner = input_block.inner(chunks[2]);
     frame.render_widget(input_block, chunks[2]);
     if !view.extra_lines.is_empty() {
@@ -343,12 +342,9 @@ pub fn draw_chat(frame: &mut Frame, view: &mut ChatView) {
                     "> {}",
                     view.input.view(inner.width.saturating_sub(2) as usize)
                 ),
-                Style::default().bg(Color::Rgb(0x1c, 0x1c, 0x1c)),
+                theme::chat_bg(),
             )),
-            Line::from(Span::styled(
-                view.model_label.clone(),
-                Style::default().fg(Color::DarkGray),
-            )),
+            Line::from(Span::styled(view.model_label.clone(), theme::footer())),
         ];
         frame.render_widget(Paragraph::new(content), inner);
     }
@@ -360,10 +356,7 @@ pub fn draw_chat(frame: &mut Frame, view: &mut ChatView) {
         view.log.len()
     );
     frame.render_widget(
-        Paragraph::new(Line::from(Span::styled(
-            status,
-            Style::default().fg(Color::DarkGray),
-        ))),
+        Paragraph::new(Line::from(Span::styled(status, theme::footer()))),
         chunks[3],
     );
 }

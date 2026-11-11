@@ -571,9 +571,7 @@ impl App {
     fn tool_confirm_lines(&self) -> Vec<Line<'static>> {
         let mut lines = vec![Line::from(vec![ratatui::text::Span::styled(
             "TOOL",
-            ratatui::style::Style::default()
-                .fg(ratatui::style::Color::Yellow)
-                .add_modifier(ratatui::style::Modifier::BOLD),
+            crate::tui::theme::amber().add_modifier(ratatui::style::Modifier::BOLD),
         )])];
         for (i, tc) in self.pending_tool_calls.iter().enumerate() {
             let fname = tc
@@ -602,15 +600,13 @@ impl App {
             tool_line.push(')');
             lines.push(Line::from(vec![ratatui::text::Span::styled(
                 tool_line,
-                ratatui::style::Style::default().fg(ratatui::style::Color::DarkGray),
+                crate::tui::theme::dim(),
             )]));
         }
         lines.push(Line::from(""));
         lines.push(Line::from(vec![ratatui::text::Span::styled(
             "Approve? (y/n)",
-            ratatui::style::Style::default()
-                .fg(ratatui::style::Color::Green)
-                .add_modifier(ratatui::style::Modifier::BOLD),
+            crate::tui::theme::success().add_modifier(ratatui::style::Modifier::BOLD),
         )]));
         lines
     }

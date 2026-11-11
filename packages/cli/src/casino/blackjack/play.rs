@@ -1,10 +1,10 @@
 //! Interactive blackjack TUI (port of the Go Bubble Tea program).
 use super::super::internal::{deal_card, new_shuffled_deck, Card};
+use crate::tui::theme;
 use crate::tui::{key_name, AppEvent, TuiApp};
 use anyhow::Result;
 use clap::Args;
 use ratatui::layout::{Alignment, Rect};
-use ratatui::style::{Color, Modifier, Style};
 use ratatui::text::{Line, Span};
 use ratatui::widgets::Paragraph;
 use ratatui::Frame;
@@ -128,15 +128,8 @@ pub fn run(_args: &PlayArgs, _json: bool) -> Result<()> {
 impl TuiApp for App {
     fn draw(&mut self, frame: &mut Frame) {
         let area = frame.area();
-        let title = Line::from(Span::styled(
-            "🃏 Blackjack",
-            Style::default()
-                .fg(Color::White)
-                .add_modifier(Modifier::BOLD),
-        ));
-        let gold = Style::default()
-            .fg(Color::Yellow)
-            .add_modifier(Modifier::BOLD);
+        let title = Line::from(Span::styled("🃏 Blackjack", theme::screen_title()));
+        let gold = theme::gold();
         let mut lines = vec![title, Line::from("")];
 
         match self.state {
@@ -153,7 +146,7 @@ impl TuiApp for App {
                 lines.push(Line::from(""));
                 lines.push(Line::from(Span::styled(
                     "← → adjust bet  •  Enter to deal  •  q to quit",
-                    Style::default().fg(Color::DarkGray),
+                    theme::dim(),
                 )));
             }
             State::Player | State::Result => {
@@ -182,18 +175,18 @@ impl TuiApp for App {
                 if self.state == State::Player {
                     lines.push(Line::from(Span::styled(
                         "[h] Hit  [s] Stand  [d] Double  [q] Quit",
-                        Style::default().fg(Color::Cyan),
+                        theme::info(),
                     )));
                 } else {
                     let msg_style = if self.message.contains("win") {
-                        Style::default().fg(Color::Green)
+                        theme::success()
                     } else if self.message.contains("Bust")
                         || self.message.contains("lose")
                         || self.message.contains("wins")
                     {
-                        Style::default().fg(Color::Red)
+                        theme::error()
                     } else {
-                        Style::default().fg(Color::White)
+                        theme::message()
                     };
                     lines.push(Line::from(Span::styled(
                         format!("  {}", self.message),
@@ -202,7 +195,7 @@ impl TuiApp for App {
                     lines.push(Line::from(""));
                     lines.push(Line::from(Span::styled(
                         "Enter to continue  •  q to quit",
-                        Style::default().fg(Color::DarkGray),
+                        theme::dim(),
                     )));
                 }
             }
