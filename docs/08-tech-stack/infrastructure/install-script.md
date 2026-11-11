@@ -1,4 +1,4 @@
-# Install Script — `packages/cli/scripts/install.sh`
+# Install Script — `packages/cli.go/scripts/install.sh`
 
 ## Script
 
@@ -42,7 +42,7 @@ printf "Installed to %s/%s\n" "$INSTALL_DIR" "$BIN_NAME"
 
 ```bash
 # Default: installs to ~/bin
-curl -fsSL https://raw.githubusercontent.com/hieudoanm/omni/master/packages/cli/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/hieudoanm/omni/master/packages/cli.go/scripts/install.sh | bash
 
 # Custom install dir
 INSTALL_DIR=/usr/local/bin curl -fsSL ... | bash
@@ -86,7 +86,7 @@ Script constructs URL: `https://github.com/hieudoanm/omni/releases/download/late
 
 ```bash
 # Build all
-cd packages/cli
+cd packages/cli.go
 make build-all
 
 # Test script against local files (modify RELEASE to local file:// URL)

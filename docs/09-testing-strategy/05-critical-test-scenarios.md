@@ -47,7 +47,7 @@
 11. **Info.plist** — Bundle ID, version, permissions correct.
 12. **DMG creation** — `make dmg` produces mountable distributable.
 
-## CLI (`packages/cli`)
+## CLI (`packages/cli.go`)
 
 ### Calc Modules (10)
 

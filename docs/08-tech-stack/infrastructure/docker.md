@@ -3,13 +3,13 @@
 ## Dockerfile
 
 ```dockerfile
-# packages/cli/docker/Dockerfile
+# packages/cli.go/docker/Dockerfile
 
 # download stage: fetch the latest release binary via scripts/install.sh
 FROM debian:trixie-slim AS download
 
 ARG REPO=hieudoanm/omni
-ARG INSTALL_SCRIPT_URL=https://raw.githubusercontent.com/${REPO}/master/packages/cli/scripts/install.sh
+ARG INSTALL_SCRIPT_URL=https://raw.githubusercontent.com/${REPO}/master/packages/cli.go/scripts/install.sh
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates curl \
@@ -31,9 +31,9 @@ CMD ["--help"]
 
 ```bash
 # From repo root
-docker build -t omni-cli -f packages/cli/docker/Dockerfile .
+docker build -t omni-cli -f packages/cli.go/docker/Dockerfile .
 # or with custom repo
-docker build --build-arg REPO=myfork/omni -t omni-cli -f packages/cli/docker/Dockerfile .
+docker build --build-arg REPO=myfork/omni -t omni-cli -f packages/cli.go/docker/Dockerfile .
 ```
 
 ## Run
@@ -50,7 +50,7 @@ The install script downloads the correct binary for the build platform (linux/am
 
 ```bash
 # Requires buildx
-docker buildx build --platform linux/amd64,linux/arm64 -t omni-cli -f packages/cli/docker/Dockerfile .
+docker buildx build --platform linux/amd64,linux/arm64 -t omni-cli -f packages/cli.go/docker/Dockerfile .
 ```
 
 ## Why Not Multi-Stage Go Build

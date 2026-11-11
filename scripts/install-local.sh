@@ -3,7 +3,7 @@
 # Build Omni from source and install it locally.
 #
 # What gets built/installed depends on the toolchains available:
-#   - CLI       -> make build in packages/cli, binary -> $INSTALL_DIR/omni
+#   - CLI       -> make build in packages/cli (Rust), binary -> $INSTALL_DIR/omni
 #   - macOS app -> make install in packages/desktop/macos (-> /Applications, macOS only)
 #   - Android   -> ./gradlew assembleDebug, APK copied to $DOWNLOAD_DIR
 #   - Browser   -> pnpm build in packages/extensions/browser, loads dist/v2 into
@@ -52,7 +52,7 @@ err() { log error "$@" >&2; }
 OS="$(uname -s | tr '[:upper:]' '[:lower:]')"
 ARCH="$(uname -m)"
 
-have_go()     { command -v go     >/dev/null 2>&1; }
+have_cargo()  { command -v cargo  >/dev/null 2>&1; }
 have_swift()  { command -v swift  >/dev/null 2>&1; }
 have_pnpm()   { command -v pnpm   >/dev/null 2>&1; }
 have_java()   { command -v java   >/dev/null 2>&1; }
@@ -89,7 +89,7 @@ if [[ $# -gt 0 ]]; then
 fi
 
 install_cli() {
-  have_go || { log warn "cli: skipped (go not found)"; return; }
+  have_cargo || { log warn "cli: skipped (cargo not found)"; return; }
   log info "cli: building"
   make -C "$ROOT/packages/cli" build
   mkdir -p "$INSTALL_DIR"

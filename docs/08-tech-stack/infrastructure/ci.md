@@ -60,7 +60,7 @@ cli:
   steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-go@v5
-      with: { go-version: '1.23', cache-dependency-path: packages/cli/go.sum }
+      with: { go-version: '1.23', cache-dependency-path: packages/cli.go/go.sum }
     - uses: goto-bus-stop/setup-zig@v2
       with: { version: 0.13.0 }
     - run: make format
@@ -71,7 +71,7 @@ cli:
     - uses: actions/upload-artifact@v4
       with:
         name: cli-binaries
-        path: packages/cli/bin/omni-*
+        path: packages/cli.go/bin/omni-*
 ```
 
 ### Browser (ubuntu-latest)

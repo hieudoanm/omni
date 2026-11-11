@@ -24,7 +24,7 @@ documents sit alongside the monorepo-level ones as `<platform>.md` files or
 
 The macOS desktop app, Android app, and Browser extension have per-topic spec
 documents under `docs/<topic>/<platform>.md`. Other packages keep their docs
-in-tree (`packages/cli/docs/`).
+in-tree (`packages/cli.go/docs/`).
 
 Package-level conventions and commands are indexed in the root
 [`AGENTS.md`](../AGENTS.md).

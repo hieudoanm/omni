@@ -1,111 +1,108 @@
-# Omni (Go)
+# Omni CLI (Rust)
 
-A personal CLI toolbox with 33 modules and an MCP server exposing 189 tools.
-Read the repo-root `AGENTS.md` for the project-wide coding conventions; this
-file only adds the commands, layout and conventions specific to this Go module.
+Rust port of the Go CLI in [`packages/cli.go`](../cli.go) — a personal CLI
+toolbox with an MCP server. Read the repo-root `AGENTS.md` for project-wide
+conventions; this file covers the Rust port's layout and status.
 
 ## Commands
 
-| Command             | Description                                                 |
-| ------------------- | ----------------------------------------------------------- |
-| `make all`          | `format` + `lint` + `test` + `build`                        |
-| `make format`       | `go fmt ./...`                                              |
-| `make lint`         | `go vet ./...`                                              |
-| `make test`         | `go test ./...`                                             |
-| `make build`        | Build `bin/omni` (native)                                   |
-| `make build-all`    | Cross-compile 4 platforms into `bin/` (zig)                 |
-| `make build-darwin` | Build `bin/omni-darwin-{amd64,arm64}` with cgo (macOS only) |
-| `make coverage`     | HTML coverage report in `./coverage`                        |
-| `make tidy`         | `go mod tidy`                                               |
-| `make install`      | Build to `~/bin/omni`                                       |
-| `make clean`        | Remove `./bin` and `./coverage`                             |
+| Command           | Description                                            |
+| ----------------- | ------------------------------------------------------ |
+| `make all`        | `format` + `lint` + `test` + `build`                   |
+| `make format`     | `cargo fmt`                                            |
+| `make lint`       | `cargo clippy --all-targets -- -D warnings`            |
+| `make test`       | `cargo test`                                           |
+| `make build`      | Release build -> `bin/omni`                            |
+| `make build-all`  | Cross-compile 4 targets into `bin/`                    |
+| `make build-darwin` | darwin amd64+arm64 builds                           |
+| `make coverage`   | `cargo llvm-cov --html` (requires cargo-llvm-cov)      |
+| `make install`    | Build to `~/bin/omni`                                  |
+| `make clean`      | Remove `bin/` and `target/`                            |
 
-Version is injected at build time via `-ldflags` into
-`src/cmd/version.V` as `<date>.<time>-<git-short-sha>`.
+Version comes from `build.rs`: `OMNI_VERSION` env var if set, otherwise
+`<date +%Y.%m.%d.%H.%M.%S>-<git short sha>` — same format as the Go
+`-ldflags -X` injection.
 
-Verification before handoff: `make lint` exits 0, `make test` passes.
+## Port status
 
-## Key Conventions
+Phased port — modules land one at a time, mirroring `cli.go/src/cmd/`:
 
-- Entrypoint is the module root `main.go` (`package main`) — it only calls
-  `cmd.Execute()`. All commands live under `src/cmd/`.
-- Standard layout: `main.go` + `src/cmd/` (33 module packages + `root.go`) +
-  `src/libs/` (shared) + `src/data/` + `tests/`. Each top-level module exposes
-  `NewCommand()`; subcommands are their own Go packages in subdirectories.
-- Generic file naming, one responsibility per file/dir:
-  - `cmd.go` — cobra command definition (one per command package)
-  - `service.go` — pure logic, no cobra — in the same package directory; some
-    modules split services further (e.g. `doi/internal/resolver_service.go`,
-    `file/grep/search_service.go`)
-  - `tui.go` — BubbleTea TUI model/view/update (casino blackjack/poker/baccarat,
-    gemini code, openrouter code)
-  - `*_test.go` — colocated tests, same package, e.g. `bmi_cmd_test.go`
-- RunE pattern (return `error`), not `Run`. Error messages are lowercase.
-  Output via `fmt.Println`, not `cmd.Printf`.
-- `--json` (`-j`) is a persistent flag on the module root (28 modules;
-  `completion`, `games`, `mcp`, `net`, `video`, `write` skip it). Read it in
-  `RunE` with `cmd.Flags().GetBool("json")`.
-- HTTP calls go through `requests.Get/Post/Put/Patch/Delete` from
-  `src/libs/requests/` (15s client timeout, 10s per-request context, retries on
-  network errors and 5xx with exponential backoff, JSON body marshaling).
-- History tracking: `cmd.Execute()` calls `trackCommand()` →
-  `libs/history.Append()` (timestamp, source cli/mcp, command path, CWD,
-  duration, error). `omni help`, `omni completion`, `omni history`, and
-  `omni mcp` are excluded from tracking.
-- Follow repo-wide Go rules from the root [AGENTS.md](../../../../../AGENTS.md):
-  `error` last, handle errors explicitly, `var` zero-init over `:=`, no global
-  state, table-driven tests, return early — plus the repo `cobra.go`
-  conventions (RunE, thin command bodies, `StringVarP`/`IntVarP` short flags).
+| Module         | Status      | Notes                                            |
+| -------------- | ----------- | ------------------------------------------------ |
+| `version`      | done        |                                                    |
+| `convert`      | done        | all 16 subcommands incl. base64 encode/decode      |
+| `history`      | done        | list/search/clear/stats over `~/.omni/history.jsonl` |
+| `completion`   | done        | bash/zsh/fish via `clap_complete`                  |
+| `english`      | done        | `define` — dictionary lookup via `requests::get`   |
+| `port`         | done        | check/find/scan, sync `TcpStream`                  |
+| `semver`       | done        | validate/compare/sort + root `--bump`/`--range`    |
+| `doi`          | done        | fetch/cite/ref/validate, Crossref API, APA format  |
+| `write`        | done        | summarize/grammar/rewrite/translate via OpenRouter |
+| `openapi`      | done        | validate + openapi2postman (JSON/YAML via serde_yml) |
+| `mcp`          | done        | `mcp serve` JSON-RPC stdio; tools exec via subprocess (`OMNI_MCP_SOURCE=mcp` marks history `source=mcp`) |
+| `calc`         | done        | all 20 subcommands: age/base/bmi/compound/currency/date/discount/eval/factorial/gcd/lcm/loan/mortgage/percent/prime/random/stats/tax/tip/unit |
+| `time`         | done        | age, clock now, cron, epoch, pomodoro, stopwatch, timer, until, world (`chrono-tz`, `ctrlc`, Go-layout `src/timefmt.rs`) |
+| `better`       | done        | du/env/find/ls/ps/psaux/which with shared table printer |
+| `system`       | done        | info/env/path/disk(+stats)/battery/monitor(JSON+ANSI loop)/clipboard (rusqlite -> ~/.omni/omni.db, sysinfo) |
+| `data`         | done        | archive(zip)/csv/ebook/excel(info,to-csv,to-json via calamine)/json/split/yml |
+| `search`       | done        | files/text/code/web; path-aware glob, regex text search, code symbol patterns, DuckDuckGo lite (scraper) |
+| `file`         | done        | checksum/chmod/count/duplicates/edit/grep/head/read/size/stats/tail/type/write; md5/sha1/sha256/sha512, glob matcher |
+| `net`          | done        | cert(info,check via openssl s_client + x509-parser)/http/ip(+dns A AAAA CNAME MX NS TXT via hand-rolled UDP DNS)/ping/serve(HTTP+TLS via rustls)/status(25 statuspage endpoints)/whois/wifi(nmcli linux, empty macOS like nocgo) |
+| `video`        | done        | compress/convert/extract-audio/mute/resize/subtitles/to-gif/to-mp3/trim — ffmpeg shell-outs |
+| `colors`       | done        | hex/rgb/hcl/oklch/palette/random + figma list/name/hex/palettes (797 colours, 144 palettes embedded) |
+| `gh`           | done        | coc/ignore/languages/license/og — GitHub API via `requests`, `GITHUB_TOKEN` env, SVG generators |
+| `docsify`      | done        | cobra (tree-sitter-go)/obsidian/scan(GraphML)/tree; internal walker+extractor+graph+writer ports |
+| `crypto`       | done        | hash/hmac, jwt encode/decode, keygen (rsa/ecdsa/ed25519 PEM), passwd/pin/pronounceable, uuid, totp (base32+RFC3339 test time), encrypt/decrypt (AES-256-GCM nonce||ct), qrcode encode/decode (rqrr), barcode encode/decode (rxing writers+readers) |
+| `casino`       | done        | blackjack(cheatsheet/count/play), poker(hand eval 7-card/odds Monte Carlo/play), baccarat(rules/strategy/play), slots, coin, dice, roulette; play cmds are ratatui TUIs (src/tui/) porting the Go Bubble Tea programs: blackjack bet/hit/stand/double, baccarat bet-side/deal, poker check/bet/raise/call/fold vs AI |
+| `image`        | done        | background/blur/border/collage/combine/compress/convert/crop/dominant/flip/grayscale/icons/info/pixelate/resize/round/sharpen/split/text; imageproc + embedded basicfont 7x13 bitmap font |
+| `web`          | done        | shopify detect, simplify (md/csv/images via readability-rust + html2md + headless_chrome), snapshot (headless_chrome + presets), weather (wttr.in), youtube fetch/thumbnails (Innertube + XML3 timedtext) |
+| `openrouter`   | done        | models/status/serve/hook + `code` TUI — tool calls (read/write/edit/bash) with y/N approval, /help /models /model /probe /new /undo /exit |
+| `requests` lib | partial     | `get`/`get_string`/`post_json`/`request`/`request_status` (ureq, 15s timeout, status-aware variant) |
+| `browser` lib  | partial     | headless_chrome wrapper: capture/screenshot/presets; used by web snapshot + simplify images |
+| `games`         | done        | anagram/reaction/recall/typerace/wordle — interactive stdin prompts (survey -> read_line), 10,268-word embedded list, wordle `--json` result |
+| `chess`         | done        | elo, chess960, fen, pgn, play, setup + lichess/com APIs — shakmaty for SAN/FEN/UCI, hand-rolled PGN tokenizer, serde_json::Value passthrough for API output |
+| `telegram`      | done        | all 60 Bot API leaves generated from Go services — token via --token/TELEGRAM_BOT_TOKEN, JSON flag passthrough, custom result printers for get-me/get-chat/invite-link/webhook-info |
+| `gemini`        | done        | `code` TUI (ratatui; ports Go Bubble Tea chat) — model list + /help /new /undo /models /model /exit, GEMINI_API_KEY |
+| `pdf`           | done        | all 24 leaves via lopdf + hayro: add-numbers/annotate/combine/convert/create/crop/delete/edit/extract/inspect/maintain/rearrange/security |
 
-## Shared Libraries (`src/libs/`)
+## Key conventions
 
-| Library    | Purpose                                              |
-| ---------- | ---------------------------------------------------- |
-| `requests` | HTTP client with retries/timeouts/headers/debug mode |
-| `browser`  | Headless Chrome via go-rod (fetch HTML, screenshot)  |
-| `chat`     | Shared BubbleTea base model for AI chat TUIs         |
-| `colors`   | ANSI helpers with TTY detection                      |
-| `history`  | JSONL command history at `~/.omni/history.jsonl`     |
-| `mcp`      | MCP JSON-RPC protocol types + server loop            |
-| `number`   | Integer formatting (zero-pad, comma)                 |
-| `theme`    | Lipgloss styles + status glyphs                      |
+- **clap derive** — `src/cli.rs` holds the root `Parser` + `Subcommand`
+  enum; `dispatch()` matches on parsed args. Each module exposes an `Args`
+  struct (with `#[command(subcommand)]` where it has children) and a `run()`.
+- **Module roots with children** use `Option<Sub>` + a help fallback via
+  `<Args as clap::Args>::augment_args` so bare `omni <module>` prints help,
+  matching cobra's `RunE: cmd.Help()`.
+- **`--json` (`-j`)** — `global = true` arg on each module root; thread the
+  bool down to leaf `run()` functions (Go read it via `cmd.Flags()`).
+- **History** — `src/history.rs` mirrors `cli.go/src/libs/history`: JSONL at
+  `~/.omni/history.jsonl`, `source` is `cli`/`mcp`, `top_errors` is keyed by
+  command name (same as Go). Tracked in `main.rs` after dispatch; excluded
+  prefixes: `omni help`, `omni completion`, `omni history`, `omni mcp`.
+- **Output** — `println!` for plain output; JSON via
+  `serde_json::to_string_pretty` where Go used `MarshalIndent`, compact
+  `to_string` where Go used `json.Marshal`.
+- **Errors** — `anyhow::Result`; main prints `Error: {e:#}` and exits 1.
+- **Interactive input** — Go used `survey.AskOne`; Rust prints `Text: ` and
+  reads a line from stdin (`convert::internal::resolve_text`).
 
-## MCP Server
+## Shared libs mapping (Go -> Rust)
 
-- `omni mcp serve` starts the MCP stdio server (JSON-RPC 2.0, newline-delimited
-  JSON, protocol version `2025-11-25`). The server identifies as `omni-mcp`
-  `1.0.0` and exposes `initialize`, `ping`, `tools/list`, `tools/call`.
-- Tool discovery (`src/cmd/mcp/serve/discover_service.go`) walks the cobra
-  tree (skipping `help`, `completion`, `mcp`), keeps command paths that have a
-  `RunE`/`Run`, and registers **189 tools** using dot notation matching the CLI
-  path (`file.read`, `search.files`, `calc.bmi`, `time.clock.now`).
-- Schema generation (`schema_service.go`) maps cobra flags to JSON Schema
-  (bool→boolean, int→integer, float64→number, string→string, slices→array);
-  positional args are exposed as an `_args` array property.
-- Execution (`exec_service.go`) runs in-process: flags are set directly,
-  positional args passed to `RunE`, stdout captured via pipe (mutex-guarded),
-  and each call is recorded in history with `source=mcp`.
-- Configure in `.mcp.json`:
-  ```json
-  {"mcpServers":{"omni":{"command":"omni","args":["mcp","serve"]}}}
-  ```
-- TTY-dependent commands (e.g. `system monitor`, `gemini code`) may fail via
-  MCP because no TTY is available.
+| Go (`cli.go/src/libs/`) | Rust (`src/`)                    | Status |
+| ----------------------- | -------------------------------- | ------ |
+| `history`               | `history.rs`                     | done   |
+| `requests`              | `requests.rs` (ureq, blocking)   | done   |
+| `theme`, `colors`       | ANSI styling approximated in ratatui widgets (no lipgloss) | |
+| `browser` (go-rod)      | `browser.rs` (headless_chrome)   | done   |
+| `chat`                   | done — `src/tui/chat.rs` shared chat view (markdown via termimad→ansi-to-tui) | |
+| `mcp`                   | `mcp.rs`                         | done   |
+| `number`                | covered per-module               | done   |
+| `api` (Gemini vendored) | `gemini/client.rs` (ureq)        | done   |
 
-## Data
+## Gotchas
 
-- Command history: `~/.omni/history.jsonl` (append-only JSONL; cleared via
-  `omni history clear`). No other persistent state.
-- `src/data/countries.go` is the embedded ISO country-code map used by the
-  `time`/`web` modules.
-
-## Documentation
-
-| Document                                       | Description                                               |
-| ---------------------------------------------- | --------------------------------------------------------- |
-| [docs](./docs/)                                | Architecture, contributing, downloads, packaging, roadmap |
-| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | Modules, libs, MCP internals                              |
-| [docs/CONTRIBUTING.md](./docs/CONTRIBUTING.md) | Setup, commands, conventions, testing                     |
-| [docs/DOWNLOADS.md](./docs/DOWNLOADS.md)       | Get the binaries or build from source                     |
-| [docs/PACKAGING.md](./docs/PACKAGING.md)       | Build + CI artifact pipeline                              |
-| [docs/ROADMAP.md](./docs/ROADMAP.md)           | Phased feature roadmap                                    |
+- `unicode_categories` + `unicode-normalization` replace Go's
+  `unicode.IsMark`/`norm.NFD` for `convert deburr`.
+- URL encode/decode (`convert url`) is hand-rolled to match Go's
+  `url.QueryEscape`/`QueryUnescape` exactly (`+` for space, `~` unescaped).
+- `Cargo.lock` is committed (binary crate).

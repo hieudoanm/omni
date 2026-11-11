@@ -33,7 +33,7 @@ let vmStat = try String(contentsOf: fixtureURL("vm_stat.sample"))
 let memory = MemoryProvider.parseVmStat(vmStat)
 ```
 
-## CLI (`packages/cli/testdata/`)
+## CLI (`packages/cli.go/testdata/`)
 
 | Directory | Purpose |
 |-----------|---------|

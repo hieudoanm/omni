@@ -6,7 +6,7 @@
 
 ## Read this first
 
-- **Seven packages, one monorepo** — five native apps, a static web page, and editor extensions under `packages/extensions/`; no shared UI, no Electron.
+- **Eight packages, one monorepo** — six native apps, a static web page, and editor extensions under `packages/extensions/`; no shared UI, no Electron. `packages/cli` is the shipped Rust CLI; `packages/cli.go` is the legacy Go implementation kept as the port reference (no longer built by CI or released).
 - `pnpm` + Turborepo for Node workspaces (browser + VS Code extensions, web); Gradle for Android; Xcode for iOS.
 - Root scripts delegate to per-package Makefiles: `format`, `lint`, `test`, `build`.
 - CI uses per-platform runners: Ubuntu (Android, CLI, Browser), macOS (macOS). iOS builds locally via `xcodebuild` (not yet in CI).
@@ -19,7 +19,8 @@
 | `packages/mobile/android` | Kotlin     | `./gradlew assembleDebug` | `./gradlew spotlessApply`                 | `./gradlew lintDebug` | `./gradlew testDebugUnitTest` |
 | `packages/mobile/ios`     | Swift      | `xcodebuild -scheme Omni build` | `swiftformat Omni OmniTests`       | `xcodebuild build`    | `xcodebuild test`             |
 | `packages/desktop/macos`   | Swift      | `xcodebuild -scheme Omni build` | `swiftformat Omni OmniCore OmniTests` | `xcodebuild build` | `xcodebuild test`             |
-| `packages/cli`     | Go         | `go build`                | `go fmt ./...`                            | `go vet ./...`        | `go test ./...`               |
+| `packages/cli.go`     | Go         | `go build`                | `go fmt ./...`                            | `go vet ./...`        | `go test ./...`               |
+| `packages/cli`        | Rust       | `cargo build --release`   | `cargo fmt`                               | `cargo clippy`        | `cargo test`                  |
 | `packages/extensions/browser` | TypeScript | `pnpm build`     | `prettier --write`                        | `eslint --fix`        | `vitest`                      |
 | `packages/extensions/vscode`  | TypeScript | `vsce package`   | `prettier --write`                        | —                     | —                             |
 | `packages/web`     | TypeScript | `pnpm build`              | `prettier --write`                        | `eslint`              | —                             |
@@ -72,20 +73,30 @@ pnpm build            # turbo run build (all packages)
 - **App bundle** — `make app` stages `build/Omni.app` (Xcode-signed, ad-hoc) with `Info.plist`, `Assets.xcassets` AppIcon, `Omni.entitlements`.
 - **DMG** — `make dmg` creates distributable via `hdiutil`.
 
-### CLI (`packages/cli`)
+### CLI — Rust port (`packages/cli`)
+
+- **Rust** (stable, edition 2021), clap derive for the command tree, single `omni` binary.
+- **Complete port** of `packages/cli.go` — all 33 modules done; MCP server exposes 437 tools. This is the binary CI builds and releases ship.
+- **Layout** — `src/cli.rs` (root Parser + dispatch), `src/<module>.rs` or `src/<module>/` mirroring `cli.go/src/cmd/`, shared libs in `src/*.rs`.
+- **`--json` (`-j`)** — `global` arg on each module root, threaded to leaf `run()` fns.
+- **History** — `src/history.rs` mirrors the Go `libs/history` (`~/.omni/history.jsonl`, same exclusions).
+- **Version** — `build.rs` sets `OMNI_VERSION` (`<date>-<sha>` or env override), same format as the Go ldflags injection.
+- **Commands** — same Makefile interface as the Go package (`format`/`lint`/`test`/`build`/`build-all`/`install`/`clean`); `build-all` cross-compiles via `rustup target` (no Zig needed).
+
+### CLI — Go reference (`packages/cli.go`)
 
 - **Go 1.27** (go.mod `1.27.2`), Cobra for commands, Bubble Tea for TUI modules.
-- **Module path** — `github.com/hieudoanm/omni/packages/cli`.
+- **Module path** — `github.com/hieudoanm/omni/packages/cli.go`.
 - **33 modules** under `src/cmd/` — each has `cmd.go`, optional `service.go`, `*_test.go`.
 - **MCP server** — `src/cmd/mcp/serve.go` exposes all modules as MCP tools over stdio.
 - **Vendored API** — Gemini client at `src/libs/api/gemini.google.com/` (copied from old `github.com/hieudoanm/api`).
 - **Pinned deps** — `pdfcpu v0.15.0` (v0.16.x breaks `pdf` command).
 - **Cross-compile** — `make build-all` uses Zig CC for non-native targets (`linux/amd64`, `linux/arm64`, `darwin/amd64`, `darwin/arm64`); darwin binaries are `CGO_ENABLED=0` stubs (no Apple SDK headers under zig), so `make build-darwin` on macOS produces the real cgo-enabled darwin binaries used by the release.
-- **Version** — `-ldflags="-X github.com/hieudoanm/omni/packages/cli/src/cmd/version.V=date-sha"`.
+- **Version** — `-ldflags="-X github.com/hieudoanm/omni/packages/cli.go/src/cmd/version.V=date-sha"`.
 - **Format** — `go fmt ./...`
 - **Lint** — `go vet ./...`
 - **Test** — `go test ./...` (479 packages).
-- **Install scripts** — `scripts/install.sh` installs release artifacts; `scripts/install-local.sh` builds from source (`--cli`, `--macos`, `--android`, `--browser`, `--web`).
+- **Install scripts** — `packages/cli.go/scripts/install.sh` installs release artifacts (asset names unchanged); `scripts/install-local.sh --cli` builds `packages/cli` from source.
 
 ### Browser Extension (`packages/extensions/browser`)
 
@@ -141,10 +152,18 @@ pnpm build            # turbo run build (all packages)
 
 ## Adding a CLI Module
 
+Go reference (`packages/cli.go`):
+
 1. Create `src/cmd/<category>/<module>/cmd.go` with `cobra.Command`.
 2. Add `service.go` for logic, `*_test.go` for tests.
 3. Register in `src/cmd/root.go` `init()`.
 4. Run `go mod tidy`, `go vet ./...`, `go test ./...`.
+
+Rust port (`packages/cli`):
+
+1. Create `src/<module>.rs` (or `src/<module>/` for modules with children) with a `clap::Args` struct + `run()`.
+2. Register the variant in `src/cli.rs` `Command` enum + `dispatch()`.
+3. Add `#[cfg(test)]` tests; run `cargo fmt`, `cargo clippy --all-targets -- -D warnings`, `cargo test`.
 
 ## CI Artifacts
 
@@ -152,7 +171,7 @@ pnpm build            # turbo run build (all packages)
 | ------- | ------------------ | ----------------------------------------------- |
 | Android | `app-debug.apk`    | `packages/mobile/android/app/build/outputs/apk/debug/` |
 | macOS   | `Omni.app`         | `packages/desktop/macos/build/`                         |
-| CLI     | `omni-{os}-{arch}` | `packages/cli/bin/`                             |
+| CLI     | `omni-{os}-{arch}` | `packages/cli/bin/`                                |
 | Browser | `dist/`            | `packages/extensions/browser/dist/`              |
 | Web     | GitHub Pages       | `packages/web/out/`                             |
 
@@ -163,7 +182,7 @@ CLI, Android, macOS, and Browser artifacts are uploaded to the `latest` release 
 - **Android** — `ANDROID_HOME` must be set; `local.properties` is gitignored.
 - **macOS** — must run on macOS runner; `codesign` requires entitlements.
 - **iOS** — must run on macOS with Xcode; Core NFC only works on physical devices (simulator builds but cannot scan).
-- **CLI** — cross-compile needs Zig; `CGO_ENABLED=1` for native, `CC="zig cc -target ..."` for others.
+- **CLI** — Rust cross-compile via `rustup target add` (Makefile handles it); `*-apple-darwin` targets link only on the macOS runner.
 - **Browser** — `pnpm install` only at root; lockfile is the root `pnpm-lock.yaml`.
 - **Turborepo** — `globalEnv` passes `ANDROID_HOME`, `ANDROID_SDK_ROOT`, `JAVA_HOME` to tasks.
 
@@ -172,6 +191,6 @@ CLI, Android, macOS, and Browser artifacts are uploaded to the `latest` release 
 - `docs/12-operations/android.md` — Android dev commands
 - `packages/mobile/ios/Makefile` — iOS build/test commands (`make build`, `make test`)
 - `docs/12-operations/macos.md` — macOS contributing/dev commands
-- `packages/cli/docs/PACKAGING.md` — CLI release/packaging
-- `packages/cli/docs/DOWNLOADS.md` — Download URLs for `latest`
+- `packages/cli.go/docs/PACKAGING.md` — CLI release/packaging
+- `packages/cli.go/docs/DOWNLOADS.md` — Download URLs for `latest`
 - `.github/workflows/ci.yaml` — Full CI definition

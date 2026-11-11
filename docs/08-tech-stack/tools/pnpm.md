@@ -51,7 +51,7 @@ minimumReleaseAge: 0
   "scripts": { ... }
 }
 
-// packages/cli/package.json
+// packages/cli.go/package.json
 {
   "name": "@omni/cli",
   "bin": { "omni": "bin/omni" },

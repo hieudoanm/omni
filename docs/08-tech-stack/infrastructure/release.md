@@ -54,7 +54,7 @@ release-latest:
 ## Install Script Integration
 
 ```bash
-# packages/cli/scripts/install.sh
+# packages/cli.go/scripts/install.sh
 RELEASE="latest"
 ASSET_PREFIX="omni"
 url="https://github.com/$REPO/releases/download/$RELEASE/${ASSET_PREFIX}-${os}-${arch}"
@@ -63,9 +63,9 @@ url="https://github.com/$REPO/releases/download/$RELEASE/${ASSET_PREFIX}-${os}-$
 ## Dockerfile Integration
 
 ```dockerfile
-# packages/cli/docker/Dockerfile
+# packages/cli.go/docker/Dockerfile
 ARG REPO=hieudoanm/omni
-ARG INSTALL_SCRIPT_URL=https://raw.githubusercontent.com/${REPO}/master/packages/cli/scripts/install.sh
+ARG INSTALL_SCRIPT_URL=https://raw.githubusercontent.com/${REPO}/master/packages/cli.go/scripts/install.sh
 # Installs from latest release via script
 ```
 

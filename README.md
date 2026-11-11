@@ -21,7 +21,8 @@ Omni keeps each platform **native** while unifying the rest:
 | Android  | Kotlin     | Jetpack Compose     | `packages/mobile/android` |
 | iOS      | Swift      | SwiftUI             | `packages/mobile/ios`     |
 | macOS    | Swift      | SwiftUI             | `packages/desktop/macos`   |
-| CLI      | Go         | Bubble Tea / Cobra  | `packages/cli`     |
+| CLI      | Rust       | clap                      | `packages/cli`        |
+| CLI (Go) | Go         | Bubble Tea / Cobra        | `packages/cli.go`     |
 | Browser  | TypeScript | Manifest V3 / React | `packages/extensions/browser` |
 | VS Code  | TypeScript | Theme                | `packages/extensions/vscode`  |
 | Web      | TypeScript | Next.js 16 / React  | `packages/web`     |
@@ -29,7 +30,7 @@ Omni keeps each platform **native** while unifying the rest:
 - **Single monorepo** (pnpm + Turborepo) — one `pnpm install`, one `pnpm lint`, one `pnpm test`, one `pnpm build`.
 - **Single CI** (`.github/workflows/ci.yaml`) — per-platform runners (Ubuntu for Android/CLI/Browser, macOS for macOS), proper toolchains, artifact uploads. iOS builds locally via `xcodebuild` (not yet in CI).
 - **Single rolling release** — every push to `master` force-updates the `latest` GitHub Release with all four platform artifacts.
-- **Single install script** — `curl -fsSL https://raw.githubusercontent.com/hieudoanm/omni/master/packages/cli/scripts/install.sh | bash` gets the right binary for your OS/arch.
+- **Single install script** — `curl -fsSL https://raw.githubusercontent.com/hieudoanm/omni/master/packages/cli.go/scripts/install.sh | bash` gets the right binary for your OS/arch.
 
 No Electron. No shared UI layer. Just five best-in-class native apps and a static site that happen to live together.
 
@@ -69,6 +70,14 @@ Menu-bar system monitor:
 
 ### CLI (`packages/cli`)
 
+Rust implementation of the Omni CLI, built with Cargo + clap — the shipped `omni` binary (release artifacts and CI build from this package). All 33 modules ported from the Go reference, same `--json` flag, same `~/.omni/history.jsonl` tracking, and an MCP server exposing 437 tools over stdio.
+
+**Stack:** Rust (stable), clap derive, serde/serde_json, Makefile targets identical to the Go package.
+
+### CLI — Go reference (`packages/cli.go`)
+
+> Legacy implementation kept for reference — no longer built by CI or shipped in releases.
+
 33 modules + MCP server:
 
 | Category   | Modules                                                                                          |
@@ -107,7 +116,7 @@ Static site deployed to GitHub Pages:
 - **One command to rule them all** — `pnpm lint`, `pnpm test`, `pnpm build` run the correct toolchain per package.
 - **Rolling `latest` release** — `https://github.com/hieudoanm/omni/releases/tag/latest` always has the newest build for every platform.
 - **Install in one line** — the CLI install script detects OS/arch and pulls the matching binary from the `latest` release.
-- **Vendored dependencies** — no external API module (`github.com/hieudoanm/api`); Gemini client copied into `packages/cli/src/libs/api/gemini.google.com`.
+- **Vendored dependencies** — no external API module (`github.com/hieudoanm/api`); Gemini client copied into `packages/cli.go/src/libs/api/gemini.google.com`.
 - **Pinned stability** — `pdfcpu v0.15.0` (v0.16.x breaks the `pdf` command; upstream issue).
 
 ## Get Started
@@ -190,7 +199,7 @@ The `latest` release is the **single source of truth** for downloads. The CLI in
 
 ```sh
 # One-liner (auto-detects OS/arch, installs to ~/bin)
-curl -fsSL https://raw.githubusercontent.com/hieudoanm/omni/master/packages/cli/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/hieudoanm/omni/master/packages/cli.go/scripts/install.sh | bash
 
 # Or download manually from the latest release:
 # https://github.com/hieudoanm/omni/releases/tag/latest
@@ -224,12 +233,16 @@ omni/
 │   │   ├── Resources/            # AppIcon.iconset sources
 │   │   ├── Makefile              # format/lint/test/build/app/dmg/install/clean
 │   │   └── package.json          # @omni/macos
-│   ├── cli/                      # Go + Cobra + Bubble Tea
+│   ├── cli/                      # Rust + clap (port of cli.go)
+│   │   ├── src/                  # cli.rs + modules (version, convert, history, ...)
+│   │   ├── Makefile              # format/lint/test/build/build-all/install/clean
+│   │   └── package.json          # @omni/cli
+│   ├── cli.go/                   # Go + Cobra + Bubble Tea (port reference)
 │   │   ├── src/                  # 33 modules under cmd/
 │   │   ├── scripts/install.sh    # Rolling release downloader
 │   │   ├── docker/Dockerfile     # Alpine + install script
 │   │   ├── Makefile              # format/lint/test/build/build-all/build-darwin/coverage/tidy/install/clean
-│   │   └── package.json          # @omni/cli
+│   │   └── package.json          # @omni/cli.go
 │   ├── extensions/               # Editor extensions
 │   │   ├── browser/              # TypeScript + Manifest V3 + React
 │   │   │   ├── src/              # apps/, libs/, components/ (+ vitest unit tests)

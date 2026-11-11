@@ -1,84 +1,97 @@
-# Omni (Go)
+# Omni CLI (Rust)
 
-> A personal CLI toolbox. 33 modules and 189 MCP-exposed tools covering system
-> monitoring, crypto, files, networking, PDFs, AI chat, games, time, and more —
-> built with Cobra, runnable as a terminal app or as an MCP server for AI
-> agents.
+A personal CLI toolbox — Rust port of the Go implementation in
+[`packages/cli.go`](../cli.go). Single `omni` binary built with Cargo.
 
-## Features
+## Status
 
-- **33 modules** — `better`, `calc`, `casino`, `chess`, `colors`, `completion`,
-  `convert`, `crypto`, `data`, `docsify`, `doi`, `english`, `file`, `games`,
-  `gemini`, `gh`, `history`, `image`, `mcp`, `net`, `openapi`, `openrouter`,
-  `pdf`, `port`, `search`, `semver`, `system`, `telegram`, `time`, `version`,
-  `video`, `web`, `write`
-- **`--json` output** — most modules support `-j/--json` machine-readable
-  output
-- **MCP server** — `omni mcp serve` exposes all leaf commands (189 tools) to
-  Claude Code, Cursor, VS Code, and other MCP clients over stdio
-- **AI chat TUIs** — `gemini code` and `openrouter code` (BubbleTea)
-- **Cross-platform** — ships prebuilt binaries for linux/darwin × amd64/arm64
-- **Shell completion** — `completion` command generates bash/zsh/fish/powershell
-  scripts
+Phased port. Currently implemented:
 
-See [docs/](./docs/) for architecture, contributing, downloads, packaging and
-roadmap.
+- `version` — print version (`OMNI_VERSION` env or `date-sha` from build.rs)
+- `convert` — all 16 subcommands: `base64 encode|decode`, `braille`, `camelcase`,
+  `capitalise`, `count`, `deburr`, `kebabcase`, `lorem`, `lowercase`, `morse`,
+  `pascalcase`, `slug`, `snakecase`, `uppercase`, `url`
+- `history` — `list`, `search`, `clear`, `stats` (`~/.omni/history.jsonl`)
+- `completion` — bash/zsh/fish scripts via `clap_complete`
+- `english` — `define` dictionary lookup
+- `port` — `check`, `find`, `scan`
+- `semver` — `validate`, `compare`, `sort`, plus root `--bump`/`--range`
+- `doi` — `fetch`, `cite`, `ref`, `validate` (Crossref metadata, APA output)
+- `write` — `summarize`, `grammar`, `rewrite`, `translate` (OpenRouter)
+- `openapi` — `validate`, `openapi2postman` (JSON/YAML specs)
+- `mcp` — `serve`: JSON-RPC 2.0 MCP server over stdio exposing all ported
+  commands as tools
+- `calc` — all 20 subcommands (`eval`, `bmi`, `loan`, `tax`, `unit`, …)
+- `time` — `age`, `clock now`, `cron`, `epoch`, `pomodoro`, `stopwatch`,
+  `timer`, `until`, `world` (chrono + chrono-tz)
+- `better` — `du`, `env`, `find`, `ls`, `ps`, `psaux`, `which`
+- `system` — `info`, `env`, `path`, `disk` (+ `stats`), `battery`,
+  `monitor`, `clipboard` (sysinfo + rusqlite)
+- `data` — `archive`, `csv`, `ebook`, `excel` (`info`/`to-csv`/`to-json`),
+  `json`, `split`, `yml`
+- `search` — `files`, `text`, `code`, `web` (DuckDuckGo lite)
+- `file` — `checksum`, `chmod`, `count`, `duplicates`, `edit`, `grep`,
+  `head`, `read`, `size`, `stats`, `tail`, `type`, `write`
+- `net` — `cert` (`info`/`check`), `http`, `ip` (+ `dns`), `ping`,
+  `serve`, `status`, `whois`, `wifi`
+- `video` — `compress`, `convert`, `extract-audio`, `mute`, `resize`,
+  `subtitles`, `to-gif`, `to-mp3`, `trim` (ffmpeg)
+- `colors` — `hex`, `rgb`, `hcl`, `oklch`, `palette`, `random`,
+  `figma` (`list`/`name`/`hex`/`palettes`)
+- `gh` — `coc`, `ignore`, `languages`, `license`, `og`
+- `docsify` — `cobra`, `obsidian`, `scan`, `tree`
+- `crypto` — `hash`, `jwt` (`encode`/`decode`), `keygen`, `passwd`,
+  `uuid`, `totp`, `encrypt`, `decrypt`, `qrcode` (`encode`/`decode`),
+  `barcode` (`encode`/`decode`)
+- `casino` — `blackjack` (`cheatsheet`/`count`/`play`), `poker`
+  (`odds`/`play`), `baccarat` (`play`/`strategy`), `slots`, `coin`,
+  `dice`, `roulette` (play commands auto-play; Go used Bubble Tea TUIs)
 
-## Development
+- `image` — `background`, `blur`, `border`, `collage`, `combine`,
+  `compress`, `convert`, `crop`, `dominant`, `flip`, `grayscale`,
+  `icons`, `info`, `pixelate`, `resize`, `round`, `sharpen`, `split`,
+  `text` (bitmap font overlay, dominant colours, all fit modes)
+- `web` — `shopify detect`, `simplify` (`md`/`csv`/`images`),
+  `snapshot` (headless Chrome screenshots), `weather` (wttr.in),
+  `youtube` (`fetch`/`thumbnails`)
+- `openrouter` — `models`, `status`, `serve` (local chat API),
+  `hook` (Telegram webhook + ngrok), `code` (agentic REPL with tool approval)
+- `games` — `anagram`, `reaction`, `recall`, `typerace`, `wordle`
+- `chess` — `elo`, `chess960`, `fen`, `pgn`, `play`, `setup`, `lichess`, `com`
+- `telegram` — `bot`, `callback`, `chat`, `contact`, `dice`, `forum`, `game`, `gift`, `inline`, `invoice`, `location`, `message`, `poll`, `sticker`, `venue`, `webhook`
+  (interactive stdin prompts; `wordle --json` emits the result)
+- `gemini` — `code` REPL with model switching (Go used a Bubble Tea TUI)
+- `pdf` — `add-numbers`, `annotate`, `combine` (merge/split), `convert`
+  (from-images/to-images), `create`, `crop`, `delete`, `edit`
+  (compress/redact/rotate/watermark), `extract` (images/text),
+  `inspect` (info/metadata), `maintain` (ocr/repair), `rearrange`,
+  `security` (encrypt/decrypt) — lopdf for manipulation, hayro for
+  rasterisation, tesseract for OCR
+
+All 33 Go modules are ported. See `AGENTS.md` for the status table.
+
+## Commands
 
 ```bash
-make build        # build bin/omni (native platform)
-make build-all    # cross-compile bin/omni-{os}-{arch} for 4 platforms (zig)
-make test         # go test ./...
-make lint         # go vet ./...
-make format       # go fmt ./...
-make coverage     # HTML coverage report
-make install      # install to ~/bin/omni
+make build      # release build -> bin/omni
+make build-all  # cross-compile linux/darwin x86_64/arm64 into bin/
+make test       # cargo test
+make lint       # cargo clippy --all-targets -- -D warnings
+make format     # cargo fmt
+make install    # install to ~/bin/omni
+make clean      # remove bin/ and target/
 ```
 
-## Usage
+Version is injected at build time: `OMNI_VERSION=<date>-<sha> make build`,
+or computed automatically by `build.rs` (`YYYY.MM.DD.HH.MM.SS-<short-sha>`).
 
-```sh
-omni <module> <command> [flags]
-omni --help
-omni completion bash
-omni mcp serve
-```
+## Conventions
 
-All modules support `--json` (`-j`) for JSON output.
-
-## MCP Server
-
-```bash
-omni mcp serve
-```
-
-Configure in your `.mcp.json`:
-
-```json
-{"mcpServers":{"omni":{"command":"omni","args":["mcp","serve"]}}}
-```
-
-## Architecture
-
-- **CLI:** `github.com/spf13/cobra`; root `omni` wired in `src/cmd/root.go`
-- **Modules:** each top-level module is a Go package under `src/cmd/` with a
-  `NewCommand()` entrypoint; subcommands live in their own subdirectories
-- **Shared libs:** `src/libs/` — `requests` (HTTP), `chat` (TUI base), `colors`
-  (ANSI), `history` (JSONL command log at `~/.omni/history.jsonl`), `mcp`
-  (protocol + server), `number`, `theme` (lipgloss styles), `browser`
-  (go-rod headless Chrome)
-- **History:** every command is logged with timestamp, source, command path,
-  CWD and duration
-- **Cross-compile:** `make build-all` uses `zig cc` as the C cross-compiler for
-  the 3 non-native platform targets
-
-## Documentation
-
-| Document                              | Description                          |
-| ------------------------------------- | ------------------------------------ |
-| [Architecture](./docs/ARCHITECTURE.md)| Modules, libs, MCP internals         |
-| [Contributing](./docs/CONTRIBUTING.md)| Setup, commands, conventions, testing|
-| [Downloads](./docs/DOWNLOADS.md)      | Prebuilt binaries or build from source |
-| [Packaging](./docs/PACKAGING.md)      | Build + CI artifact pipeline         |
-| [Roadmap](./docs/ROADMAP.md)          | Phased feature roadmap               |
+- clap (derive) command tree in `src/cli.rs`; each module mirrors the Go
+  `src/cmd/<module>` layout under `src/`.
+- `--json` / `-j` is a `global` arg on each module root, matching the Go
+  persistent flag.
+- Every command is tracked to `~/.omni/history.jsonl` except `help`,
+  `completion`, `history`, and `mcp` (same exclusions as the Go CLI).
+- Interactive prompts: when a text argument is omitted, commands prompt on
+  stdin (Go used `survey`; Rust reads a line from stdin).

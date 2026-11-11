@@ -178,6 +178,8 @@ importers:
 
   packages/cli: {}
 
+  packages/cli.go: {}
+
   packages/desktop/macos: {}
 
   packages/extensions/browser:

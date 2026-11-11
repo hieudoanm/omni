@@ -1,99 +1,94 @@
-GO           ?= go
-BIN_DIR      ?= bin
-BIN_NAME     ?= omni
-BINARY       ?= $(BIN_DIR)/$(BIN_NAME)
-SRC          ?= ./main.go
-OWNER        ?= github.com/hieudoanm/omni/packages/cli
-COVERAGE_DIR ?= coverage
-PLATFORMS    := linux/amd64 linux/arm64 darwin/amd64 darwin/arm64
-
-VERSION      := $(shell date +%Y.%m.%d.%H.%M.%S)
-COMMIT       := $(shell git rev-parse --short HEAD 2>/dev/null || echo "unknown")
+CARGO       ?= cargo
+BIN_DIR     ?= bin
+BIN_NAME    ?= omni
+BINARY      ?= $(BIN_DIR)/$(BIN_NAME)
+VERSION     := $(shell date +%Y.%m.%d.%H.%M.%S)
+COMMIT      := $(shell git rev-parse --short HEAD 2>/dev/null || echo "unknown")
 FULL_VERSION := $(VERSION)-$(COMMIT)
-LDFLAGS      := -ldflags="-s -w -X '$(OWNER)/src/cmd/version.V=$(FULL_VERSION)'"
+OMNI_VERSION ?= $(FULL_VERSION)
 
-.PHONY: help all format lint test build build-all build-darwin coverage clean tidy install
+# Rust target triples for the release platforms (linux/amd64 linux/arm64 darwin/amd64 darwin/arm64)
+PLATFORMS   := x86_64-unknown-linux-gnu aarch64-unknown-linux-gnu x86_64-apple-darwin aarch64-apple-darwin
+HOST_TARGET := $(shell rustc -vV | sed -n 's/^host: //p')
+
+.PHONY: help all format lint test build build-all build-darwin coverage clean install
 
 help:
-	@echo "omni — personal CLI toolbox"
+	@echo "omni — personal CLI toolbox (Rust port)"
 	@echo ""
 	@echo "Targets:"
 	@echo "  all        format + lint + test + build"
-	@echo "  format     go fmt ./..."
-	@echo "  lint       go vet ./..."
-	@echo "  test       go test ./..."
-	@echo "  build      build $(BINARY)"
-	@echo "  build-all  cross-compile for $(PLATFORMS) into $(BIN_DIR) (zig)"
-	@echo "  build-darwin  build darwin/{amd64,arm64} with cgo (requires macOS + Xcode)"
-	@echo "  coverage   generate HTML coverage report"
-	@echo "  tidy       go mod tidy"
+	@echo "  format     cargo fmt"
+	@echo "  lint       cargo clippy -- -D warnings"
+	@echo "  test       cargo test"
+	@echo "  build      build $(BINARY) (release)"
+	@echo "  build-all  cross-compile for $(PLATFORMS) into $(BIN_DIR)"
+	@echo "  build-darwin  build darwin/{amd64,arm64}"
+	@echo "  coverage   generate HTML coverage report (cargo-llvm-cov)"
 	@echo "  install    build and install to $(HOME)/bin"
 	@echo "  clean      remove build artifacts"
 
 all: format lint test build
 
 format:
-	$(GO) fmt ./...
+	$(CARGO) fmt
 
 lint:
-	$(GO) vet ./...
+	$(CARGO) clippy --all-targets -- -D warnings
 
 test:
-	$(GO) test ./...
+	$(CARGO) test
 
 build:
 	@mkdir -p $(BIN_DIR)
-	$(GO) build $(LDFLAGS) -o $(BINARY) $(SRC)
+	OMNI_VERSION=$(OMNI_VERSION) $(CARGO) build --release
+	@cp target/release/$(BIN_NAME) $(BINARY)
 	@echo "built $(BINARY) (version $(FULL_VERSION))"
 
 build-all:
 	@mkdir -p $(BIN_DIR)
-	@for p in $(PLATFORMS); do \
-		os=$${p%/*}; arch=$${p#*/}; \
-		ext=; [ $$os = windows ] && ext=.exe; \
-		za="$${arch}"; \
-		[ "$${arch}" = "amd64" ] && za="x86_64"; \
-		[ "$${arch}" = "arm64" ] && za="aarch64"; \
-		zo="$${os}"; \
-		[ "$${os}" = "darwin" ] && zo="macos"; \
-		printf "  %s/%s... " $$os $$arch; \
-		if [ "$$os" = "$(shell go env GOOS)" ] && [ "$$arch" = "$(shell go env GOARCH)" ]; then \
-			CGO_ENABLED=1 GOOS=$$os GOARCH=$$arch \
-			go build $(LDFLAGS) -o $(BIN_DIR)/$(BIN_NAME)-$$os-$$arch$$ext $(SRC) && echo "ok"; \
-		elif [ "$$os" = "darwin" ]; then \
-			CC="zig cc -target $${za}-$${zo}" CGO_ENABLED=0 \
-			GOOS=$$os GOARCH=$$arch \
-			go build $(LDFLAGS) -o $(BIN_DIR)/$(BIN_NAME)-$$os-$$arch$$ext $(SRC) && echo "ok (static)"; \
-		else \
-			CC="zig cc -target $${za}-$${zo}" CGO_ENABLED=1 \
-			GOOS=$$os GOARCH=$$arch \
-			go build $(LDFLAGS) -o $(BIN_DIR)/$(BIN_NAME)-$$os-$$arch$$ext $(SRC) && echo "ok"; \
-		fi \
+	@for t in $(PLATFORMS); do rustup target add $$t >/dev/null 2>&1 || true; done
+	@for t in $(PLATFORMS); do \
+		os=$${t%-*}; arch=$${t##*-}; \
+		case $$t in \
+			aarch64-unknown-linux-gnu) \
+				export CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER=aarch64-linux-gnu-gcc \
+					CC_aarch64_unknown_linux_gnu=aarch64-linux-gnu-gcc \
+					AR_aarch64_unknown_linux_gnu=aarch64-linux-gnu-ar ;; \
+		esac; \
+		case $$t in \
+			x86_64-unknown-linux-gnu) name=linux-amd64 ;; \
+			aarch64-unknown-linux-gnu) name=linux-arm64 ;; \
+			x86_64-apple-darwin) name=darwin-amd64 ;; \
+			aarch64-apple-darwin) name=darwin-arm64 ;; \
+			*) name=$$t ;; \
+		esac; \
+		printf "  %s... " $$t; \
+		OMNI_VERSION=$(OMNI_VERSION) $(CARGO) build --release --target $$t && \
+		cp target/$$t/release/$(BIN_NAME) $(BIN_DIR)/$(BIN_NAME)-$$name && echo "ok" || echo "FAILED"; \
 	done
 	@echo "Binaries in $(BIN_DIR)/:"
 	@ls -1 $(BIN_DIR)/
 
 build-darwin:
 	@mkdir -p $(BIN_DIR)
-	CGO_ENABLED=1 GOOS=darwin GOARCH=amd64 $(GO) build $(LDFLAGS) -o $(BIN_DIR)/$(BIN_NAME)-darwin-amd64 $(SRC)
-	CGO_ENABLED=1 GOOS=darwin GOARCH=arm64 $(GO) build $(LDFLAGS) -o $(BIN_DIR)/$(BIN_NAME)-darwin-arm64 $(SRC)
-	@echo "built darwin binaries with cgo (requires macOS SDK)"
+	rustup target add x86_64-apple-darwin aarch64-apple-darwin >/dev/null 2>&1 || true
+	OMNI_VERSION=$(OMNI_VERSION) $(CARGO) build --release --target x86_64-apple-darwin
+	@cp target/x86_64-apple-darwin/release/$(BIN_NAME) $(BIN_DIR)/$(BIN_NAME)-darwin-amd64
+	OMNI_VERSION=$(OMNI_VERSION) $(CARGO) build --release --target aarch64-apple-darwin
+	@cp target/aarch64-apple-darwin/release/$(BIN_NAME) $(BIN_DIR)/$(BIN_NAME)-darwin-arm64
+	@echo "built darwin binaries"
 
 coverage:
-	@mkdir -p $(COVERAGE_DIR)
-	$(GO) test -coverprofile=$(COVERAGE_DIR)/coverage.out -covermode=atomic ./...
-	@$(GO) tool cover -html=$(COVERAGE_DIR)/coverage.out -o $(COVERAGE_DIR)/coverage.html
-	@$(GO) tool cover -func=$(COVERAGE_DIR)/coverage.out | tail -1
-	@echo "Coverage report: file://$(abspath $(COVERAGE_DIR))/coverage.html"
-
-tidy:
-	$(GO) mod tidy
+	cargo llvm-cov --html
+	@echo "Coverage report: file://$(CURDIR)/target/llvm-cov/html/index.html"
 
 install:
 	@mkdir -p $(HOME)/bin
-	$(GO) build $(LDFLAGS) -o $(HOME)/bin/$(BIN_NAME) $(SRC)
-	chmod +x $(HOME)/bin/$(BIN_NAME)
+	OMNI_VERSION=$(OMNI_VERSION) $(CARGO) build --release
+	@cp target/release/$(BIN_NAME) $(HOME)/bin/$(BIN_NAME)
+	@chmod +x $(HOME)/bin/$(BIN_NAME)
 	@echo "Installed to $(HOME)/bin/$(BIN_NAME)"
 
 clean:
-	@rm -rf $(BIN_DIR) $(COVERAGE_DIR)
+	@rm -rf $(BIN_DIR) target

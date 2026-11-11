@@ -44,7 +44,7 @@ Tests/
 
 **Naming:** `<Type>Tests.swift` for suites, `@Test` functions named descriptively.
 
-## CLI (`packages/cli`)
+## CLI (`packages/cli.go`)
 
 ```
 src/

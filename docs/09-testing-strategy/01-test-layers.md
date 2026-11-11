@@ -76,7 +76,7 @@ struct MemoryProviderTests {
 - Traits: `.tags(.integration)`, `.timeLimit(.minutes(1))`
 - Snapshot tests in `Tests/SnapshotTests/` using `ImageRenderer` + `assertSnapshot`
 
-### CLI (`packages/cli`)
+### CLI (`packages/cli.go`)
 
 **Framework:** Go stdlib `testing` — `go test ./...` runs 479 packages.
 

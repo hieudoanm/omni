@@ -2,6 +2,10 @@
 
 33 modules providing utilities across various domains, plus an MCP server exposing all functionality as tools.
 
+> **Port note** — this documents the feature surface shared by both implementations.
+> `packages/cli` is the shipped Rust implementation (clap + Cargo); `packages/cli.go`
+> is the Go reference it was ported from.
+
 ## Calculator & Finance
 | Module | Feature | Description |
 | ------ | ------- | ----------- |
@@ -40,6 +44,23 @@
 | `dev.json` | JSON Tools | Format and query JSON with jq-like operations |
 | `dev.regex` | Regex Tester | Test regular expressions |
 | `dev.uuid` | UUID Tools | UUID utilities |
+
+## Document Tools
+| Module | Feature | Description |
+| ------ | ------- | ----------- |
+| `pdf.add-numbers` | Page Numbers | Add formatted page numbers to a PDF |
+| `pdf.annotate` | Annotations | Add FreeText annotations at a position |
+| `pdf.combine` | Merge/Split | Merge PDFs or extract/split page ranges |
+| `pdf.convert` | PDF <-> Images | Create PDF from images; export pages via hayro rasteriser |
+| `pdf.create` | PDF Creation | Create a PDF from text content |
+| `pdf.crop` | Cropping | Set crop boxes on selected pages |
+| `pdf.delete` | Page Deletion | Remove pages by range spec |
+| `pdf.edit` | Editing | Compress, redact (pages/regions), rotate, watermark |
+| `pdf.extract` | Extraction | Extract embedded content as images or text |
+| `pdf.inspect` | Inspection | File info and metadata view/set |
+| `pdf.maintain` | Maintenance | OCR via tesseract; repair via re-save |
+| `pdf.rearrange` | Rearranging | Reorder pages (`3,1,2` or `reverse`) |
+| `pdf.security` | Security | Encrypt (RC4-128) and decrypt PDFs |
 
 ## File Operations
 | Module | Feature | Description |
@@ -99,7 +120,7 @@
 | Feature | Description |
 | ------- | ----------- |
 | `omni mcp serve` | Start MCP stdio server (JSON-RPC 2.0) |
-| Tool Discovery | Auto-discovers all CLI commands as MCP tools (189 tools) |
+| Tool Discovery | Auto-discovers all CLI commands as MCP tools (436 tools) |
 | Schema Generation | Converts cobra flags to JSON Schema |
 | In-Process Execution | Runs commands directly, captures output |
 | History Tracking | All MCP calls logged to history |

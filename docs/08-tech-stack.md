@@ -129,9 +129,9 @@ Non-negotiable:
 
 **Rejected:** SwiftLint (rules overlap with compiler), manual formatting.
 
-## 6. CLI (`packages/cli`)
+## 6. CLI (`packages/cli` — Rust; `packages/cli.go` — Go reference)
 
-### 6.1 Go + Cobra + Bubble Tea
+### 6.1 Rust + clap (shipped); Go + Cobra + Bubble Tea (reference)
 
 **Choice:** Go 1.23, Cobra for CLI commands, Bubble Tea for TUI modules.
 
@@ -237,7 +237,7 @@ Non-negotiable:
 
 ### 8.4 Install Script
 
-**Choice:** `packages/cli/scripts/install.sh` — detects OS/arch, downloads from `latest` release, installs to `~/bin`.
+**Choice:** `packages/cli.go/scripts/install.sh` — detects OS/arch, downloads from `latest` release, installs to `~/bin`.
 
 **Why:** Zero-dep bash; works on Linux/macOS; curl | bash friendly; `REPO`/`INSTALL_DIR` overridable.
 
@@ -279,5 +279,5 @@ Non-negotiable:
 - `.github/workflows/ci.yaml` — Full CI definition
 - `docs/12-operations/android.md` — Android dev commands
 - `docs/12-operations/macos.md` — macOS contributing/dev commands
-- `packages/cli/docs/PACKAGING.md` — CLI release/packaging
-- `packages/cli/docs/DOWNLOADS.md` — Download URLs for `latest`
+- `packages/cli.go/docs/PACKAGING.md` — CLI release/packaging
+- `packages/cli.go/docs/DOWNLOADS.md` — Download URLs for `latest`

@@ -17,7 +17,7 @@ src/libs/api/gemini.google.com/
 
 **Import path in code:**
 ```go
-import "github.com/hieudoanm/omni/packages/cli/src/libs/api/gemini.google.com"
+import "github.com/hieudoanm/omni/packages/cli.go/src/libs/api/gemini.google.com"
 ```
 
 **Why not replace:**

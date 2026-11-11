@@ -66,7 +66,7 @@ To enable, add `.lintstagedrc`:
 {
   "*.{kt,kts}": ["cd packages/mobile/android && make format"],
   "*.swift": ["cd packages/desktop/macos && make format"],
-  "*.go": ["cd packages/cli && make format"],
+  "*.go": ["cd packages/cli.go && make format"],
   "*.{ts,tsx,json,md}": ["cd packages/extensions/browser && pnpm format"]
 }
 ```

@@ -89,6 +89,6 @@ pnpm build     # All 4 packages
 # Per package
 cd packages/mobile/android && make lint test build
 cd packages/desktop/macos   && make format lint test build
-cd packages/cli     && make format lint test build
+cd packages/cli      && make format lint test build
 cd packages/extensions/browser && pnpm lint && pnpm test:coverage && pnpm build
 ```

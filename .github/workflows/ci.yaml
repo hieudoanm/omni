@@ -91,12 +91,9 @@ jobs:
             packages/desktop/macos/build/Omni.app.zip
             packages/desktop/macos/build/Omni-*.dmg
           retention-days: 7
-      - name: Setup Go
-        uses: actions/setup-go@v7.0.0
-        with:
-          go-version: "1.27.3"
-          cache-dependency-path: packages/cli/go.sum
-      - name: Build CLI darwin binaries (with cgo)
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+      - name: Build CLI darwin binaries (Rust)
         run: make build-darwin
         working-directory: packages/cli
       - name: Upload CLI darwin binaries
@@ -106,36 +103,33 @@ jobs:
           path: packages/cli/bin/omni-darwin-*
           retention-days: 7
 
-  # CLI: Linux runner for Go
+  # CLI: Linux runner for Rust
   cli:
     name: CLI
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v7.0.1
-      - name: Setup Go
-        uses: actions/setup-go@v7.0.0
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
         with:
-          go-version: "1.27.3"
-          cache-dependency-path: packages/cli/go.sum
-      - name: Install Zig (for cross-compilation)
-        uses: goto-bus-stop/setup-zig@v2.2.1
-        with:
-          version: 0.13.0
-      - name: Run CLI format
-        run: make format
+          components: rustfmt, clippy
+      - name: Rust CLI format check
+        run: cargo fmt --check
         working-directory: packages/cli
-      - name: Run CLI lint
-        run: make lint
+      - name: Rust CLI lint
+        run: cargo clippy --all-targets -- -D warnings
         working-directory: packages/cli
-      - name: Run CLI tests
-        run: make test
+      - name: Rust CLI tests
+        run: cargo test
         working-directory: packages/cli
       - name: Build CLI native
         run: make build
         working-directory: packages/cli
-      - name: Cross-compile CLI (all platforms)
-        run: make build-all
+      - name: Install aarch64 cross toolchain
+        run: sudo apt-get install -y gcc-aarch64-linux-gnu
+      - name: Cross-compile CLI (linux platforms)
+        run: make build-all PLATFORMS="x86_64-unknown-linux-gnu aarch64-unknown-linux-gnu"
         working-directory: packages/cli
       - name: Upload CLI binaries
         uses: actions/upload-artifact@v7.0.2
