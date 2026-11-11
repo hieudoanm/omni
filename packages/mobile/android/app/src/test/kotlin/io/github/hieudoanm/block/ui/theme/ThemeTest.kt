@@ -35,7 +35,7 @@ class ThemeTest {
             FocusBlockTheme(darkTheme = false, dynamicColor = false) {
                 val scheme = MaterialTheme.colorScheme
                 assertNotNull(scheme)
-                assertEquals(Color(0xFF0F3460), LightPrimary)
+                assertEquals(Color(0xFF008CFF), HudLightPrimary)
             }
         }
     }

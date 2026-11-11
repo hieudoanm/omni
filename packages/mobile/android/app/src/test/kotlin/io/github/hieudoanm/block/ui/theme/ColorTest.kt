@@ -6,62 +6,87 @@ import kotlin.test.assertEquals
 
 class ColorTest {
     @Test
-    fun `DarkBackground has correct hex`() {
-        assertEquals(Color(0xFF1A1A2E), DarkBackground)
+    fun `HudBackground has correct hex`() {
+        assertEquals(Color(0xFF020813), HudBackground)
     }
 
     @Test
-    fun `DarkSurface has correct hex`() {
-        assertEquals(Color(0xFF16213E), DarkSurface)
+    fun `HudSurface has correct hex`() {
+        assertEquals(Color(0xFF0A1424), HudSurface)
     }
 
     @Test
-    fun `DarkPrimary has correct hex`() {
-        assertEquals(Color(0xFF0F3460), DarkPrimary)
+    fun `HudSurfaceVariant has correct hex`() {
+        assertEquals(Color(0xFF0F1E33), HudSurfaceVariant)
     }
 
     @Test
-    fun `DarkAccent has correct hex`() {
-        assertEquals(Color(0xFFE94560), DarkAccent)
+    fun `HudBorder has correct hex`() {
+        assertEquals(Color(0xFF14304A), HudBorder)
     }
 
     @Test
-    fun `DarkText has correct hex`() {
-        assertEquals(Color(0xFFEEEEEE), DarkText)
+    fun `HudPrimary has correct hex`() {
+        assertEquals(Color(0xFF16DFFF), HudPrimary)
     }
 
     @Test
-    fun `LightBackground has correct hex`() {
-        assertEquals(Color(0xFFF5F5F5), LightBackground)
+    fun `HudPrimaryDim has correct hex`() {
+        assertEquals(Color(0xFF008CFF), HudPrimaryDim)
     }
 
     @Test
-    fun `LightSurface has correct hex`() {
-        assertEquals(Color(0xFFFFFFFF), LightSurface)
+    fun `HudSecondary has correct hex`() {
+        assertEquals(Color(0xFF8AFAFF), HudSecondary)
     }
 
     @Test
-    fun `LightPrimary has correct hex`() {
-        assertEquals(Color(0xFF0F3460), LightPrimary)
+    fun `HudText has correct hex`() {
+        assertEquals(Color(0xFFEDEDED), HudText)
     }
 
     @Test
-    fun `LightAccent has correct hex`() {
-        assertEquals(Color(0xFFE94560), LightAccent)
+    fun `HudMuted has correct hex`() {
+        assertEquals(Color(0xFF7D93AD), HudMuted)
     }
 
     @Test
-    fun `LightText has correct hex`() {
-        assertEquals(Color(0xFF1A1A2E), LightText)
+    fun `HudLightBackground has correct hex`() {
+        assertEquals(Color(0xFFF2F7FB), HudLightBackground)
     }
 
     @Test
-    fun `dark and light accent are the same`() {
-        assertEquals(DarkAccent, LightAccent)
+    fun `HudLightSurface has correct hex`() {
+        assertEquals(Color(0xFFFFFFFF), HudLightSurface)
     }
 
     @Test
-    fun `dark and light primary are the same`() {
-        assertEquals(DarkPrimary, LightPrimary)
+    fun `HudLightSurfaceVariant has correct hex`() {
+        assertEquals(Color(0xFFE8F0F8), HudLightSurfaceVariant)
+    }
+
+    @Test
+    fun `HudLightBorder has correct hex`() {
+        assertEquals(Color(0xFFC4D8EC), HudLightBorder)
+    }
+
+    @Test
+    fun `HudLightPrimary has correct hex`() {
+        assertEquals(Color(0xFF008CFF), HudLightPrimary)
+    }
+
+    @Test
+    fun `HudLightSecondary has correct hex`() {
+        assertEquals(Color(0xFF0090C8), HudLightSecondary)
+    }
+
+    @Test
+    fun `HudLightText has correct hex`() {
+        assertEquals(Color(0xFF0B1526), HudLightText)
+    }
+
+    @Test
+    fun `HudLightMuted has correct hex`() {
+        assertEquals(Color(0xFF4A5D75), HudLightMuted)
     }
 }
