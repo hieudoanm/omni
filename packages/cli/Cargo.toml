@@ -58,7 +58,7 @@ sec1 = "=0.8.1"
 pkcs1 = "=0.8.0"
 spki = { version = "=0.8.1", features = ["pem"] }
 pem = "=4.0.0"
-image = "=0.25.8"
+image = "=0.25.10"
 rxing = "=0.9.4"
 p521 = "=0.14.0"
 ecdsa = "=0.17.0"
