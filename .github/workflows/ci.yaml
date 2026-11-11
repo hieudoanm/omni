@@ -289,6 +289,15 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
         working-directory: packages/web
+      - name: Typecheck web
+        run: pnpm typecheck
+        working-directory: packages/web
+      - name: Lint web
+        run: pnpm lint
+        working-directory: packages/web
+      - name: Test web
+        run: pnpm test
+        working-directory: packages/web
       - name: Build web
         run: pnpm build
         working-directory: packages/web
