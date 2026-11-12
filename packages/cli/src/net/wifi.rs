@@ -44,7 +44,7 @@ fn scan_wifi() -> Result<String> {
             };
             sb.push_str(&format!("{} | RSSI: {} | {}\n", ssid, parts[1], parts[2]));
         }
-        return Ok(sb);
+        Ok(sb)
     }
     #[cfg(not(target_os = "linux"))]
     {

@@ -1483,18 +1483,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "dns-lookup"
-version = "4.0.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "263c0ccfc6b3b6a93e959edad4f985779e76c0b36dbb2e13e3d27c690974adf1"
-dependencies = [
- "cfg-if",
- "libc",
- "socket2",
- "windows-sys 0.61.2",
-]
-
-[[package]]
 name = "document-features"
 version = "0.2.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3429,7 +3417,6 @@ dependencies = [
  "csv",
  "ctrlc",
  "dirs",
- "dns-lookup",
  "ecdsa",
  "ed25519-dalek",
  "elliptic-curve",
@@ -3449,8 +3436,6 @@ dependencies = [
  "p256",
  "p384",
  "p521",
- "pem",
- "pgn-reader",
  "pkcs1",
  "pkcs8",
  "qrcode",
@@ -3636,16 +3621,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "pem"
-version = "4.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d354a98a3d1251555de99e8fdd8afda05573c31b82f59063a7b0a29b5527f120"
-dependencies = [
- "base64 0.23.1",
- "serde_core",
-]
-
-[[package]]
 name = "pem-rfc7468"
 version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3724,17 +3699,6 @@ checksum = "9ac6154fd4418b8f0b82532c59c26f303f9ca59a64c883e8ce3971fd82733439"
 dependencies = [
  "psm",
  "stacker",
-]
-
-[[package]]
-name = "pgn-reader"
-version = "0.29.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "50e9c8c7d9654b31768477ec2712b9e40682ad1dd323db2867dfeefa94651c6a"
-dependencies = [
- "btoi",
- "memchr",
- "shakmaty",
 ]
 
 [[package]]
@@ -5228,16 +5192,6 @@ name = "smallvec"
 version = "1.16.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "149309498a5f7334b12ddae0cad8aba81ce785fe91755068867e017cf98fee46"
-
-[[package]]
-name = "socket2"
-version = "0.6.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c3d1e2c7f27f8d4cb10542a02c49005dbd6e93095799d6f3be745fae9f8fedd4"
-dependencies = [
- "libc",
- "windows-sys 0.61.2",
-]
 
 [[package]]
 name = "spki"
