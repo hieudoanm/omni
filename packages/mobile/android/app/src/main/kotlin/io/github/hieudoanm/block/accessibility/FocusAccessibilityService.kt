@@ -4,6 +4,7 @@ import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
 import android.view.accessibility.AccessibilityEvent
 import dagger.hilt.android.AndroidEntryPoint
+import io.github.hieudoanm.omni.BuildConfig
 import io.github.hieudoanm.block.activity.BlockActivity
 import io.github.hieudoanm.block.repository.FocusRepository
 import kotlinx.coroutines.CoroutineScope
@@ -53,7 +54,7 @@ class FocusAccessibilityService : AccessibilityService() {
     private fun shouldIgnore(packageName: String): Boolean {
         // All features share one applicationId, so compare against this
         // service's own package rather than a hardcoded feature name.
-        return packageName == this.packageName ||
+        return packageName == BuildConfig.APPLICATION_ID ||
             packageName.startsWith("com.android.systemui") ||
             packageName.startsWith("com.google.android.permissioncontroller") ||
             packageName.startsWith("com.android.launcher") ||
