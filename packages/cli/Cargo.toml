@@ -30,7 +30,7 @@ regex = "=1.13.1"
 csv = "=1.4.0"
 zip = "=9.5.1"
 quick-xml = "=0.42.0"
-sysinfo = "=0.40.1"
+sysinfo = "=0.40.3"
 rusqlite = { version = "=0.41.1", features = ["bundled"] }
 scraper = "=0.29.0"
 calamine = "=0.38.0"
