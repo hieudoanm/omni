@@ -3440,7 +3440,7 @@ dependencies = [
  "pkcs8",
  "qrcode",
  "quick-xml",
- "rand 0.9.5",
+ "rand 0.10.3",
  "ratatui",
  "readability-rust",
  "regex",
