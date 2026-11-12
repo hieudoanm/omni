@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/hieudoanm/omni/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/hieudoanm/omni/actions/workflows/ci.yaml?branch=master)  [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-keywords: `cli`, `rust`, `android`, `ios`, `macos`, `nfc`, `browser-extension`
+Topics: `cli`, `rust`, `android`, `ios`, `macos`, `nfc`, `browser-extension`
 
 
 **Five native platforms plus extensions and a static web page, one codebase — Android, iOS, macOS, CLI, Browser, VS Code, and Web.**
