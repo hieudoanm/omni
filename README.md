@@ -1,4 +1,4 @@
-# Omni
+# omni
 
 [![CI](https://github.com/hieudoanm/omni/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/hieudoanm/omni/actions/workflows/ci.yaml?branch=master)  [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
@@ -7,7 +7,25 @@
 
 Omni is a personal toolbox that runs everywhere: a focus blocker and NFC toolkit on Android, an NFC toolkit on iOS, a menu-bar system monitor on macOS, a 33-module CLI with an MCP server, a browser extension, a VS Code theme, and a J.A.R.V.I.S.-style web page deployed to GitHub Pages. All seven share a single monorepo, a single CI pipeline, and a single rolling `latest` release.
 
-[📱 Android](#android) · [📲 iOS](#ios) · [🖥️ macOS](#macos) · [⌨️ CLI](#cli) · [🌐 Browser](#browser) · [🔧 Technical Docs](AGENTS.md)
+## Table of Contents
+
+- [The Problem](#the-problem)
+- [The Solution](#the-solution)
+- [Features](#features)
+  - [Android](#android-packagesmobileandroid)
+  - [iOS](#ios-packagesmobileios)
+  - [macOS](#macos-packagesdesktopmacos)
+  - [CLI](#cli-packagescli)
+  - [CLI — Go reference](#cli--go-reference-packagescligo)
+  - [Browser](#browser-packagesextensionsbrowser)
+  - [Web](#web-packagesweb)
+- [Key Benefits](#key-benefits)
+- [Get Started](#get-started)
+- [CI Pipeline](#ci-pipeline)
+- [Install CLI](#install-cli)
+- [Project Structure](#project-structure)
+- [Technical Reference](#technical-reference)
+- [License](#license)
 
 ## The Problem
 
@@ -271,10 +289,10 @@ See [AGENTS.md](AGENTS.md) for:
 - Browser extension structure
 - CI/CD details
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
 ---
 
 **Omni** — one toolbox, five native homes.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
