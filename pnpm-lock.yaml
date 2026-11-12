@@ -162,9 +162,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-patchedDependencies:
-  daisyui@5.7.50: e599df2327663d58dc39e25df410a2d0e4b74c7960a371d8ad5877697cfe9479
-
 importers:
 
   .:
@@ -420,8 +417,8 @@ importers:
         specifier: 0.187.0
         version: 0.187.0
       daisyui:
-        specifier: 5.7.50
-        version: 5.7.50(patch_hash=e599df2327663d58dc39e25df410a2d0e4b74c7960a371d8ad5877697cfe9479)
+        specifier: 5.8.0
+        version: 5.8.0
       eslint:
         specifier: 10.14.0
         version: 10.14.0(jiti@2.7.0)(supports-color@8.1.1)
@@ -3156,8 +3153,8 @@ packages:
     resolution: {integrity: sha512-1Il1aliroVSErrv5aulRBxAY+7+DnaoLIWGd1C6SsBTWDeobWiP/V69vwb8vT6abR1kKwaNe1196pmaQ1fK90A==}
     engines: {node: '>=12'}
 
-  daisyui@5.7.50:
-    resolution: {integrity: sha512-+/LRqnTCoc7s/bJEKKwtJSwzeXCVdAmRdNmZeZzgHCaQ9PJyl7j+2V2U32GQDMyD+VDkP9e/+JGoC72Y1hLk7w==}
+  daisyui@5.8.0:
+    resolution: {integrity: sha512-pIdff0OLXTgCNvbRZlY2W2qjCnJd7DgRLyTpzhHgg+JqMzVDsQoRzJXyDKyPCOUYvTFHlOt97+JCeGyxQav4Zw==}
 
   damerau-levenshtein@1.0.8:
     resolution: {integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==}
@@ -10246,7 +10243,7 @@ snapshots:
 
   d3-timer@3.0.2: {}
 
-  daisyui@5.7.50(patch_hash=e599df2327663d58dc39e25df410a2d0e4b74c7960a371d8ad5877697cfe9479): {}
+  daisyui@5.8.0: {}
 
   damerau-levenshtein@1.0.8: {}
 
