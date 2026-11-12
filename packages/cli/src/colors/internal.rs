@@ -437,7 +437,7 @@ pub fn is_valid_hex(hex: &str) -> bool {
 }
 
 pub fn random_hex() -> String {
-    use rand::Rng;
+    use rand::RngExt;
     let mut rng = rand::rng();
     format!(
         "#{:02X}{:02X}{:02X}",

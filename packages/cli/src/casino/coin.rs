@@ -1,6 +1,6 @@
 use anyhow::Result;
 use clap::Args;
-use rand::Rng;
+use rand::RngExt;
 
 #[derive(Args)]
 pub struct CoinArgs {

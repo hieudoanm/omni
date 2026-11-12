@@ -1,6 +1,6 @@
 //! Reaction-time game: press Enter when the cue appears.
 use anyhow::Result;
-use rand::Rng;
+use rand::RngExt;
 use std::io::{self, Write};
 use std::time::{Duration, Instant};
 

@@ -1,6 +1,6 @@
 use anyhow::Result;
 use clap::Args;
-use rand::Rng;
+use rand::RngExt;
 
 const SLOTS_SYMBOLS: [&str; 6] = ["🍒", "🍋", "🔔", "💎", "7️⃣", "BAR"];
 const SLOTS_PAYOUTS: [i32; 6] = [2, 3, 5, 10, 20, 50];

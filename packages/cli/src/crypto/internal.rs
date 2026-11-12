@@ -14,7 +14,7 @@ pub fn compute_hash(input: &[u8], algorithm: &str) -> Result<String> {
 
 /// Uniform random index in [0, n) using a CSPRNG (crypto/rand.Int parity).
 pub fn rand_index(n: usize) -> Result<usize> {
-    use rand::RngCore;
+    use rand::Rng;
     if n == 0 {
         return Err(anyhow!("empty range"));
     }

@@ -1,6 +1,6 @@
 use crate::convert::internal::write_json;
 use anyhow::Result;
-use rand::Rng;
+use rand::RngExt;
 use serde::Serialize;
 
 const LOREM_WORDS: &[&str] = &[

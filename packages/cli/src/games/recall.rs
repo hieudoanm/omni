@@ -1,6 +1,6 @@
 //! Number-recall memory game.
 use anyhow::Result;
-use rand::Rng;
+use rand::RngExt;
 use std::io::{self, Write};
 
 const MAX_DIGITS: usize = 12;

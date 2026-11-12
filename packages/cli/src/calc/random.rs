@@ -1,7 +1,7 @@
 use super::print_json;
 use anyhow::Result;
 use clap::Args;
-use rand::Rng;
+use rand::RngExt;
 use serde_json::json;
 
 #[derive(Args)]
