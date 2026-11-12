@@ -34,7 +34,7 @@ class FocusAccessibilityServiceTest {
     @Test
     fun `shouldIgnore returns true for own package`() {
         val event = mockk<AccessibilityEvent>(relaxed = true) {
-            every { packageName } returns "io.github.hieudoanm.block"
+            every { packageName } returns "io.github.hieudoanm.omni"
             every { eventType } returns AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED
         }
         service.onAccessibilityEvent(event)

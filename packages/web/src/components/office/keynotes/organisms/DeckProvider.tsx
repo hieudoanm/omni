@@ -308,7 +308,6 @@ export const DeckProvider = ({ children }: { children: ReactNode }) => {
       channel.close();
       channelRef.current = null;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const mutate = useCallback((fn: (deck: Deck) => Deck, record = true) => {

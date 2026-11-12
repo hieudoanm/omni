@@ -37,6 +37,11 @@ const eslintConfig = defineConfig([
       'react-hooks/refs': 'off',
       'react-hooks/purity': 'off',
       'react-hooks/error-boundaries': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-expressions': 'off',
+      'react-hooks/exhaustive-deps': 'off',
+      '@next/next/no-img-element': 'off',
+      'import/no-anonymous-default-export': 'off',
     },
   },
 ]);

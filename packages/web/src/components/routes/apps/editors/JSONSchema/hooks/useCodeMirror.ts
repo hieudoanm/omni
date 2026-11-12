@@ -39,7 +39,6 @@ export const useCodeMirror = ({
     });
     viewRef.current = new EditorView({ state, parent: ref.current });
     return () => viewRef.current?.destroy();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [extensions]);
 
   useEffect(() => {
