@@ -1,6 +1,7 @@
 {
   "name": "@omni/workspace",
   "version": "0.0.1",
+  "private": true,
   "description": "Omni Workspace",
   "main": "index.js",
   "exports": {
@@ -9,24 +10,25 @@
   "keywords": [
     "omni"
   ],
+  "license": "MIT",
   "author": {
     "name": "Hieu Doan",
-    "email": "hieu.doan.professional@gmail.com"
+    "email": "hieu.doan.professional@gmail.com",
+    "url": "https://hieudoanm.github.io"
   },
-  "license": "MIT",
   "packageManager": "pnpm@12.18.0",
   "type": "module",
   "engines": {
     "node": "26.13.1"
   },
   "scripts": {
-    "prepare": "husky || true",
-    "format": "turbo run format",
-    "build": "turbo run build",
     "dev": "turbo run dev",
-    "typecheck": "turbo run typecheck",
+    "build": "turbo run build",
+    "lint": "ANDROID_HOME=${ANDROID_HOME:-$HOME/Library/Android/sdk} turbo run lint",
     "test": "turbo run test",
-    "lint": "ANDROID_HOME=${ANDROID_HOME:-$HOME/Library/Android/sdk} turbo run lint"
+    "typecheck": "turbo run typecheck",
+    "format": "turbo run format",
+    "prepare": "husky || true"
   },
   "devDependencies": {
     "husky": "9.1.7",
