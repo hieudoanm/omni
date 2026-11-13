@@ -15,23 +15,28 @@ Omni is a personal toolbox that runs everywhere: a focus blocker and NFC toolkit
 
 ## Table of Contents
 
-- [The Problem](#the-problem)
-- [The Solution](#the-solution)
-- [Features](#features)
-  - [Android](#android-packagesmobileandroid)
-  - [iOS](#ios-packagesmobileios)
-  - [macOS](#macos-packagesdesktopmacos)
-  - [CLI](#cli-packagescli)
-  - [CLI — Go reference](#cli--go-reference-packagescligo)
-  - [Browser](#browser-packagesextensionsbrowser)
-  - [Web](#web-packagesweb)
-- [Key Benefits](#key-benefits)
-- [Get Started](#get-started)
-- [CI Pipeline](#ci-pipeline)
-- [Install CLI](#install-cli)
-- [Project Structure](#project-structure)
-- [Technical Reference](#technical-reference)
-- [License](#license)
+- [omni](#omni)
+  - [Table of Contents](#table-of-contents)
+  - [The Problem](#the-problem)
+  - [The Solution](#the-solution)
+  - [Features](#features)
+    - [Android (`packages/mobile/android`)](#android-packagesmobileandroid)
+    - [iOS (`packages/mobile/ios`)](#ios-packagesmobileios)
+    - [macOS (`packages/desktop/macos`)](#macos-packagesdesktopmacos)
+    - [CLI (`packages/cli`)](#cli-packagescli)
+    - [CLI — Go reference (`packages/cli.go`)](#cli--go-reference-packagescligo)
+    - [Browser (`packages/extensions/browser`)](#browser-packagesextensionsbrowser)
+    - [Web (`packages/web`)](#web-packagesweb)
+  - [Key Benefits](#key-benefits)
+  - [Get Started](#get-started)
+    - [Prerequisites](#prerequisites)
+    - [Run locally](#run-locally)
+    - [Quick test matrix](#quick-test-matrix)
+  - [CI Pipeline](#ci-pipeline)
+  - [Install CLI](#install-cli)
+  - [Project Structure](#project-structure)
+  - [Technical Reference](#technical-reference)
+  - [License](#license)
 
 ## The Problem
 
@@ -43,16 +48,16 @@ Meanwhile, most "cross-platform" approaches mean Electron or a web wrapper — s
 
 Omni keeps each platform **native** while unifying the rest:
 
-| Platform | Language   | UI Framework        | Package            |
-| -------- | ---------- | ------------------- | ------------------ |
-| Android  | Kotlin     | Jetpack Compose     | `packages/mobile/android` |
-| iOS      | Swift      | SwiftUI             | `packages/mobile/ios`     |
-| macOS    | Swift      | SwiftUI             | `packages/desktop/macos`   |
-| CLI      | Rust       | clap                      | `packages/cli`        |
-| CLI (Go) | Go         | Bubble Tea / Cobra        | `packages/cli.go`     |
+| Platform | Language   | UI Framework        | Package                       |
+| -------- | ---------- | ------------------- | ----------------------------- |
+| Android  | Kotlin     | Jetpack Compose     | `packages/mobile/android`     |
+| iOS      | Swift      | SwiftUI             | `packages/mobile/ios`         |
+| macOS    | Swift      | SwiftUI             | `packages/desktop/macos`      |
+| CLI      | Rust       | clap                | `packages/cli`                |
+| CLI (Go) | Go         | Bubble Tea / Cobra  | `packages/cli.go`             |
 | Browser  | TypeScript | Manifest V3 / React | `packages/extensions/browser` |
-| VS Code  | TypeScript | Theme                | `packages/extensions/vscode`  |
-| Web      | TypeScript | Next.js 16 / React  | `packages/web`     |
+| VS Code  | TypeScript | Theme               | `packages/extensions/vscode`  |
+| Web      | TypeScript | Next.js 16 / React  | `packages/web`                |
 
 - **Single monorepo** (pnpm + Turborepo) — one `pnpm install`, one `pnpm lint`, one `pnpm test`, one `pnpm build`.
 - **Single CI** (`.github/workflows/ci.yaml`) — per-platform runners (Ubuntu for Android/CLI/Browser, macOS for macOS), proper toolchains, artifact uploads. iOS builds locally via `xcodebuild` (not yet in CI).
@@ -211,14 +216,14 @@ pnpm build        # all workspace packages
 
 `.github/workflows/ci.yaml` runs on every push/PR to `master`:
 
-| Job                | Runner          | Steps                                                                                                                                          |
-| ------------------ | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| **android**        | `ubuntu-latest` | JDK 25 + Android SDK → `make lint` → `make test` → `make build` → upload `app-debug.apk`                                                        |
+| Job                | Runner          | Steps                                                                                                                                                    |
+| ------------------ | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **android**        | `ubuntu-latest` | JDK 25 + Android SDK → `make lint` → `make test` → `make build` → upload `app-debug.apk`                                                                 |
 | **macos**          | `macos-latest`  | `make format-check` → `make lint` → `make test` → `make build` → `make app` → `make dmg` → CLI `make build-darwin` → upload `Omni.app` + `omni-darwin-*` |
-| **cli**            | `ubuntu-latest` | Go 1.27 + Zig → `make format` → `make lint` → `make test` → `make build` → `make build-all` → upload `omni-*`                                  |
-| **browser**        | `ubuntu-latest` | Node 26 + pnpm → `pnpm install` → `pnpm typecheck` → `pnpm lint:check` → `pnpm format:check` → `pnpm test` → `pnpm build` → upload `dist/`      |
-| **web**            | `ubuntu-latest` | Node 26 + pnpm → `pnpm install` → `pnpm build` → upload Pages artifact                                                                         |
-| **release-latest** | `ubuntu-latest` | *on push to master* → downloads all artifacts → force-updates GitHub Release `latest`; web deploys to GitHub Pages                             |
+| **cli**            | `ubuntu-latest` | Go 1.27 + Zig → `make format` → `make lint` → `make test` → `make build` → `make build-all` → upload `omni-*`                                            |
+| **browser**        | `ubuntu-latest` | Node 26 + pnpm → `pnpm install` → `pnpm typecheck` → `pnpm lint:check` → `pnpm format:check` → `pnpm test` → `pnpm build` → upload `dist/`               |
+| **web**            | `ubuntu-latest` | Node 26 + pnpm → `pnpm install` → `pnpm build` → upload Pages artifact                                                                                   |
+| **release-latest** | `ubuntu-latest` | *on push to master* → downloads all artifacts → force-updates GitHub Release `latest`; web deploys to GitHub Pages                                       |
 
 The `latest` release is the **single source of truth** for downloads. The CLI install script, Dockerfile, and docs all reference `https://github.com/hieudoanm/omni/releases/download/latest/...`.
 
@@ -234,7 +239,7 @@ curl -fsSL https://raw.githubusercontent.com/hieudoanm/omni/master/packages/cli.
 
 ## Project Structure
 
-```
+```text
 omni/
 ├── .github/workflows/ci.yaml     # Unified CI
 ├── turbo.json                    # Turborepo config (globalEnv for Android SDK)
