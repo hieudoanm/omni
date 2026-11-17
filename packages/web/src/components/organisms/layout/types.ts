@@ -1,1 +1,1 @@
-export type SidebarTab = 'currency' | 'apps' | 'world-clock';
+export type SidebarTab = 'apps' | 'world-clock';
