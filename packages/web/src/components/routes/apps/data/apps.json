@@ -891,15 +891,6 @@
         "toolId": "lorem-ipsum"
       },
       {
-        "label": "No Sleep",
-        "description": "Timer",
-        "icon": "PiMoon",
-        "type": "app",
-        "typeId": "App",
-        "sectionId": "utilities",
-        "toolId": "no-sleep"
-      },
-      {
         "label": "Screen Recorder",
         "description": "Record & Download",
         "icon": "PiFilmStrip",
