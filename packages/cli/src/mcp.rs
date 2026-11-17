@@ -37,6 +37,185 @@ struct Tool {
     flags: Map<String, Value>,
 }
 
+/// All four MCP hints for a tool, always serialized with camelCase keys.
+fn annotations_for(name: &str) -> Value {
+    let (read_only, destructive, idempotent, open_world) = hints_for(name);
+    json!({
+        "readOnlyHint": read_only,
+        "destructiveHint": destructive,
+        "idempotentHint": idempotent,
+        "openWorldHint": open_world,
+    })
+}
+
+/// Hint tuple: (read_only, destructive, idempotent, open_world).
+///
+/// Tools are discovered from the clap tree, so hints are classified by name.
+/// The default is a local, read-only, idempotent call; overrides below cover
+/// file-writing commands, remote APIs, interactive sessions, and random output.
+fn hints_for(name: &str) -> (bool, bool, bool, bool) {
+    const RO: (bool, bool, bool, bool) = (true, false, true, false);
+    const OPEN_RO: (bool, bool, bool, bool) = (true, false, true, true);
+    const WRITE: (bool, bool, bool, bool) = (false, false, true, false);
+    const OPEN_WRITE: (bool, bool, bool, bool) = (false, false, false, true);
+
+    // Commands that write files or clear local state.
+    match name {
+        "history.clear" => return (false, true, true, false),
+        "file.write" | "file.chmod" => return WRITE,
+        "file.edit" => return (false, false, false, false),
+        "data.archive" | "data.ebook" | "data.excel.to-csv" | "data.split" => return WRITE,
+        "docsify.cobra" | "docsify.obsidian" | "docsify.scan" | "docsify.tree" => return WRITE,
+        "openapi.openapi2postman" => return WRITE,
+        "net.serve" | "openrouter.serve" | "openrouter.hook" | "openrouter.code" => {
+            return OPEN_WRITE;
+        }
+        _ => {}
+    }
+    if name.starts_with("image.") && !matches!(name, "image.info" | "image.dominant") {
+        return WRITE;
+    }
+    if name.starts_with("pdf.") && !name.starts_with("pdf.inspect") && name != "pdf.extract.text" {
+        return WRITE;
+    }
+    if name.starts_with("video.") {
+        return WRITE;
+    }
+    if matches!(
+        name,
+        "web.snapshot"
+            | "web.simplify"
+            | "web.simplify.md"
+            | "web.simplify.csv"
+            | "web.simplify.images"
+            | "web.youtube.fetch"
+            | "web.youtube.thumbnails"
+    ) {
+        return (false, false, true, true);
+    }
+    // gh.* commands fetch repo data and write an SVG/text output file.
+    if name.starts_with("gh.") {
+        return (false, false, true, true);
+    }
+    if name.starts_with("telegram.") {
+        return telegram_hints(name);
+    }
+    // OpenRouter/Gemini chat TUIs are interactive and non-deterministic.
+    if name == "gemini.code" {
+        return (true, false, false, true);
+    }
+    // LLM rewrites are read-only but non-deterministic.
+    if name.starts_with("write.") {
+        return (true, false, false, true);
+    }
+    // Commands whose output is random or interactive: same args, new result.
+    if is_non_idempotent(name) {
+        return (true, false, false, open_world(name));
+    }
+    if open_world(name) {
+        return OPEN_RO;
+    }
+    RO
+}
+
+/// Bot API calls that only read remote state.
+fn telegram_read_only(name: &str) -> bool {
+    matches!(
+        name,
+        "telegram.bot.get-me"
+            | "telegram.chat.get"
+            | "telegram.game.high-scores"
+            | "telegram.webhook.info"
+    )
+}
+
+/// Remote mutations that irreversibly delete or revoke data.
+fn telegram_destructive(name: &str) -> bool {
+    matches!(
+        name,
+        "telegram.message.delete"
+            | "telegram.webhook.delete"
+            | "telegram.forum.delete"
+            | "telegram.forum.close"
+            | "telegram.chat.ban"
+            | "telegram.chat.revoke-invite-link"
+            | "telegram.sticker.remove-from-set"
+            | "telegram.chat.leave"
+    )
+}
+
+fn telegram_hints(name: &str) -> (bool, bool, bool, bool) {
+    if telegram_read_only(name) {
+        return (true, false, true, true);
+    }
+    if telegram_destructive(name) {
+        return (false, true, true, true);
+    }
+    // Sends, edits, pins, webhook/config sets: remote mutations that are not
+    // safely repeatable (a second send delivers a second message).
+    (false, false, false, true)
+}
+
+/// True when the command reaches an external network service.
+fn open_world(name: &str) -> bool {
+    const PREFIXES: &[&str] = &[
+        "english.",
+        "doi.",
+        "port.",
+        "write.",
+        "chess.com.",
+        "chess.lichess.",
+        "search.web",
+        "web.",
+        "gemini.",
+        "openrouter.",
+    ];
+    name == "calc.currency"
+        || (name.starts_with("net.") && name != "net.wifi")
+        || PREFIXES.iter().any(|p| name.starts_with(p))
+}
+
+/// True for commands whose output differs between identical invocations
+/// (RNG, wall-clock sessions, interactive prompts) but that mutate nothing.
+fn is_non_idempotent(name: &str) -> bool {
+    if name.starts_with("games.") {
+        return true;
+    }
+    if name.starts_with("casino.") {
+        // Rules/reference commands are deterministic; rolls, odds and the
+        // play TUIs are not.
+        return matches!(
+            name,
+            "casino.coin"
+                | "casino.dice"
+                | "casino.roulette"
+                | "casino.slots"
+                | "casino.slots.play"
+                | "casino.poker.odds"
+                | "casino.blackjack.play"
+                | "casino.poker.play"
+                | "casino.baccarat.play"
+        );
+    }
+    matches!(
+        name,
+        "calc.random"
+            | "colors.random"
+            | "colors.palette"
+            | "convert.lorem"
+            | "crypto.uuid"
+            | "crypto.keygen"
+            | "crypto.passwd"
+            | "crypto.totp"
+            | "chess.play"
+            | "chess.setup"
+            | "chess.chess960.random"
+            | "time.pomodoro"
+            | "time.stopwatch"
+            | "time.timer"
+    )
+}
+
 fn flag_kind(arg: &clap::Arg) -> FlagKind {
     use clap::builder::ArgAction::*;
     match arg.get_action() {
@@ -414,6 +593,7 @@ fn handle_message(line: &str, tools: &[Tool], out: &mut dyn Write) {
                         "name": t.name,
                         "description": t.description,
                         "inputSchema": t.schema,
+                        "annotations": annotations_for(&t.name),
                     })
                 })
                 .collect();
@@ -480,5 +660,158 @@ fn serve() -> Result<()> {
 pub fn run(args: &McpArgs) -> Result<()> {
     match &args.command {
         Some(McpCommand::Serve) | None => serve(),
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn listed_tools() -> Vec<Value> {
+        let tools = discover_tools();
+        assert!(!tools.is_empty());
+        let mut out: Vec<u8> = Vec::new();
+        handle_message(
+            r#"{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}"#,
+            &tools,
+            &mut out,
+        );
+        let reply: Value = serde_json::from_slice(&out).expect("tools/list reply");
+        reply["result"]["tools"]
+            .as_array()
+            .expect("tools array")
+            .clone()
+    }
+
+    #[test]
+    fn tools_list_includes_expected_tools() {
+        let tools = listed_tools();
+        let names: Vec<&str> = tools
+            .iter()
+            .map(|t| t["name"].as_str().expect("tool name"))
+            .collect();
+        for expected in [
+            "convert.base64.encode",
+            "file.read",
+            "file.write",
+            "history.clear",
+            "net.serve",
+            "search.web",
+            "telegram.message.send",
+            "version",
+        ] {
+            assert!(names.contains(&expected), "missing tool {expected}");
+        }
+    }
+
+    #[test]
+    fn every_tool_declares_all_four_hints() {
+        for tool in listed_tools() {
+            let name = tool["name"].as_str().expect("tool name");
+            let annotations = &tool["annotations"];
+            for hint in [
+                "readOnlyHint",
+                "destructiveHint",
+                "idempotentHint",
+                "openWorldHint",
+            ] {
+                assert!(
+                    annotations.get(hint).is_some_and(Value::is_boolean),
+                    "{name} missing boolean annotation {hint}: {annotations}"
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn hints_reflect_command_semantics() {
+        let tools = listed_tools();
+        let hints = |name: &str| -> Value {
+            tools
+                .iter()
+                .find(|t| t["name"] == name)
+                .unwrap_or_else(|| panic!("missing tool {name}"))["annotations"]
+                .clone()
+        };
+        // Pure local reads.
+        assert_eq!(
+            hints("convert.base64.encode"),
+            json!({
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": false,
+            })
+        );
+        // Local file writes: not read-only, still idempotent.
+        assert_eq!(hints("file.write")["readOnlyHint"], json!(false));
+        assert_eq!(hints("file.write")["idempotentHint"], json!(true));
+        assert_eq!(hints("image.resize")["readOnlyHint"], json!(false));
+        assert_eq!(hints("pdf.extract.text")["readOnlyHint"], json!(true));
+        // Destructive local delete.
+        assert_eq!(hints("history.clear")["destructiveHint"], json!(true));
+        assert_eq!(hints("history.clear")["readOnlyHint"], json!(false));
+        // Remote reads vs remote mutations.
+        assert_eq!(hints("search.web")["openWorldHint"], json!(true));
+        assert_eq!(hints("search.web")["readOnlyHint"], json!(true));
+        assert_eq!(hints("telegram.message.send")["openWorldHint"], json!(true));
+        assert_eq!(hints("telegram.message.send")["readOnlyHint"], json!(false));
+        assert_eq!(
+            hints("telegram.message.delete")["destructiveHint"],
+            json!(true)
+        );
+        assert_eq!(hints("telegram.bot.get-me")["readOnlyHint"], json!(true));
+        // Servers and remote config are neither read-only nor idempotent.
+        for name in ["net.serve", "openrouter.serve", "openrouter.code"] {
+            let ann = hints(name);
+            assert_eq!(ann["readOnlyHint"], json!(false), "{name}");
+            assert_eq!(ann["idempotentHint"], json!(false), "{name}");
+            assert_eq!(ann["openWorldHint"], json!(true), "{name}");
+        }
+        // Random/interactive tools are read-only but not idempotent.
+        for name in ["calc.random", "games.wordle", "crypto.uuid"] {
+            let ann = hints(name);
+            assert_eq!(ann["readOnlyHint"], json!(true), "{name}");
+            assert_eq!(ann["idempotentHint"], json!(false), "{name}");
+        }
+        assert_eq!(hints("net.wifi")["openWorldHint"], json!(false));
+    }
+
+    #[test]
+    fn tools_call_unknown_tool_returns_error() {
+        let tools = discover_tools();
+        let mut out: Vec<u8> = Vec::new();
+        handle_message(
+            r#"{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"no.such.tool","arguments":{}}}"#,
+            &tools,
+            &mut out,
+        );
+        let reply: Value = serde_json::from_slice(&out).expect("tools/call reply");
+        assert_eq!(reply["error"]["code"], json!(-32601));
+    }
+
+    #[test]
+    fn build_argv_maps_flags_and_positionals() {
+        let tools = discover_tools();
+        let tool = tools
+            .iter()
+            .find(|t| t.name == "file.read")
+            .expect("file.read tool");
+        let argv = build_argv(
+            tool,
+            &json!({"file": "main.rs", "lines": 5, "_args": ["extra"]}),
+        );
+        assert_eq!(
+            argv,
+            vec!["file", "read", "--file=main.rs", "--lines=5", "extra"]
+        );
+    }
+
+    #[test]
+    fn notifications_get_no_response() {
+        let tools = discover_tools();
+        let mut out: Vec<u8> = Vec::new();
+        handle_message(r#"{"jsonrpc":"2.0","method":"ping"}"#, &tools, &mut out);
+        assert!(out.is_empty());
     }
 }
