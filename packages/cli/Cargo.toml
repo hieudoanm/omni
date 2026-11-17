@@ -45,7 +45,7 @@ tree-sitter = "=0.27.2"
 tree-sitter-go = "=0.25.0"
 aes-gcm = "=0.11.1"
 hmac = "=0.13.0"
-uuid = { version = "=1.29.2", features = ["v4"] }
+uuid = { version = "=1.29.3", features = ["v4"] }
 qrcode = "=0.14.1"
 rqrr = "=0.11.0"
 rsa = "=0.10.0"
