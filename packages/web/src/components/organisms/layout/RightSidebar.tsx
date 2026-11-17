@@ -2,12 +2,7 @@ import type { SidebarTab } from '@/components/organisms/layout/types';
 import { getTimeInZone, timezones } from '@/data/timezones';
 import dynamic from 'next/dynamic';
 import { useCallback, useEffect, useState, type FC } from 'react';
-import { PiCurrencyDollar, PiGauge } from 'react-icons/pi';
-
-const StatusTab = dynamic(
-  () => import('@/components/organisms/layout/tabs/StatusTab').then((m) => m.StatusTab),
-  { ssr: false },
-);
+import { PiCurrencyDollar } from 'react-icons/pi';
 
 const CurrencyTab = dynamic(
   () => import('@/components/organisms/layout/tabs/CurrencyTab').then((m) => m.CurrencyTab),
@@ -18,10 +13,7 @@ const TABS: {
   id: SidebarTab;
   label: string;
   icon: FC<{ className?: string; size?: number }>;
-}[] = [
-  { id: 'status', label: 'Status', icon: PiGauge },
-  { id: 'currency', label: 'Currency', icon: PiCurrencyDollar },
-];
+}[] = [{ id: 'currency', label: 'Currency', icon: PiCurrencyDollar }];
 
 export const RightSidebar: FC = () => {
   const [sidebarTab, setSidebarTab] = useState<SidebarTab | null>(null);
@@ -43,8 +35,6 @@ export const RightSidebar: FC = () => {
   const renderSidebarContent = useCallback(
     (tab: SidebarTab) => {
       switch (tab) {
-        case 'status':
-          return <StatusTab />;
         case 'currency':
           return <CurrencyTab />;
       }
