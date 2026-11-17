@@ -1,4 +1,6 @@
 use crate::cli;
+
+mod http;
 use anyhow::Result;
 use clap::{Args as ClapArgs, Subcommand};
 use serde_json::{json, Map, Value};
@@ -18,8 +20,15 @@ pub struct McpArgs {
 
 #[derive(Subcommand)]
 pub enum McpCommand {
-    /// Start the MCP server over stdio
-    Serve,
+    /// Start the MCP server (stdio by default, or streamable-HTTP with --http)
+    Serve {
+        /// Serve MCP over HTTP at this address instead of stdio
+        #[arg(long)]
+        http: Option<String>,
+        /// Bearer token required on HTTP requests (or MCP_AUTH_TOKEN)
+        #[arg(long)]
+        token: Option<String>,
+    },
 }
 
 #[derive(Clone, Copy, PartialEq)]
@@ -38,6 +47,24 @@ struct Tool {
 }
 
 /// All four MCP hints for a tool, always serialized with camelCase keys.
+/// Human-readable display title derived from the tool name.
+fn titleize(name: &str) -> String {
+    let mut out = String::new();
+    let mut cap = true;
+    for c in name.chars() {
+        if c == '_' || c == '-' {
+            out.push(' ');
+            cap = true;
+        } else if cap {
+            out.extend(c.to_uppercase());
+            cap = false;
+        } else {
+            out.push(c);
+        }
+    }
+    out
+}
+
 fn annotations_for(name: &str) -> Value {
     let (read_only, destructive, idempotent, open_world) = hints_for(name);
     json!({
@@ -591,6 +618,7 @@ fn handle_message(line: &str, tools: &[Tool], out: &mut dyn Write) {
                 .map(|t| {
                     json!({
                         "name": t.name,
+                        "title": titleize(&t.name),
                         "description": t.description,
                         "inputSchema": t.schema,
                         "annotations": annotations_for(&t.name),
@@ -657,9 +685,37 @@ fn serve() -> Result<()> {
     Ok(())
 }
 
+/// Run the MCP server over streamable HTTP on `addr`.
+fn serve_http(addr: &str, token: Option<String>) -> Result<()> {
+    let tools = discover_tools();
+    eprintln!(
+        "[mcp] omni-mcp serving {} tools over http://{addr}/mcp",
+        tools.len()
+    );
+    http::serve(addr, token, move |body: &str| {
+        let mut buf: Vec<u8> = Vec::new();
+        handle_message(body.trim(), &tools, &mut buf);
+        if buf.is_empty() {
+            None
+        } else {
+            Some(String::from_utf8_lossy(&buf).trim_end().to_string())
+        }
+    })
+    .map_err(Into::into)
+}
+
 pub fn run(args: &McpArgs) -> Result<()> {
     match &args.command {
-        Some(McpCommand::Serve) | None => serve(),
+        Some(McpCommand::Serve {
+            http: Some(addr),
+            token,
+        }) => serve_http(
+            addr,
+            token
+                .clone()
+                .or_else(|| std::env::var("MCP_AUTH_TOKEN").ok()),
+        ),
+        Some(McpCommand::Serve { http: None, .. }) | None => serve(),
     }
 }
 

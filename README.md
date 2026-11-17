@@ -307,3 +307,12 @@ See [AGENTS.md](AGENTS.md) for:
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+
+### Streamable HTTP
+
+`omni mcp serve --http 127.0.0.1:8080` also accepts `--http <addr>` (and `--token <token>`, or the
+`MCP_AUTH_TOKEN` environment variable) to serve the same MCP surface over
+streamable HTTP at `http://<addr>/mcp` — the transport used by ChatGPT
+connectors and remote Claude clients. When a token is configured, every
+request must carry `Authorization: Bearer <token>`.
