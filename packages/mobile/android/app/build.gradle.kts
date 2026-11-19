@@ -74,7 +74,7 @@ dependencies {
     val activityComposeVersion = "1.13.0"
     implementation("androidx.activity:activity-compose:$activityComposeVersion")
 
-    val lifecycleVersion = "2.11.0"
+    val lifecycleVersion = "2.11.1"
     implementation("androidx.lifecycle:lifecycle-runtime-compose:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion")
 
