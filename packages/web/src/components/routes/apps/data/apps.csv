@@ -74,7 +74,6 @@ Data - XML,data-xml,app,App,JSON to XML,JSON → XML,PiArrowsClockwise,json-to-x
 Data - XML,data-xml,app,App,XML to Excel,XML → Excel,PiArrowsClockwise,xml-to-excel,,
 Data - XML,data-xml,app,App,XML to JSON,XML → JSON,PiArrowsClockwise,xml-to-json,,
 Developer,developer,app,App,Diff,Text Comparison,PiNotePencil,text-diff,,
-Developer,developer,app,App,Figlet,Text art,PiNotePencil,figlet,,
 Developer,developer,app,App,Proxy,CORS Proxy,PiLink,proxy,,
 Developer,developer,app,App,URL Tracer,Redirect Tracker,PiLink,text-url-tracer,,
 Developer,developer,app,App,UUID,Generator,PiKey,uuid,,

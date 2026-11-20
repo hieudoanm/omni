@@ -687,15 +687,6 @@
         "toolId": "text-diff"
       },
       {
-        "label": "Figlet",
-        "description": "Text art",
-        "icon": "PiNotePencil",
-        "type": "app",
-        "typeId": "App",
-        "sectionId": "developer",
-        "toolId": "figlet"
-      },
-      {
         "label": "Proxy",
         "description": "CORS Proxy",
         "icon": "PiLink",
