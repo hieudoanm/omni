@@ -604,51 +604,9 @@
         "typeId": "App",
         "sectionId": "calculator",
         "toolId": "inflation"
-      },
-      {
-        "label": "Split Bill",
-        "description": "Calculator",
-        "icon": "PiCurrencyDollar",
-        "type": "app",
-        "typeId": "App",
-        "sectionId": "calculator",
-        "toolId": "split-bill"
-      },
-      {
-        "label": "Tax",
-        "description": "Vietnamese PIT",
-        "icon": "PiReceipt",
-        "type": "app",
-        "typeId": "App",
-        "sectionId": "calculator",
-        "toolId": "tax"
       }
     ],
     "id": "calculator"
-  },
-  {
-    "label": "Clocks",
-    "items": [
-      {
-        "label": "Cron",
-        "description": "Expression Builder",
-        "icon": "PiClockAfternoon",
-        "type": "app",
-        "typeId": "App",
-        "sectionId": "clocks",
-        "toolId": "cron"
-      },
-      {
-        "label": "Epoch Convert",
-        "description": "Timestamp",
-        "icon": "PiClock",
-        "type": "app",
-        "typeId": "App",
-        "sectionId": "clocks",
-        "toolId": "epoch-convert"
-      }
-    ],
-    "id": "clocks"
   },
   {
     "label": "Data - Excel",
@@ -738,15 +696,6 @@
         "toolId": "figlet"
       },
       {
-        "label": "OpenAPI",
-        "description": "to Postman",
-        "icon": "PiArrowsClockwise",
-        "type": "app",
-        "typeId": "App",
-        "sectionId": "developer",
-        "toolId": "openapi"
-      },
-      {
         "label": "Proxy",
         "description": "CORS Proxy",
         "icon": "PiLink",
@@ -796,15 +745,6 @@
         "typeId": "App",
         "sectionId": "editors",
         "toolId": "manifest"
-      },
-      {
-        "label": "Regex",
-        "description": "Pattern Generator",
-        "icon": "PiMagnifyingGlass",
-        "type": "app",
-        "typeId": "App",
-        "sectionId": "editors",
-        "toolId": "regex"
       },
       {
         "label": "Slides",
@@ -880,15 +820,6 @@
         "typeId": "App",
         "sectionId": "utilities",
         "toolId": "legislation"
-      },
-      {
-        "label": "Lorem Ipsum",
-        "description": "Dummy text",
-        "icon": "PiNotePencil",
-        "type": "app",
-        "typeId": "App",
-        "sectionId": "utilities",
-        "toolId": "lorem-ipsum"
       },
       {
         "label": "Screen Recorder",
