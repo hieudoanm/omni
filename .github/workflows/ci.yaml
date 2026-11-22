@@ -2,9 +2,11 @@ name: CI
 
 on:
   push:
-    branches: [master]
+    branches:
+      - master
   pull_request:
-    branches: [master]
+    branches:
+      - master
   workflow_dispatch:
 
 permissions:
@@ -131,10 +133,27 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { name: linux-amd64,  os: ubuntu-latest, target: x86_64-unknown-linux-gnu }
-          - { name: linux-arm64,  os: ubuntu-latest, target: aarch64-unknown-linux-gnu, cross: true }
-          - { name: darwin-amd64, os: macos-latest,  target: x86_64-apple-darwin }
-          - { name: darwin-arm64, os: macos-latest,  target: aarch64-apple-darwin }
+          - {
+              name: linux-amd64,
+              os: ubuntu-latest,
+              target: x86_64-unknown-linux-gnu
+            }
+          - {
+              name: linux-arm64,
+              os: ubuntu-latest,
+              target: aarch64-unknown-linux-gnu,
+              cross: true
+            }
+          - {
+              name: darwin-amd64,
+              os: macos-latest,
+              target: x86_64-apple-darwin
+            }
+          - {
+              name: darwin-arm64,
+              os: macos-latest,
+              target: aarch64-apple-darwin
+            }
     steps:
       - name: Checkout
         uses: actions/checkout@v7.0.1
@@ -168,7 +187,7 @@ jobs:
         uses: actions/setup-node@v7.1.0
         with:
           node-version-file: .nvmrc
-          cache: "pnpm"
+          cache: 'pnpm'
           cache-dependency-path: pnpm-lock.yaml
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -205,7 +224,13 @@ jobs:
   # Rolling release: on push to master, update the "latest" GitHub Release
   release-latest:
     name: Release (latest)
-    needs: [android, macos, cli-checks, cli-build, browser, landing-build]
+    needs:
+      - android
+      - macos
+      - cli-checks
+      - cli-build
+      - browser
+      - landing-build
     if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
@@ -257,7 +282,7 @@ jobs:
         uses: softprops/action-gh-release@v3.0.4
         with:
           tag_name: latest
-          name: "Omni (latest)"
+          name: 'Omni (latest)'
           body: ${{ steps.readme.outputs.body }}
           files: |
             dist/cli/omni-linux-amd64
@@ -288,7 +313,7 @@ jobs:
         uses: actions/setup-node@v7.1.0
         with:
           node-version-file: .nvmrc
-          cache: "pnpm"
+          cache: 'pnpm'
           cache-dependency-path: pnpm-lock.yaml
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -314,7 +339,8 @@ jobs:
   # Deploy to GitHub Pages
   landing-deploy:
     name: Landing - Deploy
-    needs: [landing-build]
+    needs:
+      - landing-build
     if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     permissions:
