@@ -99,10 +99,10 @@ jobs:
             packages/desktop/macos/build/Omni-*.dmg
           retention-days: 7
 
-  # CLI checks: fmt/clippy/test run once — duplicating them per build leg
+  # CLI - Quality: fmt/clippy/test run once — duplicating them per build leg
   # would recompile the whole dep tree four times.
-  cli-checks:
-    name: CLI checks
+  cli-quality:
+    name: CLI - Quality
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -129,6 +129,10 @@ jobs:
   cli-build:
     name: CLI ${{ matrix.name }}
     runs-on: ${{ matrix.os }}
+    # Release binaries are only needed for the master-branch release job;
+    # PRs are covered by the `cli-quality` job.
+    if: github.event_name != 'pull_request'
+    needs: cli-quality
     strategy:
       fail-fast: false
       matrix:
@@ -170,8 +174,9 @@ jobs:
       - name: Upload CLI binary
         uses: actions/upload-artifact@v7.0.2
         with:
-          name: cli-bin-${{ matrix.name }}
+          name: cli-omni-${{ matrix.name }}
           path: packages/cli/bin/omni-${{ matrix.name }}
+          if-no-files-found: error
           retention-days: 7
 
   # Browser: Linux runner for Node.js
@@ -227,7 +232,7 @@ jobs:
     needs:
       - android
       - macos
-      - cli-checks
+      - cli-quality
       - cli-build
       - browser
       - landing-build
@@ -247,7 +252,7 @@ jobs:
       - name: Download CLI binaries
         uses: actions/download-artifact@v8.0.2
         with:
-          pattern: cli-bin-*
+          pattern: cli-omni-*
           path: dist/cli
           merge-multiple: true
       - name: Download Android APK
