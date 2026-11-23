@@ -28,7 +28,7 @@ unicode-normalization = "=0.1.26"
 ureq = { version = "=3.5.2", features = ["json"] }
 regex = "=1.13.2"
 csv = "=1.4.0"
-zip = "=9.8.1"
+zip = "=9.8.2"
 quick-xml = "=0.42.0"
 sysinfo = "=0.40.4"
 rusqlite = { version = "=0.43.0", features = ["bundled"] }
