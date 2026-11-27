@@ -74,7 +74,7 @@ flate2 = "=1.1.11"
 ratatui = "=0.30.2"
 crossterm = "=0.29.0"
 termimad = "=0.35.5"
-ansi-to-tui = "=8.0.1"
+ansi-to-tui = "=9.0.0"
 
 [profile.release]
 lto = true
