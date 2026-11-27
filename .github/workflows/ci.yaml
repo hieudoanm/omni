@@ -17,50 +17,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Android: Linux runner with Android SDK
-  android:
-    name: Android
-    runs-on: ubuntu-latest
-    env:
-      ANDROID_HOME: /opt/android-sdk
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v7.0.1
-      - name: Setup JDK
-        uses: actions/setup-java@v6.3.0
-        with:
-          distribution: temurin
-          java-version: 25.0.5+100000002.0.LTS
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v4.0.4
-        with:
-          api-level: 37
-          ndk-version: r27c
-          cmdline-tools-version: latest
-      - name: Cache Gradle
-        uses: actions/cache@v6.1.0
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: gradle-${{ runner.os }}-${{ hashFiles('packages/mobile/android/**/*.kts', 'packages/mobile/android/**/*.toml') }}
-          restore-keys: gradle-${{ runner.os }}-
-      - name: Run Android lint
-        run: make lint
-        working-directory: packages/mobile/android
-      - name: Run Android tests
-        run: make test
-        working-directory: packages/mobile/android
-      - name: Build Android debug APK
-        run: make build
-        working-directory: packages/mobile/android
-      - name: Upload Android APK
-        uses: actions/upload-artifact@v7.0.2
-        with:
-          name: android-apk
-          path: packages/mobile/android/app/build/outputs/apk/debug/*.apk
-          retention-days: 7
-
   # macOS: macOS runner for Swift
   macos:
     name: macOS
@@ -230,7 +186,6 @@ jobs:
   release-latest:
     name: Release (latest)
     needs:
-      - android
       - macos
       - cli-quality
       - cli-build
