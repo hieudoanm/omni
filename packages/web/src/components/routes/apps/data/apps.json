@@ -63,15 +63,6 @@
     "label": "Calculator",
     "items": [
       {
-        "label": "Calculator",
-        "description": "Arithmetic + Unit Converter",
-        "icon": "PiDivide",
-        "type": "app",
-        "typeId": "App",
-        "sectionId": "calculator",
-        "toolId": "calculator"
-      },
-      {
         "label": "Inflation",
         "description": "Calculator",
         "icon": "PiMoney",

@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   output: 'export',
   basePath: NODE_ENV === 'production' ? '/omni' : '',
+  trailingSlash: false,
   transpilePackages: [
     '@codemirror/commands',
     '@codemirror/lang-markdown',
